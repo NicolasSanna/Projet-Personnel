@@ -1,0 +1,5 @@
+<article class="Article">
+        <h3 class="Article-h3"><?=$article['nom_article'];?></h3>
+        <p class="Article-date">Date de création : <?=(new DateTimeImmutable($article['date_creation_article']))->format('d/m/Y');?></p>
+        <div class="Article-contenu"><?=$article['contenu'];?></div>
+</article>

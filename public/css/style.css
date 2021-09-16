@@ -1,0 +1,512 @@
+body {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: white;
+}
+
+.Header {
+  text-align: center;
+  list-style-type: none;
+  color: black;
+  background-color: #f0f0f0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Header-nav {
+  display: none;
+}
+
+.Header-nav.burgerOn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  list-style-type: none;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+.Header-nav-a {
+  list-style-type: none;
+  color: black;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.Header-h1 {
+  text-align: center;
+}
+
+.Header-img {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  text-align: center;
+  width: 70px;
+  height: 70px;
+}
+
+.Header .Menu {
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+.Header .Menu-li {
+  list-style-type: none;
+  text-decoration: none;
+  color: white;
+}
+
+.Header .Menu-li-a {
+  list-style-type: none;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.Header #icoBurger {
+  display: block;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Header > :nth-child(1) {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.Header > :nth-child(2) {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  width: 100%;
+}
+
+.Header > :nth-child(3) {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  margin-right: 10px;
+  position: relative;
+  z-index: 101;
+}
+
+.Header > :nth-child(4) {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  z-index: 100;
+  top: 0;
+  background-color: #8d8d8d;
+  opacity: 0.9;
+  color: white;
+}
+
+.Header > :nth-child(4) li {
+  width: 100%;
+  min-height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 25px;
+  border-bottom: 1px solid black;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: left;
+  color: white;
+}
+
+.Header > :nth-child(4) > li > :nth-child(1) {
+  display: inline-block;
+  width: 60%;
+  color: white;
+}
+
+.Header > :nth-child(4) > li > .mblDeplier {
+  display: inline-block;
+  width: 29%;
+  color: white;
+}
+
+.Header > :nth-child(4) li > ul {
+  padding: 0;
+  width: 100%;
+  display: none;
+}
+
+.Accueil {
+  font-family: 'Open Sans', sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.Accueil-img {
+  position: static;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.Accueil-h2 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.Footer-colonne1 {
+  background: #d1d1d1;
+  font-family: 'Open Sans', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Footer-colonne1-img {
+  padding: 5px;
+  width: 70px;
+  height: 70px;
+}
+
+.Footer-colonne2 {
+  background: #d1d1d1;
+  font-family: 'Open Sans', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Footer-colonne3 {
+  background: #d1d1d1;
+  font-family: 'Open Sans', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Footer-colonne4 {
+  background: #a6a6a6;
+  font-family: 'Open Sans', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Article {
+  border: 1px solid black;
+  border-radius: 20px 20px 20px 20px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.Article-h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.Article-date {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.Article-contenu {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.Forum-h2 {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+.ListeArticles-ul {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ListeArticles-li {
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid black;
+  border-radius: 20px 20px 20px 20px;
+  -webkit-box-shadow: 2px 2px 2px;
+          box-shadow: 2px 2px 2px;
+  padding: 10px;
+  margin: 10px;
+  list-style-type: none;
+}
+
+.ListeArticles-h2 {
+  text-align: center;
+}
+
+.ListeArticles-h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ListeArticles-date {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ListeArticles-contenu {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ListeArticles-suite {
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+}
+
+.ListeCategories {
+  text-decoration: none;
+  color: white;
+}
+
+.ListeCategories-ul {
+  text-decoration: none;
+  color: bwhite;
+  list-style-type: none;
+}
+
+.ListeCategories-li {
+  text-decoration: none;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}
+
+.ListeCategories-li-a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mblDeplier {
+  font-size: 30px;
+}
+
+@media screen and (min-width: 1150px) {
+  .Header {
+    padding: 0 auto;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    position: relative;
+  }
+  .Header #icoBurger {
+    display: none;
+  }
+  .Header-h1 {
+    font-family: 'Open Sans', sans-serif;
+  }
+  .Header-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style-type: none;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    color: black;
+    margin-top: 23px;
+    position: relative;
+  }
+  .Header-nav-a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+  }
+  .Menu {
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+  }
+  .Menu-li {
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+  }
+  .Menu-li-a {
+    list-style-type: none;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+  }
+  #icoBurger {
+    display: none;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #icoCroix {
+    display: none;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  ul.Header-nav li:hover ul {
+    display: block;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    -webkit-box-shadow: 2px 2px 2px;
+            box-shadow: 2px 2px 2px;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: solid black 1px;
+    color: black;
+    padding-top: 300px;
+    margin-right: 300px;
+    width: auto;
+    height: auto;
+  }
+  .mblDeplier {
+    display: none;
+    font-size: 15px;
+  }
+  .Header > :nth-child(4) {
+    position: relative;
+    color: black;
+  }
+  .Header > :nth-child(1) {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .Header > :nth-child(2) {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .Header > :nth-child(3) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .Header > :nth-child(4) {
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
+  }
+  .Header > :nth-child(4) li {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    text-align: center;
+    color: black;
+  }
+  .ListeCategories {
+    text-decoration: none;
+    color: black;
+  }
+  .ListeCategories-ul {
+    text-decoration: none;
+    color: black;
+    list-style-type: none;
+  }
+  .ListeCategories-li {
+    text-decoration: none;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .ListeCategories-li-a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+  }
+  .Header .Menu-li-a {
+    list-style-type: none;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+  }
+  .Accueil {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .Accueil-img {
+    text-align: center;
+    max-width: 900px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ListeArticles-li {
+    height: 170px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

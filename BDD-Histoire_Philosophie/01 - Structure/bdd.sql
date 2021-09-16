@@ -1,0 +1,3 @@
+CREATE DATABASE histoire_philosophie
+CHARACTER SET utf8
+COLLATE utf8_general_ci;

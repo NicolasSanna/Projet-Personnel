@@ -1,0 +1,35 @@
+<header class="Header">
+    <img src="img/history.png" class="Header-img" alt="">
+    <h1 class="Header-h1">Histoire & Philosophie</h1>
+    <i class="fa fa-bars fa-2x" aria-hidden="true" id="icoBurger"></i>
+    <ul class="Header-nav" id="menu">
+        <li><a class="Header-nav-a" href="/">Accueil</a></li>
+        <li><a class="Header-nav-a" href="">Histoire </a><span class="mblDeplier">v</span>
+            <ul>
+                <li class="Menu-li"><a class="Menu-li-a" href="">Antique</a></li>
+                <li class="Menu-li"><a class="Menu-li-a" href="">Médiévale</a></li>
+                <li class="Menu-li"><a class="Menu-li-a" href="">Moderne</a></li>
+                <li class="Menu-li"><a class="Menu-li-a" href="">Contemporaine</a></li>
+            </ul>
+        </li>
+        <li><a class="Header-nav-a" href="">Philosophie</i></a><span class="mblDeplier">v</span>
+            <ul>
+            <li class="Menu-li"><a class="Menu-li-a" href="">Antique</a></li>
+            <li class="Menu-li"><a class="Menu-li-a" href="">Médiévale</a></li>
+            <li class="Menu-li"><a class="Menu-li-a" href="">Moderne</a></li>
+            <li class="Menu-li"><a class="Menu-li-a" href="">Contemporaine</a></li>
+            </ul>
+        </li>
+        <li><a class="Header-nav-a" href="/forum">Forum des Articles</a><span class="mblDeplier">v</span>
+            <ul class="ListeCategories-ul sous-menu">
+                <?php foreach ($categories as $categorie): ?>
+                    <li class="ListeCategories-li">
+                        <a class="ListeCategories-li-a" href="categorie?id=<?=$categorie['id_cat'] ?>"><?=$categorie['categorie']?></a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>  
+        </li>
+        <li><a class="Header-nav-a" href="">Connexion</a></li>
+        <li><a class="Header-nav-a" href="">Inscription</a></li>
+    </ul>
+</header>
