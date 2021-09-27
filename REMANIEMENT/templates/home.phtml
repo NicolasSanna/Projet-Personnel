@@ -1,10 +1,12 @@
 
-<img class="Accueil-img" src="img/steffen-gundermann-PtGvu2P-Gco-unsplash.jpg" alt="" srcset="">
 <main class="Accueil">
+<div class="Accueil-box">
+<img class="Accueil-box-img" src="<?=asset('img/steffen-gundermann-PtGvu2P-Gco-unsplash.jpg');?>" alt="" srcset="">
+</div>
     <article class="Accueil-presentation">
         <h2 class="Accueil-presentation-h2">A propos de nous</h2>
         <p class="Accueil-presentation-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt eligendi nam non maxime cum voluptates nisi? Eos suscipit provident inventore ut ex quas aspernatur ducimus id, dolorem nemo et magnam.</p>
-        <a class="Accueil-presentation-a" href="/forum">Découvrir les articles</a>
+        <a class="Accueil-presentation-a" href="<?=buildUrl('forum');?>">Découvrir les articles</a>
     </article>
 <aside class="Accueil-aside">
     <h2 class="Accueil-aside-h2">Les derniers articles</h2>

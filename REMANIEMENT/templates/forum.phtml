@@ -1,0 +1,18 @@
+<?php if (isset($getAllArticles)):?>
+    <?php foreach ($getAllArticles as $getArticle):?>
+      <div class="Forum">
+      <div class="Forum-box">
+        <div class="Forum-box-infos">
+          <h5 class="Forum-box-infos-title"><?=$getArticle['title'];?></h5>
+          <p class="Forum-box-infos-resume"><?= mb_substr($getArticle['content'], 0, 150);?> [...]</p>
+          <p class="Forum-box-infos-pseudo">Écrit par : <?=$getArticle['pseudo'];?></p>
+          <p class="Forum-box-infos-category">Catégorie : <a href="<?=buildUrl('categorie', ['id' => intval($getArticle['category_id'])]);?>"><?= $getArticle['category'] ;?></a>
+          <p class="Forum-box-infos-date">Publié le : <?= (new DateTimeImmutable($getArticle['creation_date']))->format('d/m/Y') ;?></p>
+          <a href="<?=buildUrl('article', ['id' => intval($getArticle['id_article'])]);?>" class="">Lire l'article</a>
+        </div>
+      </div>
+    </div>
+    <br>
+  <?php endforeach;?>
+<?php endif;?>
+</div>

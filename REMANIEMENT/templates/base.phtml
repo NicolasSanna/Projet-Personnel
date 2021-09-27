@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<head>
+    <base href="<?=SITE_BASE_URL;?>/">
+   <meta charset="UTF-8">
+
+    <base href="<?=SITE_BASE_URL;?>/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histoire & Philosophie</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?=asset('css/style.css');?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;500&family=Londrina+Solid:wght@100;900&display=swap" rel="stylesheet"> 
+
+   <link rel="stylesheet" href="<?=asset('css/style.css');?>">
+   <title><?=$pageTitle;?></title>
+</head>
+    <body>
+        <main>
+            
+                <?php include TEMPLATE_DIR . '/menu.phtml';?>
+
+                <?php if (isset($errorMsg)):?>
+                    <p class=""><?= $errorMsg;?></p>
+                <?php elseif(isset($successMsg)):?>
+                     <p class=""><?= $successMsg;?></p>
+                <?php elseif(isset($querySPMsg['message'])):?>
+                    <p class=""><?=$querySPMsg['message'];?></p>
+                <?php endif;?>
+                    
+                <?php include TEMPLATE_DIR . '/' . $template . '.phtml';?>
+
+                <?php include TEMPLATE_DIR . '/footer.phtml'; ?>
+
+        </main>
+        <script src="<?=asset('js/main.js');?>"></script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<h3 class="title text-center">Éditer un article</h3>
+
+<form class="container" method="POST">
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="">Titre de l'article :</label>
+        <input class="" name="title" value="<?=$title;?>"></input>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="">Contenu de l'article : </label>
+        <textarea class="" name="content" ><?= $content;?></textarea>
+    </div>
+        <p>Catégorie actuelle de l'article : <?=$category_label;?></p>
+    <div>
+    <label for="exampleInputEmail1" class="">Changer la catégorie de l'article :</label>
+        <select name="category" class="form-select">
+            <?php foreach ($categories as $category):?>
+                <option value="<?=$category['id'];?>"><?=$category['category'];?></option>
+            <?php endforeach;?>
+        </select>
+    </div>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-primary" name="validate">Modifier l'article</button>
+</form>

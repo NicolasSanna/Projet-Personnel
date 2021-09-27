@@ -1,0 +1,22 @@
+<h3 class="">Mot de passe oublié ?</h3>
+
+    <?php if(isset($_SESSION['auth'])):?>
+
+    <p> Vous êtes déjà connecté. </p>
+
+    <?php else :?>
+
+<form  method="POST">
+    <div class="">
+        <label for="exampleInputEmail1" class="form-label">E-mail : </label>
+        <input type="email" class="form-control" name="email">
+    </div>
+    <div class="">
+        <label for="exampleInputPassword1" class="">Nouveau mot de passe :</label>
+        <input type="password" name="newpassword">
+    </div>
+    <button type="submit" name="validate">Modifier le mot de passe</button>
+</form>
+
+    <?php endif;?>
+

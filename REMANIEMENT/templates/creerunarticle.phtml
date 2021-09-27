@@ -1,0 +1,23 @@
+<h3 class="title text-center">Publier un article</h3>
+
+    <form class="container" method="POST">
+        <div class="">
+            <label for="exampleInputEmail1" class="">Titre de l'article :</label>
+            <input class="form-control"  name="title" ></input>
+        </div>
+        <div class="">
+            <label for="exampleInputEmail1" class="">Contenu de l'article : </label>
+            <textarea class="form-control" name="content" ></textarea>
+        </div>
+        <div>
+        <label for="exampleInputEmail1" class="">Catégorie de l'article : </label>
+        <select name="category" class="form-select">
+            <?php foreach ($categories as $category):?>
+            <option value="<?= $category['id'];?>" ><?= $category['category'];?></option>
+            <?php endforeach;?>
+        </select>
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary" name="validate">Publier l'article</button>
+    </form>

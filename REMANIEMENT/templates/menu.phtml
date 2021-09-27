@@ -1,0 +1,63 @@
+<header class="Header">
+  <nav class="Header-nav">
+    <img class="Header-img" src="<?=asset('img/history.png');?>" alt="">
+    <a class="Header-nav-a" href="<?=buildUrl('homepage');?>">Histoire & Philosophie</a>
+        <ul class="Header-nav-ul">
+          <li class="Header-nav-ul-li">
+              <a class="Header-nav-ul-li-a" href="<?=buildUrl('forum');?>">Tous les articles</a>
+            </li>
+            <li class="Header-nav-ul-li">
+              <a class="Header-nav-ul-li-a" href="<?=buildUrl('categories');?>">Catégories</a>
+            </li>
+
+            <li class="Header-nav-ul-li">
+              <a class="Header-nav-ul-li-a" href="<?=buildUrl('forum');?>">Forum</a>
+            </li>
+
+            <?php if(isset($_SESSION['auth'])):?>
+
+            <li class="Header-nav-ul-li">
+              <a class="Header-nav-ul-li-a">Bonjour <?=$_SESSION['pseudo'];?></a>
+            </li>
+
+            <li class="Header-nav-ul-li">
+
+              <a class="Header-nav-ul-li-a">
+                Administration
+              </a>
+
+              <ul class="Header-nav-ul">
+
+                <li><a class="Header-nav-ul-li-a" href="<?=buildUrl('creerunarticle');?>">Publier un article</a>
+
+                <li><a class="Header-nav-ul-li-a" href="<?=buildUrl('mesarticles');?>">Mes articles</a>
+
+                <?php if(isset($_SESSION['administrator'])):?>
+
+                <li><a class="Header-nav-ul-li-a" href="<?=buildUrl('creercategorie');?>">Créer une catégorie</a>
+
+                <?php endif;?>
+
+              </ul>
+
+            </li>
+
+            <li class="Header-nav-ul-li">
+                <a class="Header-nav-ul-li-a" href="<?=buildUrl('deconnexion');?>">Déconnexion</a>
+            </li>
+
+            <?php else:?>
+
+            <li class="Header-nav-ul-li">
+              <a class="Header-nav-ul-li-a" href="<?=buildUrl('inscription');?>">Inscription</a>
+            </li>
+            <li class="Header-nav-ul-li">
+              <a class="Header-nav-ul-li-a" href="<?=buildUrl('connexion');?>">Connexion</a>
+            </li>
+
+            <?php endif;?>
+
+          </li>
+        </ul>
+  </nav>
+</header>
