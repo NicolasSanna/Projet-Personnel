@@ -25,7 +25,7 @@
 </head>
 
     <body>
-        
+
         <main>
             
                 <?php include TEMPLATE_DIR . '/menu.phtml';?>
@@ -45,6 +45,12 @@
         </main>
 
         <script src="<?=asset('js/main.js');?>"></script>
+
+        <?php if (isset($_SESSION['auth'])):?>
+
+            <script src="<?=asset('js/admin.js');?>"></script>
+        
+        <?php endif;?>
 
     </body>
 

@@ -50,8 +50,6 @@ if(isset($_POST['validate']))
         {
             $_SESSION['error'] = "Le commentaire n'a pas été rempli correctement.";
             header('Location: ' .  buildUrl('article', ['id' => intval($idOfArticle)]));
-
-            
         }
         else
         {

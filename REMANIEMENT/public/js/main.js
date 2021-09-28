@@ -10,10 +10,6 @@ function burgerManager()
 
         burgerOff.addEventListener('click', this.burgerOffClickEvent);
 
-        let adminMenu = document.getElementById('Admin')
-
-        adminMenu.addEventListener('click', this.adminMenuOnClickEvent)
-
     };
 
     this.burgerClickEvent = function() 
@@ -39,25 +35,13 @@ function burgerManager()
 
         if (menu.style.display || menu.style.display == 'block')
         {
-            burger.style.display = 'block';
+            burger.style.display = 'flex';
             menu.style.display = 'none';
             return;
         }
         menu.style.display = 'none';
         burger.style.display = 'none';
-    }
-
-    this.adminMenuOnClickEvent = function ()
-    {
-        let adminSousMenu = document.getElementById('adminSousMenu')
-
-        if (!adminSousMenu.style.display || adminSousMenu.style.display == 'none')
-        {
-            adminSousMenu.style.display = 'block';
-            return;
-        }
-        adminSousMenu.style.display = 'none';
-    }
+    };
 
     this.construct();
 }

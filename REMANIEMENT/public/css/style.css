@@ -29,6 +29,7 @@ body {
 
 .Header-nav-menu {
   display: none;
+  width: 100%;
 }
 
 .Header-nav-ul {
@@ -53,13 +54,25 @@ body {
   text-decoration: none;
 }
 
+.Header-nav-ul-li {
+  border-bottom: solid black 1px;
+  width: 100%;
+  padding: 5px;
+}
+
+.Header-nav-ul-li:hover {
+  background-color: #3086CD;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
 .Header-nav-ul-li-a {
   text-decoration: none;
   color: black;
 }
 
 .Header-img {
-  width: 150px;
+  width: 75px;
 }
 
 .Header-burger-cont {
@@ -287,6 +300,7 @@ body {
     -webkit-box-direction: normal !important;
         -ms-flex-direction: row !important;
             flex-direction: row !important;
+    width: 55%;
   }
   .Header-burger-fermer {
     display: none;
