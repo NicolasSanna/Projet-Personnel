@@ -2,26 +2,25 @@
 
     <?php if(isset($_SESSION['auth'])) :?>
 
-    <p> Vous êtes déjà connecté. </p>
+        <p> Vous êtes déjà connecté. </p>
   
     <?php else:?>
 
-    <div class="container">
-        <form  method="POST"> 
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">E-mail : </label>
-                <input type="email" class="form-control" name="email">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Mot de passe :</label>
-                <input type="password" class="form-control" class="password" name="password">
-            </div>
-            <button type="submit" class="btn btn-primary" name="validate">Se connecter</button>
-        </form>
+        <div class="container">
+            <form  method="POST"> 
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">E-mail : </label>
+                    <input type="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Mot de passe :</label>
+                    <input type="password" class="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary" name="validate">Se connecter</button>
+            </form>
 
-        <a href="<?=buildUrl('inscription');?>"><p>Je n'ai pas de compte, je m'inscris</p></a>
-        <a href="<?=buildUrl('motdepasseoublie');?>">Mot de passe oublié ?</a>
-    </div>
-    <br>
-    <br>
+            <a href="<?=buildUrl('inscription');?>"><p>Je n'ai pas de compte, je m'inscris</p></a>
+            <a href="<?=buildUrl('motdepasseoublie');?>">Mot de passe oublié ?</a>
+        </div>
+
     <?php endif;?>

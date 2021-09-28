@@ -3,7 +3,8 @@
 <head>
 <head>
     <base href="<?=SITE_BASE_URL;?>/">
-   <meta charset="UTF-8">
+
+    <meta charset="UTF-8">
 
     <base href="<?=SITE_BASE_URL;?>/">
     <meta charset="UTF-8">
@@ -19,9 +20,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;500&family=Londrina+Solid:wght@100;900&display=swap" rel="stylesheet"> 
 
    <link rel="stylesheet" href="<?=asset('css/style.css');?>">
+
    <title><?=$pageTitle;?></title>
 </head>
+
     <body>
+        
         <main>
             
                 <?php include TEMPLATE_DIR . '/menu.phtml';?>
@@ -39,6 +43,9 @@
                 <?php include TEMPLATE_DIR . '/footer.phtml'; ?>
 
         </main>
+
         <script src="<?=asset('js/main.js');?>"></script>
+
     </body>
+
 </html>

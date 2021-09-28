@@ -8,8 +8,9 @@ if(isset($_GET['id']) && !empty($_GET['id']) && ctype_digit($_GET['id']) && $_GE
 {
     $idOfTheArticle = $_GET['id'];
 
-    $sql = 'SELECT * FROM articles
-    WHERE id = ?';
+    $sql = 'SELECT * 
+            FROM articles
+            WHERE id = ?';
 
     $checkIfArticleExists = executeQuery($sql, [$idOfTheArticle]);
 
@@ -20,7 +21,9 @@ if(isset($_GET['id']) && !empty($_GET['id']) && ctype_digit($_GET['id']) && $_GE
         if($usersInfos['user_id'] == $_SESSION['id'])
         {
 
-            $sql = 'DELETE FROM articles WHERE id = ?';
+            $sql = 'DELETE 
+                    FROM articles 
+                    WHERE id = ?';
 
             $deleteThisArticle = executeQuery($sql, [$idOfTheArticle]);
             $_SESSION['success'] = 'Article supprimé avec succès.';

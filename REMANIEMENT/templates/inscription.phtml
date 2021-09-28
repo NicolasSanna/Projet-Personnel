@@ -9,26 +9,25 @@
 <form method="POST">
     <div class="">
         <label for="exampleInputEmail1" class="">Nom :</label>
-        <input type="text"  class="form-control" name="lastname">
+        <input type="text" name="lastname">
     </div>
     <div class="">
         <label for="exampleInputEmail1" class="">Prénom :</label>
-        <input type="text"  class="form-control" name="firstname">
+        <input type="text" name="firstname">
     </div>
     <div class="">
         <label for="exampleInputEmail1" class="">Pseudo (il sera visible sur tout le site) :</label>
-        <input type="text"  class="form-control"  name="pseudo">
+        <input type="text" name="pseudo">
     </div>
     <div class="">
         <label for="exampleInputEmail1" class="">E-mail : </label>
-        <input type="email" class="form-control" name="email">
+        <input type="email" name="email">
     </div>
     <div class="">
         <label for="exampleInputPassword1" class="">Mot de passe :</label>
-        <input type="password"  required class="form-control" class="password" name="password">
+        <input type="password" required name="password">
     </div>
     <button type="submit" class="btn btn-primary" name="validate">S'inscrire</button>
-    <br><br>
     <a href="<?=buildUrl('connexion');?>"><p>J'ai déjà un compte, je me connecte</p></a>
     </form>
 

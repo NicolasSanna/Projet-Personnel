@@ -12,7 +12,7 @@ body
 .Header
 {
     text-align:center;
-
+    
     &-nav
     {
         display:flex;
@@ -32,19 +32,38 @@ body
         &-ul
         {
             list-style: none;
-            justify-content: center;
             margin:0px;
             padding:0px;
+            cursor: pointer;
+            
+            &-admin
+            {
+                list-style: none;
+                justify-content: center;
+                margin:0px;
+                padding:0px;
+                display:none;
 
 
+                &-li
+                {
+                    &-a
+                    {
+                        color:black;
+                        text-decoration:none;
+                        
+                    }
+                }
+            }
             &-li
             {
                 &-a
                 {
-                    color:black;
                     text-decoration:none;
+                    color:black;
                 }
             }
+
         }
     }
     &-img
@@ -275,7 +294,7 @@ body
     }
 }
 
-@media screen AND (min-width: 900px)
+@media screen AND (min-width: 1020px)
 {
     .Header
     {
@@ -287,10 +306,23 @@ body
             
             &-ul
             {
-                display: block !important;
+
                 display:flex !important;
                 flex-direction:row !important;
                 margin:10px;
+
+                &-admin
+                {
+                    position:absolute;
+                    display:none;
+                    margin-left: -28px;
+                    margin-top: 5px;
+                    background-color:white;
+                    border-radius: 10px;
+                    box-shadow: 4px 4px 4px black;
+                    padding:7px;
+                }
+                
                 &-li
                 {
                     margin:10px;
@@ -313,6 +345,23 @@ body
         {
             display: none;
 
+        }
+    }
+
+    .Accueil
+    {
+        &-section
+        {
+            display:flex;
+            flex-direction:row;
+        }
+        &-presentation
+        {
+            margin:10px;
+        }
+        &-aside
+        {
+            margin:10px;
         }
     }
 }

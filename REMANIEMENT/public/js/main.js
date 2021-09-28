@@ -1,6 +1,5 @@
 function burgerManager() 
-{ 
-
+{
     this.construct = function() 
     {
         let burger = document.getElementById('Burger');
@@ -9,7 +8,12 @@ function burgerManager()
 
         let burgerOff = document.getElementById('BurgerOff');
 
-        burgerOff.addEventListener('click', this.burgerOffClickEvent)
+        burgerOff.addEventListener('click', this.burgerOffClickEvent);
+
+        let adminMenu = document.getElementById('Admin')
+
+        adminMenu.addEventListener('click', this.adminMenuOnClickEvent)
+
     };
 
     this.burgerClickEvent = function() 
@@ -23,6 +27,7 @@ function burgerManager()
             menu.style.display = 'block';
             return;
         }
+        burger.style.display = 'none';
         menu.style.display = 'none';
     };
 
@@ -39,6 +44,19 @@ function burgerManager()
             return;
         }
         menu.style.display = 'none';
+        burger.style.display = 'none';
+    }
+
+    this.adminMenuOnClickEvent = function ()
+    {
+        let adminSousMenu = document.getElementById('adminSousMenu')
+
+        if (!adminSousMenu.style.display || adminSousMenu.style.display == 'none')
+        {
+            adminSousMenu.style.display = 'block';
+            return;
+        }
+        adminSousMenu.style.display = 'none';
     }
 
     this.construct();
