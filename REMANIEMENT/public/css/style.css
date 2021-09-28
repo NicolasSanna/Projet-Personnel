@@ -27,11 +27,17 @@ body {
   color: black;
 }
 
+.Header-nav-menu {
+  display: none;
+}
+
 .Header-nav-ul {
   list-style: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 0px;
+  padding: 0px;
 }
 
 .Header-nav-ul-li-a {
@@ -41,6 +47,48 @@ body {
 
 .Header-img {
   width: 150px;
+}
+
+.Header-burger-cont {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  background-color: #FFB531;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.Header-burger-ico {
+  width: 70%;
+  height: 50%;
+  border-top: 4px solid #92563A;
+  border-bottom: 4px solid #92563A;
+}
+
+.Header-burger-ico:before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 15%;
+  width: 70%;
+  border-top: 4px solid #92563A;
+}
+
+.Header-burger-fermer {
+  cursor: pointer;
+}
+
+.Header-burger-fermer-img {
+  width: 20px;
 }
 
 .Footer-colonne1 {
@@ -178,5 +226,50 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
+}
+
+@media screen and (min-width: 900px) {
+  .Header-nav {
+    -webkit-box-pack: justify !important;
+        -ms-flex-pack: justify !important;
+            justify-content: space-between !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+  }
+  .Header-nav-ul {
+    display: block !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    margin: 10px;
+  }
+  .Header-nav-ul-li {
+    margin: 10px;
+  }
+  .Header-nav-menu {
+    display: block !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+  }
+  .Header-burger-fermer {
+    display: none;
+  }
+  .Header-burger-cont {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */
