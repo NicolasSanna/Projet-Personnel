@@ -14,7 +14,8 @@ function buildUrl(string $routeName, array $params = []): string
 
     $url = ROUTES[$routeName]['path'];
 
-    if ($params) {
+    if ($params) 
+    {
         $url .= '?' . http_build_query($params);
     }
 

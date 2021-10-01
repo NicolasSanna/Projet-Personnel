@@ -68,7 +68,8 @@ class UserSession
 
     static function logout()
     {
-        if (!self::isAuthenticated()){
+        if (!self::isAuthenticated())
+        {
             return;
         }
         $_SESSION['user'] = null;
@@ -77,7 +78,8 @@ class UserSession
 
     static function getId()
     {
-        if (!self::isAuthenticated()){
+        if (!self::isAuthenticated())
+        {
             return null;
         }
         return $_SESSION['user']['userId'];
@@ -85,7 +87,8 @@ class UserSession
 
     static function getFirstname()
     {
-        if (!self::isAuthenticated()){
+        if (!self::isAuthenticated())
+        {
             return null;
         }
         return $_SESSION['user']['firstname'];
@@ -93,7 +96,8 @@ class UserSession
 
     static function getLastname()
     {
-        if (!self::isAuthenticated()){
+        if (!self::isAuthenticated())
+        {
             return null;
         }
         return $_SESSION['user']['lastname'];
@@ -101,7 +105,8 @@ class UserSession
 
     static function getEmail()
     {
-        if (!self::isAuthenticated()){
+        if (!self::isAuthenticated())
+        {
             return null;
         }
         return $_SESSION['user']['email'];

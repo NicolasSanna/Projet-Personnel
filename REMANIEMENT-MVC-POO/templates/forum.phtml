@@ -1,13 +1,13 @@
-<h1>Forum</h1>
+<h1><a href="<?=buildUrl('forum');?>">Forum des articles</a></h1>
 
+<h1>Forum</h1>
 
 <?php if (isset($articles)):?>
 
     <?php foreach ($articles as $article):?>
 
-
-            <p><?=htmlspecialchars($article['title']);?></p>
-
+        <p><?=htmlspecialchars($article['title']);?></p>
+        <a href="<?=buildUrl('article', ['id' => intval($article['id'])]);?>">Lire la suite</a>
 
     <?php endforeach;?>
 

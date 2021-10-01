@@ -1,3 +1,5 @@
+USE histoire_philosophie;
+
 INSERT INTO grants (id, privilege)
 VALUES
 (1, 'Administrateur'),

@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Framework\AbstractController;
 use App\Model\ArticleModel;
 
-class ArticleController
+class ArticleController extends AbstractController
 {
     public function index()
     {
@@ -13,7 +13,13 @@ class ArticleController
         {
             $idOfArticle = (int) $_GET['id'];
 
-            
+            $articleModel = new ArticleModel();
+
+            $article = $articleModel->getOneArticle($idOfArticle);
+
+            return $this->render('article', [
+                'article' => $article
+            ]);
         }
     }
 }

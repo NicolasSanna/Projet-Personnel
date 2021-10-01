@@ -13,6 +13,14 @@ class ArticleModel extends AbstractModel
         $articles = $this->database->getAllResults($sql);
 
         return $articles;
+    }
 
+    function getOneArticle($idOfArticle)
+    {
+        $sql = 'CALL SP_SelectArticle(?)';
+
+        $article = $this->database->getOneResult($sql, [$idOfArticle]);
+
+        return $article;
     }
 }

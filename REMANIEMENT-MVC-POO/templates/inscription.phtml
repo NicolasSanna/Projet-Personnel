@@ -1,0 +1,29 @@
+<?php if(!empty($inserUser['message'])):?>
+    <p><?=$inserUser['message'];?></p>
+<?php endif;?>
+
+<form method="POST">
+
+    <div class="">
+        <label for="" class="">Nom :</label>
+        <input type="text" name="lastname" value="<?=$lastname;?>">
+    </div>
+    <div class="">
+        <label for="" class="">Prénom :</label>
+        <input type="text" name="firstname" value="<?=$firstname;?>">
+    </div>
+    <div class="">
+        <label for="" class="">Pseudo (il sera visible sur tout le site) :</label>
+        <input type="text" name="pseudo" value="<?=$pseudo;?>">
+    </div>
+    <div class="">
+        <label for="" class="">E-mail : </label>
+        <input type="email" name="email" value="<?=$email;?>">
+    </div>
+    <div class="">
+        <label for="1" class="">Mot de passe :</label>
+        <input type="password" required name="password">
+    </div>
+    <button type="submit" class="btn btn-primary" name="validate">S'inscrire</button>
+    <a href="<?=buildUrl('connexion');?>"><p>J'ai déjà un compte, je me connecte</p></a>
+</form>

@@ -17,6 +17,16 @@ $routes = [
         'path' => '/forum',
         'controller' => 'Forum',
         'method' => 'index'
+    ],
+    'article' => [
+        'path' => '/article',
+        'controller' => 'Article',
+        'method' => 'index'
+    ],
+    'signup' => [
+        'path' => '/inscription',
+        'controller' => 'Account',
+        'method' => 'signup'
     ]
 ];
 
