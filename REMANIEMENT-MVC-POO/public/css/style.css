@@ -1,0 +1,61 @@
+/* body {
+    background: olivedrab;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+.badge {
+    background: cornflowerblue;
+    height:25px;
+    line-height: 25px;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0 7px;
+    border:1px solid grey;
+}
+
+.badge:hover {
+    background: rgb(38, 83, 165);
+}
+
+.message {
+    display: inline-block;
+    height:25px;
+    line-height: 25px;
+    padding: 0 7px;
+    border:1px solid black;
+    border-radius: 10px;
+}
+
+.success-message {
+    background: forestgreen;
+}
+
+.error-message {
+    background:red;
+}
+
+/** MENU DE NAVIGATION **/
+/* .navbar {
+    height: 50px;
+    display: flex;
+}
+
+.btn {
+    display: inline-block;
+    height:50px;
+    line-height: 50px;
+    padding: 0 10px;
+    margin-right: 10px;
+    border:1px solid black;
+    background:darkolivegreen;
+}
+
+.btn:hover {
+    background:green;
+} */ 

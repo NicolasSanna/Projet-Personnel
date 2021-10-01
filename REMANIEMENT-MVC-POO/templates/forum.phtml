@@ -1,0 +1,14 @@
+<h1>Forum</h1>
+
+
+<?php if (isset($articles)):?>
+
+    <?php foreach ($articles as $article):?>
+
+
+            <p><?=htmlspecialchars($article['title']);?></p>
+
+
+    <?php endforeach;?>
+
+<?php endif;?>
