@@ -27,6 +27,7 @@ class UserModel extends AbstractModel
 
         $user = $this->getUserByEmail($email);
 
+
         if (!$user) 
         {
             return false;

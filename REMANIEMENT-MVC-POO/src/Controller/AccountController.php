@@ -18,13 +18,13 @@ class AccountController extends AbstractController
             $email = trim(htmlspecialchars($_POST['email']));
             $password = trim(htmlspecialchars($_POST['password']));
 
-            $hash = password_hash($password, PASSWORD_DEFAULT);
 
-            $newUser = new UserModel();
 
             if(filter_var($email, FILTER_VALIDATE_EMAIL))
             {
-                $insertUser = $newUser->createUser($lastname, $firstname, $pseudo, $email, $hash);
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $newUser = new UserModel();
+                $insertUser = $newUser->createUser($firstname, $lastname, $pseudo, $email, $hash);
 
                 FlashBag::addFlash($insertUser['message']);
             }

@@ -35,12 +35,19 @@
                     </li>
                 
             <?php else: ?>
-
+                <li>
+                    <span class="Header-navbarbox-navbar-ul-a"> Bonjour <?=UserSession::getFirstname() . ' ' . UserSession::getLastname();?></span>
+                    </li>
                     <li>
-                        <span> Bonjour <?=UserSession::getFirstname() . ' ' . UserSession::getLastname();?></span>
+                        
                         <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('deconnexion');?>">Déconnexion</a>
                     </li>
 
+                 <?php if(UserSession::administrator()):?>
+                    <li>                      
+                        <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('#');?>">Administration</a>
+                    </li>
+                <?php endif;?>
             <?php endif;?>
 
             </ul>

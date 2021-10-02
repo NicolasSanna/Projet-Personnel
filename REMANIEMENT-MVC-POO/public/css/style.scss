@@ -44,6 +44,7 @@
                     text-decoration:none;
                     border:solid white 1px;
                     padding:15px;
+                    color:white;
                     &:visited
                     {
                         color:white;
@@ -61,15 +62,16 @@
     }
     &-navbarbox
     {
-
         background-color:black;
         display:flex;
         flex-direction:column;
         text-align:center;
+        width:100%;
 
         &-navbar
         {
             display:none;
+            margin-top: -10px;
 
             &-ul
             {
@@ -77,6 +79,7 @@
                 list-style: none;
                 display:flex;
                 flex-direction:column;
+                padding: 0px;
                 &-a
                 {
                     text-decoration:none;

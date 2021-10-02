@@ -120,6 +120,6 @@ class UserSession
         {
             return null;
         }
-        return $_SESSION['user']['grant_id'];
+        return $_SESSION['user']['grant_id'] == 1;
     }
 }

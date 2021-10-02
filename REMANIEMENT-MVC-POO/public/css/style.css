@@ -38,6 +38,7 @@
   text-decoration: none;
   border: solid white 1px;
   padding: 15px;
+  color: white;
 }
 
 .Header-container-boxtitle-box-a:visited {
@@ -62,10 +63,12 @@
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
+  width: 100%;
 }
 
 .Header-navbarbox-navbar {
   display: none;
+  margin-top: -10px;
 }
 
 .Header-navbarbox-navbar-ul {
@@ -78,6 +81,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 0px;
 }
 
 .Header-navbarbox-navbar-ul-a {
