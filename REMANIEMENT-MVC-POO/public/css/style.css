@@ -1,61 +1,102 @@
-/* body {
-    background: olivedrab;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.body, html {
+  font-family: 'Open Sans', sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  color: #666;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
 }
 
-a {
-    text-decoration: none;
-    color:black;
+.Header-container {
+  background-image: url(../img/viktor-forgacs-DzpViKMZHe8-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  height: 340px;
 }
 
-.badge {
-    background: cornflowerblue;
-    height:25px;
-    line-height: 25px;
-    border-radius: 10px;
-    display: inline-block;
-    font-weight: bold;
-    padding: 0 7px;
-    border:1px solid grey;
+.Header-container-boxtitle {
+  padding-top: 60px;
 }
 
-.badge:hover {
-    background: rgb(38, 83, 165);
+.Header-container-boxtitle-box {
+  padding-top: 3px;
+  background-color: black;
+  opacity: 0.8;
+  padding-bottom: 30px;
+  height: 180px;
 }
 
-.message {
-    display: inline-block;
-    height:25px;
-    line-height: 25px;
-    padding: 0 7px;
-    border:1px solid black;
-    border-radius: 10px;
+.Header-container-boxtitle-box-p {
+  padding-bottom: 20px;
 }
 
-.success-message {
-    background: forestgreen;
+.Header-container-boxtitle-box-a {
+  text-decoration: none;
+  border: solid white 1px;
+  padding: 15px;
 }
 
-.error-message {
-    background:red;
+.Header-container-boxtitle-box-a:visited {
+  color: white;
 }
 
-/** MENU DE NAVIGATION **/
-/* .navbar {
-    height: 50px;
-    display: flex;
+.Header-container-boxtitle-box-a:hover {
+  color: black;
+  background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
 }
 
-.btn {
-    display: inline-block;
-    height:50px;
-    line-height: 50px;
-    padding: 0 10px;
-    margin-right: 10px;
-    border:1px solid black;
-    background:darkolivegreen;
+.Header-navbarbox {
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
 }
 
-.btn:hover {
-    background:green;
-} */ 
+.Header-navbarbox-navbar {
+  display: none;
+}
+
+.Header-navbarbox-navbar-ul {
+  background-color: black;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Header-navbarbox-navbar-ul-a {
+  text-decoration: none;
+  color: white;
+}
+
+.Header-navbarbox-burgerOn {
+  cursor: pointer;
+}
+
+.Header-navbarbox-burgerOn-burger {
+  text-decoration: none;
+  color: white;
+}
+
+.Header-navbarbox-burgerOn-cross {
+  text-decoration: none;
+  color: white;
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */

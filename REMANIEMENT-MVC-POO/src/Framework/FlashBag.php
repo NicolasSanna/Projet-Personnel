@@ -16,11 +16,13 @@ class FlashBag
     static private function initFlashBag(string $type)
     {
         self::sessionCheck();
-        if (!array_key_exists('flash', $_SESSION) || is_null($_SESSION['flash'])) {
+        if (!array_key_exists('flash', $_SESSION) || is_null($_SESSION['flash'])) 
+        {
             $_SESSION['flash'] = [];
         }
     
-        if (!array_key_exists($type, $_SESSION['flash']) || is_null($_SESSION['flash'][$type])) {
+        if (!array_key_exists($type, $_SESSION['flash']) || is_null($_SESSION['flash'][$type])) 
+        {
             $_SESSION['flash'][$type] = [];
         }
     }

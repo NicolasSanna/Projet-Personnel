@@ -3,37 +3,23 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
     <title><?=$pageTitle??'';?></title>
     <link rel="stylesheet" href="<?=asset('css/style.css');?>">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <header>
+<body class="body">
 
-        <nav class="navbar">
-            <!-- Menu en mode déonnecté -->
-        <?php if (!UserSession::isAuthenticated()): ?>
-            <a class="btn" href="<?=buildUrl('login');?>"><i class="fas fa-sign-in-alt"></i> Connexion</a>
-            <a class="btn" href="<?=buildUrl('signup');?>"><i class="fas fa-user-plus"></i> Créer un compte</a>
-        <?php else: ?>
-            <!-- Menu en mode connecté -->
-            <span><i class="fas fa-user"></i></i> <?=UserSession::getFirstname() . ' ' . UserSession::getLastname();?></span>
-            <a class="btn" href="<?=buildUrl('logout');?>"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    <?php require TEMPLATE_DIR . '/header.phtml';?>
 
-            <!-- Si l'utilisateur possède le rôle ADMIN ou le rôle EDITOR, il a accès à l'administration -->
-            <?php if (UserSession::hasRoles('ADMIN', 'EDITOR')): ?>
-                <a class="btn" href="<?=buildUrl('admin');?>"><i class="fas fa-cogs"></i> Administration</a>
-            <?php endif; ?>
-        <?php endif; ?>
-        </nav>
-    </header>
-    <main>
-        <aside>
+    <main class="body-main">
+
+        <aside class="body-main-aside">
             <?php if (App\Framework\FlashBag::hasMessages('error')):?>
                 <?php foreach (App\Framework\FlashBag::fetchMessages('error') as $error):?>
                     <p class="message error-message"><?=htmlspecialchars($error);?></p>
@@ -48,7 +34,11 @@
         </aside>
 
         <?php include TEMPLATE_DIR . '/' . $template . '.phtml'; ?>
+    
     </main>
-    <footer></footer>
+
+    <?php require TEMPLATE_DIR . '/footer.phtml';?>
+
+    <script src="<?=asset('js/app.js');?>"></script>
 </body>
 </html>

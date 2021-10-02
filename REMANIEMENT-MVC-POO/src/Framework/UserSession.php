@@ -16,7 +16,7 @@ class UserSession
     /**
      * Enregistre les informations de l'utilisateur en session
      */
-    static function register(int $userId, string $firstname, string $lastname, string $email, array $roles)
+    static function register(int $userId, string $firstname, string $lastname, string $pseudo, string $email, int $grant_id)
     {
         self::sessionCheck();
 
@@ -25,8 +25,11 @@ class UserSession
             'userId' => $userId,
             'firstname' => $firstname,
             'lastname' => $lastname,
+            'pseudo' => $pseudo,
             'email' => $email,
-            'roles' => $roles
+            'grant_id' => $grant_id
+
+            // 'roles' => $roles
         ];
     }
 
@@ -110,5 +113,13 @@ class UserSession
             return null;
         }
         return $_SESSION['user']['email'];
+    }
+    static function administrator()
+    {
+        if (!self::isAuthenticated())
+        {
+            return null;
+        }
+        return $_SESSION['user']['grant_id'];
     }
 }

@@ -4,12 +4,12 @@ namespace App\Controller;
 
 use App\Framework\AbstractController;
 use App\Model\UserModel;
+use App\Framework\FlashBag;
 
 class AccountController extends AbstractController
 {
     public function signup()
     {
-
         if(!empty($_POST))
         {
             $lastname = trim(htmlspecialchars($_POST['lastname']));
@@ -21,9 +21,17 @@ class AccountController extends AbstractController
             $hash = password_hash($password, PASSWORD_DEFAULT);
 
             $newUser = new UserModel();
-            $insertUser = $newUser->createUser($lastname, $firstname, $pseudo, $email, $hash);
-            return $insertUser['message'];
 
+            if(filter_var($email, FILTER_VALIDATE_EMAIL))
+            {
+                $insertUser = $newUser->createUser($lastname, $firstname, $pseudo, $email, $hash);
+
+                FlashBag::addFlash($insertUser['message']);
+            }
+            else
+            {
+                FlashBag::addFlash('Vérifiez le format de votre email.'); 
+            }
         }
         return $this->render('inscription', [
             'lastname' => $lastname??'',

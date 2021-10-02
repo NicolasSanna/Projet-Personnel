@@ -14,4 +14,32 @@ class UserModel extends AbstractModel
 
         return $createUser;
     }
+
+    public function getUserByEmail(string $email)
+    {
+        $sql = 'CALL SP_GetUserByEmail(?)';
+
+        return $this->database->getOneResult($sql, [$email]);
+    }
+
+    public function checkCredentials(string $email, string $password)
+    {
+
+        $user = $this->getUserByEmail($email);
+
+        if (!$user) 
+        {
+            return false;
+
+        }
+
+        if (!password_verify($password, $user['password']))
+        {
+            return false;
+
+        }
+
+        return $user;
+
+    }
 }

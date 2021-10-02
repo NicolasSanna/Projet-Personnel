@@ -1,0 +1,103 @@
+.body, html
+{
+    font-family: 'Open Sans', sans-serif;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+	color: #666;
+	width: 100% !important;
+	height: 100% !important;
+    margin:0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+.Header
+{
+    &-container
+    {
+        background-image: url(../img/viktor-forgacs-DzpViKMZHe8-unsplash.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align:center;
+        color:white;
+        height: 340px;
+
+        
+        &-boxtitle
+        {
+            padding-top: 60px;
+
+            &-box
+            {
+
+                padding-top: 3px;
+                background-color:black;
+                opacity:0.8;
+                padding-bottom:30px;
+                height: 180px;
+
+                &-p
+                {
+                    padding-bottom:20px;
+                }
+                &-a
+                {
+                    text-decoration:none;
+                    border:solid white 1px;
+                    padding:15px;
+                    &:visited
+                    {
+                        color:white;
+                    }
+                    &:hover
+                    {
+                        color:black;
+                        background-color:white;
+                        transition: 0.5s ease-in-out;
+                        opacity:1;
+                    }
+                }
+            }
+        }
+    }
+    &-navbarbox
+    {
+
+        background-color:black;
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+
+        &-navbar
+        {
+            display:none;
+
+            &-ul
+            {
+                background-color:black;
+                list-style: none;
+                display:flex;
+                flex-direction:column;
+                &-a
+                {
+                    text-decoration:none;
+                    color:white;
+                }
+            }
+        }
+        &-burgerOn
+        {
+            cursor:pointer;
+            &-burger
+            {
+                text-decoration:none;
+                color:white;
+            }
+            &-cross
+            {
+                text-decoration:none;
+                color:white;
+                display:none;
+            }
+        }
+    }
+}

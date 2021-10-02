@@ -27,6 +27,16 @@ $routes = [
         'path' => '/inscription',
         'controller' => 'Account',
         'method' => 'signup'
+    ],
+    'connexion' => [
+        'path' => '/connexion',
+        'controller' => 'Auth',
+        'method' => 'login'
+    ],
+    'deconnexion' => [
+        'path' => '/deconnexion',
+        'controller' => 'Auth',
+        'method' => 'logout'
     ]
 ];
 
