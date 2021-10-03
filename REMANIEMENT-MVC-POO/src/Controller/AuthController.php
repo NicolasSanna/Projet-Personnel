@@ -22,9 +22,6 @@ class AuthController extends AbstractController
             if (!$user)
             {
                 FlashBag::addFlash('Identifiants incorrects', 'error');
-                return $this->render('login', [
-                    'email' => $email??''
-                ]);
             }
             else
             {
@@ -34,18 +31,15 @@ class AuthController extends AbstractController
                 {
                     FlashBag::addFlash('Connexion réussie, bienvenue Administrateur!', 'success');
                     UserSession::administrator();
-                    $this->redirect('homepage');
-                    exit;
                 }
                 else
                 {
                     FlashBag::addFlash('Connexion réussie, bienvenue !', 'success');
-                    $this->redirect('homepage');
-                    exit;
+
                 }
+                $this->redirect('homepage');
+                exit;
             }
-            $this->redirect('homepage');
-            exit;
 
         }
         return $this->render('login', [

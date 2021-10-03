@@ -34,7 +34,7 @@
                     <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('signup');?>">Créer un compte</a>
                     </li>
                 
-            <?php else: ?>
+                <?php else: ?>
                 <li>
                     <span class="Header-navbarbox-navbar-ul-a"> Bonjour <?=UserSession::getFirstname() . ' ' . UserSession::getLastname();?></span>
                     </li>
