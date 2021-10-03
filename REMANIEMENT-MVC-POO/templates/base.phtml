@@ -8,16 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
     <title><?=$pageTitle??'';?></title>
     <link rel="stylesheet" href="<?=asset('css/style.css');?>">
 
 </head>
-<body class="body">
+<body class="Body">
 
     <?php require TEMPLATE_DIR . '/header.phtml';?>
 
-    <main class="body-main">
+    <main class="Body-main">
 
         <aside class="body-main-aside">
             <?php if (App\Framework\FlashBag::hasMessages('error')):?>

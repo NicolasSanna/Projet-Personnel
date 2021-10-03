@@ -1,6 +1,17 @@
-
 <?php if (isset($article)):?>
 
-    <p><?=$article['title'];?></p>
+    <div class="Article">
+
+        <h3 class="Article-title"><?=htmlspecialchars($article['title']);?></h3>
+
+        <p class="Article-content"><?=htmlspecialchars($article['content']);?></p>
+
+        <p class="Article-pseudo">Écrit par : <?=htmlspecialchars($article['pseudo']);?></p>
+
+        <p class="Article-date">Publié le : <?= (new DateTimeImmutable($article['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($article['creation_date']))->format('h:i');?></p>
+
+        <p class="Article-category">Catégorie : <a class="Article-category-link" href=""><?=htmlspecialchars($article['category']);?></a></p>
+
+    </div>
 
 <?php endif;?>

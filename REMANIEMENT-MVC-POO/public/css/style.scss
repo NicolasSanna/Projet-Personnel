@@ -1,14 +1,21 @@
-.body, html
+.Body, html
 {
     font-family: 'Open Sans', sans-serif;
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
-	color: #666;
+	color: rgb(80, 80, 80);
 	width: 100% !important;
 	height: 100% !important;
     margin:0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
+
+    &-main
+    {
+        padding: 5px;
+    }
 }
+
+// HEADER //
 
 .Header
 {
@@ -56,6 +63,10 @@
                         transition: 0.5s ease-in-out;
                         opacity:1;
                     }
+                    &:link
+                    {
+                        color:white;
+                    }
                 }
             }
         }
@@ -101,6 +112,105 @@
                 color:white;
                 display:none;
             }
+        }
+    }
+}
+
+// FORUM //
+.Forum
+{
+
+    &-h1
+    {
+        text-align:center;
+    }
+    &-list
+
+    {
+        padding:10px;
+        display:flex;
+        flex-direction:column;
+        &-article
+        {
+            border:solid black 1px;
+            padding-bottom:30px;
+            margin-top:0px;
+            margin-bottom:20px;
+            padding-left:20px;;
+            padding-right:20px;
+
+            &-link
+            {
+                text-decoration:none;
+                text-decoration:none;
+                border:solid black 1px;
+                padding:15px;
+                color:black;
+                &:visited
+                {
+                    color:black;
+                }
+                &:hover
+                {
+                    color:white;
+                    background-color:peru;
+                    transition: 0.5s ease-in-out;
+                    opacity:1;
+                }
+            }
+            &-category
+            {
+                padding-bottom:20px;
+
+                &-link
+                {
+                    text-decoration:none;
+                    &:visited
+                    {
+                        color:peru;
+                    }
+                    &:link
+                    {
+                        text-decoration:none; 
+                    }
+                }
+            }
+            &-content
+            {
+                text-align:justify;
+            }
+        }
+    }
+}
+
+.Article
+{
+    padding-left:10px;
+    padding-right:10px;
+    
+    &-title
+    {
+        text-align: center;
+    }
+    &-content
+    {
+        text-align:justify;
+    }
+    &-category
+    {
+        &-link
+        {
+
+                text-decoration:none;
+                &:visited
+                {
+                    color:peru;
+                }
+                &:link
+                {
+                    text-decoration:none; 
+                }
+            
         }
     }
 }

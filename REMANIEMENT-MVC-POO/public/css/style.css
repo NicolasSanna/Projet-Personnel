@@ -1,12 +1,16 @@
-.body, html {
+.Body, html {
   font-family: 'Open Sans', sans-serif;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  color: #666;
+  color: #505050;
   width: 100% !important;
   height: 100% !important;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
+}
+
+.Body-main, html-main {
+  padding: 5px;
 }
 
 .Header-container {
@@ -51,6 +55,10 @@
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
+}
+
+.Header-container-boxtitle-box-a:link {
+  color: white;
 }
 
 .Header-navbarbox {
@@ -102,5 +110,94 @@
   text-decoration: none;
   color: white;
   display: none;
+}
+
+.Forum-h1 {
+  text-align: center;
+}
+
+.Forum-list {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Forum-list-article {
+  border: solid black 1px;
+  padding-bottom: 30px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.Forum-list-article-link {
+  text-decoration: none;
+  text-decoration: none;
+  border: solid black 1px;
+  padding: 15px;
+  color: black;
+}
+
+.Forum-list-article-link:visited {
+  color: black;
+}
+
+.Forum-list-article-link:hover {
+  color: white;
+  background-color: peru;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.Forum-list-article-category {
+  padding-bottom: 20px;
+}
+
+.Forum-list-article-category-link {
+  text-decoration: none;
+}
+
+.Forum-list-article-category-link:visited {
+  color: peru;
+}
+
+.Forum-list-article-category-link:link {
+  text-decoration: none;
+}
+
+.Forum-list-article-content {
+  text-align: justify;
+}
+
+.Article {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.Article-title {
+  text-align: center;
+}
+
+.Article-content {
+  text-align: justify;
+}
+
+.Article-category-link {
+  text-decoration: none;
+}
+
+.Article-category-link:visited {
+  color: peru;
+}
+
+.Article-category-link:link {
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */
