@@ -6,7 +6,7 @@ BEGIN -- Début de l'écriture de la procédure.
 -- Lancement de la requête. Elle va sélectionner tous les champs venant de la table categories en fonction de ce qui a été renseigné en paramètre de la procédure comme variable. Dans la clause WHERE, on entrera l'identifiant de la ligne selon la colonne id grâce à la variable entrée en paramètre.
 
 	SELECT *
-    FROM categories
-    WHERE categories.id = v_id;
+    FROM categories cat
+    WHERE cat.id = v_id;
 
 END // -- Fin de l'écriture de la procédure.

@@ -14,4 +14,9 @@ class HomeController extends AbstractController
             'message' => 'Bienvenue sur l\'Accueil'
         ]);
     }
+
+    public function refused()
+    {
+        return $this->render('accessRefused');
+    }
 }

@@ -23,4 +23,14 @@ class ArticleModel extends AbstractModel
 
         return $article;
     }
+
+    function insertArticle($title, $content, $category_id, $user_id)
+    {
+        $sql ='CALL SP_ArticleCreate(?, ?, ?, ?)';
+
+        $insertArticle = $this->database->executeQuery($sql, [$title, $content, $category_id, $user_id]);
+
+        return $insertArticle;
+
+    }
 }

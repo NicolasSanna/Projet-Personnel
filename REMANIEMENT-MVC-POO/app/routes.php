@@ -37,6 +37,16 @@ $routes = [
         'path' => '/deconnexion',
         'controller' => 'Auth',
         'method' => 'logout'
+    ],
+    'newarticle' => [
+        'path' => '/admin/new',
+        'controller' => 'Admin\\Article',
+        'method' => 'new'
+    ],
+    'accessRefused' => [
+        'path' => '/accessRefuse',
+        'controller' => 'Home',
+        'method' => 'refused'
     ]
 ];
 
