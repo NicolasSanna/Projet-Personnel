@@ -88,17 +88,26 @@ class ArticleController extends AbstractController
         $checkArticle = $articleModel->getOneArticle($idOfArticle);
         $id_user = UserSession::getId();
 
-        if($checkArticle['user_id'] != UserSession::getId())
+        if(!empty($checkArticle['id']))
         {
-            FlashBag::addFlash("Vous ne pouvez pas supprimer cet article, car vous n'en n'êtes pas l'auteur", 'error');
+            FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
         }
         else
         {
-            
-            $articleModel = new ArticleModel();
-            $deleteArticle = $articleModel->deleteArticle($idOfArticle, $id_user);
-            FlashBag::addFlash("Article supprimé !", 'success');
+            if($checkArticle['user_id'] != UserSession::getId())
+            {
+                FlashBag::addFlash("Vous ne pouvez pas supprimer cet article, car vous n'en n'êtes pas l'auteur", 'error');
+            }
+            else
+            {
+                
+                $articleModel = new ArticleModel();
+                $deleteArticle = $articleModel->deleteArticle($idOfArticle, $id_user);
+                FlashBag::addFlash("Article supprimé !", 'success');
+            }
         }
+
+
 
         $this->redirect('myarticles');
     }

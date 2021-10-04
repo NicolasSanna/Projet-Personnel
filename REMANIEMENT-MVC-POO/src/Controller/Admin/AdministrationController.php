@@ -73,6 +73,7 @@ class AdministrationController extends AbstractController
                     FlashBag::addFlash($deleteUser['message']);
                 }
             }
+            $this->redirect('adminusers');
         }
         return $this->render('admin/deleteuser');
     }

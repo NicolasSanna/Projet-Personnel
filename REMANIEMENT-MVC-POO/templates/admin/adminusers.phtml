@@ -1,6 +1,9 @@
 <h1>Gérer les utilisateurs</h1>
 
+
+
 <table>
+
     <tr>
         <th>Identifiant</th>
         <th>Nom</th>
@@ -12,8 +15,8 @@
         <th>Rôle</th>
         <th colspan="2">Actions</th>
     </tr>
-    
-    <?php if(isset($usersInfos)):?>
+
+    <?php if (isset($usersInfos)):?>
 
         <?php foreach ($usersInfos as $userInfos):?>
 
@@ -32,6 +35,6 @@
 
         <?php endforeach;?>
 
-    <?php endif;?>
-
 </table>
+
+<?php endif;?>

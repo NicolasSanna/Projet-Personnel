@@ -26,7 +26,7 @@
         <td><?=(new DateTimeImmutable($myArticle['creation_date']))->format('d/m/y');?></td>
         <td><a href=""></a><?=$myArticle['category'];?></td>
         <td><?=$myArticle['number_comments'];?></td>
-        <td><a class="modifyArticle" href="">Modifier</a></td>
+        <td><a>Modifier</a></td>
         <td><a class="deleteArticle" href="<?=buildUrl('deletearticle', ['id' => intval($myArticle['articleId'])]);?>">Supprimer</a></td>
     </tr>
 
