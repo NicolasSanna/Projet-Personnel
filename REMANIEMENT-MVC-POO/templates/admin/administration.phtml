@@ -1,0 +1,13 @@
+<?php use App\Framework\UserSession;?>
+
+<h3>Administration</h3>
+
+<p><a href="<?=buildUrl('myarticles');?>">Gérer mes articles</a></p>
+
+<p><a href="<?=buildUrl('newarticle');?>">Créer un article</a></p>
+
+<?php if(UserSession::administrator()):?>
+
+    <p><a href="<?=buildUrl('adminusers');?>">Gérer les membres</a></p>
+
+<?php endif;?>

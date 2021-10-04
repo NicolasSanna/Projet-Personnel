@@ -33,4 +33,22 @@ class ArticleModel extends AbstractModel
         return $insertArticle;
 
     }
+
+    function getMyArticles($userId)
+    {
+        $sql = 'CALL SP_GetMyArticles(?)';
+
+        $getMyArticles = $this->database->getAllResults($sql, [$userId]);
+
+        return $getMyArticles;
+    }
+
+    function deleteArticle($articleId, $userId)
+    {
+        $sql = 'CALL SP_DeleteArticle(?, ?)';
+
+        $deleteArticle = $this->database->executeQuery($sql, [$articleId, $userId]);
+
+        return $deleteArticle;
+    }
 }

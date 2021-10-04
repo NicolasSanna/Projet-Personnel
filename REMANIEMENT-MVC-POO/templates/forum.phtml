@@ -6,6 +6,8 @@
 
         <?php foreach ($articles as $article):?>
 
+            <?php  $article = str_replace('<br />', '', $article);?>
+
             <div class="Forum-list-article">
 
                 <h3 class="Forum-list-article-title"><?=htmlspecialchars($article['title']);?></h3>

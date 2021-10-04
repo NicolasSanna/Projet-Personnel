@@ -15,6 +15,13 @@ class UserModel extends AbstractModel
         return $createUser;
     }
 
+    public function getUserById(int $userId)
+    {
+        $sql = 'CALL SP_GetUserByid(?)';
+
+        return $this->database->getOneResult($sql, [$userId]);
+    }
+
     public function getUserByEmail(string $email)
     {
         $sql = 'CALL SP_GetUserByEmail(?)';
@@ -42,5 +49,26 @@ class UserModel extends AbstractModel
 
         return $user;
 
+    }
+
+    function adminUsers()
+    {
+        $sql = 'CALL SP_SelectUsersAdmin()';
+
+        return $this->database->getAllResults($sql);
+    }
+
+    function deleteUserWithoutArticlesComments(int $userId)
+    {
+        $sql = 'CALL SP_DeleteUserWithoutArticlesComments(?)';
+
+        return $this->database->getOneResult($sql, [$userId]);
+    }
+
+    function deleteUser(int $userId)
+    {
+        $sql = 'CALL SP_DeleteUser(?)';
+
+        return $this->database->getOneResult($sql, [$userId]);
     }
 }

@@ -1,4 +1,5 @@
 <?php use App\Framework\UserSession;?>
+<?php use App\Framework\FlashBag;?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -20,14 +21,14 @@
     <main class="Body-main">
 
         <aside class="body-main-aside">
-            <?php if (App\Framework\FlashBag::hasMessages('error')):?>
-                <?php foreach (App\Framework\FlashBag::fetchMessages('error') as $error):?>
+            <?php if (FlashBag::hasMessages('error')):?>
+                <?php foreach (FlashBag::fetchMessages('error') as $error):?>
                     <p class="message error-message"><?=htmlspecialchars($error);?></p>
                 <?php endforeach; ?>
             <?php endif; ?>
 
-            <?php if (App\Framework\FlashBag::hasMessages('success')):?>
-                <?php foreach (App\Framework\FlashBag::fetchMessages('success') as $message):?>
+            <?php if (FlashBag::hasMessages('success')):?>
+                <?php foreach (FlashBag::fetchMessages('success') as $message):?>
                     <p class="message success-message"><?=htmlspecialchars($message);?></p>
                 <?php endforeach; ?>
             <?php endif; ?>
@@ -40,5 +41,11 @@
     <?php require TEMPLATE_DIR . '/footer.phtml';?>
 
     <script src="<?=asset('js/app.js');?>"></script>
+
+    <?php if (UserSession::isAuthenticated()):?>
+
+        <script src="<?=asset('js/admin.js');?>"></script>
+        
+    <?php endif;?>
 </body>
 </html>

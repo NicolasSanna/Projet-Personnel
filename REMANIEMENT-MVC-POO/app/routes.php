@@ -47,6 +47,31 @@ $routes = [
         'path' => '/accessRefuse',
         'controller' => 'Home',
         'method' => 'refused'
+    ],
+    'administration' => [
+        'path' => '/administration',
+        'controller' => 'Admin\\Administration',
+        'method' => 'index'
+    ],
+    'adminusers' => [
+        'path' => '/administrerutilisateurs',
+        'controller' => 'Admin\\Administration',
+        'method' => 'administrationUsers'
+    ],
+    'deleteuser' => [
+        'path' => '/supprimerutilisateur',
+        'controller' => 'Admin\\Administration',
+        'method' => 'deleteuser'
+    ],
+    'myarticles' => [
+        'path' => '/mesarticles',
+        'controller' => 'Admin\\Article',
+        'method' => 'myArticles'
+    ], 
+    'deletearticle' => [
+        'path' => '/supprimerarticle',
+        'controller' => 'Admin\\Article',
+        'method' => 'deleteMyArticle',
     ]
 ];
 

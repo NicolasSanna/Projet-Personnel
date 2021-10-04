@@ -1,0 +1,37 @@
+<h3>MES ARTICLES</h3>
+
+<table>
+
+    <tr>
+        <th>Id</th>
+        <th>Titre</th>
+        <th>Contenu</th>
+        <th>Date de création</th>
+        <th>Catégorie</th>
+        <th>Commentaires</th>
+        <th colspan="2">Actions</th>
+    </tr>
+
+
+<?php if (isset($myArticles)):?>
+
+<?php foreach ($myArticles as $myArticle):?>
+
+<?php  $myArticle = str_replace('<br />', '', $myArticle);?>
+
+    <tr>
+        <td><?=$myArticle['articleId'];?></td>
+        <td><?=htmlspecialchars(substr($myArticle['title'], 0, 20));?> [...]</td>
+        <td><?=htmlspecialchars(substr($myArticle['content'], 0, 20));?> [...]</td>
+        <td><?=(new DateTimeImmutable($myArticle['creation_date']))->format('d/m/y');?></td>
+        <td><a href=""></a><?=$myArticle['category'];?></td>
+        <td><?=$myArticle['number_comments'];?></td>
+        <td><a class="modifyArticle" href="">Modifier</a></td>
+        <td><a class="deleteArticle" href="<?=buildUrl('deletearticle', ['id' => intval($myArticle['articleId'])]);?>">Supprimer</a></td>
+    </tr>
+
+<?php endforeach;?>
+
+<?php endif;?>
+
+</table>

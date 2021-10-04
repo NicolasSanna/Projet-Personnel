@@ -1,0 +1,37 @@
+<h1>Gérer les utilisateurs</h1>
+
+<table>
+    <tr>
+        <th>Identifiant</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>E-mail</th>
+        <th>Pseudo</th>
+        <th>Date d'inscription</th>
+        <th>Nombre d'articles</th>
+        <th>Rôle</th>
+        <th colspan="2">Actions</th>
+    </tr>
+    
+    <?php if(isset($usersInfos)):?>
+
+        <?php foreach ($usersInfos as $userInfos):?>
+
+            <tr>
+                <td><?=$userInfos['userId'];?></td>
+                <td><?=$userInfos['lastname'];?></td>
+                <td><?=$userInfos['firstname'];?></td>
+                <td><?=$userInfos['email'];?></td>
+                <td><?=$userInfos['pseudo'];?></td>
+                <td><?=(new DateTimeImmutable($userInfos['inscription_date']))->format('d/m/Y');?></td>
+                <td><?=$userInfos['number_articles'];?></td>
+                <td><?=$userInfos['privilege'];?></td>
+                <td>Modifier le rôle</td>
+                <td><a href="<?=buildUrl('deleteuser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
+            </tr>
+
+        <?php endforeach;?>
+
+    <?php endif;?>
+
+</table>

@@ -50,5 +50,56 @@ class ArticleController extends AbstractController
 
         }
 
+
+    }
+
+    public function myArticles()
+    {
+        if(!UserSession::isAuthenticated())
+        {
+            $this->redirect('accessRefused');
+        }
+
+        $id_user = UserSession::getId();
+
+        $articleModel = new ArticleModel();
+
+        $myArticles = $articleModel->getMyarticles($id_user);
+
+
+        return $this->render('admin/article/myarticles', [
+            'myArticles' => $myArticles
+        ]);
+    }
+
+    public function deleteMyArticle()
+    {
+        if(!UserSession::isAuthenticated())
+        {
+            $this->redirect('accessRefused');
+        }
+
+        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id'])) 
+        {
+            $idOfArticle = $_GET['id'];
+        }
+
+        $articleModel = new ArticleModel();
+        $checkArticle = $articleModel->getOneArticle($idOfArticle);
+        $id_user = UserSession::getId();
+
+        if($checkArticle['user_id'] != UserSession::getId())
+        {
+            FlashBag::addFlash("Vous ne pouvez pas supprimer cet article, car vous n'en n'êtes pas l'auteur", 'error');
+        }
+        else
+        {
+            
+            $articleModel = new ArticleModel();
+            $deleteArticle = $articleModel->deleteArticle($idOfArticle, $id_user);
+            FlashBag::addFlash("Article supprimé !", 'success');
+        }
+
+        $this->redirect('myarticles');
     }
 }

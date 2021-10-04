@@ -2,7 +2,8 @@ let burger = document.getElementById('burger');
 let cross = document.getElementById('cross')
 let menu = document.querySelector('.Header-navbarbox-navbar')
 
-burger.addEventListener('click', function(){
+burger.addEventListener('click', function()
+{
 
     if (!menu.style.display || menu.style.display == 'none')
     {
@@ -14,7 +15,8 @@ burger.addEventListener('click', function(){
     }
 })
 
-cross.addEventListener('click', function(){
+cross.addEventListener('click', function()
+{
 
     if (menu.style.display || menu.style.display == 'block')
     {
