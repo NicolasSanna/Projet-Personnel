@@ -51,4 +51,13 @@ class ArticleModel extends AbstractModel
 
         return $deleteArticle;
     }
+
+    function modifyarticle($articleId, $userId, $newtitle, $newcontent, $newcategory)
+    {
+        $sql = 'CALL SP_ModifyArticle(?, ?, ?, ?, ?)';
+
+        $updateArticle = $this->database->executeQuery($sql, [$articleId, $userId, $newtitle, $newcontent, $newcategory]);
+
+        return $updateArticle;
+    }
 }

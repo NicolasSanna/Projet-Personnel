@@ -1,3 +1,6 @@
+<?php use App\Framework\UserSession;?>
+
+
 <?php if (isset($article)):?>
 
     <?php  $article = str_replace('<br/>', '', $article);?>
@@ -13,6 +16,44 @@
         <p class="Article-date">Publié le : <?= (new DateTimeImmutable($article['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($article['creation_date']))->format('h:i');?></p>
 
         <p class="Article-category">Catégorie : <a class="Article-category-link" href=""><?=htmlspecialchars($article['category']);?></a></p>
+
+    </div>
+
+    <div class="Comments">
+
+    <?php if (UserSession::isAuthenticated()):?>
+
+        <h4>Ajouter un commentaire</h4>
+
+        <form method="POST" action="<?=buildUrl('addcomment', ['id' => intval($article['id'])]);?>">
+            <label >Ajouter un commentaire :</label>
+            <textarea type="text" name="comment" id=""></textarea>
+            <button type="submit" name="validate" >Ajouter un commentaire</button>
+        </form>
+
+    <?php else:?>
+
+        <p>Afin de laisser un commentaire, vous devez vous inscrire, ou vous connecter.</p>
+
+    <?php endif;?>
+
+    <hr>
+
+    <h4>Commentaires</h4>
+
+    <?php if (isset($comments)):?>
+
+        <?php foreach ($comments as $comment):?>
+
+            <p><?=$comment['content'];?></p>
+            <p>Écrit par : <?=$comment['pseudo'];?></p>
+            <p>Publié le : <?=(new DateTimeImmutable($comment['date_publication']))->format('m/dY');?></p>
+
+            <hr>
+
+        <?php endforeach;?>
+
+    <?php endif;?>
 
     </div>
 

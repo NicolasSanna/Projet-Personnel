@@ -72,6 +72,71 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    public function modifyarticle()
+    {
+        if(!UserSession::isAuthenticated())
+        {
+            $this->redirect('accessRefused');
+        }
+
+        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id'])) 
+        {
+            $idOfArticle = $_GET['id'];
+        }
+
+        $articleModel = new ArticleModel();
+        $checkArticle = $articleModel->getOneArticle($idOfArticle);
+        $id_user = UserSession::getId();
+        
+        $title = $checkArticle['title'];
+        $content = $checkArticle['content'];
+        $categoriesModel = new CategoryModel();
+
+        $categories = $categoriesModel->getAllcategories();
+
+        if(!$checkArticle)
+        {
+            FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
+            $this->redirect('myarticles');
+        }
+        else
+        {
+
+            if($checkArticle['user_id'] != UserSession::getId())
+            {
+                FlashBag::addFlash("Vous ne pouvez pas modifier cet article, car vous n'en n'êtes pas l'auteur", 'error');
+                $this->redirect('myarticles');
+            }
+            else
+            {
+                if(!empty($_POST))
+                {
+                    $newtitle = htmlspecialchars(trim($_POST['title']));
+                    $newcontent = htmlspecialchars(trim($_POST['content']));
+                    $category = (int) $_POST['categories'];
+    
+                    if (!$newtitle || !$newcontent || !$category)
+                    {
+                        FlashBag::addFlash("Tous les champs de modification n'ont pas été remplis.", 'error');
+                    }
+                    else
+                    {
+                        $articleModel = new ArticleModel();
+                        $updateArticle = $articleModel->modifyarticle($idOfArticle, $id_user, $newtitle, $newcontent, $category);
+                        FlashBag::addFlash("Article modifié avec succès!", 'success');
+                        $this->redirect('myarticles');
+                    }
+                }
+            }
+        }
+        return $this->render('admin/article/modifyarticle', [
+            'content' => $content??'',
+            'title' => $title??'',
+            'categories' => $categories??''
+        ]);
+
+    }
+
     public function deleteMyArticle()
     {
         if(!UserSession::isAuthenticated())
@@ -88,7 +153,7 @@ class ArticleController extends AbstractController
         $checkArticle = $articleModel->getOneArticle($idOfArticle);
         $id_user = UserSession::getId();
 
-        if(!empty($checkArticle['id']))
+        if(!$checkArticle)
         {
             FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
         }

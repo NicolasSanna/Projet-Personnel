@@ -72,6 +72,16 @@ $routes = [
         'path' => '/supprimerarticle',
         'controller' => 'Admin\\Article',
         'method' => 'deleteMyArticle',
+    ],
+    'modifyarticle' => [
+        'path' => '/modifierarticle',
+        'controller' => 'Admin\\Article',
+        'method' => 'modifyarticle'
+    ],
+    'addcomment' => [
+        'path' => '/ajoutercommentaire',
+        'controller' => 'Article',
+        'method' => 'addComment'
     ]
 ];
 

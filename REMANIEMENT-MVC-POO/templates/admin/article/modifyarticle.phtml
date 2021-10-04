@@ -1,0 +1,19 @@
+<h3>Modifier article</h3>
+
+<form method="POST">
+
+<label for="title">Titre de l'article :</label>
+<input  name="title" value="<?=$title;?>"></input>
+
+<label for="content">Contenu de l'article : </label>
+<textarea  name="content" ><?=$content;?></textarea>
+
+<select name="categories" id="">
+<?php foreach ($categories as $category):?>
+    <option value="<?= $category['id'];?>" ><?= htmlspecialchars($category['category']);?></option>
+<?php endforeach;?>
+</select>
+
+
+<button type="submit" name="validate">Publier l'article</button>
+</form>
