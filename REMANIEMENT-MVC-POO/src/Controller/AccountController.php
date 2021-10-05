@@ -18,20 +18,26 @@ class AccountController extends AbstractController
             $email = trim(htmlspecialchars($_POST['email']));
             $password = trim(htmlspecialchars($_POST['password']));
 
-
-
-            if(filter_var($email, FILTER_VALIDATE_EMAIL))
+            if (!$lastname || !$firstname || !$pseudo || !$email || !$password)
             {
-                $hash = password_hash($password, PASSWORD_DEFAULT);
-                $newUser = new UserModel();
-                $insertUser = $newUser->createUser($firstname, $lastname, $pseudo, $email, $hash);
-
-                FlashBag::addFlash($insertUser['message']);
+                FlashBag::addFlash("Tous les champs d'inscription n'ont pas été correctement remplis");
             }
             else
             {
-                FlashBag::addFlash('Vérifiez le format de votre email.'); 
+                if(filter_var($email, FILTER_VALIDATE_EMAIL))
+                {
+                    $hash = password_hash($password, PASSWORD_DEFAULT);
+                    $newUser = new UserModel();
+                    $insertUser = $newUser->createUser($firstname, $lastname, $pseudo, $email, $hash);
+    
+                    FlashBag::addFlash($insertUser['message']);
+                }
+                else
+                {
+                    FlashBag::addFlash('Vérifiez le format de votre email.'); 
+                }
             }
+
         }
         return $this->render('inscription', [
             'lastname' => $lastname??'',
@@ -39,6 +45,5 @@ class AccountController extends AbstractController
             'pseudo' => $pseudo??'',
             'email' => $email??''
         ]);
-
     }
 }

@@ -39,9 +39,7 @@ class ArticleController extends AbstractController
 
                     FlashBag::addFlash("Votre article a bien été ajouté !", 'success');
                 }
-            }
-
-               
+            }      
             return $this->render('admin/article/new', [
                 'content' => $content??'',
                 'title' => $title??'',
