@@ -1,0 +1,17 @@
+/////////////////////
+// POUR LE PROJET //
+///////////////////
+
+- Terminer le back-office (gérer la création, la modifications, la suppression de catégories par administrateurs seulement).
+
+- Créer un rôle enregistré, qui ne peut pas écrire d'articles ni de commentaires, tant qu'il n'a pas été validé par un administrateur (modifier le back-office afin d'afficher la liste des rôles et modifier le rôle de la personne enregistrée en conséquence.
+
+- Terminer la refactorisation en MVC-POO.
+
+- Renommer les Procédures Stockées de manière conventionnelles.
+
+- Installer les procédures stockées avec l'utilisateur créé, puis retirer tous les droits sauf celui de les exécuter.
+
+- S'occuper du CSS.
+
+- Continuer d'écrire le dossier professionnel et le dossier projet.
