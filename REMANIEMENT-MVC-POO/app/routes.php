@@ -58,10 +58,10 @@ $routes = [
         'controller' => 'Admin\\Administration',
         'method' => 'administrationUsers'
     ],
-    'deleteuser' => [
+    'deleteUser' => [
         'path' => '/supprimerutilisateur',
         'controller' => 'Admin\\Administration',
-        'method' => 'deleteuser'
+        'method' => 'deleteUser'
     ],
     'myarticles' => [
         'path' => '/mesarticles',
@@ -82,6 +82,16 @@ $routes = [
         'path' => '/ajoutercommentaire',
         'controller' => 'Article',
         'method' => 'addComment'
+    ],
+    'addCategory' => [
+        'path' => '/ajouterunecategorie',
+        'controller' => 'Admin\\Administration',
+        'method' => 'addCategory'
+    ],
+    'adminCategories' => [
+        'path' => '/administrerlescategories',
+        'controller' => 'Admin\\Administration',
+        'method' => 'adminCategories'
     ]
 ];
 

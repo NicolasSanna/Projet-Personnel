@@ -11,6 +11,7 @@ use App\Model\UserModel;
 
 class AdministrationController extends AbstractController
 {
+
     public function index()
     {
         if(!UserSession::isAuthenticated())
@@ -73,8 +74,39 @@ class AdministrationController extends AbstractController
                     FlashBag::addFlash($deleteUser['message']);
                 }
             }
-            $this->redirect('adminusers');
+            
         }
-        return $this->render('admin/deleteuser');
+        return $this->render('admin/deleteUser');
+    }
+
+    public function addCategory()
+    {
+        if(!UserSession::administrator())
+        {
+            $this->redirect('accessRefused');
+        }
+
+        if(!empty($_POST))
+        {
+            $newCategory = trim($_POST['newcategory']);
+
+            $categoryModel = new CategoryModel();
+            $insertCategory = $categoryModel->createCategory($newCategory);
+
+            FlashBag::addFlash($insertCategory['message']);
+        }
+
+
+        return $this->render('admin/addCategory', [
+            'newCategory' => $newCategory??''
+        ]);
+    }
+
+    public function adminCategories()
+    {
+
+        $categoryModel = new CategoryModel();
+        $categories = $categoryModel->getAllCategories();
+        return $this->render('admin/admincategory');
     }
 }

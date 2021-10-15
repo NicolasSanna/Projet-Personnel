@@ -30,7 +30,7 @@
                 <td><?=$userInfos['number_articles'];?></td>
                 <td><?=$userInfos['privilege'];?></td>
                 <td>Modifier le rôle</td>
-                <td><a href="<?=buildUrl('deleteuser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
+                <td><a href="<?=buildUrl('deleteUser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
             </tr>
 
         <?php endforeach;?>

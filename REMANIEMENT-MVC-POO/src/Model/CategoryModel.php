@@ -23,4 +23,13 @@ class CategoryModel extends AbstractModel
 
         return $categories;
     }
+
+    public function createCategory($newCategory)
+    {
+        $sql = 'CALL SP_CategoryCreate(?)';
+
+        $insertNewCategory = $this->database->getOneResult($sql, [$newCategory]);
+
+        return $insertNewCategory;
+    }
 }
