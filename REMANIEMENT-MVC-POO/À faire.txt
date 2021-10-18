@@ -4,7 +4,9 @@
 
 - Terminer le back-office (gérer la création, la modifications, la suppression de catégories par administrateurs seulement).
 
-- Créer un rôle enregistré, qui ne peut pas écrire d'articles ni de commentaires, tant qu'il n'a pas été validé par un administrateur (modifier le back-office afin d'afficher la liste des rôles et modifier le rôle de la personne enregistrée en conséquence.
+- Créer le menu de classement des articles par catégories
+
+- Créer un rôle enregistré, qui ne peut pas écrire d'articles ni de commentaires, tant qu'il n'a pas été validé par un administrateur (modifier le back-office afin d'afficher la liste des rôles et modifier le rôle de la personne enregistrée en conséquence).
 
 - Terminer la refactorisation en MVC-POO.
 
