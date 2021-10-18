@@ -12,11 +12,7 @@ class ArticleController extends AbstractController
 {
     public function new()
     {
-        if(!UserSession::author())
-        {
-            $this->redirect('accessRefused');
-        }
-        else
+        if (UserSession::author() || UserSession::administrator())
         {
             $categoryModel = new CategoryModel();
             $categories = $categoryModel->getAllCategories();
@@ -40,138 +36,147 @@ class ArticleController extends AbstractController
                     FlashBag::addFlash("Votre article a bien été ajouté !", 'success');
                 }
             }      
+            
             return $this->render('admin/article/new', [
                 'content' => $content??'',
                 'title' => $title??'',
                 'categories' => $categories??''
             ]);
-
         }
+        else
+        {
+            $this->redirect('accessRefused');
+        }
+
 
 
     }
 
     public function myArticles()
     {
-        if(!UserSession::author())
+        if (UserSession::author() || UserSession::administrator())
+        {
+            $id_user = UserSession::getId();
+
+            $articleModel = new ArticleModel();
+    
+            $myArticles = $articleModel->getMyarticles($id_user);
+            
+
+            return $this->render('admin/article/myarticles', [
+                'myArticles' => $myArticles
+            ]);
+        }
+        else
         {
             $this->redirect('accessRefused');
         }
-
-        $id_user = UserSession::getId();
-
-        $articleModel = new ArticleModel();
-
-        $myArticles = $articleModel->getMyarticles($id_user);
-
-
-        return $this->render('admin/article/myarticles', [
-            'myArticles' => $myArticles
-        ]);
     }
 
     public function modifyarticle()
     {
-        if(!UserSession::author())
+        if (UserSession::author() || UserSession::administrator())
         {
-            $this->redirect('accessRefused');
-        }
-
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id'])) 
-        {
-            $idOfArticle = $_GET['id'];
-        }
-
-        $articleModel = new ArticleModel();
-        $checkArticle = $articleModel->getOneArticle($idOfArticle);
-        $id_user = UserSession::getId();
-        
-        $title = $checkArticle['title'];
-        $content = $checkArticle['content'];
-        $categoriesModel = new CategoryModel();
-
-        $categories = $categoriesModel->getAllcategories();
-
-        if(!$checkArticle)
-        {
-            FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
-            $this->redirect('myarticles');
-        }
-        else
-        {
-
-            if($checkArticle['user_id'] != UserSession::getId())
+            if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id'])) 
             {
-                FlashBag::addFlash("Vous ne pouvez pas modifier cet article, car vous n'en n'êtes pas l'auteur", 'error');
+                $idOfArticle = $_GET['id'];
+            }
+    
+            $articleModel = new ArticleModel();
+            $checkArticle = $articleModel->getOneArticle($idOfArticle);
+            $id_user = UserSession::getId();
+            
+            $title = $checkArticle['title'];
+            $content = $checkArticle['content'];
+            $categoriesModel = new CategoryModel();
+    
+            $categories = $categoriesModel->getAllcategories();
+    
+            if(!$checkArticle)
+            {
+                FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
                 $this->redirect('myarticles');
             }
             else
             {
-                if(!empty($_POST))
-                {
-                    $newtitle = htmlspecialchars(trim($_POST['title']));
-                    $newcontent = htmlspecialchars(trim($_POST['content']));
-                    $category = (int) $_POST['categories'];
     
-                    if (!$newtitle || !$newcontent || !$category)
+                if($checkArticle['user_id'] != UserSession::getId())
+                {
+                    FlashBag::addFlash("Vous ne pouvez pas modifier cet article, car vous n'en n'êtes pas l'auteur", 'error');
+                    $this->redirect('myarticles');
+                }
+                else
+                {
+                    if(!empty($_POST))
                     {
-                        FlashBag::addFlash("Tous les champs de modification n'ont pas été remplis.", 'error');
-                    }
-                    else
-                    {
-                        $articleModel = new ArticleModel();
-                        $updateArticle = $articleModel->modifyarticle($idOfArticle, $id_user, $newtitle, $newcontent, $category);
-                        FlashBag::addFlash("Article modifié avec succès!", 'success');
-                        $this->redirect('myarticles');
+                        $newtitle = htmlspecialchars(trim($_POST['title']));
+                        $newcontent = htmlspecialchars(trim($_POST['content']));
+                        $category = (int) $_POST['categories'];
+        
+                        if (!$newtitle || !$newcontent || !$category)
+                        {
+                            FlashBag::addFlash("Tous les champs de modification n'ont pas été remplis.", 'error');
+                        }
+                        else
+                        {
+                            $articleModel = new ArticleModel();
+                            $updateArticle = $articleModel->modifyarticle($idOfArticle, $id_user, $newtitle, $newcontent, $category);
+                            FlashBag::addFlash("Article modifié avec succès!", 'success');
+                            $this->redirect('myarticles');
+                        }
                     }
                 }
             }
+            return $this->render('admin/article/modifyarticle', [
+                'content' => $content??'',
+                'title' => $title??'',
+                'categories' => $categories??''
+            ]);
         }
-        return $this->render('admin/article/modifyarticle', [
-            'content' => $content??'',
-            'title' => $title??'',
-            'categories' => $categories??''
-        ]);
+        else
+        {
+            $this->redirect('accessRefused');
+        }
 
     }
 
     public function deleteMyArticle()
     {
-        if(!UserSession::author())
+        if (UserSession::author() || UserSession::administrator())
         {
-            $this->redirect('accessRefused');
-        }
-
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id'])) 
-        {
-            $idOfArticle = $_GET['id'];
-        }
-
-        $articleModel = new ArticleModel();
-        $checkArticle = $articleModel->getOneArticle($idOfArticle);
-        $id_user = UserSession::getId();
-
-        if(!$checkArticle)
-        {
-            FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
-        }
-        else
-        {
-            if($checkArticle['user_id'] != UserSession::getId())
+            if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id'])) 
             {
-                FlashBag::addFlash("Vous ne pouvez pas supprimer cet article, car vous n'en n'êtes pas l'auteur", 'error');
+                $idOfArticle = $_GET['id'];
+            }
+    
+            $articleModel = new ArticleModel();
+            $checkArticle = $articleModel->getOneArticle($idOfArticle);
+            $id_user = UserSession::getId();
+    
+            if(!$checkArticle)
+            {
+                FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
             }
             else
             {
-                
-                $articleModel = new ArticleModel();
-                $deleteArticle = $articleModel->deleteArticle($idOfArticle, $id_user);
-                FlashBag::addFlash("Article supprimé !", 'success');
+                if($checkArticle['user_id'] != UserSession::getId())
+                {
+                    FlashBag::addFlash("Vous ne pouvez pas supprimer cet article, car vous n'en n'êtes pas l'auteur", 'error');
+                }
+                else
+                {
+                    
+                    $articleModel = new ArticleModel();
+                    $deleteArticle = $articleModel->deleteArticle($idOfArticle, $id_user);
+                    FlashBag::addFlash("Article supprimé !", 'success');
+                }
             }
+
+            $this->redirect('myarticles');
         }
-
-
-
-        $this->redirect('myarticles');
+        else
+        {
+            $this->redirect('accessRefused');
+        }
     }
 }
