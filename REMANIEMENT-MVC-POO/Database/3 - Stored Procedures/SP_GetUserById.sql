@@ -6,7 +6,7 @@ BEGIN
     SELECT *
     FROM users
     WHERE id = v_id
-    AND grant_id <> 1;
+    AND grant_id <> 1
     AND users.pseudo <> 'Supprimé';
 
 END //

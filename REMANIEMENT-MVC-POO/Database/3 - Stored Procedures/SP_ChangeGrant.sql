@@ -93,8 +93,6 @@ BEGIN
         INNER JOIN grants ON users.grant_id = grants.id
         WHERE users.id = v_userId;
 
-        -- SET message = CONCAT("Le droit ", v_grantId, " a été attribué à l'utilisateur ", v_userId, ".");
-
         SET message = CONCAT("Le droit ", privilegeinfo, " a été attribué à ", pseudoinfo, ".");
 
     END IF;

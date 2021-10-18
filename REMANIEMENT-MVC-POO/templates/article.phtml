@@ -21,7 +21,7 @@
 
     <div class="Comments">
 
-    <?php if (UserSession::author()):?>
+    <?php if (UserSession::author() || UserSession::administrator()):?>
 
         <h4>Ajouter un commentaire</h4>
 

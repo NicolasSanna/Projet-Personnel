@@ -40,35 +40,39 @@ class ArticleController extends AbstractController
 
     public function addComment()
     {
-        if (!UserSession::author())
+        if (UserSession::author() || UserSession::administrator())
+        {
+            if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+            {
+                $idOfArticle = (int) $_GET['id'];
+                
+                $articleModel = new ArticleModel();
+                $article = $articleModel->getOneArticle($idOfArticle);
+    
+                if(!empty($_POST))
+                {
+                    $comment = trim(htmlspecialchars($_POST['comment']));
+                    $user_id = UserSession::getId();
+    
+                    if(!$comment)
+                    {
+                        FlashBag::addFlash("Le champ commentaire est vide", "error");
+                    }
+                    else
+                    {
+                        $commentModel = new CommentModel();
+                        $insertComment = $commentModel->addComment($comment, $user_id, $idOfArticle);
+                        FlashBag::addFlash("Votre commentaire a bien été ajouté !", "error");
+    
+                    }
+                }
+                header('Location:' . buildUrl('article', ['id' => $idOfArticle]));
+            }
+        }
+
+        else
         {
             $this->redirect('accessRefused');
-        }
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
-        {
-            $idOfArticle = (int) $_GET['id'];
-            
-            $articleModel = new ArticleModel();
-            $article = $articleModel->getOneArticle($idOfArticle);
-
-            if(!empty($_POST))
-            {
-                $comment = trim(htmlspecialchars($_POST['comment']));
-                $user_id = UserSession::getId();
-
-                if(!$comment)
-                {
-                    FlashBag::addFlash("Le champ commentaire est vide", "error");
-                }
-                else
-                {
-                    $commentModel = new CommentModel();
-                    $insertComment = $commentModel->addComment($comment, $user_id, $idOfArticle);
-                    FlashBag::addFlash("Votre commentaire a bien été ajouté !", "error");
-
-                }
-            }
-            header('Location:' . buildUrl('article', ['id' => $idOfArticle]));
         }
     }
 }

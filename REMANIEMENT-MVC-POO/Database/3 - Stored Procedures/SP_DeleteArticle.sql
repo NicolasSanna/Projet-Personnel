@@ -1,6 +1,6 @@
 DELIMITER //
 DROP PROCEDURE IF EXISTS SP_DeleteArticle //
-CREATE PROCEDURE SP_DeleteArticle (v_article_id INT(), v_user_id INT(11))
+CREATE PROCEDURE SP_DeleteArticle (v_article_id INT(11), v_user_id INT(11))
 BEGIN
 
     DELETE 
