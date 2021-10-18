@@ -3,7 +3,8 @@ USE histoire_philosophie;
 INSERT INTO grants (id, privilege)
 VALUES
 (1, 'Administrateur'),
-(2, 'Auteur');
+(2, 'Auteur'),
+(3, 'Inscrit');
 
 INSERT INTO categories (id, category)
 VALUES

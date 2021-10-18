@@ -1,8 +1,12 @@
 <h3>Administration</h3>
 
+<?php if(App\Framework\UserSession::author()):?>
+
 <p><a href="<?=buildUrl('myarticles');?>">Gérer mes articles</a></p>
 
 <p><a href="<?=buildUrl('newarticle');?>">Créer un article</a></p>
+
+<?php endif;?>
 
 <?php if(App\Framework\UserSession::administrator()):?>
 
@@ -11,4 +15,11 @@
     <p><a href="<?=buildUrl('addCategory');?>">Créer une catégorie</a></p>
 
     <p><a href="<?=buildUrl('adminCategories');?>">Modifier une catégorie</a></p>
+
+<?php endif;?>
+
+<?php if (App\Framework\UserSession::newRegistered()):?>
+
+    <p>Bienvenue nouvel(lle) uutilisateur(trice) ! Veuillez patienter pendant qu'un administrateur vous donne accès à la création de vos articles. </p>
+
 <?php endif;?>

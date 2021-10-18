@@ -32,10 +32,15 @@ class AuthController extends AbstractController
                     FlashBag::addFlash('Connexion réussie, bienvenue Administrateur!', 'success');
                     UserSession::administrator();
                 }
-                else
+                elseif ($user['grant_id'] == 2)
                 {
-                    FlashBag::addFlash('Connexion réussie, bienvenue !', 'success');
-
+                    FlashBag::addFlash('Connexion réussie, bienvenue auteur !', 'success');
+                    UserSession::author();
+                }
+                elseif ($user['grant_id'] == 3)
+                {
+                    FlashBag::addFlash('Connexion réussie, bienvenue nouvel utilisateur !', 'success');
+                    UserSession::newRegistered();
                 }
                 $this->redirect('homepage');
                 exit;

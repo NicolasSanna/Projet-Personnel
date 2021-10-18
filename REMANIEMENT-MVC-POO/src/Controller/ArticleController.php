@@ -40,7 +40,7 @@ class ArticleController extends AbstractController
 
     public function addComment()
     {
-        if (!UserSession::isAuthenticated())
+        if (!UserSession::author())
         {
             $this->redirect('accessRefused');
         }

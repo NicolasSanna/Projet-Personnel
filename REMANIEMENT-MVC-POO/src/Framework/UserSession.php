@@ -114,6 +114,7 @@ class UserSession
         }
         return $_SESSION['user']['email'];
     }
+    
     static function administrator()
     {
         if (!self::isAuthenticated())
@@ -121,5 +122,24 @@ class UserSession
             return null;
         }
         return $_SESSION['user']['grant_id'] == 1;
+    }
+
+    static function author()
+    {
+        if (!self::isAuthenticated())
+        {
+            return null;
+        }
+        return $_SESSION['user']['grant_id'] == 2;
+    }
+
+
+    static function newRegistered()
+    {
+        if (!self::isAuthenticated())
+        {
+            return null;
+        }
+        return $_SESSION['user']['grant_id'] == 3;
     }
 }

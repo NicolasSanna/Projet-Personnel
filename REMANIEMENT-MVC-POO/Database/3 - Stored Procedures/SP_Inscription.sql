@@ -8,7 +8,7 @@ BEGIN
     DECLARE existeDelete SMALLINT;
     DECLARE v_grantId SMALLINT;
     
-    SET v_grantId = 2;
+    SET v_grantId = 3;
 
     SELECT COUNT(id)
     INTO existeDelete

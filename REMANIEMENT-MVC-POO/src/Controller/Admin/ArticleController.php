@@ -12,7 +12,7 @@ class ArticleController extends AbstractController
 {
     public function new()
     {
-        if(!UserSession::isAuthenticated())
+        if(!UserSession::author())
         {
             $this->redirect('accessRefused');
         }
@@ -53,7 +53,7 @@ class ArticleController extends AbstractController
 
     public function myArticles()
     {
-        if(!UserSession::isAuthenticated())
+        if(!UserSession::author())
         {
             $this->redirect('accessRefused');
         }
@@ -72,7 +72,7 @@ class ArticleController extends AbstractController
 
     public function modifyarticle()
     {
-        if(!UserSession::isAuthenticated())
+        if(!UserSession::author())
         {
             $this->redirect('accessRefused');
         }
@@ -137,7 +137,7 @@ class ArticleController extends AbstractController
 
     public function deleteMyArticle()
     {
-        if(!UserSession::isAuthenticated())
+        if(!UserSession::author())
         {
             $this->redirect('accessRefused');
         }

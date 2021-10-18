@@ -104,9 +104,23 @@ class AdministrationController extends AbstractController
 
     public function adminCategories()
     {
+        if(!UserSession::administrator())
+        {
+            $this->redirect('accessRefused');
+        }
 
         $categoryModel = new CategoryModel();
         $categories = $categoryModel->getAllCategories();
         return $this->render('admin/admincategory');
+    }
+
+    public function modifyGrantUser()
+    {
+        if(!UserSession::administrator())
+        {
+            $this->redirect('accessRefused');
+        }
+        
+        return $this->render('admin/modifygrantuser');
     }
 }

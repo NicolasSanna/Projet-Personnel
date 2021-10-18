@@ -29,10 +29,12 @@
                 <td><?=(new DateTimeImmutable($userInfos['inscription_date']))->format('d/m/Y');?></td>
                 <td><?=$userInfos['number_articles'];?></td>
                 <td><?=$userInfos['privilege'];?></td>
-                <td>Modifier le rôle</td>
+                <td><a href="<?=buildUrl('modifygrantuser', ['id' => intval($userInfos['userId'])]);?>">Modifier le rôle</a></td>
                 <td><a href="<?=buildUrl('deleteUser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
             </tr>
 
+
+            
         <?php endforeach;?>
 
 </table>
