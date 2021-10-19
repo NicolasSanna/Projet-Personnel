@@ -97,6 +97,11 @@ $routes = [
         'path' => '/modifierprivilegeutilisateur',
         'controller' => 'Admin\\Administration',
         'method' => 'modifyGrantUser'
+    ],
+    'modifycategory' => [
+        'path' => '/modifiercategorie',
+        'controller' => 'Admin\\Administration',
+        'method' => 'modifyCategory'
     ]
 ];
 

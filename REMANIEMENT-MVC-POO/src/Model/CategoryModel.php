@@ -32,4 +32,13 @@ class CategoryModel extends AbstractModel
 
         return $insertNewCategory;
     }
+
+    public function modifyCategory(int $idOfCategory, string $newCategoryName)
+    {
+        $sql =  'CALL SP_CategoryModify(?, ?)';
+
+        $modifyCategory = $this->database->getOneResult($sql, [$idOfCategory, $newCategoryName]);
+
+        return $modifyCategory;
+    }
 }

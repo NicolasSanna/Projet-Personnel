@@ -8,6 +8,7 @@ use App\Model\CategoryModel;
 use App\Model\ArticleModel;
 use App\Framework\UserSession;
 use App\Model\UserModel;
+use App\Model\GrantModel;
 
 class AdministrationController extends AbstractController
 {
@@ -111,7 +112,10 @@ class AdministrationController extends AbstractController
 
         $categoryModel = new CategoryModel();
         $categories = $categoryModel->getAllCategories();
-        return $this->render('admin/admincategory');
+
+        return $this->render('admin/admincategory', [
+            'categories' => $categories
+        ]);
     }
 
     public function modifyGrantUser()
@@ -120,7 +124,79 @@ class AdministrationController extends AbstractController
         {
             $this->redirect('accessRefused');
         }
+
+        $grantModel = new GrantModel();
+        $grants = $grantModel->getAllGrants();
+
+
+        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        {
+                $userId = $_GET['id'];
+                $userModel = new UserModel();
+                $checkIfUserExists = $userModel->getUserById($userId);
+
+                if(!$checkIfUserExists)
+                {
+                    FlashBag::addFlash("Cet utilisateur n'existe pas", 'error');
+                    $this->redirect('adminusers');
+                }
+
+                if(!empty($_POST))
+                {
+                    $grantId = (int) $_POST['grants'];
+
+                    $userChangeGrantModel = new UserModel();
+                    $changeGrant = $userChangeGrantModel->changeGrant($userId, $grantId);
+                    FlashBag::addFlash($changeGrant['message']);
+                }
+        }
         
-        return $this->render('admin/modifygrantuser');
+        return $this->render('admin/modifygrantuser', [
+            'grants' => $grants
+        ]);
+    }
+
+    public function modifyCategory()
+    {
+        if(!UserSession::administrator())
+        {
+            $this->redirect('accessRefused');
+        }
+
+        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        {
+            $idOfCategory = $_GET['id'];
+            $categoryModel = new CategoryModel();
+            $category = $categoryModel->getOneCategory($idOfCategory);
+
+            if(!$category)
+            {
+                FlashBag::addFlash("Cette catégorie n'existe pas.", 'error');
+                $this->redirect('administration');
+            }
+
+            if(!empty($_POST))
+            {
+                $idOfCategory = $_POST['idcategory'];
+                $newCategory = trim($_POST['newcategory']);
+
+                if(!$newCategory)
+                {
+                    FlashBag::addFlash("Le champ est vide.", 'error');
+                }
+                else
+                {
+                    $categoryModel = new CategoryModel();
+                    $modifyCategory = $categoryModel->modifyCategory($idOfCategory, $newCategory);
+                    FlashBag::addFlash($modifyCategory['message']);
+
+                }
+            }
+
+        }
+
+        return $this->render('admin/modifycategory', [
+            'category' => $category
+        ]);
     }
 }

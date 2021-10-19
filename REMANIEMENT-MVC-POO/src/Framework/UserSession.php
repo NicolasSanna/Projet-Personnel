@@ -20,7 +20,7 @@ class UserSession
     {
         self::sessionCheck();
 
-        // Enregistrement des données de l'utilisateur en session à la clé 'user'
+
         $_SESSION['user'] = [
             'userId' => $userId,
             'firstname' => $firstname,
@@ -28,40 +28,10 @@ class UserSession
             'pseudo' => $pseudo,
             'email' => $email,
             'grant_id' => $grant_id
-
-            // 'roles' => $roles
         ];
     }
 
-    // static function hasRoles()
-    // {
-    //     // Si l'utilisateur n'est pas connecté on retourne false
-    //     if (!self::isAuthenticated()){
-    //         return false;
-    //     }
 
-    //     /*
-    //     // On récupère les paramètres de la fonction grâce à func_get_args()
-    //     $roles = func_get_args();
-
-    //     // Pour chaque rôle donné en paramètre... 
-    //     foreach ($roles as $role) {
-
-    //         // Si le rôle est présent dans le tableau de rôles enregistrés en session... 
-    //         if (in_array($role, $_SESSION['user']['roles'])) {
-
-    //             // On retourne true
-    //             return true;
-    //         }
-    //     }
-
-    //     // Si on arrive ici c'est qu'on n'a trouvé aucun des rôles en session, on retourne false
-    //     return false;
-    //     */
-
-    //     // Autre version en utilisant la fonction array_intersect()
-    //     return array_intersect(func_get_args(), $_SESSION['user']['roles']);
-    // }
 
     static function isAuthenticated()
     {

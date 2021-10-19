@@ -1,0 +1,7 @@
+<h3>Modifier la catégorie</h3>
+
+<form method="POST">
+    <input type="text" name="newcategory" id="" value="<?=htmlspecialchars($category['category']);?>">
+    <input type="hidden" name="idcategory" value="<?=$category['id'];?>">
+    <button type="submit">Changer le nom de la catégorie</button>
+</form>

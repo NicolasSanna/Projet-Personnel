@@ -71,4 +71,11 @@ class UserModel extends AbstractModel
 
         return $this->database->getOneResult($sql, [$userId]);
     }
+
+    function changeGrant(int $userId, int $grantId)
+    {
+        $sql = 'CALL SP_ChangeGrant(?, ?)';
+
+        return $this->database->getOneResult($sql, [$userId, $grantId]);
+    }
 }

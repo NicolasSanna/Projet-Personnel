@@ -4,6 +4,8 @@ CREATE PROCEDURE SP_SelectAllCategories ()
 BEGIN
 
     SELECT *
-    FROM Categories;
+    FROM Categories
+    WHERE id <> 1
+    AND category <> "Non classé";
 
 END //
