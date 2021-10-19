@@ -41,4 +41,13 @@ class CategoryModel extends AbstractModel
 
         return $modifyCategory;
     }
+
+    public function getAllCategoriesForArticle()
+    {
+        $sql ='CALL SP_GetAllCategoriesForArticle()';
+
+        $allCategoriesForArticle = $this->database->getAllResults($sql);
+
+        return $allCategoriesForArticle;
+    }
 }

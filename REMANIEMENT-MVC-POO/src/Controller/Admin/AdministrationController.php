@@ -91,10 +91,17 @@ class AdministrationController extends AbstractController
         {
             $newCategory = trim($_POST['newcategory']);
 
-            $categoryModel = new CategoryModel();
-            $insertCategory = $categoryModel->createCategory($newCategory);
-
-            FlashBag::addFlash($insertCategory['message']);
+            if(!$newCategory)
+            {
+                FlashBag::addFlash('Le champ est vide', 'error');
+            }
+            else
+            {
+                $categoryModel = new CategoryModel();
+                $insertCategory = $categoryModel->createCategory($newCategory);
+    
+                FlashBag::addFlash($insertCategory['message']);
+            }
         }
 
 

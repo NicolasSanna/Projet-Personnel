@@ -15,7 +15,7 @@ class ArticleController extends AbstractController
         if (UserSession::author() || UserSession::administrator())
         {
             $categoryModel = new CategoryModel();
-            $categories = $categoryModel->getAllCategories();
+            $categories = $categoryModel->getAllCategoriesForArticle();
 
             if(!empty($_POST))
             {
@@ -90,7 +90,7 @@ class ArticleController extends AbstractController
             $content = $checkArticle['content'];
             $categoriesModel = new CategoryModel();
     
-            $categories = $categoriesModel->getAllcategories();
+            $categories = $categoriesModel->getAllCategoriesForArticle();
     
             if(!$checkArticle)
             {
