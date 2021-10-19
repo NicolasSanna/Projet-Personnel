@@ -66,7 +66,8 @@ class ArticleController extends AbstractController
     
                     }
                 }
-                header('Location:' . buildUrl('article', ['id' => $idOfArticle]));
+
+                $this->redirect('article', ['id' => $article['id']]);
             }
         }
 

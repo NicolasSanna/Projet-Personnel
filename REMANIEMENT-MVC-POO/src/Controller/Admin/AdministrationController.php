@@ -178,17 +178,18 @@ class AdministrationController extends AbstractController
             if(!empty($_POST))
             {
                 $idOfCategory = $_POST['idcategory'];
-                $newCategory = trim($_POST['newcategory']);
+                $newcategory = trim($_POST['newcategory']);
 
-                if(!$newCategory)
+                if(!$newcategory)
                 {
                     FlashBag::addFlash("Le champ est vide.", 'error');
                 }
                 else
                 {
                     $categoryModel = new CategoryModel();
-                    $modifyCategory = $categoryModel->modifyCategory($idOfCategory, $newCategory);
-                    FlashBag::addFlash($modifyCategory['message']);
+                    $modifycategory = $categoryModel->modifyCategory($idOfCategory, $newcategory);
+                    FlashBag::addFlash($modifycategory['message']);
+                    $this->redirect('modifycategory', ['id' => $category['id']]);
 
                 }
             }
@@ -196,7 +197,8 @@ class AdministrationController extends AbstractController
         }
 
         return $this->render('admin/modifycategory', [
-            'category' => $category
+            'category' => $category??'',
+            'newcategory' => $newcategory??''
         ]);
     }
 }

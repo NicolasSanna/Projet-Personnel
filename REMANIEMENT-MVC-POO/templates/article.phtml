@@ -47,7 +47,7 @@
 
             <p><?=$comment['content'];?></p>
             <p>Écrit par : <?=$comment['pseudo'];?></p>
-            <p>Publié le : <?=(new DateTimeImmutable($comment['date_publication']))->format('m/dY');?></p>
+            <p>Publié le : <?=(new DateTimeImmutable($comment['date_publication']))->format('d/m/Y');?></p>
 
             <hr>
 
