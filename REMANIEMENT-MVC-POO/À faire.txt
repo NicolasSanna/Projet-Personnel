@@ -17,3 +17,5 @@
 - S'occuper du CSS.
 
 - Continuer d'écrire le dossier professionnel et le dossier projet.
+
+- Renommer la BDD en "Huma Scientio" /!\
