@@ -1,3 +1,3 @@
-CREATE DATABASE histoire_philosophie
+CREATE DATABASE huma_scientio
 CHARACTER SET utf8mb4 
 COLLATE utf8mb4_unicode_ci;

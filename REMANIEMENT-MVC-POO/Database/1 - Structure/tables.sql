@@ -1,4 +1,4 @@
-USE histoire_philosophie;
+USE huma_scientio;
 
 DROP TABLE IF EXISTS grants;
 CREATE TABLE grants
