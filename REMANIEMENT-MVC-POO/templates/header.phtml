@@ -26,6 +26,9 @@
                 <li>
                     <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('forum');?>">Forum</a>
                 </li>
+                <li>
+                    <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('categories');?>">Catégories</a>
+                </li>
                 <?php if (!UserSession::isAuthenticated()): ?>
                     <li>
                     <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('connexion');?>">Connexion</a>

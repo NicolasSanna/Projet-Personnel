@@ -1,0 +1,11 @@
+<h3> Catégories </h3>
+
+<?php if (isset($categories)):?>
+
+    <?php foreach ($categories as $categorie):?>
+
+        <a class="" href="<?=buildUrl('category', ['id' => intval($categorie['id'])]);?>"><?=$categorie['category'];?></a>
+
+    <?php endforeach;?>
+
+<?php endif;?>

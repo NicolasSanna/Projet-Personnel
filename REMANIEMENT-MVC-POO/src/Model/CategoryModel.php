@@ -69,5 +69,20 @@ class CategoryModel extends AbstractModel
         return $deleteCategoryWithoutArticles;
     }
 
-    
+    public function getAllCategoriesForForum()
+    {
+        $sql = 'CALL SP_GetAllCategoriesForArticle()';
+
+        $getAllCategoriesForForum = $this->database->getAllResults($sql);
+        return $getAllCategoriesForForum;
+    }
+
+    public function getArticlesByCategory($idOfCategory)
+    {
+        $sql = 'CALL SP_GetArticlesByCategory(?)';
+
+        $getArticlesByCategory = $this->database->getAllResults($sql, [$idOfCategory]);
+
+        return $getArticlesByCategory;
+    }
 }

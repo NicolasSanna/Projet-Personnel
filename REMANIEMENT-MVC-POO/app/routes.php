@@ -107,6 +107,16 @@ $routes = [
         'path' => '/supprimercategorie',
         'controller' => 'Admin\\Administration',
         'method' => 'deleteCategory'
+    ],
+    'categories' => [
+        'path' => '/forum/categories',
+        'controller' => 'Forum',
+        'method' => 'seeAllCategories'
+    ],
+    'category' => [
+        'path' => '/forum/categorie',
+        'controller' => 'Forum',
+        'method' => 'seeOneCategoryAndArticles'
     ]
 ];
 

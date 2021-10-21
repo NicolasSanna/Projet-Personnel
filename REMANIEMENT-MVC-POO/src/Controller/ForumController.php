@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Framework\AbstractController;
 use App\Model\ArticleModel;
+use App\Model\CategoryModel;
+use App\Framework\FlashBag;
 
 class ForumController extends AbstractController
 {
@@ -15,6 +17,41 @@ class ForumController extends AbstractController
 
         return $this->render('forum', [
             'articles' => $articles
+        ]);
+   }
+
+   public function seeAllCategories()
+   {
+
+        $categoryModel = new CategoryModel();
+        $categories = $categoryModel->getAllCategoriesForForum();
+
+        return $this->render('categories', [
+            'categories' => $categories
+        ]);
+   }
+
+   public function seeOneCategoryAndArticles()
+   {
+
+        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        {
+
+            $idOfCategory = $_GET['id'];
+
+            $categoryModel = new CategoryModel();
+            $articlesByCategory = $categoryModel->getArticlesByCategory($idOfCategory);
+
+            if(empty($articlesByCategory))
+            {
+                FlashBag::addFlash('Aucun article ne correspond à cette catégorie');
+                $this->redirect('forum');
+            }
+  
+        }
+
+        return $this->render('category', [
+            'articlesByCategory' => $articlesByCategory
         ]);
    }
 }
