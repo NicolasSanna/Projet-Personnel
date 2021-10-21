@@ -50,9 +50,9 @@ class AdministrationController extends AbstractController
             $idOfUser = $_GET['id'];
 
             $userModel = new UserModel();
-            $checkIfUserExists = $userModel->getUserById($idOfUser);
+            $userInfos = $userModel->getUserById($idOfUser);
 
-            if(!$checkIfUserExists)
+            if(!$userInfos)
             {
                 FlashBag::addFlash("Cet utilisateur n'existe pas", 'error');
                 $this->redirect('adminusers');
@@ -77,7 +77,9 @@ class AdministrationController extends AbstractController
             }
             
         }
-        return $this->render('admin/deleteUser');
+        return $this->render('admin/deleteUser', [
+            'userInfos' => $userInfos
+        ]);
     }
 
     public function addCategory()
@@ -207,5 +209,52 @@ class AdministrationController extends AbstractController
             'category' => $category??'',
             'newcategory' => $newcategory??''
         ]);
+    }
+
+    public function deleteCategory()
+    {
+        if(!UserSession::administrator())
+        {
+            $this->redirect('accessRefused');
+        }
+
+        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        {
+            $idOfCategory = $_GET['id'];
+            $categoryModel = new CategoryModel();
+            $category = $categoryModel->getOneCategory($idOfCategory);
+
+            if(!$category)
+            {
+                FlashBag::addFlash("Cette catégorie n'existe pas.", 'error');
+                $this->redirect('administration');
+            }
+
+            if (!empty($_POST))
+            {
+                $choiceDelete = (int) $_POST['deleteCategory'];
+
+                if ($choiceDelete == 1)
+                {
+                    $categoryModel = new CategoryModel();
+                    $deleteCategory = $categoryModel->deleteCategory($idOfCategory);
+                    FlashBag::addFlash($deleteCategory['message']);
+                    
+                }
+                elseif ($choiceDelete == 2)
+                {
+                    $deleteCategory = $categoryModel->deleteCategoryWithoutArticles($idOfCategory);
+                    FlashBag::addFlash($deleteCategory['message']);
+                    
+                }
+                $this->redirect('administration');
+            }
+
+        }
+
+        return $this->render('admin/deleteCategory', [
+            'category' => $category
+        ]);
+
     }
 }

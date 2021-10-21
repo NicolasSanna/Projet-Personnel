@@ -1,3 +1,5 @@
+<?php if (!App\Framework\UserSession::isAuthenticated()):?>
+
 <h2>Connexion</h2>
 
 <form action="" method="POST">
@@ -11,3 +13,9 @@
         <input type="submit" value="Connexion" />
     </p>
 </form>
+
+<?php else :?>
+
+<p> Vous êtes déjà connecté. </p>
+
+<?php endif;?>

@@ -1,0 +1,10 @@
+<h3>Supprimer la catégorie <?=htmlspecialchars($category['category']);?> </h3>
+
+<form method="POST">
+    <select name="deleteCategory">
+        <option value="1">Supprimer la catégorie et ses articles associés</option>
+        <option value="2">Supprimer la catégorie en conservant les articles</option>
+    </select>
+    <button id="deleteCategory" type="submit">Supprimer</button>
+</form>
+

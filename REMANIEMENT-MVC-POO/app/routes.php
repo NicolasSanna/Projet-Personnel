@@ -102,6 +102,11 @@ $routes = [
         'path' => '/modifiercategorie',
         'controller' => 'Admin\\Administration',
         'method' => 'modifyCategory'
+    ],
+    'deletecategory' => [
+        'path' => '/supprimercategorie',
+        'controller' => 'Admin\\Administration',
+        'method' => 'deleteCategory'
     ]
 ];
 

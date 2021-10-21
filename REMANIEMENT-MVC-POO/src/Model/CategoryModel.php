@@ -50,4 +50,24 @@ class CategoryModel extends AbstractModel
 
         return $allCategoriesForArticle;
     }
+
+    public function deleteCategory($idOfCategory)
+    {
+        $sql = 'CALL SP_CategoryDelete(?)';
+
+        $deleteCategory = $this->database->getOneResult($sql, [$idOfCategory]);
+
+        return $deleteCategory;
+    }
+
+    public function deleteCategoryWithoutArticles($idOfCategory)
+    {
+        $sql = 'CALL SP_DeleteCategoryWithoutArticles(?)';
+
+        $deleteCategoryWithoutArticles = $this->database->getOneResult($sql, [$idOfCategory]);
+
+        return $deleteCategoryWithoutArticles;
+    }
+
+    
 }

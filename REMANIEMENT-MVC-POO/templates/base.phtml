@@ -43,8 +43,10 @@
     <script src="<?=asset('js/app.js');?>"></script>
 
     <?php if (UserSession::isAuthenticated()):?>
-
-        <script src="<?=asset('js/admin.js');?>"></script>
+        
+        <script src="<?=asset('js/adminuser.js');?>"></script>
+        <script src="<?=asset('js/admincategory.js');?>"></script>
+        <script src="<?=asset('js/adminarticle.js');?>"></script>
         
     <?php endif;?>
 </body>
