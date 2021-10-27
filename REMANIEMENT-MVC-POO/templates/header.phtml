@@ -43,18 +43,16 @@
                     <span class="Header-navbarbox-navbar-ul-a"> Bonjour <?=UserSession::getFirstname() . ' ' . UserSession::getLastname();?></span>
                     </li>
 
+                    <li>                      
+                        <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('administration');?>">Administration</a>
+                    </li>    
+
                     <li>                       
                         <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('deconnexion');?>">Déconnexion</a>
                     </li>
 
-                 <?php if(UserSession::isAuthenticated()):?>
-
-                    <li>                      
-                        <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('administration');?>">Administration</a>
-                    </li>
                 <?php endif;?>
 
-            <?php endif;?>
 
             </ul>
 
