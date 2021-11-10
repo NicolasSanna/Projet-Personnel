@@ -19,4 +19,9 @@ class HomeController extends AbstractController
     {
         return $this->render('accessRefused');
     }
+
+    public function notFound()
+    {
+        return $this->render('404');
+    }
 }

@@ -1,9 +1,7 @@
 <?php 
 
 /**
- * On définit le tableau des routes : on associe à chaque route un fichier PHP 
- * qui jouera la rôle de contrôleur. Par exemple pour la page d'accueil, c'est un fichier home.php
- * qui sera inclus. Pour la page Article, ce sera un fichier article.php, etc
+ * On définit le tableau des routes : on associe à chaque route une classe
  */
 $routes = [
 
@@ -117,6 +115,12 @@ $routes = [
         'path' => '/forum/categorie',
         'controller' => 'Forum',
         'method' => 'seeOneCategoryAndArticles'
+    ],
+    // Mettre cette route en tout dernier /!\
+    '404' => [
+        'path' => $_SERVER['REQUEST_URI'],
+        'controller' => 'Home',
+        'method' => 'notFound'
     ]
 ];
 
