@@ -1,6 +1,6 @@
 CREATE USER '4dm1n1str4teur'@'localhost' IDENTIFIED BY 'TODO';
 
-GRANT ALL PRIVILEGES
+GRANT EXECUTE
 ON histoire_philosophie.*
 TO '4dm1n1str4teur'@'localhost';
 
