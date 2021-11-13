@@ -6,7 +6,7 @@ use App\Framework\AbstractModel;
 
 class CommentModel extends AbstractModel
 {
-    public function addComment($comment, $userId, $articleId)
+    public function addComment(string $comment, int $userId, int $articleId)
     {
         $sql = 'CALL SP_addComment(?, ?, ?)';
 
@@ -15,7 +15,7 @@ class CommentModel extends AbstractModel
         return $insertComment;
     }
 
-    public function getAllComments($articleId)
+    public function getAllComments(int $articleId)
     {
         $sql = 'CALL SP_GetAllComments(?)';
         $getAllcomment = $this->database->getAllResults($sql, [$articleId]);

@@ -15,7 +15,7 @@ class ArticleModel extends AbstractModel
         return $articles;
     }
 
-    function getOneArticle($idOfArticle)
+    function getOneArticle(int $idOfArticle)
     {
         $sql = 'CALL SP_SelectArticle(?)';
 
@@ -24,7 +24,7 @@ class ArticleModel extends AbstractModel
         return $article;
     }
 
-    function insertArticle($title, $content, $category_id, $user_id)
+    function insertArticle(string $title, string $content, int $category_id, int $user_id)
     {
         $sql ='CALL SP_ArticleCreate(?, ?, ?, ?)';
 

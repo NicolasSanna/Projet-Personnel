@@ -6,7 +6,7 @@ use App\Framework\AbstractModel;
 
 class UserModel extends AbstractModel
 {
-    function createUser($firstname, $lastname, $pseudo, $email, $password)
+    function createUser(string $firstname, string $lastname, string $pseudo, string $email, string $password)
     {
         $sql = 'CALL SP_Inscription(?, ?, ?, ?, ?)';
 

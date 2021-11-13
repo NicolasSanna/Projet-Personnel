@@ -6,7 +6,7 @@ use App\Framework\AbstractModel;
 
 class CategoryModel extends AbstractModel
 {
-    public function getOneCategory($idOfCategory)
+    public function getOneCategory(int $idOfCategory)
     {
         $sql = 'CALL SP_CategoryRead(?)';
 
@@ -24,7 +24,7 @@ class CategoryModel extends AbstractModel
         return $categories;
     }
 
-    public function createCategory($newCategory)
+    public function createCategory(string $newCategory)
     {
         $sql = 'CALL SP_CategoryCreate(?)';
 
@@ -51,7 +51,7 @@ class CategoryModel extends AbstractModel
         return $allCategoriesForArticle;
     }
 
-    public function deleteCategory($idOfCategory)
+    public function deleteCategory(int $idOfCategory)
     {
         $sql = 'CALL SP_CategoryDelete(?)';
 
@@ -60,7 +60,7 @@ class CategoryModel extends AbstractModel
         return $deleteCategory;
     }
 
-    public function deleteCategoryWithoutArticles($idOfCategory)
+    public function deleteCategoryWithoutArticles(int $idOfCategory)
     {
         $sql = 'CALL SP_DeleteCategoryWithoutArticles(?)';
 
@@ -77,7 +77,7 @@ class CategoryModel extends AbstractModel
         return $getAllCategoriesForForum;
     }
 
-    public function getArticlesByCategory($idOfCategory)
+    public function getArticlesByCategory(int $idOfCategory)
     {
         $sql = 'CALL SP_GetArticlesByCategory(?)';
 
