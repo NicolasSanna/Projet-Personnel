@@ -4,11 +4,7 @@
 
 - Créer la table "ressources" qui contiendra le nom des fichiers (créer $_FILES à l'ajout), le titre, la clé étrangère de la catégorie, la clé étrangère de l'utilisateur qui l'a ajouté, et la date d'ajout pour les ressources documentaires. (Accès pour les inscrits, ajout pour les auteurs (réfléchir à la modification et à la suppression)). A ajouter dans le panneau d'administration.
 
-- Terminer la refactorisation en MVC-POO.
-
 - Renommer les Procédures Stockées de manière conventionnelles.
-
-- Installer les procédures stockées avec l'utilisateur créé, puis retirer tous les droits sauf celui de les exécuter.
 
 - S'occuper du CSS.
 
