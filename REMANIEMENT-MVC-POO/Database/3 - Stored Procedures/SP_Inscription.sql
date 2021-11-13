@@ -7,6 +7,7 @@ BEGIN
     DECLARE exist SMALLINT;
     DECLARE existeDelete SMALLINT;
     DECLARE v_grantId SMALLINT;
+    DECLARE existPseudo SMALLINT;
     
     SET v_grantId = 3;
 
@@ -33,7 +34,18 @@ BEGIN
 
         END IF;
 
-        IF (exist = 0) THEN
+        SELECT COUNT(id)
+        INTO existPseudo
+        FROM users
+        WHERE pseudo = LOWER(v_pseudo);
+
+        IF (existPseudo > 0) THEN
+
+            SET message = "Un autre utilisateur avec ce pseudo existe déjà.";
+        
+        END IF;
+        
+        IF (exist = 0 AND existPseudo = 0) THEN
 
             INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, inscription_date)
             VALUES
@@ -62,7 +74,20 @@ BEGIN
 
         END IF;
 
-        IF (exist = 0) THEN
+        SELECT COUNT(id)
+        INTO existPseudo
+        FROM users
+        WHERE pseudo = LOWER(v_pseudo);
+
+        IF (existPseudo > 0) THEN
+
+            SET message = "Un autre utilisateur avec ce pseudo existe déjà.";
+
+            SELECT message;
+        
+        END IF;
+
+        IF (exist = 0 AND existPseudo = 0) THEN
 
             INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, inscription_date)
             VALUES
