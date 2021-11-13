@@ -142,9 +142,9 @@ class AdministrationController extends AbstractController
         {
                 $userId = $_GET['id'];
                 $userModel = new UserModel();
-                $checkIfUserExists = $userModel->getUserById($userId);
+                $userInfos = $userModel->getUserById($userId);
 
-                if(!$checkIfUserExists)
+                if(!$userInfos)
                 {
                     FlashBag::addFlash("Cet utilisateur n'existe pas", 'error');
                     $this->redirect('adminusers');
@@ -161,7 +161,8 @@ class AdministrationController extends AbstractController
         }
         
         return $this->render('admin/modifygrantuser', [
-            'grants' => $grants
+            'grants' => $grants,
+            'userInfos' => $userInfos
         ]);
     }
 
