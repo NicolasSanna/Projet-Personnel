@@ -1,4 +1,4 @@
-USE histoire_philosophie;
+USE huma_scientio;
 
 TRUNCATE grants;
 INSERT INTO grants (id, privilege)
