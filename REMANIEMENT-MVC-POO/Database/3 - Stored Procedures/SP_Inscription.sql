@@ -42,6 +42,8 @@ BEGIN
         IF (existPseudo > 0) THEN
 
             SET message = "Un autre utilisateur avec ce pseudo existe déjà.";
+
+            SELECT message;
         
         END IF;
         
