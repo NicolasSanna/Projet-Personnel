@@ -7,8 +7,7 @@
             <h1 class="Header-container-boxtitle-box-h1">Huma Scientio</h1>
             <p class="Header-container-boxtitle-box-p">Les Voyages du Temps et de l'Esprit</p>
             <a class ="Header-container-boxtitle-box-a" href="<?=buildUrl('forum');?>"> Voir nos derniers articles</a>
-            </div>
-            
+            </div>      
         </div>
     </div>
 
@@ -18,8 +17,11 @@
             <span class="Header-navbarbox-burgerOn-burger" id="burger">☰</span>
             <span class="Header-navbarbox-burgerOn-cross" id="cross">✖</span>
         </div>
+
         <div class ="Header-navbarbox-navbar">
-                <ul class="Header-navbarbox-navbar-ul">
+
+            <ul class="Header-navbarbox-navbar-ul">
+
                 <li>
                     <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('homepage');?>">Accueil</a>
                 </li>
@@ -30,17 +32,18 @@
                     <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('categories');?>">Catégories</a>
                 </li>
                 <?php if (!UserSession::isAuthenticated()): ?>
+
                     <li>
-                    <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('connexion');?>">Connexion</a>
+                        <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('connexion');?>">Connexion</a>
                     </li>
                     <li>
-                    <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('signup');?>">Créer un compte</a>
+                        <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('signup');?>">Créer un compte</a>
                     </li>
                 
                 <?php else: ?>
                     
                     <li>
-                    <span class="Header-navbarbox-navbar-ul-a"> Bonjour <?=UserSession::getFirstname() . ' ' . UserSession::getLastname();?></span>
+                        <span class="Header-navbarbox-navbar-ul-a"> Bonjour <?=UserSession::getFirstname() . ' ' . UserSession::getLastname();?></span>
                     </li>
 
                     <li>                      
@@ -52,7 +55,6 @@
                     </li>
 
                 <?php endif;?>
-
 
             </ul>
 

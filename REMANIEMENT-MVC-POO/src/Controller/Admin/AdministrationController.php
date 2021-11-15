@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Framework\AbstractController;
 use App\Framework\FlashBag;
 use App\Model\CategoryModel;
-use App\Model\ArticleModel;
 use App\Framework\UserSession;
 use App\Model\UserModel;
 use App\Model\GrantModel;
@@ -140,24 +139,24 @@ class AdministrationController extends AbstractController
 
         if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
         {
-                $userId = $_GET['id'];
-                $userModel = new UserModel();
-                $userInfos = $userModel->getUserById($userId);
+            $userId = $_GET['id'];
+            $userModel = new UserModel();
+            $userInfos = $userModel->getUserById($userId);
 
-                if(!$userInfos)
-                {
-                    FlashBag::addFlash("Cet utilisateur n'existe pas", 'error');
-                    $this->redirect('adminusers');
-                }
+            if(!$userInfos)
+            {
+                FlashBag::addFlash("Cet utilisateur n'existe pas", 'error');
+                $this->redirect('adminusers');
+            }
 
-                if(!empty($_POST))
-                {
-                    $grantId = (int) $_POST['grants'];
+            if(!empty($_POST))
+            {
+                $grantId = (int) $_POST['grants'];
 
-                    $userChangeGrantModel = new UserModel();
-                    $changeGrant = $userChangeGrantModel->changeGrant($userId, $grantId);
-                    FlashBag::addFlash($changeGrant['message']);
-                }
+                $userChangeGrantModel = new UserModel();
+                $changeGrant = $userChangeGrantModel->changeGrant($userId, $grantId);
+                FlashBag::addFlash($changeGrant['message']);
+            }
         }
         
         return $this->render('admin/modifygrantuser', [
@@ -200,7 +199,6 @@ class AdministrationController extends AbstractController
                     $modifycategory = $categoryModel->modifyCategory($idOfCategory, $newcategory);
                     FlashBag::addFlash($modifycategory['message']);
                     $this->redirect('modifycategory', ['id' => $category['id']]);
-
                 }
             }
 

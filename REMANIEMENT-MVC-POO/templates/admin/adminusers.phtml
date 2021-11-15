@@ -1,7 +1,5 @@
 <h1>Gérer les utilisateurs</h1>
 
-
-
 <table>
 
     <tr>
@@ -32,9 +30,7 @@
                 <td><a href="<?=buildUrl('modifygrantuser', ['id' => intval($userInfos['userId'])]);?>">Modifier le rôle</a></td>
                 <td><a href="<?=buildUrl('deleteUser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
             </tr>
-
-
-            
+          
         <?php endforeach;?>
 
 </table>

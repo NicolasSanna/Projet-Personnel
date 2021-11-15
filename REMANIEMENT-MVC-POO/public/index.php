@@ -11,12 +11,6 @@ require '../library/functions.php';
 
 use App\Framework\Router;
 
-/**
- * On récupère le chemin de l'URL (le "path")
- * /!\ Attention /!\ si on est sur la page d'accueil et qu'il n'y a pas de path, 
- * la clé 'PATH_INFO' n'existe pas dans le tableau $_SERVER. Il faut donc vérifier son existence.
- */ 
-
 $fullPath = $_SERVER['REQUEST_URI'] ?? '/';
 $path = explode('?', $fullPath)[0];
 

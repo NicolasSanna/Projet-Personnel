@@ -11,15 +11,16 @@
 
        <?php foreach ($categories as $categorie):?>
 
-        <tr>
-            <td><?=$categorie['id'];?></td>
-            <td><?=$categorie['category'];?></td>
-            <!-- A FAIRE -->
-            <td><a href="<?=buildUrl('modifycategory', ['id' => intval($categorie['id'])]);?>">Modifier </a></td>
-            <td><a href="<?=buildUrl('deletecategory', ['id' => intval($categorie['id'])]);?>">Supprimer</a></td>
-        </tr>
+            <tr>
+                <td><?=$categorie['id'];?></td>
+                <td><?=$categorie['category'];?></td>
+                <!-- A FAIRE -->
+                <td><a href="<?=buildUrl('modifycategory', ['id' => intval($categorie['id'])]);?>">Modifier </a></td>
+                <td><a href="<?=buildUrl('deletecategory', ['id' => intval($categorie['id'])]);?>">Supprimer</a></td>
+            </tr>
 
         <?php endforeach;?>
 
     <?php endif;?>
+
 </table>

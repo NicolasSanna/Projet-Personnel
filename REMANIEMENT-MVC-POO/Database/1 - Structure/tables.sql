@@ -45,10 +45,10 @@ CREATE TABLE articles
     PRIMARY KEY (id),
     CONSTRAINT fk_user_article
     FOREIGN KEY (user_id)
-    REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
+        REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_category_article
     FOREIGN KEY (category_id)
-    REFERENCES categories (id) ON DELETE CASCADE ON UPDATE CASCADE
+        REFERENCES categories (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB ;
 
 DROP TABLE IF EXISTS comments;
@@ -62,8 +62,8 @@ CREATE TABLE comments
     PRIMARY KEY (id),
     CONSTRAINT fk_user_com
     FOREIGN KEY (user_id)
-    REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
+        REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_article_com
     FOREIGN KEY (article_id)
-    REFERENCES articles (id) ON DELETE CASCADE ON UPDATE CASCADE
+        REFERENCES articles (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB ;

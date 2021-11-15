@@ -1,29 +1,49 @@
-let burger = document.getElementById('burger');
-let cross = document.getElementById('cross')
-let menu = document.querySelector('.Header-navbarbox-navbar')
 
-burger.addEventListener('click', function()
+function burgerManager()
 {
-
-    if (!menu.style.display || menu.style.display == 'none')
+    this.construct = function()
     {
-        menu.style.display = 'block';
-        cross.style.display = 'block';
-        burger.style.display = 'none';
+        let burger = document.getElementById('burger');
+        let cross = document.getElementById('cross')
         
-        return;
-    }
-})
+        burger.addEventListener('click', this.burgerEvent);
 
-cross.addEventListener('click', function()
-{
+        cross.addEventListener('click', this.crossEvent);
+    };
 
-    if (menu.style.display || menu.style.display == 'block')
+
+    this.burgerEvent = function()
     {
-        menu.style.display = 'none';
-        cross.style.display = 'none';
-        burger.style.display = 'block';
-        
-        return;
+        let burger = document.getElementById('burger');
+        let cross = document.getElementById('cross')
+        let menu = document.querySelector('.Header-navbarbox-navbar')
+        if (!menu.style.display || menu.style.display == 'none')
+        {
+            menu.style.display = 'block';
+            cross.style.display = 'block';
+            burger.style.display = 'none';
+            
+            return;
+        }
     }
-})
+
+    this.crossEvent = function () 
+    {
+ 
+        let burger = document.getElementById('burger');
+        let cross = document.getElementById('cross')
+        let menu = document.querySelector('.Header-navbarbox-navbar')
+        if (menu.style.display || menu.style.display == 'block')
+        {
+            menu.style.display = 'none';
+            cross.style.display = 'none';
+            burger.style.display = 'block';
+            
+            return;
+        }
+    }
+
+    this.construct();
+}
+
+burger = new burgerManager();

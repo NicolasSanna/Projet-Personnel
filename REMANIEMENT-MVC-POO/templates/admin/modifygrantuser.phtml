@@ -1,12 +1,12 @@
 <h3>Modifier les privilèges utilisateurs de <?=htmlspecialchars($userInfos['pseudo']);?></h3>
 
 <form action="" method="POST">
-<select name="grants" id="">
-    <?php if (isset($grants)):?>
-        <?php foreach ($grants as $grant):?>
-            <option value="<?=$grant['id'];?>"><?=$grant['privilege'];?></option>
-        <?php endforeach;?>
-    <?php endif;?>
-</select>
-<input type="submit" value="Changer le rôle de l'utilisateur" />
+        <select name="grants" id="">
+            <?php if (isset($grants)):?>
+                <?php foreach ($grants as $grant):?>
+                    <option value="<?=$grant['id'];?>"><?=$grant['privilege'];?></option>
+                <?php endforeach;?>
+            <?php endif;?>
+        </select>
+    <input type="submit" value="Changer le rôle de l'utilisateur" />
 </form>
