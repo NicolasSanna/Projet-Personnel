@@ -1,7 +1,17 @@
 CREATE USER '4dm1n1str4teur'@'localhost' IDENTIFIED BY 'TODO';
 
+-- Phase de développement :
+
+GRANT ALL PRIVILEGES
+ON huma_scientio.*
+TO '4dm1n1str4teur'@'localhost';
+
+FLUSH PRIVILEGES ;
+
+-- Après :
+
 GRANT EXECUTE
-ON histoire_philosophie.*
+ON huma_scientio.*
 TO '4dm1n1str4teur'@'localhost';
 
 FLUSH PRIVILEGES ;
