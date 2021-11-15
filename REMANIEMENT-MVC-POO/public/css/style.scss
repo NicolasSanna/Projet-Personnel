@@ -157,6 +157,7 @@
                 border:solid black 1px;
                 padding:15px;
                 color:black;
+                color:peru;
                 &:visited
                 {
                     color:black;
@@ -194,6 +195,7 @@
     }
 }
 
+// ARTICLE
 .Article
 {
     padding-left:10px;
@@ -211,7 +213,7 @@
     {
         &-link
         {
-
+            color:peru;
                 text-decoration:none;
                 &:visited
                 {
