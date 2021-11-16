@@ -19,6 +19,12 @@ table thead tr
     background: #412F10;
 }
 
+td a
+{
+    text-decoration:none;
+    color: peru;
+}
+
 table thead tr th 
 {
     font-family: 'Open Sans';

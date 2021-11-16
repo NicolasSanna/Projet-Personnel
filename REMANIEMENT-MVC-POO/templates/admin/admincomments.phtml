@@ -20,7 +20,7 @@
 
     <tr>
         <td><?= $commentNotApprouved['id'];?></td>
-        <td><?= htmlspecialchars($commentNotApprouved['title']) ;?></td>
+        <td><a href="<?=buildUrl('article', ['id' => $commentNotApprouved['article_id']]);?>"><?= htmlspecialchars($commentNotApprouved['title']) ;?></a></td>
         <td><?= $commentNotApprouved['content'];?></td>
         <td><?= (new DateTimeImmutable($commentNotApprouved['date_publication']))->format('d/m/Y');?></td>
         <td><a href="<?=buildUrl('commentApprouved', ['id' => $commentNotApprouved['id']]);?>">Approuver</a></td>
