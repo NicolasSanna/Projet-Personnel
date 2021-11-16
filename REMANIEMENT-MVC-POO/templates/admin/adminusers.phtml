@@ -28,8 +28,8 @@
                 <td><?= (new DateTimeImmutable($userInfos['inscription_date']))->format('d/m/Y');?></td>
                 <td><?= $userInfos['number_articles'];?></td>
                 <td><?= htmlspecialchars($userInfos['privilege']);?></td>
-                <td><a href="<?= buildUrl('modifygrantuser', ['id' => intval($userInfos['userId'])]);?>">Modifier le rôle</a></td>
-                <td><a href="<?= buildUrl('deleteUser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
+                <td><a id="a-modify" href="<?= buildUrl('modifygrantuser', ['id' => intval($userInfos['userId'])]);?>">Modifier le rôle</a></td>
+                <td><a id="a-delete" href="<?= buildUrl('deleteUser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
             </tr>
           
         <?php endforeach;?>

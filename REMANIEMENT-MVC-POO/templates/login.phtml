@@ -1,21 +1,21 @@
 <?php if (!App\Framework\UserSession::isAuthenticated()):?>
 
-<h2>Connexion</h2>
+    <h2>Connexion</h2>
 
-<form action="" method="POST">
+    <form action="" method="POST">
 
-    <label for="email">Votre e-mail : </label>
-    <input type="email" name="email" id="email" value="<?=$email;?>">
-        <br />
-    <label for="password">Votre mot de passe : </label>
-    <input type="password" name="password" id="password">
-        <br />
-    <input type="submit" value="Connexion" />
-   
-</form>
+        <label for="email">Votre e-mail : </label>
+        <input type="email" name="email" id="email" value="<?=$email;?>">
+            <br />
+        <label for="password">Votre mot de passe : </label>
+        <input type="password" name="password" id="password">
+            <br />
+        <input type="submit" value="Connexion" />
+    
+    </form>
 
 <?php else :?>
 
-<p> Vous êtes déjà connecté. </p>
+    <p> Vous êtes déjà connecté. </p>
 
 <?php endif;?>

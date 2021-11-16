@@ -10,4 +10,6 @@
 
 - Continuer d'écrire le dossier professionnel et le dossier projet.
 
+- Ajouter une table "comment_validate" avec deux entrées (1, non validé, 2, validé) afin de gérer la validation des commentaires. Puis mettre cette clé entrangère dans la table comments et modifier les procédures stockées en fonction. (Afficher tous les commentaires SAUF ceux qui ne sont pas validés), et dans l'admin : afficher tous les commentaires SAUF ceux qui ne sont pas validés. 
+
 - Renommer la BDD en "Huma Scientio" /!\

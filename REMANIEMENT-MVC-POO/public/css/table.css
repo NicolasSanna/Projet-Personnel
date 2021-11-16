@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-table{
+table
+{
     border-collapse: collapse;
     background: #fff;
     border-radius: 10px;
@@ -12,48 +13,87 @@ table{
     box-shadow: 3px 6px 9px 0px rgba(0,0,0,0.3);
 }
 
-table thead tr {
+table thead tr 
+{
     height: 60px;
     background: #412F10;
 }
 
-table thead tr th {
+table thead tr th 
+{
     font-family: 'Open Sans';
     font-size: 18px;
     color: #fff;
     line-height: 1.2;
     font-weight: 600;
+    text-align: center;
+    padding-left: 20px;
+    padding-right:20px;
 }
 
-table thead tr th:first-child {
+table thead tr th:first-child 
+{
     padding-left: 40px;
 }
 
-table thead tr th:last-child {
+table thead tr th:last-child 
+{
     padding-right: 40px;
 }
 
-tbody tr {
+tbody tr 
+{
     font-family: 'Open Sans';
     font-size: 15px;
     color: gray;
     line-height: 1.2;
     font-weight: unset;
     height: 40px;
+
 }
 
-table td, table th {
-    text-align: left;
+table td, table th 
+{
+    text-align: center;
+
 }
 
-tbody tr td:first-child {
-    padding-left: 40px;
+tbody tr td:first-child 
+{
+    padding-left:10px;
 }
 
-tbody tr td:last-child {
-    padding-right: 40px;
+tbody tr td:last-child 
+{
+    
 }
 
-tbody tr:nth-child(even) {
+tbody tr:nth-child(even) 
+{
     background-color: #f5f5f5;
+}
+
+#a-delete
+{
+    color:darkred;
+    text-decoration:none;
+    padding-right: 20px;
+    padding-left:20px;
+
+}
+
+#a-modify
+{
+    color:peru;
+    text-decoration:none;
+    padding-right: 20px;
+    padding-left:20px;
+}
+
+tbody tr td
+{
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
