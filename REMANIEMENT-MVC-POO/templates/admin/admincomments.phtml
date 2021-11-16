@@ -1,0 +1,35 @@
+<h3>Gérer les commentaires</h3>
+
+<p><a href="<?=buildUrl('allCommentsApprouved');?>">Approuver tous les commentaires</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre de l'article</th>
+            <th>Commentaire</th>
+            <th>Date</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    <?php if (isset($commentsNotApprouved)):?>
+
+        <?php foreach ($commentsNotApprouved as $commentNotApprouved):?>
+
+    <tr>
+        <td><?= $commentNotApprouved['id'];?></td>
+        <td><?= htmlspecialchars($commentNotApprouved['title']) ;?></td>
+        <td><?= $commentNotApprouved['content'];?></td>
+        <td><?= (new DateTimeImmutable($commentNotApprouved['date_publication']))->format('d/m/Y');?></td>
+        <td><a href="<?=buildUrl('commentApprouved', ['id' => $commentNotApprouved['id']]);?>">Approuver</a></td>
+        <td><a href="<?=buildUrl('commentDelete', ['id' => $commentNotApprouved['id']]);?>">Supprimer</a></td>
+    </tr>
+
+        <?php endforeach;?>
+
+    <?php endif;?>
+
+    </tbody>
+</table>

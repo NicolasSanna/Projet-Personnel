@@ -21,4 +21,42 @@ class CommentModel extends AbstractModel
         $getAllcomment = $this->database->getAllResults($sql, [$articleId]);
         return $getAllcomment;
     }
+
+    public function getAllCommentsNotApprouved()
+    {
+        $sql = 'CALL SP_GetAllCommentsNotApprouved ()';
+
+        $getAllCommentsNotApprouved = $this->database->getAllResults($sql);
+
+        return $getAllCommentsNotApprouved;
+    }
+
+    public function getOneComment(int $commentId)
+    {
+        $sql = 'CALL SP_GetOneComment(?)';
+        $getOneComment = $this->database->getOneResult($sql, [$commentId]);
+
+        return $getOneComment;
+    }
+
+    public function commentApprouved(int $commentId)
+    {
+        $sql = 'CALL SP_CommentApprouved(?)';
+
+        $approuvedComment = $this->database->executeQuery($sql, [$commentId]);
+    }
+
+    public function commentDelete(int $commentId)
+    {
+        $sql = 'CALL SP_CommentDelete(?)';
+
+        $deleteComment = $this->database->executeQuery($sql, [$commentId]);
+    }
+
+    public function AllCommentsApprouved()
+    {
+        $sql = 'CALL SP_AllCommentsApprouved ()';
+
+        $allCommentsApprouved = $this->database->executeQuery($sql);
+    }
 }

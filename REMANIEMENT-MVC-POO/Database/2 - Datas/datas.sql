@@ -13,3 +13,8 @@ VALUES
 INSERT INTO users (id, firstname, lastname, pseudo, email, password, inscription_date, grant_id)
 VALUES 
 (1, 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', NOW(), 3);
+
+INSERT INTO status (id, label)
+VALUES
+(1, "En attente d'approbation"),
+(2, "Approuvé");

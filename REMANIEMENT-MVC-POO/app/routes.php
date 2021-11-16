@@ -116,6 +116,26 @@ $routes = [
         'controller' => 'Forum',
         'method' => 'seeOneCategoryAndArticles'
     ],
+    'commentsAdministration' => [
+        'path' => '/administration/commentaires',
+        'controller' => 'Admin\\Administration',
+        'method' => 'adminCommentsNotApprouved'
+    ],
+    'commentApprouved' => [
+        'path' => '/administration/approuvercommentaire',
+        'controller' => 'Admin\\Administration',
+        'method' => 'commentApprouved'
+    ],
+    'commentDelete' => [
+        'path' => '/administration/supprimercommentaire',
+        'controller' => 'Admin\\Administration',
+        'method' => 'commentRefused'
+    ],
+    'allCommentsApprouved' => [
+        'path' => '/administration/approuvertouslescommentaires',
+        'controller' => 'Admin\\Administration',
+        'method' => 'AllCommentsApprouved'
+    ],
     // Mettre cette route en tout dernier /!\
     '404' => [
         'path' => $_SERVER['REQUEST_URI'],

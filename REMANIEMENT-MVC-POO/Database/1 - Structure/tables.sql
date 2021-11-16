@@ -8,6 +8,14 @@ CREATE TABLE grants
     PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
+DROP TABLE IF EXISTS status;
+CREATE TABLE status
+(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    label VARCHAR(128) NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
 DROP TABLE IF EXISTS users;
 CREATE TABLE users
 (
@@ -58,6 +66,7 @@ CREATE TABLE comments
     content TEXT NOT NULL,
     user_id INT(11) NOT NULL,
     article_id INT(11) NOT NULL,
+    status_id INT(11) NOT NULL,
     date_publication DATETIME NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_user_com
@@ -65,5 +74,8 @@ CREATE TABLE comments
         REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_article_com
     FOREIGN KEY (article_id)
-        REFERENCES articles (id) ON DELETE CASCADE ON UPDATE CASCADE
+        REFERENCES articles (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_status_com
+    FOREIGN KEY (status_id)
+        REFERENCES status (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB ;

@@ -8,6 +8,7 @@ use App\Model\CategoryModel;
 use App\Framework\UserSession;
 use App\Model\UserModel;
 use App\Model\GrantModel;
+use App\Model\CommentModel;
 
 class AdministrationController extends AbstractController
 {
@@ -255,5 +256,95 @@ class AdministrationController extends AbstractController
             'category' => $category
         ]);
 
+    }
+
+    public function adminCommentsNotApprouved()
+    {
+        if(!UserSession::administrator())
+        {
+            $this->redirect('accessRefused');
+        }
+
+        $commentModel = new CommentModel();
+        $commentsNotApprouved = $commentModel->getAllCommentsNotApprouved();
+
+        return $this->render('admin/admincomments', [
+            'commentsNotApprouved' => $commentsNotApprouved
+        ]);
+    }
+
+    public function commentApprouved()
+    {
+        if(!UserSession::administrator())
+        {
+            $this->redirect('accessRefused');
+        }
+
+        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        {
+            $idOfComment = $_GET['id'];
+
+            $commentModel = new CommentModel();
+            $checkIfCommentExist = $commentModel->getOneComment($idOfComment);
+
+            if(!$checkIfCommentExist)
+            {
+                FlashBag::addFlash("Ce commentaire n'existe pas", 'error');
+                $this->redirect('commentsAdministration');
+            }
+            else
+            {
+                $commentApprouved = $commentModel->commentApprouved($idOfComment);
+                FlashBag::addFlash("Ce commentaire a été approuvé", 'success');
+                $this->redirect('commentsAdministration');
+            }
+
+        }
+
+
+    }
+
+    public function commentRefused()
+    {
+        if(!UserSession::administrator())
+        {
+            $this->redirect('accessRefused');
+        }
+
+        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        {
+
+            $idOfComment = $_GET['id'];
+
+            $commentModel = new CommentModel();
+            $checkIfCommentExist = $commentModel->getOneComment($idOfComment);
+
+            if(!$checkIfCommentExist)
+            {
+                $commentApprouved = $commentModel->commentApprouved($idOfComment);
+                FlashBag::addFlash("Ce commentaire n'existe pas.", 'error');
+                $this->redirect('commentsAdministration');
+            }
+            else
+            {
+                $deleteComment = $commentModel->commentDelete($idOfComment);
+                FlashBag::addFlash("Ce commentaire a été supprimé.", 'success');
+                $this->redirect('commentsAdministration');
+            }
+        }
+
+    }
+
+    public function AllCommentsApprouved()
+    {
+        if(!UserSession::administrator())
+        {
+            $this->redirect('accessRefused');
+        }
+
+        $commentModel = new CommentModel();
+        $allCommentsApprouved = $commentModel->AllCommentsApprouved();
+        FlashBag::addFlash("Tous les commentaires ont été approuvés", 'success');
+        $this->redirect('commentsAdministration');
     }
 }
