@@ -228,6 +228,113 @@
   text-align: center;
 }
 
+.Footer {
+  background-color: black;
+}
+
+.Footer-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-bottom: 20px;
+}
+
+.Footer-box-copyrights {
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.Footer-box-section1-title {
+  font-weight: normal;
+  color: white;
+}
+
+.Footer-box-section1-informations {
+  text-align: justify;
+}
+
+.Footer-box-hr {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.Footer-box-section2 {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: center;
+}
+
+.Footer-box-section2-link {
+  text-decoration: none;
+  color: #505050;
+}
+
+.Footer-box-section2-link:hover {
+  color: peru;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.Footer-box-section2-left {
+  padding-left: 20%;
+}
+
+.Footer-box-section2-right {
+  padding-right: 20%;
+}
+
+.Footer-box-section2-title {
+  font-weight: normal;
+  color: white;
+}
+
+.Footer-box-section2-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 730px) {
+  .Footer-box {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .Footer-box-section2 {
+    margin-right: 0px;
+    margin-left: 20px;
+  }
+  .Footer-box-section2-left {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .Footer-box-section2-right {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 20px;
+  }
+}
+
 @media screen and (min-width: 880px) {
   .Header-navbarbox {
     margin-top: 0px;
