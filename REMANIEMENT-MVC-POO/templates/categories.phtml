@@ -4,7 +4,7 @@
 
     <?php foreach ($categories as $categorie):?>
 
-        <a class="" href="<?=buildUrl('category', ['id' => intval($categorie['id'])]);?>"><?=$categorie['category'];?></a>
+        <a class="" href="<?=buildUrl('category', ['id' => intval($categorie['id'])]);?>"><?=htmlspecialchars($categorie['category']);?></a>
 
     <?php endforeach;?>
 

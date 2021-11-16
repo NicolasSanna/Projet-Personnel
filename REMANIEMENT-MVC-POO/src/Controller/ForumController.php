@@ -44,7 +44,7 @@ class ForumController extends AbstractController
 
             if(empty($articlesByCategory))
             {
-                FlashBag::addFlash('Aucun article ne correspond à cette catégorie');
+                FlashBag::addFlash("Il n'y a aucun article encore dans cette catégorie.", 'error');
                 $this->redirect('forum');
             }
   

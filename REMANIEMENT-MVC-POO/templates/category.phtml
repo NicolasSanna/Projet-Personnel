@@ -1,8 +1,8 @@
-<h3>Categorie : <?=$articlesByCategory[0]['category'];?></h3>
+<h3>Categorie : <?= $articlesByCategory[0]['category'];?></h3>
 
 <div class="Forum-list">
 
-    <?php if (isset($articlesByCategory)):?>
+    <?php if (!empty($articlesByCategory)):?>
 
         <?php foreach ($articlesByCategory as $articleByCategory):?>
 
@@ -10,17 +10,17 @@
 
             <div class="Forum-list-article">
 
-                <h3 class="Forum-list-article-title"><?=htmlspecialchars($articleByCategory['title']);?></h3>
+                <h3 class="Forum-list-article-title"><?= htmlspecialchars($articleByCategory['title']);?></h3>
 
                 <p class="Forum-list-article-content"><?=mb_substr($articleByCategory['content'], 0, 150);?> [...] </p>
 
-                <p class="Forum-list-article-pseudo">Écrit par : <?=htmlspecialchars($articleByCategory['pseudo']);?></p>
+                <p class="Forum-list-article-pseudo">Écrit par : <?= htmlspecialchars($articleByCategory['pseudo']);?></p>
 
                 <p class="Forum-list-article-date">Date de publication : Le <?= (new DateTimeImmutable($articleByCategory['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($articleByCategory['creation_date']))->format('H:i');?></p>
 
                 <p class="Forum-list-article-category">Catégorie : <a class="Forum-list-article-category-link" href="<?=buildUrl('category', ['id' => intval($articleByCategory['id_category'])]);?>"><?=htmlspecialchars($articleByCategory['category']);?></a></p>
 
-                <a class="Forum-list-article-link" href="<?=buildUrl('article', ['id' => intval($articleByCategory['id_article'])]);?>">Lire la suite</a>
+                <a class="Forum-list-article-link" href="<?= buildUrl('article', ['id' => intval($articleByCategory['id_article'])]);?>">Lire la suite</a>
 
             </div>
 

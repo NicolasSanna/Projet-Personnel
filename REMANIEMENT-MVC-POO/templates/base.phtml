@@ -12,6 +12,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
     <title><?=$pageTitle??'';?></title>
     <link rel="stylesheet" href="<?=asset('css/style.css');?>">
+    <link rel="stylesheet" href="<?=asset('css/table.css');?>">
 
 </head>
     <body class="Body">
@@ -40,13 +41,13 @@
 
         <?php require TEMPLATE_DIR . '/footer.phtml';?>
 
-            <script src="<?=asset('js/app.js');?>"></script>
+            <script src="<?= asset('js/app.js');?>"></script>
 
         <?php if (UserSession::isAuthenticated()):?>
             
-            <script src="<?=asset('js/adminuser.js');?>"></script>
-            <script src="<?=asset('js/admincategory.js');?>"></script>
-            <script src="<?=asset('js/adminarticle.js');?>"></script>
+            <script src="<?= asset('js/adminuser.js');?>"></script>
+            <script src="<?= asset('js/admincategory.js');?>"></script>
+            <script src="<?= asset('js/adminarticle.js');?>"></script>
             
         <?php endif;?>
         

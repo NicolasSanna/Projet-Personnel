@@ -1,7 +1,7 @@
 <h1>Gérer les utilisateurs</h1>
 
 <table>
-
+<thead>
     <tr>
         <th>Identifiant</th>
         <th>Nom</th>
@@ -13,26 +13,27 @@
         <th>Rôle</th>
         <th colspan="2">Actions</th>
     </tr>
-
+    </thead>
+    <tbody>
     <?php if (isset($usersInfos)):?>
 
         <?php foreach ($usersInfos as $userInfos):?>
 
             <tr>
-                <td><?=$userInfos['userId'];?></td>
-                <td><?=$userInfos['lastname'];?></td>
-                <td><?=$userInfos['firstname'];?></td>
-                <td><?=$userInfos['email'];?></td>
-                <td><?=$userInfos['pseudo'];?></td>
-                <td><?=(new DateTimeImmutable($userInfos['inscription_date']))->format('d/m/Y');?></td>
-                <td><?=$userInfos['number_articles'];?></td>
-                <td><?=$userInfos['privilege'];?></td>
-                <td><a href="<?=buildUrl('modifygrantuser', ['id' => intval($userInfos['userId'])]);?>">Modifier le rôle</a></td>
-                <td><a href="<?=buildUrl('deleteUser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
+                <td><?= htmlspecialchars($userInfos['userId']);?></td>
+                <td><?= ($userInfos['lastname']);?></td>
+                <td><?= htmlspecialchars($userInfos['firstname']);?></td>
+                <td><?= htmlspecialchars($userInfos['email']);?></td>
+                <td><?= htmlspecialchars($userInfos['pseudo']);?></td>
+                <td><?= (new DateTimeImmutable($userInfos['inscription_date']))->format('d/m/Y');?></td>
+                <td><?= $userInfos['number_articles'];?></td>
+                <td><?= htmlspecialchars($userInfos['privilege']);?></td>
+                <td><a href="<?= buildUrl('modifygrantuser', ['id' => intval($userInfos['userId'])]);?>">Modifier le rôle</a></td>
+                <td><a href="<?= buildUrl('deleteUser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
             </tr>
           
         <?php endforeach;?>
-
+        </tbody>
 </table>
 
 <?php endif;?>
