@@ -110,7 +110,7 @@ class ArticleController extends AbstractController
                     if(!empty($_POST))
                     {
                         $newtitle = htmlspecialchars(trim($_POST['title']));
-                        $newcontent = htmlspecialchars(trim($_POST['content']));
+                        $newcontent = trim(nl2br(htmlspecialchars($_POST['content'])));
                         $category = (int) $_POST['categories'];
         
                         if (!$newtitle || !$newcontent || !$category)
