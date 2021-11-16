@@ -37,7 +37,7 @@ $routes = [
         'method' => 'logout'
     ],
     'newarticle' => [
-        'path' => '/admin/new',
+        'path' => '/forum/creerunarticle',
         'controller' => 'Admin\\Article',
         'method' => 'new'
     ],
