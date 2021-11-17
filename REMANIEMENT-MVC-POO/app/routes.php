@@ -1,5 +1,8 @@
 <?php 
 
+// Gestion de l'erreur d'URL avec le ?.
+$fullPath = $_SERVER['REQUEST_URI'] ?? '/';
+$path = explode('?', $fullPath)[0];
 /**
  * On définit le tableau des routes : on associe à chaque route une classe
  */
@@ -136,9 +139,9 @@ $routes = [
         'controller' => 'Admin\\Administration',
         'method' => 'AllCommentsApprouved'
     ],
-    // Mettre cette route en tout dernier /!\
+    // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
-        'path' => $_SERVER['REQUEST_URI'],
+        'path' => $path,
         'controller' => 'Home',
         'method' => 'notFound'
     ]
