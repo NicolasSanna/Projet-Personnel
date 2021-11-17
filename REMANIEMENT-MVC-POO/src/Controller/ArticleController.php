@@ -20,6 +20,7 @@ class ArticleController extends AbstractController
 
             $article = $articleModel->getOneArticle($idOfArticle);
 
+
             $commentModel = new CommentModel();
             $comments = $commentModel->getAllcomments($idOfArticle);
 
@@ -35,6 +36,10 @@ class ArticleController extends AbstractController
                 FlashBag::addFlash('Aucun article ne correspond à cet identifiant.');
                 return $this->redirect('forum');
             }
+        }
+        else
+        {
+            $this->redirect('forum');
         }
     }
 
@@ -68,7 +73,7 @@ class ArticleController extends AbstractController
                     {
                         $commentModel = new CommentModel();
                         $insertComment = $commentModel->addComment($comment, $user_id, $idOfArticle);
-                        FlashBag::addFlash("Votre commentaire a bien été ajouté !", "error");
+                        FlashBag::addFlash("Votre commentaire a bien été pris en compte. Il sera visible prochainement.", "error");
     
                     }
                 }

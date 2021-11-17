@@ -33,7 +33,7 @@ class ArticleController extends AbstractController
                     $articleModel = new ArticleModel();
                     $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user);
 
-                    FlashBag::addFlash("Votre article a bien été ajouté !", 'success');
+                    FlashBag::addFlash("Votre article a bien été ajouté. Il sera validé prochainement !", 'success');
                 }
             }      
             
