@@ -1,8 +1,5 @@
 <?php 
 
-// Gestion de l'erreur d'URL avec le ?.
-$fullPath = $_SERVER['REQUEST_URI'] ?? '/';
-$path = explode('?', $fullPath)[0];
 /**
  * On définit le tableau des routes : on associe à chaque route une classe
  */
