@@ -49,6 +49,12 @@ class ForumController extends AbstractController
             }
   
         }
+        else
+        {
+
+            $this->redirect('forum');
+
+        }
 
         return $this->render('category', [
             'articlesByCategory' => $articlesByCategory

@@ -48,6 +48,12 @@ class ArticleController extends AbstractController
                 
                 $articleModel = new ArticleModel();
                 $article = $articleModel->getOneArticle($idOfArticle);
+
+                if(!$article)
+                {
+                    FlashBag::addFlash("Aucun article trouvé", 'error');
+                    $this->redirect('forum');
+                }
     
                 if(!empty($_POST))
                 {
@@ -68,6 +74,10 @@ class ArticleController extends AbstractController
                 }
 
                 $this->redirect('article', ['id' => $article['id']]);
+            }
+            else
+            {
+                $this->redirect('forum');
             }
         }
 

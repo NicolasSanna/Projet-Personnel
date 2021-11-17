@@ -77,6 +77,10 @@ class AdministrationController extends AbstractController
             }
             
         }
+        else
+        {
+            $this->redirect('administration');
+        }
         return $this->render('admin/deleteUser', [
             'userInfos' => $userInfos
         ]);
@@ -159,6 +163,10 @@ class AdministrationController extends AbstractController
                 FlashBag::addFlash($changeGrant['message']);
             }
         }
+        else
+        {
+            $this->redirect('administration');
+        }
         
         return $this->render('admin/modifygrantuser', [
             'grants' => $grants,
@@ -203,6 +211,10 @@ class AdministrationController extends AbstractController
                 }
             }
 
+        }
+        else
+        {
+            $this->redirect('administration');
         }
 
         return $this->render('admin/modifycategory', [
@@ -250,6 +262,10 @@ class AdministrationController extends AbstractController
                 $this->redirect('administration');
             }
 
+        }
+        else
+        {
+            $this->redirect('administration');
         }
 
         return $this->render('admin/deleteCategory', [
@@ -300,6 +316,10 @@ class AdministrationController extends AbstractController
             }
 
         }
+        else
+        {
+            $this->redirect('administration');
+        }
 
 
     }
@@ -331,6 +351,10 @@ class AdministrationController extends AbstractController
                 FlashBag::addFlash("Ce commentaire a été supprimé.", 'success');
                 $this->redirect('commentsAdministration');
             }
+        }
+        else
+        {
+            $this->redirect('administration');
         }
 
     }

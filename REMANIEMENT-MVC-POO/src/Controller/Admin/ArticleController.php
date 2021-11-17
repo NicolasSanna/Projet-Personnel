@@ -81,6 +81,10 @@ class ArticleController extends AbstractController
             {
                 $idOfArticle = $_GET['id'];
             }
+            else
+            {
+                $this->redirect('myarticles');
+            }
     
             $articleModel = new ArticleModel();
             $checkArticle = $articleModel->getOneArticle($idOfArticle);
@@ -147,6 +151,10 @@ class ArticleController extends AbstractController
             if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id'])) 
             {
                 $idOfArticle = $_GET['id'];
+            }
+            else
+            {
+                $this->redirect('myarticles');
             }
     
             $articleModel = new ArticleModel();

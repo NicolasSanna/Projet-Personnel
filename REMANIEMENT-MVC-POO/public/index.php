@@ -21,12 +21,12 @@ $routes = include '../app/routes.php';
 $router = new Router($routes);
 $action = $router->match($path);
 
-// // Gestion des erreurs 404
-// if (!$action) {
-//     http_response_code(404); // On modifie le code de status de la réponse HTTP 
-//     echo '404 NOT FOUND'; // On affiche un message à l'internaute
-//     exit; // On arrête le script PHP, on n'a plus rien à faire ! 
-// }
+// Gestion des erreurs 404
+if (!$action) {
+    http_response_code(404); // On modifie le code de status de la réponse HTTP 
+    echo '404 NOT FOUND'; // On affiche un message à l'internaute
+    exit; // On arrête le script PHP, on n'a plus rien à faire ! 
+}
 
 // On construit le nom complet de la classe de contrôleur
 $classname = 'App\\Controller\\' . $action['controller'] . 'Controller';
