@@ -136,6 +136,11 @@ $routes = [
         'controller' => 'Admin\\Administration',
         'method' => 'AllCommentsApprouved'
     ],
+    'search' => [
+        'path' => '/rechercher',
+        'controller' => 'Forum',
+        'method' => 'search'
+    ],
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
         'path' => $path,

@@ -31,6 +31,9 @@
                 <li>
                     <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('categories');?>">Catégories</a>
                 </li>
+                <li>
+                    <a class="Header-navbarbox-navbar-ul-a" href="<?= buildUrl('search');?>">Rechercher</a>
+                </li>
                 <?php if (!UserSession::isAuthenticated()): ?>
 
                     <li>

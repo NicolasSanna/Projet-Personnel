@@ -60,4 +60,20 @@ class ForumController extends AbstractController
             'articlesByCategory' => $articlesByCategory
         ]);
    }
+
+   public function search()
+   {
+       if(array_key_exists('search', $_GET) || isset($_GET['search']))
+       {
+            $search = trim(htmlspecialchars($_GET['search']));
+            
+
+                $articleModel = new ArticleModel();
+                $searchArticle = $articleModel->searchArticle($search);
+                // dump($searchArticle);
+            
+       }
+
+       return $this->render('search');
+   }
 }

@@ -60,4 +60,13 @@ class ArticleModel extends AbstractModel
 
         return $updateArticle;
     }
+
+    function searchArticle(string $searchArticle)
+    {
+        $sql = 'CALL SP_Search(?)';
+
+        $searchAnArticle = $this->database->getAllResults($sql, [$searchArticle]);
+
+        return $searchAnArticle;
+    }
 }

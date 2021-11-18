@@ -5,15 +5,15 @@ BEGIN
 
     SET v_search = CONCAT('%', v_search, '%');
 
-    SELECT DISTINCT articles.id AS id_article, title, content, creation_date, user_id, pseudo, category_id, categories.id AS id_category, category
-    FROM articles
-    INNER JOIN categories ON articles.category_id = categories.id
-    INNER JOIN users ON articles.user_id = users.id
+    SELECT DISTINCT art.id AS id_article, art.title, art.content, art.creation_date, art.user_id, u.pseudo, art.category_id, cat.id AS id_category, cat.category
+    FROM articles art
+    INNER JOIN categories cat ON art.category_id = cat.id
+    INNER JOIN users u  ON art.user_id = u.id
     WHERE content LIKE v_search
-    OR articles.title LIKE v_search
-    OR users.pseudo LIKE v_search
-    OR categories.category LIKE v_search
-    ORDER BY articles.creation_date DESC;
+    OR art.title LIKE v_search
+    OR u.pseudo LIKE v_search
+    OR cat.category LIKE v_search
+    ORDER BY art.creation_date DESC;
 
 END //
 
