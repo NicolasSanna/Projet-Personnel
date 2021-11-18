@@ -1,4 +1,4 @@
-<h3>MES ARTICLES</h3>
+<h3>Mes articles</h3>
 
 <table>
     <thead>
@@ -11,7 +11,7 @@
             <th>Commentaires</th>
             <th colspan="2">Actions</th>
         </tr>
-    </thead>
+</thead>
     <tbody>
 
         <?php if (!empty($myArticles)):?>
@@ -32,6 +32,10 @@
                 </tr>
 
             <?php endforeach;?>
+
+        <?php else:?>
+
+            <p>Vous n'avez publié aucun article.</p>
 
         <?php endif;?>
         

@@ -1,7 +1,5 @@
 <h3>Gérer les commentaires</h3>
 
-<p><a href="<?=buildUrl('allCommentsApprouved');?>">Approuver tous les commentaires</a></p>
-
 <table>
     <thead>
         <tr>
@@ -16,6 +14,8 @@
 
     <?php if (!empty($commentsNotApprouved)):?>
 
+        <p><a href="<?=buildUrl('allCommentsApprouved');?>">Approuver tous les commentaires</a></p>
+
         <?php foreach ($commentsNotApprouved as $commentNotApprouved):?>
 
             <tr>
@@ -28,6 +28,10 @@
             </tr>
 
         <?php endforeach;?>
+
+    <?php else :?>
+
+        <p>Il n'y a pas de commentaires à modérer pour le moment.</p>
 
     <?php endif;?>
 
