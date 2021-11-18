@@ -9,7 +9,7 @@
 
     <?php foreach ($searchArticles as $searchArticle):?>
 
-        <?php $article = str_replace('<br />', '', $searchArticle);?>
+        <?php $searchArticle = str_replace('<br />', '', $searchArticle);?>
 
             <div class="Forum-list-article">
 
@@ -23,7 +23,7 @@
 
                 <p class="Forum-list-article-category">Catégorie : <a class="Forum-list-article-category-link" href="<?= buildUrl('category', ['id'=> intval($searchArticle['category_id'])]);?>"><?= htmlspecialchars($searchArticle['category']);?></a></p>
 
-                <a class="Forum-list-article-link" href="<?= buildUrl('article', ['id' => intval($searchArticle['article_id'])]);?>">Lire la suite</a>
+                <a class="Forum-list-article-link" href="<?= buildUrl('article', ['id' => intval($searchArticle['id_article'])]);?>">Lire la suite</a>
 
             </div>
 

@@ -1,7 +1,7 @@
 <?php use App\Framework\UserSession;?>
 
 
-<?php if (isset($article)):?>
+<?php if (!empty($article)):?>
 
     <div class="Article">
 
@@ -39,7 +39,7 @@
 
     <h4>Commentaires</h4>
 
-    <?php if (isset($comments)):?>
+    <?php if (!empty($comments)):?>
 
         <?php foreach ($comments as $comment):?>
 

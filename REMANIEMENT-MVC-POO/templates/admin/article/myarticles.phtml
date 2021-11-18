@@ -13,25 +13,27 @@
         </tr>
     </thead>
     <tbody>
-<?php if (isset($myArticles)):?>
 
-    <?php foreach ($myArticles as $myArticle):?>
+        <?php if (!empty($myArticles)):?>
 
-    <?php  $myArticle = str_replace('<br />', '', $myArticle);?>
+            <?php foreach ($myArticles as $myArticle):?>
 
-        <tr>
-            <td><?=$myArticle['articleId'];?></td>
-            <td><?=htmlspecialchars(substr($myArticle['title'], 0, 20));?> [...]</td>
-            <td><?=htmlspecialchars(substr($myArticle['content'], 0, 20));?> [...]</td>
-            <td><?=(new DateTimeImmutable($myArticle['creation_date']))->format('d/m/Y');?></td>
-            <td><a href=""></a><?=$myArticle['category'];?></td>
-            <td><?=$myArticle['number_comments'];?></td>
-            <td><a id="a-modify" href="<?=buildUrl('modifyarticle', ['id' => intval($myArticle['articleId'])]);?>">Modifier</a></td>
-            <td><a id="a-delete" class="deleteArticle" href="<?=buildUrl('deletearticle', ['id' => intval($myArticle['articleId'])]);?>">Supprimer</a></td>
-        </tr>
+            <?php  $myArticle = str_replace('<br />', '', $myArticle);?>
 
-    <?php endforeach;?>
+                <tr>
+                    <td><?=$myArticle['articleId'];?></td>
+                    <td><?=htmlspecialchars(substr($myArticle['title'], 0, 20));?> [...]</td>
+                    <td><?=htmlspecialchars(substr($myArticle['content'], 0, 20));?> [...]</td>
+                    <td><?=(new DateTimeImmutable($myArticle['creation_date']))->format('d/m/Y');?></td>
+                    <td><a href=""></a><?=$myArticle['category'];?></td>
+                    <td><?=$myArticle['number_comments'];?></td>
+                    <td><a id="a-modify" href="<?=buildUrl('modifyarticle', ['id' => intval($myArticle['articleId'])]);?>">Modifier</a></td>
+                    <td><a id="a-delete" class="deleteArticle" href="<?=buildUrl('deletearticle', ['id' => intval($myArticle['articleId'])]);?>">Supprimer</a></td>
+                </tr>
 
-<?php endif;?>
+            <?php endforeach;?>
+
+        <?php endif;?>
+        
     </tbody>
 </table>

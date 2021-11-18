@@ -2,7 +2,7 @@
 
 <form action="" method="POST">
         <select name="grants" id="">
-            <?php if (isset($grants)):?>
+            <?php if (!empty($grants)):?>
                 <?php foreach ($grants as $grant):?>
                     <option value="<?=$grant['id'];?>"><?=$grant['privilege'];?></option>
                 <?php endforeach;?>
