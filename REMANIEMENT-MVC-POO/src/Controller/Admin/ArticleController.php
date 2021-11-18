@@ -33,7 +33,7 @@ class ArticleController extends AbstractController
                     $articleModel = new ArticleModel();
                     $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user);
 
-                    FlashBag::addFlash("Votre article a bien été ajouté. Il sera validé prochainement !", 'success');
+                    FlashBag::addFlash("Votre article a bien été ajouté.", 'success');
                 }
             }      
             
@@ -77,7 +77,7 @@ class ArticleController extends AbstractController
     {
         if (UserSession::author() || UserSession::administrator())
         {
-            if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id'])) 
+            if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
             {
                 $idOfArticle = $_GET['id'];
             }
@@ -148,7 +148,7 @@ class ArticleController extends AbstractController
     {
         if (UserSession::author() || UserSession::administrator())
         {
-            if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id'])) 
+            if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
             {
                 $idOfArticle = $_GET['id'];
             }

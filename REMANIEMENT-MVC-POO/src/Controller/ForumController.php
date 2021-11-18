@@ -34,7 +34,7 @@ class ForumController extends AbstractController
    public function seeOneCategoryAndArticles()
    {
 
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
         {
 
             $idOfCategory = $_GET['id'];
@@ -42,10 +42,12 @@ class ForumController extends AbstractController
             $categoryModel = new CategoryModel();
             $articlesByCategory = $categoryModel->getArticlesByCategory($idOfCategory);
 
-            if(empty($articlesByCategory))
+        
+
+            if(!$articlesByCategory)
             {
-                FlashBag::addFlash("Il n'y a aucun article encore dans cette catégorie.", 'error');
-                $this->redirect('forum');
+                FlashBag::addFlash('Aucun article ne correspond à cet identifiant22.');
+                return $this->redirect('forum');
             }
   
         }
@@ -57,7 +59,7 @@ class ForumController extends AbstractController
         }
 
         return $this->render('category', [
-            'articlesByCategory' => $articlesByCategory
+            'articlesByCategory' => $articlesByCategory??''
         ]);
    }
 

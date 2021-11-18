@@ -45,7 +45,7 @@ class AdministrationController extends AbstractController
             $this->redirect('accessRefused');
         }
 
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
         {
             $idOfUser = $_GET['id'];
 
@@ -81,6 +81,7 @@ class AdministrationController extends AbstractController
         {
             $this->redirect('administration');
         }
+        
         return $this->render('admin/deleteUser', [
             'userInfos' => $userInfos
         ]);
@@ -142,7 +143,7 @@ class AdministrationController extends AbstractController
         $grants = $grantModel->getAllGrants();
 
 
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
         {
             $userId = $_GET['id'];
             $userModel = new UserModel();
@@ -181,7 +182,7 @@ class AdministrationController extends AbstractController
             $this->redirect('accessRefused');
         }
 
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
         {
             $idOfCategory = $_GET['id'];
             $categoryModel = new CategoryModel();
@@ -230,7 +231,7 @@ class AdministrationController extends AbstractController
             $this->redirect('accessRefused');
         }
 
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
         {
             $idOfCategory = $_GET['id'];
             $categoryModel = new CategoryModel();
@@ -296,7 +297,7 @@ class AdministrationController extends AbstractController
             $this->redirect('accessRefused');
         }
 
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
         {
             $idOfComment = $_GET['id'];
 

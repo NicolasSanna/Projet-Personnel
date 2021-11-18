@@ -1,8 +1,10 @@
-<h3>Categorie : <?= $articlesByCategory[0]['category'];?></h3>
+
 
 <div class="Forum-list">
 
     <?php if (!empty($articlesByCategory)):?>
+
+        <h3>Categorie : <?= $articlesByCategory[0]['category'];?></h3>
 
         <?php foreach ($articlesByCategory as $articleByCategory):?>
 

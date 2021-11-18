@@ -12,7 +12,7 @@ class ArticleController extends AbstractController
 {
     public function index()
     {
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id'])) 
+        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id'])) 
         {
             $idOfArticle = (int) $_GET['id'];
 
@@ -24,14 +24,7 @@ class ArticleController extends AbstractController
             $commentModel = new CommentModel();
             $comments = $commentModel->getAllcomments($idOfArticle);
 
-            if(!empty($article['id']))
-            {
-                return $this->render('article', [
-                    'article' => $article,
-                    'comments' => $comments
-                ]);
-            }
-            else
+            if(empty($article['id']))
             {
                 FlashBag::addFlash('Aucun article ne correspond à cet identifiant.');
                 return $this->redirect('forum');
@@ -41,13 +34,18 @@ class ArticleController extends AbstractController
         {
             $this->redirect('forum');
         }
+
+        return $this->render('article', [
+            'article' => $article??'',
+            'comments' => $comments??''
+        ]);
     }
 
     public function addComment()
     {
         if (UserSession::author() || UserSession::administrator())
         {
-            if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+            if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
             {
                 $idOfArticle = (int) $_GET['id'];
                 
