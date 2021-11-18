@@ -46,7 +46,7 @@ class ForumController extends AbstractController
 
             if(!$articlesByCategory)
             {
-                FlashBag::addFlash('Aucun article ne correspond à cet identifiant22.');
+                FlashBag::addFlash('Aucun article ne correspond à cet identifiant.');
                 return $this->redirect('forum');
             }
   
