@@ -81,9 +81,9 @@ class AdministrationController extends AbstractController
         {
             $this->redirect('administration');
         }
-        
+
         return $this->render('admin/deleteUser', [
-            'userInfos' => $userInfos
+            'userInfos' => $userInfos??''
         ]);
     }
 
@@ -270,7 +270,7 @@ class AdministrationController extends AbstractController
         }
 
         return $this->render('admin/deleteCategory', [
-            'category' => $category
+            'category' => $category??''
         ]);
 
     }
@@ -286,7 +286,7 @@ class AdministrationController extends AbstractController
         $commentsNotApprouved = $commentModel->getAllCommentsNotApprouved();
 
         return $this->render('admin/admincomments', [
-            'commentsNotApprouved' => $commentsNotApprouved
+            'commentsNotApprouved' => $commentsNotApprouved??''
         ]);
     }
 
@@ -332,7 +332,7 @@ class AdministrationController extends AbstractController
             $this->redirect('accessRefused');
         }
 
-        if (array_key_exists('id', $_GET) || $_GET['id'] || ctype_digit($_GET['id']))
+        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
         {
 
             $idOfComment = $_GET['id'];
@@ -344,14 +344,15 @@ class AdministrationController extends AbstractController
             {
                 $commentApprouved = $commentModel->commentApprouved($idOfComment);
                 FlashBag::addFlash("Ce commentaire n'existe pas.", 'error');
-                $this->redirect('commentsAdministration');
+                
             }
             else
             {
                 $deleteComment = $commentModel->commentDelete($idOfComment);
                 FlashBag::addFlash("Ce commentaire a été supprimé.", 'success');
-                $this->redirect('commentsAdministration');
+                
             }
+            $this->redirect('administration');
         }
         else
         {
