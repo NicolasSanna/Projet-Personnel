@@ -11,3 +11,5 @@
 - Continuer d'écrire le dossier professionnel et le dossier projet.
 
 - Penser aux redirections en cas d'erreur dans l'URL. (.htaccess ?)
+
+- Penser au backup de Base de Données avec article de test, et utilisateur Administrateur (moi) afin d'éviter de changer le statut directement dans la base de données avec le compte de connexion de user.sql. Penser à garder les identifiants. 
