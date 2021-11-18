@@ -18,14 +18,14 @@
 
         <?php foreach ($commentsNotApprouved as $commentNotApprouved):?>
 
-    <tr>
-        <td><?= $commentNotApprouved['id'];?></td>
-        <td><a href="<?=buildUrl('article', ['id' => $commentNotApprouved['article_id']]);?>"><?= htmlspecialchars($commentNotApprouved['title']) ;?></a></td>
-        <td><?= $commentNotApprouved['content'];?></td>
-        <td><?= (new DateTimeImmutable($commentNotApprouved['date_publication']))->format('d/m/Y');?></td>
-        <td><a href="<?=buildUrl('commentApprouved', ['id' => $commentNotApprouved['id']]);?>">Approuver</a></td>
-        <td><a href="<?=buildUrl('commentDelete', ['id' => $commentNotApprouved['id']]);?>">Supprimer</a></td>
-    </tr>
+            <tr>
+                <td><?= $commentNotApprouved['id'];?></td>
+                <td><a href="<?=buildUrl('article', ['id' => $commentNotApprouved['article_id']]);?>"><?= htmlspecialchars($commentNotApprouved['title']) ;?></a></td>
+                <td><?= $commentNotApprouved['content'];?></td>
+                <td><?= (new DateTimeImmutable($commentNotApprouved['date_publication']))->format('d/m/Y');?></td>
+                <td><a href="<?=buildUrl('commentApprouved', ['id' => $commentNotApprouved['id']]);?>">Approuver</a></td>
+                <td><a href="<?=buildUrl('commentDelete', ['id' => $commentNotApprouved['id']]);?>">Supprimer</a></td>
+            </tr>
 
         <?php endforeach;?>
 

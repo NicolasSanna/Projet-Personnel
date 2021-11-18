@@ -1,6 +1,33 @@
 <h4>Recherche</h4>
 
 <form id="search-form" action="<?= buildUrl('search');?>" method="GET">
- <p>Rechercher un article :<input type="text" name="search" /></p>
+ <p>Rechercher un article : <input type="text" value="<?=$search;?>" name="search" /></p>
  <input type="submit" value="Rechercher">
 </form>
+
+<?php if (!empty($searchArticles)):?>
+
+    <?php foreach ($searchArticles as $searchArticle):?>
+
+        <?php $article = str_replace('<br />', '', $searchArticle);?>
+
+            <div class="Forum-list-article">
+
+                <h3 class="Forum-list-article-title"><?=htmlspecialchars($searchArticle['title']);?></h3>
+
+                <p class="Forum-list-article-content"><?=mb_substr($searchArticle['content'], 0, 150);?> [...] </p>
+
+                <p class="Forum-list-article-pseudo">Écrit par : <?= htmlspecialchars($searchArticle['pseudo']);?></p>
+
+                <p class="Forum-list-article-date">Date de publication : Le <?= (new DateTimeImmutable($searchArticle['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($searchArticle['creation_date']))->format('H:i');?></p>
+
+                <p class="Forum-list-article-category">Catégorie : <a class="Forum-list-article-category-link" href="<?= buildUrl('category', ['id'=> intval($searchArticle['category_id'])]);?>"><?= htmlspecialchars($searchArticle['category']);?></a></p>
+
+                <a class="Forum-list-article-link" href="<?= buildUrl('article', ['id' => intval($searchArticle['article_id'])]);?>">Lire la suite</a>
+
+            </div>
+
+    <?php endforeach;?>
+
+
+<?php endif;?>

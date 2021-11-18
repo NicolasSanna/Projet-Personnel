@@ -65,15 +65,28 @@ class ForumController extends AbstractController
    {
        if(array_key_exists('search', $_GET) || isset($_GET['search']))
        {
-            $search = trim(htmlspecialchars($_GET['search']));
-            
-
+           
+        $search = trim(htmlspecialchars($_GET['search']));
+        
+            if(!$search)
+            {
+                FlashBag::addFlash("Le champ de recherche est vide.", 'error');
+            }
+            else
+            {
                 $articleModel = new ArticleModel();
-                $searchArticle = $articleModel->searchArticle($search);
-                // dump($searchArticle);
-            
+                $searchArticles = $articleModel->searchArticle($search);
+
+                if(empty($searchArticles))
+                {
+                    FlashBag::addFlash("Aucun article ne correspond à votre recherche.", 'error');
+                }
+            }
        }
 
-       return $this->render('search');
+       return $this->render('search', [
+           'searchArticles' => $searchArticles??'',
+           'search' => $search??''
+       ]);
    }
 }
