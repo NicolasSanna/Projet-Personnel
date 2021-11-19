@@ -170,8 +170,8 @@ class AdministrationController extends AbstractController
         }
         
         return $this->render('admin/modifygrantuser', [
-            'grants' => $grants,
-            'userInfos' => $userInfos
+            'grants' => $grants??'',
+            'userInfos' => $userInfos??''
         ]);
     }
 

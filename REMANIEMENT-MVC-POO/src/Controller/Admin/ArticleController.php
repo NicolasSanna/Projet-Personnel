@@ -63,14 +63,16 @@ class ArticleController extends AbstractController
             $myArticles = $articleModel->getMyarticles($id_user);
             
 
-            return $this->render('admin/article/myarticles', [
-                'myArticles' => $myArticles
-            ]);
         }
         else
         {
             $this->redirect('accessRefused');
         }
+
+        
+        return $this->render('admin/article/myarticles', [
+            'myArticles' => $myArticles
+        ]);
     }
 
     public function modifyarticle()
@@ -88,12 +90,8 @@ class ArticleController extends AbstractController
     
             $articleModel = new ArticleModel();
             $checkArticle = $articleModel->getOneArticle($idOfArticle);
-            $id_user = UserSession::getId();
-            
-            $title = $checkArticle['title'];
-            $content = $checkArticle['content'];
+
             $categoriesModel = new CategoryModel();
-    
             $categories = $categoriesModel->getAllCategoriesForArticle();
     
             if(!$checkArticle)
@@ -103,6 +101,11 @@ class ArticleController extends AbstractController
             }
             else
             {
+
+                $id_user = UserSession::getId();
+            
+                $title = $checkArticle['title'];
+                $content = $checkArticle['content'];
     
                 if($checkArticle['user_id'] != UserSession::getId())
                 {

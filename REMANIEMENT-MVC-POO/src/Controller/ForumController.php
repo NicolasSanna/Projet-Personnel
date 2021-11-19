@@ -27,7 +27,7 @@ class ForumController extends AbstractController
         $categories = $categoryModel->getAllCategoriesForForum();
 
         return $this->render('categories', [
-            'categories' => $categories
+            'categories' => $categories??''
         ]);
    }
 
