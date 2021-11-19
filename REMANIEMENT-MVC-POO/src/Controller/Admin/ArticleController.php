@@ -190,4 +190,66 @@ class ArticleController extends AbstractController
             $this->redirect('accessRefused');
         }
     }
+
+    // public function uploadFile()
+    // {
+    //     if(UserSession::administrator() || UserSession::author())
+    //     {
+    //         if(!empty($_POST))
+    //         {
+    //             $file = $_FILES['file'];
+    //             $name = trim(htmlspecialchars($_POST['name']));
+
+    //             if(!$name)
+    //             {
+    //                 FlashBag::addFlash("Le champ nom est vide", 'error');
+    //             }
+
+    //             if(!$file)
+    //             {
+    //                 FlashBag::addFlash("Le champ est vide", 'error');
+    //             }
+
+    //             if($file['error'] > 0)
+    //             {
+    //                 FlashBag::addFlash('Une erreur est survenue lors du chargement du fichier.', 'error');
+    //             }
+
+    //             if($file['size'] > 20000000)
+    //             {
+    //                 FlashBag::addFlash("Le fichier est trop volumineux, au-delà de 20 Mo", 'error');
+    //             }
+
+    //             if ($file['size'] < 20000000 && $file['error'] == 0)
+    //             {
+
+    //                 $fileName = $file['name'];
+    //                 $fileExtension = "." . strtolower(substr(strrchr($fileName, "."), 1));
+
+    //                 $validExtension = ['.pdf', '.doc', '.docx', '.odt'];
+
+    //                 if(!in_array($fileExtension, $validExtension))
+    //                 {
+    //                     FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
+    //                 }
+    //                 else
+    //                 {
+    //                     FlashBag::addFlash("Votre fichier a bien été enregistré.");
+
+    //                     $uniqueName = md5(uniqid(rand(), true));
+    //                     $fileName = $uniqueName . $fileExtension;
+        
+    //                     move_uploaded_file($file['tmp_name'], 'files/' . $fileName);         
+    //                 }
+
+    //             }
+                
+    //         }
+    //     }
+    //     else
+    //     {
+    //         $this->redirect('accessRefused');
+    //     }
+    //     return $this->render('uploadfile');
+    // }
 }
