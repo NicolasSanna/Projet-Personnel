@@ -112,4 +112,36 @@ class UserSession
         }
         return $_SESSION['user']['grant_id'] == 3;
     }
+
+    // Version sans session de l'utilisateur.
+    static function token()
+    {
+
+
+        if(!isset($_SESSION['token']))
+        {
+            $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(6));
+        }
+
+        return $_SESSION['token'];
+       
+    }
+
+    // Version en session de l'utilisateur.
+    // static function token()
+    // {
+    //     if (!self::isAuthenticated())
+    //     {
+    //         return null;
+    //     }
+     
+    //     if(!isset($_SESSION['user']['token']))
+    //     {
+    //         $_SESSION['user']['token'] = bin2hex(openssl_random_pseudo_bytes(6));
+    //     }
+
+    //     return $_SESSION['user']['token'];
+    // }
+
+
 }
