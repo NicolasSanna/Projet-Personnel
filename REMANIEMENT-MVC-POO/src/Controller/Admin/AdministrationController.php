@@ -96,7 +96,16 @@ class AdministrationController extends AbstractController
 
         if(!empty($_POST))
         {
+            
             $newCategory = trim($_POST['newcategory']);
+            $token = $_POST['token'];
+
+            
+            if ($token != UserSession::token())
+            {
+                FlashBag::addFlash("MAUVAIS TOKEN !", 'error');
+                $this->redirect('administration');
+            }
 
             if(!$newCategory)
             {
