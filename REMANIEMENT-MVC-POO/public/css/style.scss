@@ -1,6 +1,7 @@
 .Body, html
 {
     font-family: 'Open Sans', sans-serif;
+    font-size:16px;
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
 	color: rgb(80, 80, 80);
@@ -127,6 +128,8 @@
     }
 }
 
+
+
 // MESSAGES
 
 .Message
@@ -165,6 +168,7 @@
 .Forum
 {
 
+
     &-h1
     {
         text-align:center;
@@ -177,7 +181,6 @@
         flex-direction:column;
         &-article
         {
-            // border:solid black 1px;
             padding-bottom:30px;
             margin-top:0px;
             margin-bottom:20px;
@@ -194,7 +197,7 @@
                 color:white;
                 background-color:peru;
 
-                border-radius: 10px;
+                border-radius: 5px;
                 &:visited
                 {
                     color:white;
@@ -228,6 +231,54 @@
             {
                 text-align:justify;
             }
+        }
+    }
+}
+
+.Title
+{
+    text-align: center;
+
+    margin-top:30px;
+    margin-bottom:0px;
+}
+
+.TitlePage
+{
+    text-align: center;
+}
+// LISTE
+.List
+{
+    display:flex;
+    flex-direction:column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+    &-link
+    {
+        margin-top: 50px;
+        margin-bottom: 10px;
+        background-color:peru;
+        color:white;
+        padding-top:10px;
+        padding-bottom:10px;
+        padding-left:30px;
+        padding-right:30px;
+        font-family: 'Open Sans', sans-serif;
+        border:none;
+        max-width:auto;
+        align-items: flex-end;
+        border:solid 1px peru;
+        text-decoration: none;
+        border-radius:5px;
+        &:hover
+        {
+            background-color:white;
+            transition: 0.5s ease-in-out;
+            opacity:1;
+            color:black;  
         }
     }
 }
@@ -320,8 +371,6 @@
             justify-content: space-between;
             display:flex;
             flex-direction:row;
-            // margin-left:10%;
-            // margin-right:10%;
             &-link
             {
                 text-decoration: none;
@@ -351,6 +400,7 @@
             {
                 font-weight: normal;
                 color:white;
+                margin-bottom: 5px;
             }
             &-left 
             {
@@ -365,6 +415,7 @@
 
 .Form 
 {
+
     &-title
     {
         text-align: center;
@@ -373,7 +424,164 @@
     {
         display:flex;
         flex-direction:column;
-        width:300px;  
+        width:330px;  
+        margin-left: auto;
+        margin-right: auto;
+
+        padding-top:20px;
+        padding-bottom:20px;
+        margin-top:0px;
+        margin-bottom:20px;
+        padding-left:30px;
+        padding-right:30px;
+        box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        
+        &-label
+        {
+            text-align:left;
+            margin-bottom:10px;
+            
+        }
+        &-input
+        {
+            margin-bottom:10px;
+            padding:5px;
+        }
+        &-button
+        {
+            margin-top:10px;
+            background-color:peru;
+            color:white;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:30px;
+            padding-right:30px;
+            font-family: 'Open Sans';
+            font-size:15px;
+            border:none;
+            cursor:pointer;
+            border:solid 1px peru;
+            border-radius:5px;
+            &:hover
+            {
+                background-color:white;
+                transition: 0.5s ease-in-out;
+                opacity:1;
+                color:black;      
+            }
+        }
+    }
+}
+
+.FormSearch
+{
+    &-box
+    {
+        width:auto;  
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:0px;
+        margin-bottom:0px;
+        padding-top:0px;
+        padding-bottom:0px;
+        justify-content: space-around;
+        &-button
+        {
+            margin-top:10px;
+            background-color:peru;
+            color:white;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:30px;
+            padding-right:30px;
+            font-family: 'Open Sans', sans-serif;
+            
+            border:none;
+            cursor:pointer;
+            max-width:auto;
+            align-items: flex-end;
+            border:solid 1px peru;
+            &:hover
+            {
+                background-color:white;
+                transition: 0.5s ease-in-out;
+                opacity:1;
+                color:black;      
+            }
+        }
+    }
+    &-label
+    {
+        text-align:left;
+        margin-bottom:10px;
+        margin-right:10px;
+        
+    }
+    &-input
+    {
+        margin-bottom:10px;
+        padding:10px;
+    }
+}
+
+.FormComment
+{
+    &-box
+    {
+        display:flex;
+        flex-direction:column;
+        width:auto;  
+        margin-left: auto;
+        margin-right: auto;
+        
+        &-button
+        {
+            margin-top:10px;
+            background-color:peru;
+            color:white;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:30px;
+            padding-right:30px;
+            font-family: 'Open Sans', sans-serif;
+            border:none;
+            cursor:pointer;
+            max-width:auto;
+            align-items: flex-end;
+            border:solid 1px peru;
+            border-radius:5px;
+            &:hover
+            {
+                background-color:white;
+                transition: 0.5s ease-in-out;
+                opacity:1;
+                color:black;      
+            }
+
+        }
+        &-textarea
+        {
+            height:100px;
+            padding:5px;
+        }
+        &-label
+        {
+            text-align:left;
+            margin-bottom:10px;
+            
+        }
+
+    }
+}
+
+.FormArticle
+{
+    &-box
+    {
+        display:flex;
+        flex-direction:column;
+        width:auto;  
         margin-left: auto;
         margin-right: auto;
         &-label
@@ -398,7 +606,61 @@
             font-family: 'Open Sans', sans-serif;
             border:none;
             cursor:pointer;
+            max-width:200px;
+            align-items: flex-end;
+            border:solid 1px peru;
+            border-radius:5px;
+            &:hover
+            {
+                background-color:white;
+                transition: 0.5s ease-in-out;
+                opacity:1;
+                color:black;      
+            }
         }
+        &-textarea
+        {
+            height:200px;
+            padding:5px;
+        }
+        &-select
+        {
+            margin-top:10px;
+            padding:5px;
+            text-align:left;
+        }
+    }
+    &-button
+    {
+        text-align: end;
+        border-radius:5px;
+        &:hover
+        {
+            background-color:white;
+            transition: 0.5s ease-in-out;
+            opacity:1;
+            color:black;      
+        }
+    }
+}
+
+.FormArticleSelect
+{
+    width:200px;
+}
+
+.FormCategorySelect
+{
+    width:auto;
+}
+
+.FormCategory
+{
+    &-button
+    {
+        border-radius:5px;
+        text-align: center;
+        
     }
 }
 

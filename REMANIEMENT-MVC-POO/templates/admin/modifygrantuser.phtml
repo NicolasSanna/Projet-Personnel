@@ -1,12 +1,17 @@
-<h3>Modifier les privilèges utilisateurs de <?= htmlspecialchars($userInfos['pseudo']);?></h3>
+<h3 class="TitlePage">Modifier les privilèges utilisateurs de <?= htmlspecialchars($userInfos['pseudo']);?></h3>
 
-<form action="" method="POST">
-        <select name="grants" id="">
-            <?php if (!empty($grants)):?>
-                <?php foreach ($grants as $grant):?>
-                    <option value="<?=$grant['id'];?>"><?=$grant['privilege'];?></option>
-                <?php endforeach;?>
-            <?php endif;?>
-        </select>
-    <input type="submit" value="Changer le rôle de l'utilisateur" />
-</form>
+<div class="Form">
+    <form class="Form-box" method="POST">
+        <label class="Form-box-label" name="grants"></label>
+            <select name="grants" id="" class="FormArticle-box-input FormCategorySelect">
+                <?php if (!empty($grants)):?>
+                    <?php foreach ($grants as $grant):?>
+                        <option value="<?=$grant['id'];?>"><?=$grant['privilege'];?></option>
+                    <?php endforeach;?>
+                <?php endif;?>
+            </select>
+        <div class="FormCategory-button">
+            <button type="submit" class="FormArticle-box-button" value="" >Changer le rôle du membre</button>
+        </div> 
+    </form>
+</div>

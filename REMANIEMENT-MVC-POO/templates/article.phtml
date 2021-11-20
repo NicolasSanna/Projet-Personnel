@@ -21,13 +21,14 @@
 
     <?php if (UserSession::author() || UserSession::administrator()):?>
 
-        <h4>Ajouter un commentaire</h4>
+        <div class="FormComment">
+            <form class="FormComment-box" method="POST" action="<?=buildUrl('addcomment', ['id' => intval($article['id'])]);?>">
+                <label class="FormComment-box-label" >Ajouter un commentaire :</label>
+                <textarea class="FormComment-box-textarea" type="text" name="comment" id=""></textarea>
+                <button class="FormComment-box-button" type="submit" name="validate" >Ajouter un commentaire</button>
+            </form>
+        </div>
 
-        <form method="POST" action="<?=buildUrl('addcomment', ['id' => intval($article['id'])]);?>">
-            <label >Ajouter un commentaire :</label>
-            <textarea type="text" name="comment" id=""></textarea>
-            <button type="submit" name="validate" >Ajouter un commentaire</button>
-        </form>
 
     <?php else:?>
 

@@ -1,11 +1,20 @@
-<h3> Catégories </h3>
+<h3 class="Title"> Catégories </h3>
 
 <?php if (!empty($categories)):?>
 
-    <?php foreach ($categories as $categorie):?>
+    <div class="List">
 
-        <a class="" href="<?=buildUrl('category', ['id' => intval($categorie['id'])]);?>"><?=htmlspecialchars($categorie['category']);?></a>
+        <?php foreach ($categories as $categorie):?>
 
-    <?php endforeach;?>
+            <a class="List-link" href="<?=buildUrl('category', ['id' => intval($categorie['id'])]);?>"><?=htmlspecialchars($categorie['category']);?></a>
+
+        <?php endforeach;?>
+
+    </div>
 
 <?php endif;?>
+
+
+
+
+

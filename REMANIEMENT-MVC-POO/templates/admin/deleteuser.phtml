@@ -1,10 +1,15 @@
-<h3>Supprimer l'utilisateur <?= htmlspecialchars($userInfos['pseudo']);?></h3>
+<h3 class="TitlePage">Supprimer l'utilisateur <?= htmlspecialchars($userInfos['pseudo']);?></h3>
 
-<form method="POST">
-    <select name="deleteuser">
-        <option value="1">Supprimer toutes les données de l'utilisateur</option>
-        <option value="2">Supprimer l'utilisateur mais conserver ses articles et commentaires</option>
-    </select>
-    <button id="deleteUser" type="submit">Supprimer</button>
-</form>
+<div class="Form">
+    <form class="Form-box" method="POST">
+        <label class="Form-box-label" name="deleteuser"></label>
+            <select name="deleteuser" class="FormArticle-box-input FormCategorySelect">
+                <option value="1">Supprimer toutes les données de l'utilisateur</option>
+                <option value="2">Supprimer l'utilisateur mais conserver ses articles et commentaires</option>
+            </select>
+        <div class="FormCategory-button">
+            <button id="deleteUser"  class="FormArticle-box-button" type="submit">Supprimer le membre</button>
+        </div> 
+    </form>
+</div>
 

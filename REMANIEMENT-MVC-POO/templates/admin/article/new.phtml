@@ -1,20 +1,26 @@
 <h3>Publier un article</h3>
 
-    <form method="POST">
+<div class="FormArticle">
+    <form class="FormArticle-box" method="POST">
 
-        <label for="title">Titre de l'article :</label>
-        <input  name="title" value="<?=$title;?>"></input>
+        <label for="title" class="FormArticle-box-label">Titre de l'article :</label>
+        <input  name="title" class="FormArticle-box-input" value="<?=$title;?>"></input>
 
-        <label for="content">Contenu de l'article : </label>
-        <textarea  name="content" ><?=$content;?></textarea>
+        <label for="content" class="FormArticle-box-label">Contenu de l'article : </label>
+        <textarea class="FormArticle-box-textarea" name="content" ><?=$content;?></textarea>
 
-    <select name="categories" id="">
-        <?php foreach ($categories as $category):?>
-            <option value="<?= $category['id'];?>" ><?= htmlspecialchars($category['category']);?></option>
-        <?php endforeach;?>
-    </select>
-        <button type="submit" name="validate">Publier l'article</button>
+        <label for="title" class="FormArticle-box-select">Catégorie :</label>
+        <select name="categories" class="FormArticle-box-input FormArticleSelect" id="">
+            <?php foreach ($categories as $category):?>
+                <option value="<?= $category['id'];?>" ><?= htmlspecialchars($category['category']);?></option>
+            <?php endforeach;?>
+        </select>
+        <div class="FormArticle-button">
+            <button type="submit" class="FormArticle-box-button" name="validate">Publier l'article</button>
+        </div> 
     </form>
+</div>
+
 
 
 

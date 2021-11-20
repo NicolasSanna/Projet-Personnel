@@ -1,18 +1,23 @@
 <?php if (!App\Framework\UserSession::isAuthenticated()):?>
 
-    <h2>Connexion</h2>
+<h3 class="Form-title">Connexion</h3>
+<div class="Form">
+    <form class="Form-box" method="POST">
 
-    <form action="" method="POST">
+        <label class="Form-box-label" for="email">Votre e-mail : </label>
+        <input type="email" class="Form-box-input" name="email" id="email" value="<?=$email;?>">
 
-        <label for="email">Votre e-mail : </label>
-        <input type="email" name="email" id="email" value="<?=$email;?>">
-            <br />
-        <label for="password">Votre mot de passe : </label>
-        <input type="password" name="password" id="password">
-            <br />
-        <input type="submit" value="Connexion" />
-    
+        <label for="password" class="form-box-label">Votre mot de passe : </label>
+        <input type="password" class="Form-box-input" name="password" id="password">
+
+        <input type="submit" class="Form-box-button" value="Connexion" />
+
+        <a class="List-link" href="<?= buildUrl('signup');?>">Je n'ai pas de compte, je m'inscris</a>
+
     </form>
+    
+</div>
+
 
 <?php else :?>
 
