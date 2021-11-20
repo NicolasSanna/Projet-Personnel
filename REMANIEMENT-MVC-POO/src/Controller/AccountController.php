@@ -10,6 +10,8 @@ class AccountController extends AbstractController
 {
     public function signup()
     {
+        $pageTitle = 'Inscription';
+
         if(!empty($_POST))
         {
             $lastname = trim(htmlspecialchars($_POST['lastname']));
@@ -43,7 +45,8 @@ class AccountController extends AbstractController
             'lastname' => $lastname??'',
             'firstname' => $firstname??'',
             'pseudo' => $pseudo??'',
-            'email' => $email??''
+            'email' => $email??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 }

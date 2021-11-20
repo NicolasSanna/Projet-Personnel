@@ -15,8 +15,11 @@ class ForumController extends AbstractController
 
         $articles = $articlesModel->getAllArticles();
 
+        $pageTitle = 'Forum';
+
         return $this->render('forum', [
-            'articles' => $articles
+            'articles' => $articles??'',
+            'pageTitle' => $pageTitle??''
         ]);
    }
 
@@ -26,8 +29,11 @@ class ForumController extends AbstractController
         $categoryModel = new CategoryModel();
         $categories = $categoryModel->getAllCategoriesForForum();
 
+        $pageTitle = 'Catégories';
+
         return $this->render('categories', [
-            'categories' => $categories??''
+            'categories' => $categories??'',
+            'pageTitle' => $pageTitle??''
         ]);
    }
 
@@ -42,7 +48,7 @@ class ForumController extends AbstractController
             $categoryModel = new CategoryModel();
             $articlesByCategory = $categoryModel->getArticlesByCategory($idOfCategory);
 
-        
+            $pageTitle = 'Articles par catégorie';
 
             if(!$articlesByCategory)
             {
@@ -59,12 +65,15 @@ class ForumController extends AbstractController
         }
 
         return $this->render('category', [
-            'articlesByCategory' => $articlesByCategory??''
+            'articlesByCategory' => $articlesByCategory??'',
+            'pageTitle' => $pageTitle??''
         ]);
    }
 
    public function search()
    {
+        $pageTitle = 'Rechercher';
+
        if(array_key_exists('search', $_GET) || isset($_GET['search']))
        {
            
@@ -88,7 +97,8 @@ class ForumController extends AbstractController
 
        return $this->render('search', [
            'searchArticles' => $searchArticles??'',
-           'search' => $search??''
+           'search' => $search??'',
+           'pageTitle' => $pageTitle??''
        ]);
    }
 }

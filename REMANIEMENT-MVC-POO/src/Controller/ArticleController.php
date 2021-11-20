@@ -20,6 +20,8 @@ class ArticleController extends AbstractController
 
             $article = $articleModel->getOneArticle($idOfArticle);
 
+            $pageTitle = $article['title'];
+
 
             $commentModel = new CommentModel();
             $comments = $commentModel->getAllcomments($idOfArticle);
@@ -37,7 +39,8 @@ class ArticleController extends AbstractController
 
         return $this->render('article', [
             'article' => $article??'',
-            'comments' => $comments??''
+            'comments' => $comments??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 

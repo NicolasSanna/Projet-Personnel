@@ -16,6 +16,7 @@ class ArticleController extends AbstractController
         {
             $categoryModel = new CategoryModel();
             $categories = $categoryModel->getAllCategoriesForArticle();
+            $pageTitle = 'Créer un nouvel article';
 
             if(!empty($_POST))
             {
@@ -40,7 +41,8 @@ class ArticleController extends AbstractController
             return $this->render('admin/article/new', [
                 'content' => $content??'',
                 'title' => $title??'',
-                'categories' => $categories??''
+                'categories' => $categories??'',
+                'pageTitle' => $pageTitle??''
             ]);
         }
         else
@@ -61,6 +63,8 @@ class ArticleController extends AbstractController
             $articleModel = new ArticleModel();
     
             $myArticles = $articleModel->getMyarticles($id_user);
+
+            $pageTitle = 'Mes articles';
             
 
         }
@@ -71,7 +75,8 @@ class ArticleController extends AbstractController
 
         
         return $this->render('admin/article/myarticles', [
-            'myArticles' => $myArticles
+            'myArticles' => $myArticles??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 
@@ -90,6 +95,8 @@ class ArticleController extends AbstractController
     
             $articleModel = new ArticleModel();
             $checkArticle = $articleModel->getOneArticle($idOfArticle);
+
+            $pageTitle = 'Modifer un article';
 
             $categoriesModel = new CategoryModel();
             $categories = $categoriesModel->getAllCategoriesForArticle();
@@ -137,7 +144,8 @@ class ArticleController extends AbstractController
             return $this->render('admin/article/modifyarticle', [
                 'content' => $content??'',
                 'title' => $title??'',
-                'categories' => $categories??''
+                'categories' => $categories??'',
+                'pageTitle' => $pageTitle??''
             ]);
         }
         else

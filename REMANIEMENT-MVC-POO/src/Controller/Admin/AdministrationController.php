@@ -33,8 +33,11 @@ class AdministrationController extends AbstractController
         $userModel = new UserModel();
         $usersInfos = $userModel->adminUsers();
 
+        $pageTitle = 'Administrer les utiliateurs';
+
         return $this->render('admin/adminusers', [
-            'usersInfos' => $usersInfos??''
+            'usersInfos' => $usersInfos??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 
@@ -51,6 +54,7 @@ class AdministrationController extends AbstractController
 
             $userModel = new UserModel();
             $userInfos = $userModel->getUserById($idOfUser);
+            $pageTitle = 'Supprimer un utilisateur';
 
             if(!$userInfos)
             {
@@ -83,7 +87,8 @@ class AdministrationController extends AbstractController
         }
 
         return $this->render('admin/deleteUser', [
-            'userInfos' => $userInfos??''
+            'userInfos' => $userInfos??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 
@@ -93,6 +98,8 @@ class AdministrationController extends AbstractController
         {
             $this->redirect('accessRefused');
         }
+
+        $pageTitle = 'Ajouter une catégorie';
 
         if(!empty($_POST))
         {
@@ -133,11 +140,14 @@ class AdministrationController extends AbstractController
             $this->redirect('accessRefused');
         }
 
+        $pageTitle ='Administrer les catégories';
+
         $categoryModel = new CategoryModel();
         $categories = $categoryModel->getAllCategories();
 
         return $this->render('admin/admincategory', [
-            'categories' => $categories
+            'categories' => $categories??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 
@@ -150,7 +160,7 @@ class AdministrationController extends AbstractController
 
         $grantModel = new GrantModel();
         $grants = $grantModel->getAllGrants();
-
+        $pageTitle = 'Modifier les privilèges utilisateur';
 
         if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
         {
@@ -180,7 +190,8 @@ class AdministrationController extends AbstractController
         
         return $this->render('admin/modifygrantuser', [
             'grants' => $grants??'',
-            'userInfos' => $userInfos??''
+            'userInfos' => $userInfos??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 
@@ -190,6 +201,8 @@ class AdministrationController extends AbstractController
         {
             $this->redirect('accessRefused');
         }
+
+        $pageTitle = 'Modifier une catégorie';
 
         if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
         {
@@ -229,7 +242,8 @@ class AdministrationController extends AbstractController
 
         return $this->render('admin/modifycategory', [
             'category' => $category??'',
-            'newcategory' => $newcategory??''
+            'newcategory' => $newcategory??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 
@@ -239,6 +253,8 @@ class AdministrationController extends AbstractController
         {
             $this->redirect('accessRefused');
         }
+
+        $pageTitle = 'Supprimer une catégorie';
 
         if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
         {
@@ -279,7 +295,8 @@ class AdministrationController extends AbstractController
         }
 
         return $this->render('admin/deleteCategory', [
-            'category' => $category??''
+            'category' => $category??'',
+            'pageTitle' => $pageTitle??''
         ]);
 
     }
@@ -291,11 +308,14 @@ class AdministrationController extends AbstractController
             $this->redirect('accessRefused');
         }
 
+        $pageTitle = 'Modérer les commentaires';
+
         $commentModel = new CommentModel();
         $commentsNotApprouved = $commentModel->getAllCommentsNotApprouved();
 
         return $this->render('admin/admincomments', [
-            'commentsNotApprouved' => $commentsNotApprouved??''
+            'commentsNotApprouved' => $commentsNotApprouved??'',
+            'pageTitle' => $pageTitle
         ]);
     }
 

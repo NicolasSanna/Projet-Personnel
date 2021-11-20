@@ -11,19 +11,26 @@ class HomeController extends AbstractController
 
     public function index()
     {
+        $pageTitle = 'Bienvenue';
         // Affichage : inclusion du template
         return $this->render('Home', [
-            'message' => 'Bienvenue sur l\'Accueil'
+            'pageTitle' => $pageTitle??''
         ]);
     }
 
     public function refused()
     {
-        return $this->render('accessRefused');
+        $pageTitle = 'Accès Refusé';
+        return $this->render('accessRefused', [
+            'pageTitle' => $pageTitle??''
+        ]);
     }
 
     public function notFound()
     {
-        return $this->render('404');
+        $pageTitle = 'Page introuvable';
+        return $this->render('404', [
+            'pageTitle' => $pageTitle??''
+        ]);
     }
 }

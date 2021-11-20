@@ -11,6 +11,8 @@ class AuthController extends AbstractController
 {
     public function login()
     {
+        $pageTitle = 'Inscription';
+
         if (!empty($_POST))
         {
             $email = trim($_POST['email']);
@@ -60,7 +62,8 @@ class AuthController extends AbstractController
 
         }
         return $this->render('login', [
-            'email' => $email??''
+            'email' => $email??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 
