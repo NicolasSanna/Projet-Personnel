@@ -157,17 +157,18 @@
                 text-decoration:none;
                 border:solid peru 1px;
                 padding:15px;
-                color:black;
-                color:peru;
+                color:white;
+                background-color:peru;
+
                 border-radius: 10px;
                 &:visited
                 {
-                    color:black;
+                    color:white;
                 }
                 &:hover
                 {
-                    color:white;
-                    background-color:peru;
+                    background-color:white;
+                    color:black;
                     transition: 0.5s ease-in-out;
                     opacity:1;
                 }

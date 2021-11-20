@@ -153,18 +153,18 @@
   text-decoration: none;
   border: solid peru 1px;
   padding: 15px;
-  color: black;
-  color: peru;
+  color: white;
+  background-color: peru;
   border-radius: 10px;
 }
 
 .Forum-list-article-link:visited {
-  color: black;
+  color: white;
 }
 
 .Forum-list-article-link:hover {
-  color: white;
-  background-color: peru;
+  background-color: white;
+  color: black;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;

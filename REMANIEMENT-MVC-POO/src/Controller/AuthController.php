@@ -11,7 +11,7 @@ class AuthController extends AbstractController
 {
     public function login()
     {
-        $pageTitle = 'Inscription';
+        $pageTitle = 'Connexion';
 
         if (!empty($_POST))
         {
