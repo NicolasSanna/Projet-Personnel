@@ -8,7 +8,7 @@ class GrantModel extends AbstractModel
 {
     function getAllGrants()
     {
-        $sql = 'CALL SP_GetAllGrants ()';
+        $sql = 'CALL SP_AllGrantsSelect ()';
 
         $allGrants = $this->database->getAllResults($sql);
 

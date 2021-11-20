@@ -8,7 +8,7 @@ class ArticleModel extends AbstractModel
 {
     function getAllArticles()
     {
-        $sql = 'CALL SP_SelectAllArticlesOrderByDate ()';
+        $sql = 'CALL SP_AllArticlesOrderByDateSelect ()';
 
         $articles = $this->database->getAllResults($sql);
 
@@ -17,7 +17,7 @@ class ArticleModel extends AbstractModel
 
     function getOneArticle(int $idOfArticle)
     {
-        $sql = 'CALL SP_SelectArticle(?)';
+        $sql = 'CALL SP_ArticleSelect(?)';
 
         $article = $this->database->getOneResult($sql, [$idOfArticle]);
 
@@ -26,7 +26,7 @@ class ArticleModel extends AbstractModel
 
     function insertArticle(string $title, string $content, int $category_id, int $user_id)
     {
-        $sql ='CALL SP_ArticleCreate(?, ?, ?, ?)';
+        $sql ='CALL SP_ArticleInsert(?, ?, ?, ?)';
 
         $insertArticle = $this->database->executeQuery($sql, [$title, $content, $category_id, $user_id]);
 
@@ -36,7 +36,7 @@ class ArticleModel extends AbstractModel
 
     function getMyArticles($userId)
     {
-        $sql = 'CALL SP_GetMyArticles(?)';
+        $sql = 'CALL SP_MyArticlesSelect(?)';
 
         $getMyArticles = $this->database->getAllResults($sql, [$userId]);
 
@@ -45,7 +45,7 @@ class ArticleModel extends AbstractModel
 
     function deleteArticle($articleId, $userId)
     {
-        $sql = 'CALL SP_DeleteArticle(?, ?)';
+        $sql = 'CALL SP_ArticleDelete(?, ?)';
 
         $deleteArticle = $this->database->executeQuery($sql, [$articleId, $userId]);
 
@@ -54,7 +54,7 @@ class ArticleModel extends AbstractModel
 
     function modifyarticle($articleId, $userId, $newtitle, $newcontent, $newcategory)
     {
-        $sql = 'CALL SP_ModifyArticle(?, ?, ?, ?, ?)';
+        $sql = 'CALL SP_ArticleUpdate(?, ?, ?, ?, ?)';
 
         $updateArticle = $this->database->executeQuery($sql, [$articleId, $userId, $newtitle, $newcontent, $newcategory]);
 
@@ -63,7 +63,7 @@ class ArticleModel extends AbstractModel
 
     function searchArticle(string $searchArticle)
     {
-        $sql = 'CALL SP_Search(?)';
+        $sql = 'CALL SP_SearchSelect(?)';
 
         $searchAnArticle = $this->database->getAllResults($sql, [$searchArticle]);
 

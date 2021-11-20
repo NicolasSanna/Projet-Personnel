@@ -8,7 +8,7 @@ class CommentModel extends AbstractModel
 {
     public function addComment(string $comment, int $userId, int $articleId)
     {
-        $sql = 'CALL SP_addComment(?, ?, ?)';
+        $sql = 'CALL SP_CommentInsert(?, ?, ?)';
 
         $insertComment = $this->database->executeQuery($sql, [$comment, $userId, $articleId]);
 
@@ -17,14 +17,14 @@ class CommentModel extends AbstractModel
 
     public function getAllComments(int $articleId)
     {
-        $sql = 'CALL SP_GetAllComments(?)';
+        $sql = 'CALL SP_AllCommentsArticleSelect(?)';
         $getAllcomment = $this->database->getAllResults($sql, [$articleId]);
         return $getAllcomment;
     }
 
     public function getAllCommentsNotApprouved()
     {
-        $sql = 'CALL SP_GetAllCommentsNotApprouved ()';
+        $sql = 'CALL SP_AllCommentsNotApprouvedSelect ()';
 
         $getAllCommentsNotApprouved = $this->database->getAllResults($sql);
 
@@ -33,7 +33,7 @@ class CommentModel extends AbstractModel
 
     public function getOneComment(int $commentId)
     {
-        $sql = 'CALL SP_GetOneComment(?)';
+        $sql = 'CALL SP_OneCommentSelect(?)';
         $getOneComment = $this->database->getOneResult($sql, [$commentId]);
 
         return $getOneComment;
@@ -41,7 +41,7 @@ class CommentModel extends AbstractModel
 
     public function commentApprouved(int $commentId)
     {
-        $sql = 'CALL SP_CommentApprouved(?)';
+        $sql = 'CALL SP_CommentUpdate(?)';
 
         $approuvedComment = $this->database->executeQuery($sql, [$commentId]);
     }
@@ -55,7 +55,7 @@ class CommentModel extends AbstractModel
 
     public function AllCommentsApprouved()
     {
-        $sql = 'CALL SP_AllCommentsApprouved ()';
+        $sql = 'CALL SP_AllCommentsUpdate ()';
 
         $allCommentsApprouved = $this->database->executeQuery($sql);
     }

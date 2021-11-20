@@ -8,7 +8,7 @@ class CategoryModel extends AbstractModel
 {
     public function getOneCategory(int $idOfCategory)
     {
-        $sql = 'CALL SP_CategoryRead(?)';
+        $sql = 'CALL SP_CategorySelect(?)';
 
         $category = $this->database->getOneResult($sql, [$idOfCategory]);
 
@@ -17,7 +17,7 @@ class CategoryModel extends AbstractModel
 
     public function getAllCategories()
     {
-        $sql = 'CALL SP_SelectAllCategories()';
+        $sql = 'CALL SP_AllCategoriesSelect()';
 
         $categories = $this->database->getAllResults($sql);
 
@@ -26,7 +26,7 @@ class CategoryModel extends AbstractModel
 
     public function createCategory(string $newCategory)
     {
-        $sql = 'CALL SP_CategoryCreate(?)';
+        $sql = 'CALL SP_CategoryInsert(?)';
 
         $insertNewCategory = $this->database->getOneResult($sql, [$newCategory]);
 
@@ -35,7 +35,7 @@ class CategoryModel extends AbstractModel
 
     public function modifyCategory(int $idOfCategory, string $newCategoryName)
     {
-        $sql =  'CALL SP_CategoryModify(?, ?)';
+        $sql =  'CALL SP_CategoryUpdate(?, ?)';
 
         $modifyCategory = $this->database->getOneResult($sql, [$idOfCategory, $newCategoryName]);
 
@@ -44,7 +44,7 @@ class CategoryModel extends AbstractModel
 
     public function getAllCategoriesForArticle()
     {
-        $sql ='CALL SP_GetAllCategoriesForArticle()';
+        $sql ='CALL SP_AllCategoriesForArticleSelect()';
 
         $allCategoriesForArticle = $this->database->getAllResults($sql);
 
@@ -62,7 +62,7 @@ class CategoryModel extends AbstractModel
 
     public function deleteCategoryWithoutArticles(int $idOfCategory)
     {
-        $sql = 'CALL SP_DeleteCategoryWithoutArticles(?)';
+        $sql = 'CALL SP_CategoryWithoutArticlesDelete(?)';
 
         $deleteCategoryWithoutArticles = $this->database->getOneResult($sql, [$idOfCategory]);
 
@@ -71,7 +71,7 @@ class CategoryModel extends AbstractModel
 
     public function getAllCategoriesForForum()
     {
-        $sql = 'CALL SP_GetAllCategoriesForArticle()';
+        $sql = 'CALL SP_AllCategoriesForArticleSelect()';
 
         $getAllCategoriesForForum = $this->database->getAllResults($sql);
         return $getAllCategoriesForForum;
@@ -79,7 +79,7 @@ class CategoryModel extends AbstractModel
 
     public function getArticlesByCategory(int $idOfCategory)
     {
-        $sql = 'CALL SP_GetArticlesByCategory(?)';
+        $sql = 'CALL SP_ArticlesByCategorySelect(?)';
 
         $getArticlesByCategory = $this->database->getAllResults($sql, [$idOfCategory]);
 

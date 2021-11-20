@@ -336,15 +336,13 @@ class AdministrationController extends AbstractController
             if(!$checkIfCommentExist)
             {
                 FlashBag::addFlash("Ce commentaire n'existe pas", 'error');
-                $this->redirect('commentsAdministration');
             }
             else
             {
                 $commentApprouved = $commentModel->commentApprouved($idOfComment);
                 FlashBag::addFlash("Ce commentaire a été approuvé", 'success');
-                $this->redirect('commentsAdministration');
             }
-
+            $this->redirect('commentsAdministration');
         }
         else
         {
@@ -381,7 +379,7 @@ class AdministrationController extends AbstractController
                 FlashBag::addFlash("Ce commentaire a été supprimé.", 'success');
                 
             }
-            $this->redirect('administration');
+            $this->redirect('commentsAdministration');
         }
         else
         {

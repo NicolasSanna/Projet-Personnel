@@ -8,7 +8,7 @@ class UserModel extends AbstractModel
 {
     function createUser(string $firstname, string $lastname, string $pseudo, string $email, string $password)
     {
-        $sql = 'CALL SP_Inscription(?, ?, ?, ?, ?)';
+        $sql = 'CALL SP_InscriptionInsert(?, ?, ?, ?, ?)';
 
         $createUser = $this->database->getOneResult($sql, [$firstname, $lastname, $pseudo, $email, $password]);
 
@@ -17,14 +17,14 @@ class UserModel extends AbstractModel
 
     public function getUserById(int $userId)
     {
-        $sql = 'CALL SP_GetUserByid(?)';
+        $sql = 'CALL SP_UserByIdSelect(?)';
 
         return $this->database->getOneResult($sql, [$userId]);
     }
 
     public function getUserByEmail(string $email)
     {
-        $sql = 'CALL SP_GetUserByEmail(?)';
+        $sql = 'CALL SP_UserByEmailSelect(?)';
 
         return $this->database->getOneResult($sql, [$email]);
     }
@@ -52,28 +52,28 @@ class UserModel extends AbstractModel
 
     function adminUsers()
     {
-        $sql = 'CALL SP_SelectUsersAdmin()';
+        $sql = 'CALL SP_UsersAdminSelect()';
 
         return $this->database->getAllResults($sql);
     }
 
     function deleteUserWithoutArticlesComments(int $userId)
     {
-        $sql = 'CALL SP_DeleteUserWithoutArticlesComments(?)';
+        $sql = 'CALL SP_UserWithoutArticlesCommentsDelete(?)';
 
         return $this->database->getOneResult($sql, [$userId]);
     }
 
     function deleteUser(int $userId)
     {
-        $sql = 'CALL SP_DeleteUser(?)';
+        $sql = 'CALL SP_GrantUpdate(?)';
 
         return $this->database->getOneResult($sql, [$userId]);
     }
 
     function changeGrant(int $userId, int $grantId)
     {
-        $sql = 'CALL SP_ChangeGrant(?, ?)';
+        $sql = 'CALL SP_GrantUpdate(?, ?)';
 
         return $this->database->getOneResult($sql, [$userId, $grantId]);
     }

@@ -1,5 +1,7 @@
 USE huma_scientio;
 
+SET foreign_key_checks = 0;
+
 DROP TABLE IF EXISTS grants;
 CREATE TABLE grants
 (
@@ -79,3 +81,5 @@ CREATE TABLE comments
     FOREIGN KEY (status_id)
         REFERENCES status (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB ;
+
+SET foreign_key_checks = 1;

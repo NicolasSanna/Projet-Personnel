@@ -1,4 +1,4 @@
-DROP USER  '4dm1n1str4teur'@'localhost';
+DROP USER '4dm1n1str4teur'@'localhost';
 
 
 CREATE USER '4dm1n1str4teur'@'localhost' IDENTIFIED BY 'TODO';
@@ -13,7 +13,13 @@ FLUSH PRIVILEGES ;
 
 -- Après :
 
-GRANT EXECUTE
+REVOKE ALL PRIVILEGES, 
+GRANT OPTION
+FROM '4dm1n1str4teur'@'localhost';
+
+FLUSH PRIVILEGES ;
+
+GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE
 ON huma_scientio.*
 TO '4dm1n1str4teur'@'localhost';
 
