@@ -234,7 +234,7 @@
 }
 
 .List-link {
-  margin-top: 50px;
+  margin-top: 10px;
   margin-bottom: 10px;
   background-color: peru;
   color: white;
@@ -254,6 +254,34 @@
 }
 
 .List-link:hover {
+  background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+  color: black;
+}
+
+.Link {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  background-color: peru;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  max-width: auto;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  border: solid 1px peru;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.Link:hover {
   background-color: white;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
@@ -473,6 +501,8 @@
       -ms-flex-align: end;
           align-items: flex-end;
   border: solid 1px peru;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .FormSearch-box-button:hover {
