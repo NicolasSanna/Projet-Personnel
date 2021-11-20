@@ -123,7 +123,7 @@ class AdministrationController extends AbstractController
                 $categoryModel = new CategoryModel();
                 $insertCategory = $categoryModel->createCategory($newCategory);
     
-                FlashBag::addFlash($insertCategory['message']);
+                FlashBag::addFlash($insertCategory['message'], 'query');
             }
         }
 
@@ -180,7 +180,7 @@ class AdministrationController extends AbstractController
 
                 $userChangeGrantModel = new UserModel();
                 $changeGrant = $userChangeGrantModel->changeGrant($userId, $grantId);
-                FlashBag::addFlash($changeGrant['message']);
+                FlashBag::addFlash($changeGrant['message'], 'query');
             }
         }
         else
@@ -229,7 +229,7 @@ class AdministrationController extends AbstractController
                 {
                     $categoryModel = new CategoryModel();
                     $modifycategory = $categoryModel->modifyCategory($idOfCategory, $newcategory);
-                    FlashBag::addFlash($modifycategory['message']);
+                    FlashBag::addFlash($modifycategory['message'], 'query');
                     $this->redirect('modifycategory', ['id' => $category['id']]);
                 }
             }
@@ -276,13 +276,13 @@ class AdministrationController extends AbstractController
                 {
                     $categoryModel = new CategoryModel();
                     $deleteCategory = $categoryModel->deleteCategory($idOfCategory);
-                    FlashBag::addFlash($deleteCategory['message']);
+                    FlashBag::addFlash($deleteCategory['message'], 'query');
                     
                 }
                 elseif ($choiceDelete == 2)
                 {
                     $deleteCategory = $categoryModel->deleteCategoryWithoutArticles($idOfCategory);
-                    FlashBag::addFlash($deleteCategory['message']);
+                    FlashBag::addFlash($deleteCategory['message'], 'query');
                     
                 }
                 $this->redirect('administration');

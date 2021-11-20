@@ -123,6 +123,25 @@
   display: none;
 }
 
+.Message {
+  padding: 10px;
+  margin: 0px;
+  color: #f0f0f0;
+  font-weight: 500;
+}
+
+.Success-message {
+  background-color: #004200;
+}
+
+.Error-message {
+  background-color: darkred;
+}
+
+.Query-message {
+  background-color: peru;
+}
+
 .Forum-h1 {
   text-align: center;
 }
@@ -311,6 +330,45 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.Form-title {
+  text-align: center;
+}
+
+.Form-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Form-box-label {
+  text-align: left;
+}
+
+.Form-box-input {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.Form-box-button {
+  margin-top: 10px;
+  background-color: peru;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 730px) {

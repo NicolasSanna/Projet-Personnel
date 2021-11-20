@@ -1,26 +1,29 @@
 <?php if (!App\Framework\UserSession::isAuthenticated()):?>
 
-<form method="POST">
+<h3 class="Form-title">Inscription</h3>
 
-    <div class="">
-        <label for="" class="">Nom :</label>
-        <input type="text" name="lastname" value="<?=$lastname;?>">
-    
-        <label for="" class="">Prénom :</label>
-        <input type="text" name="firstname" value="<?=$firstname;?>">
- 
-        <label for="" class="">Pseudo (il sera visible sur tout le site) :</label>
-        <input type="text" name="pseudo" value="<?=$pseudo;?>">
+<div class="Form">
+    <form class="Form-box" method="POST">
 
-        <label for="" class="">E-mail : </label>
-        <input type="email" name="email" value="<?=$email;?>">
- 
-        <label for="1" class="">Mot de passe :</label>
-        <input type="password" required name="password">
-    </div>
-        <button type="submit" class="btn btn-primary" name="validate">S'inscrire</button>
+        <label for="lastname" class="Form-box-label">Nom :</label>
+        <input type="text" class="Form-box-input" name="lastname" value="<?=$lastname;?>">
+
+        <label for="firstname" class="Form-box-label">Prénom :</label>
+        <input type="text" class="Form-box-input" name="firstname" value="<?=$firstname;?>">
+
+        <label for="pseudo" class="Form-box-label">Pseudo (il sera visible sur tout le site) :</label>
+        <input type="text" class="Form-box-input" name="pseudo" value="<?=$pseudo;?>">
+
+        <label for="email" class="Form-box-label">E-mail : </label>
+        <input type="email" class="Form-box-input" name="email" value="<?=$email;?>">
+
+        <label for="password" class="form-box-label">Mot de passe :</label>
+        <input type="password" class="Form-box-input"required name="password">
+
+        <button type="submit" class="Form-box-button" name="validate">S'inscrire</button>
         <a href="<?= buildUrl('connexion');?>"><p>J'ai déjà un compte, je me connecte</p></a>
-</form>
+    </form>
+</div>
 
 <?php else :?>
 

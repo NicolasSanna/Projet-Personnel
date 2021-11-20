@@ -24,16 +24,26 @@
             <aside class="body-main-aside">
                 <?php if (FlashBag::hasMessages('error')):?>
                     <?php foreach (FlashBag::fetchMessages('error') as $error):?>
-                        <p class="message error-message"><?=htmlspecialchars($error);?></p>
+                        <p class="Message Error-message"><?=htmlspecialchars($error);?></p>
                     <?php endforeach; ?>
                 <?php endif; ?>
 
                 <?php if (FlashBag::hasMessages('success')):?>
                     <?php foreach (FlashBag::fetchMessages('success') as $message):?>
-                        <p class="message success-message"><?=htmlspecialchars($message);?></p>
+                        <p class="Message Success-message"><?=htmlspecialchars($message);?></p>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+                <?php if (FlashBag::hasMessages('query')):?>
+                    <?php foreach (FlashBag::fetchMessages('query') as $message):?>
+                        <p class="Message Query-message"><?=htmlspecialchars($message);?></p>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </aside>
+
+            <p class="Message Success-message">Je suis un message de succès</p>
+            <p class="Message Error-message">Je suis un message d'erreur</p>
+            <p class="Message Query-message">Je suis un message de SP</p>
 
             <?php include TEMPLATE_DIR . '/' . $template . '.phtml'; ?>
         

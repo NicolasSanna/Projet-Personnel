@@ -22,7 +22,7 @@ class AccountController extends AbstractController
 
             if (!$lastname || !$firstname || !$pseudo || !$email || !$password)
             {
-                FlashBag::addFlash("Tous les champs d'inscription n'ont pas été correctement remplis");
+                FlashBag::addFlash("Tous les champs d'inscription n'ont pas été correctement remplis", 'error');
             }
             else
             {
@@ -36,7 +36,7 @@ class AccountController extends AbstractController
                 }
                 else
                 {
-                    FlashBag::addFlash('Vérifiez le format de votre email.'); 
+                    FlashBag::addFlash('Vérifiez le format de votre email.', 'error'); 
                 }
             }
 
