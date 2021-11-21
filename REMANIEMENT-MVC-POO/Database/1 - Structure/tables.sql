@@ -1,7 +1,14 @@
 USE huma_scientio;
 
 -- Sur MySQL Workbench, cette fonction permet de ne pas tenir compte des clés étrangères. Mais il faut les réactiver à la fin.
-SET foreign_key_checks = 0;
+-- SET foreign_key_checks = 0;
+
+ALTER TABLE users DROP CONSTRAINT IF EXISTS fk_grant_id_users;
+ALTER TABLE articles DROP CONSTRAINT IF EXISTS fk_user_article;
+ALTER TABLE articles DROP CONSTRAINT IF EXISTS fk_category_article;
+ALTER TABLE comments DROP CONSTRAINT IF EXISTS fk_article_com;
+ALTER TABLE comments DROP CONSTRAINT IF EXISTS fk_status_com;
+ALTER TABLE comments DROP CONSTRAINT IF EXISTS fk_user_com;
 
 DROP TABLE IF EXISTS grants;
 CREATE TABLE grants
@@ -56,10 +63,10 @@ CREATE TABLE articles
     PRIMARY KEY (id),
     CONSTRAINT fk_user_article
     FOREIGN KEY (user_id)
-        REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
+        REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_category_article
     FOREIGN KEY (category_id)
-        REFERENCES categories (id) ON DELETE CASCADE ON UPDATE CASCADE
+        REFERENCES categories (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB ;
 
 DROP TABLE IF EXISTS comments;
@@ -74,14 +81,14 @@ CREATE TABLE comments
     PRIMARY KEY (id),
     CONSTRAINT fk_user_com
     FOREIGN KEY (user_id)
-        REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
+        REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_article_com
     FOREIGN KEY (article_id)
-        REFERENCES articles (id) ON DELETE CASCADE ON UPDATE CASCADE,
+        REFERENCES articles (id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_status_com
     FOREIGN KEY (status_id)
-        REFERENCES status (id) ON DELETE CASCADE ON UPDATE CASCADE
+        REFERENCES status (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB ;
 
 -- On remet les clés étrangères.
-SET foreign_key_checks = 1;
+-- SET foreign_key_checks = 1;
