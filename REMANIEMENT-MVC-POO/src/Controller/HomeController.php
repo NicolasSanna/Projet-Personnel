@@ -13,7 +13,7 @@ class HomeController extends AbstractController
     {
         $pageTitle = 'Bienvenue';
         // Affichage : inclusion du template
-        return $this->render('Home', [
+        return $this->render('home', [
             'pageTitle' => $pageTitle??''
         ]);
     }
