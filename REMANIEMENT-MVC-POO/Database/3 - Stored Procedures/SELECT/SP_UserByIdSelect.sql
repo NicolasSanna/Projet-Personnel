@@ -6,6 +6,6 @@ BEGIN
     SELECT *
     FROM users
     WHERE id = v_id
-    AND users.grant_id <> 1
+    AND id <> 1;
 
 END //
