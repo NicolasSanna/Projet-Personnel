@@ -1,5 +1,6 @@
-DROP USER '4dm1n1str4teur'@'localhost';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'TODO';
 
+DROP USER '4dm1n1str4teur'@'localhost';
 
 CREATE USER '4dm1n1str4teur'@'localhost' IDENTIFIED BY 'TODO';
 
@@ -24,5 +25,3 @@ ON huma_scientio.*
 TO '4dm1n1str4teur'@'localhost';
 
 FLUSH PRIVILEGES ;
-
--- B(v@!VR-q4XCmMzK
