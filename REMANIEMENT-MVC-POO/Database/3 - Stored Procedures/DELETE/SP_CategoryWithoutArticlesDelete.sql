@@ -31,6 +31,10 @@ BEGIN
         SET category_id = 1
         WHERE category_id = v_id;
 
+        DELETE
+        FROM categories
+        WHERE id = v_id;
+
         SET message = CONCAT("La catégorie ", categoryinfo, " a bien été supprimée");
 
     END IF;

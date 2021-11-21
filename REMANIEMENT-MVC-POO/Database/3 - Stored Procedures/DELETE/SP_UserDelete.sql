@@ -28,6 +28,14 @@ BEGIN
         WHERE id = v_id;
 
         DELETE
+        FROM comments
+        WHERE user_id = v_id;
+
+        DELETE
+        FROM articles
+        WHERE user_id = v_id;
+
+        DELETE
         FROM users
         WHERE id = v_id;
 

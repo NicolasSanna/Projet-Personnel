@@ -28,6 +28,10 @@ BEGIN
         WHERE id = v_id;
 
         DELETE
+        FROM articles
+        WHERE category_id = v_id;
+
+        DELETE
         FROM categories
         WHERE id = v_id;
         
