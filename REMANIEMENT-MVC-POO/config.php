@@ -12,6 +12,7 @@ define('DB_HOST', 'localhost');
 define('DB_NAME', 'huma_scientio');
 define('DB_USER', '4dm1n1str4teur');
 define('DB_PASSWORD', 'B(v@!VR-q4XCmMzK');
+
 define('DB_MS', 'mysql');
 define('DB_PORT', '3306');
 define('DB_CHARSET', 'utf8');
