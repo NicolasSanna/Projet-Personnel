@@ -5,6 +5,7 @@ BEGIN
 
     SELECT *
     FROM users
-    WHERE email = LOWER(v_email);
+    WHERE email = LOWER(v_email)
+    AND id <> 1;
 
 END //
