@@ -1,5 +1,6 @@
 USE huma_scientio;
 
+-- Sur MySQL Workbench, cette fonction permet de ne pas tenir compte des clés étrangère. Mais il faut les réactiver à la fin.
 SET foreign_key_checks = 0;
 
 DROP TABLE IF EXISTS grants;
@@ -82,4 +83,5 @@ CREATE TABLE comments
         REFERENCES status (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB ;
 
+-- On remet les clés étrang-res.
 SET foreign_key_checks = 1;
