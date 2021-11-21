@@ -6,7 +6,7 @@ SET foreign_key_checks = 0;
 DROP TABLE IF EXISTS grants;
 CREATE TABLE grants
 (
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     privilege VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE = InnoDB;
@@ -14,7 +14,7 @@ CREATE TABLE grants
 DROP TABLE IF EXISTS status;
 CREATE TABLE status
 (
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     label VARCHAR(128) NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE = InnoDB;
@@ -22,13 +22,13 @@ CREATE TABLE status
 DROP TABLE IF EXISTS users;
 CREATE TABLE users
 (
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
     pseudo VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    grant_id INT(11) NOT NULL,
+    grant_id INT NOT NULL,
     inscription_date DATETIME NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_grant_id_users
@@ -39,7 +39,7 @@ CREATE TABLE users
 DROP TABLE IF EXISTS categories;
 CREATE TABLE categories
 (
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     category VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE = InnoDB ;
@@ -47,11 +47,11 @@ CREATE TABLE categories
 DROP TABLE IF EXISTS articles;
 CREATE TABLE articles
 (
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
-    user_id INT(11) NOT NULL,
-    category_id INT(11) NOT NULL,
+    user_id INT NOT NULL,
+    category_id INT NOT NULL,
     creation_date DATETIME NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_user_article
@@ -65,11 +65,11 @@ CREATE TABLE articles
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments
 (
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     content TEXT NOT NULL,
-    user_id INT(11) NOT NULL,
-    article_id INT(11) NOT NULL,
-    status_id INT(11) NOT NULL,
+    user_id INT NOT NULL,
+    article_id INT NOT NULL,
+    status_id INT NOT NULL,
     date_publication DATETIME NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_user_com
