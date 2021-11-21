@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 21 nov. 2021 à 10:31
+-- Généré le : Dim 21 nov. 2021 à 19:13
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.4.9
 
@@ -180,6 +180,10 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_CategoryDelete` (`v_id
         WHERE id = v_id;
 
         DELETE
+        FROM articles
+        WHERE category_id = v_id;
+
+        DELETE
         FROM categories
         WHERE id = v_id;
         
@@ -326,6 +330,10 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_CategoryWithoutArticle
         UPDATE articles
         SET category_id = 1
         WHERE category_id = v_id;
+
+        DELETE
+        FROM categories
+        WHERE id = v_id;
 
         SET message = CONCAT("La catégorie ", categoryinfo, " a bien été supprimée");
 
@@ -623,7 +631,7 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_UserByIdSelect` (`v_id
 END$$
 
 DROP PROCEDURE IF EXISTS `SP_UserDelete`$$
-CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_UserDelete` (`v_id` INT(11))  BEGIN
+CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_UserDelete` (`v_id` INT)  BEGIN
 
     DECLARE message VARCHAR(512);
     DECLARE exist SMALLINT;
@@ -648,6 +656,14 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_UserDelete` (`v_id` IN
         INTO pseudoinfo
         FROM users
         WHERE id = v_id;
+
+        DELETE
+        FROM comments
+        WHERE user_id = v_id;
+
+        DELETE
+        FROM articles
+        WHERE user_id = v_id;
 
         DELETE
         FROM users
@@ -795,7 +811,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   PRIMARY KEY (`id`),
   KEY `fk_user_article` (`user_id`),
   KEY `fk_category_article` (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -835,7 +851,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   KEY `fk_user_com` (`user_id`),
   KEY `fk_article_com` (`article_id`),
   KEY `fk_status_com` (`status_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -898,14 +914,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `inscription_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_grant_id_users` (`grant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `pseudo`, `email`, `password`, `grant_id`, `inscription_date`) VALUES
-(1, 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 3, '2021-11-21 11:14:35');
+(1, 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 3, '2021-11-21 19:55:48'),
+(3, 'test', 'test', 'test', 'nico13sanna@gmail.com', '$2y$10$7.vqreyl8v4KMqFN2O3GYeCUQi0UnT5fWJBb4tFjWSfCIH9RnUu0e', 1, '2021-11-21 20:03:53');
 
 --
 -- Contraintes pour les tables déchargées
@@ -915,8 +932,8 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `pseudo`, `email`, `password
 -- Contraintes pour la table `articles`
 --
 ALTER TABLE `articles`
-  ADD CONSTRAINT `fk_category_article` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_user_article` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_category_article` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_user_article` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `comments`
@@ -930,7 +947,7 @@ ALTER TABLE `comments`
 -- Contraintes pour la table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `fk_grant_id_users` FOREIGN KEY (`grant_id`) REFERENCES `grants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_grant_id_users` FOREIGN KEY (`grant_id`) REFERENCES `grants` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
