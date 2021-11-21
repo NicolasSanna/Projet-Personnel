@@ -32,7 +32,7 @@ class AccountController extends AbstractController
                     $newUser = new UserModel();
                     $insertUser = $newUser->createUser($firstname, $lastname, $pseudo, $email, $hash);
     
-                    FlashBag::addFlash($insertUser['message']);
+                    FlashBag::addFlash($insertUser['message'], 'query');
                 }
                 else
                 {
