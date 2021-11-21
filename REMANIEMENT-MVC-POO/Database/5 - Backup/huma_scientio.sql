@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 21 nov. 2021 à 10:16
+-- Généré le : Dim 21 nov. 2021 à 10:31
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.4.9
 
@@ -69,7 +69,7 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_AllCommentsArticleSele
 END$$
 
 DROP PROCEDURE IF EXISTS `SP_AllCommentsNotApprouvedSelect`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_AllCommentsNotApprouvedSelect` ()  BEGIN
+CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_AllCommentsNotApprouvedSelect` ()  BEGIN
 
     SELECT com.id, com.content, com.date_publication, u.pseudo, com.article_id, art.title
     FROM comments com
@@ -100,7 +100,7 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_AllGrantsSelect` ()  B
 END$$
 
 DROP PROCEDURE IF EXISTS `SP_ArticleDelete`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ArticleDelete` (`v_article_id` INT, `v_user_id` INT)  BEGIN
+CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_ArticleDelete` (`v_article_id` INT, `v_user_id` INT)  BEGIN
 
     DELETE 
     FROM articles
@@ -137,6 +137,18 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_ArticleSelect` (`v_id`
     INNER JOIN users u ON art.user_id = u.id
     INNER JOIN categories cat ON art.category_id = cat.id
     WHERE art.id = v_id;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `SP_ArticleUpdate`$$
+CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_ArticleUpdate` (`v_article_id` INT(11), `v_user_id` INT(11), `v_new_title` VARCHAR(255), `v_new_content` TEXT, `v_category_id` INT(11))  BEGIN
+
+    UPDATE articles
+    SET title = v_new_title,
+        content = v_new_content,
+        category_id = v_category_id
+    WHERE id = v_article_id
+    AND user_id = v_user_id;
 
 END$$
 
@@ -229,7 +241,7 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_CategorySelect` (`v_id
 END$$
 
 DROP PROCEDURE IF EXISTS `SP_CategoryUpdate`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CategoryUpdate` (`v_id` INT, `v_category` VARCHAR(255))  BEGIN 
+CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_CategoryUpdate` (`v_id` INT, `v_category` VARCHAR(255))  BEGIN 
 
 	DECLARE message VARCHAR(512); 
     DECLARE exist SMALLINT;
@@ -323,52 +335,6 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_CategoryWithoutArticle
 
 END$$
 
-DROP PROCEDURE IF EXISTS `SP_ChangeGrant`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ChangeGrant` (`v_userId` INT, `v_grantId` INT)  BEGIN
-
-    DECLARE message VARCHAR(512);
-    DECLARE existUser SMALLINT;
-    DECLARE existGrant SMALLINT;
-
-    DECLARE pseudoinfo VARCHAR(255);
-    DECLARE privilegeinfo VARCHAR(255);
-
-    SELECT COUNT(id)
-    INTO existUser 
-    FROM users
-    WHERE id = v_userId;
-
-    SELECT COUNT(id)
-    INTO existGrant
-    FROM grants
-    WHERE id = v_grantId;
-
-    IF (existUser = 0 OR existGrant = 0) THEN
-
-        SET message = "L'utilisateur ou le droit n'existe pas.";
-
-    END IF;
-
-    IF (existUser > 0 AND existGrant > 0) THEN
-   
-        UPDATE users
-        SET grant_id = v_grantId
-        WHERE id = v_userId;
-
-        SELECT pseudo, privilege
-        INTO pseudoinfo, privilegeinfo
-        FROM users
-        INNER JOIN grants ON users.grant_id = grants.id
-        WHERE users.id = v_userId;
-
-        SET message = CONCAT("Le droit ", privilegeinfo, " a été attribué à ", pseudoinfo, ".");
-
-    END IF;
-
-    SELECT message;
-
-END$$
-
 DROP PROCEDURE IF EXISTS `SP_CommentDelete`$$
 CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_CommentDelete` (`v_id` INT(11))  BEGIN
 
@@ -381,30 +347,18 @@ END$$
 DROP PROCEDURE IF EXISTS `SP_CommentInsert`$$
 CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_CommentInsert` (`v_content` TEXT, `v_user_id` INT, `v_article_id` INT)  BEGIN
 
-DECLARE status_id SMALLINT;
+    DECLARE status_id SMALLINT;
 
-SET status_id = 1;
+    SET status_id = 1;
 
-INSERT INTO comments (content, user_id, article_id, status_id, date_publication)
-VALUES
-(v_content, v_user_id, v_article_id, status_id, NOW());
-
-END$$
-
-DROP PROCEDURE IF EXISTS `SP_CommentsNotApprouvedSelect`$$
-CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_CommentsNotApprouvedSelect` ()  BEGIN
-
-    SELECT com.id, com.content, com.date_publication, u.pseudo, com.article_id, art.title
-    FROM comments com
-    INNER JOIN users u ON com.user_id = u.id
-    INNER JOIN articles art ON com.article_id = art.id
-    WHERE com.status_id = 1
-    ORDER BY com.date_publication DESC;
+    INSERT INTO comments (content, user_id, article_id, status_id, date_publication)
+    VALUES
+    (v_content, v_user_id, v_article_id, status_id, NOW());
 
 END$$
 
 DROP PROCEDURE IF EXISTS `SP_CommentUpdate`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CommentUpdate` (`v_id` INT)  BEGIN
+CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_CommentUpdate` (`v_id` INT)  BEGIN
 
     UPDATE comments
     SET status_id = 2
@@ -413,7 +367,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CommentUpdate` (`v_id` INT)  BEG
 END$$
 
 DROP PROCEDURE IF EXISTS `SP_GrantUpdate`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GrantUpdate` (`v_userId` INT, `v_grantId` INT)  BEGIN
+CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_GrantUpdate` (`v_userId` INT, `v_grantId` INT)  BEGIN
 
     DECLARE message VARCHAR(512);
     DECLARE existUser SMALLINT;
@@ -471,8 +425,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GrantUpdate` (`v_userId` INT, `v
 END$$
 
 DROP PROCEDURE IF EXISTS `SP_InscriptionInsert`$$
-CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_InscriptionInsert` (`v_firstname` VARCHAR(255), `v_lastname` VARCHAR(255), `v_pseudo` VARCHAR(255), `v_email` VARCHAR(255), `v_password` VARCHAR(255))  SQL SECURITY INVOKER
-BEGIN
+CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_InscriptionInsert` (`v_firstname` VARCHAR(255), `v_lastname` VARCHAR(255), `v_pseudo` VARCHAR(255), `v_email` VARCHAR(255), `v_password` VARCHAR(255))  BEGIN
 
     DECLARE message VARCHAR(512);
     DECLARE exist SMALLINT;
@@ -599,6 +552,39 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_OneCommentSelect` (`v_
 
 END$$
 
+DROP PROCEDURE IF EXISTS `SP_PasswordUpdate`$$
+CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_PasswordUpdate` (`v_email` VARCHAR(255), `v_password` VARCHAR(255))  BEGIN
+
+    DECLARE message VARCHAR(512);
+    DECLARE exist SMALLINT;
+
+    SELECT COUNT(id)
+    INTO exist
+    FROM users
+    WHERE email = LOWER(v_email);
+
+    IF (exist = 0) THEN 
+
+        SET message = "Cet email n'existe pas.";
+
+        SELECT message;
+
+    END IF;
+
+    IF (exist > 0) THEN
+
+        UPDATE users
+        SET password = v_password
+        WHERE email = v_email;
+
+        SET message = "Votre mot de passe a correctement été modifié.";
+        
+        SELECT message;
+
+    END IF;
+
+END$$
+
 DROP PROCEDURE IF EXISTS `SP_SearchSelect`$$
 CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_SearchSelect` (`v_search` VARCHAR(512))  BEGIN
 
@@ -627,7 +613,7 @@ CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_UserByEmailSelect` (`v
 END$$
 
 DROP PROCEDURE IF EXISTS `SP_UserByIdSelect`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_UserByIdSelect` (`v_id` INT(11))  BEGIN
+CREATE DEFINER=`4dm1n1str4teur`@`localhost` PROCEDURE `SP_UserByIdSelect` (`v_id` INT(11))  BEGIN
 
     SELECT *
     FROM users
