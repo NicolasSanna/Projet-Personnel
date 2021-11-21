@@ -47,17 +47,7 @@
 
         <?php require TEMPLATE_DIR . '/footer.phtml';?>
 
-            <script src="<?= asset('js/app.js');?>"></script>
-            <script src="<?= asset('js/search.js');?>"></script>
-
-        <?php if (UserSession::isAuthenticated()):?>
-            
-            <script src="<?= asset('js/adminuser.js');?>"></script>
-            <script src="<?= asset('js/admincategory.js');?>"></script>
-            <script src="<?= asset('js/adminarticle.js');?>"></script>
-            
-        <?php endif;?>
-        
+            <script src="<?= asset('js/app.js');?>"></script>       
 
         </body>
 </html>

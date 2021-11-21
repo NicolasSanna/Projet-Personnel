@@ -64,19 +64,28 @@ class AdministrationController extends AbstractController
 
             if (!empty($_POST))
             {
-                $choice = $_POST['deleteuser'];
+                $choice = (int) $_POST['deleteuser'];
 
-                if($choice == 1)
+                switch ($choice)
                 {
-                    $userModel = new userModel();
-                    $deleteUser = $userModel->deleteUser($idOfUser);
-                    Flashbag::addFlash($deleteUser['message']);
-                }
-                elseif ($choice == 2)
-                {
-                    $userModel = new UserModel();
-                    $deleteUser = $userModel->deleteUserWithoutArticlesComments($idOfUser);
-                    FlashBag::addFlash($deleteUser['message']);
+                    case 1:
+                    {
+                        $userModel = new userModel();
+                        $deleteUser = $userModel->deleteUser($idOfUser);
+                        Flashbag::addFlash($deleteUser['message'], 'query');
+                        break;
+                    }
+                    case 2:
+                    {
+                        $userModel = new UserModel();
+                        $deleteUser = $userModel->deleteUserWithoutArticlesComments($idOfUser);
+                        FlashBag::addFlash($deleteUser['message'], 'query');
+                        break;
+                    }
+                    default:
+                    {
+                        $this->redirect('administration');
+                    }
                 }
             }
             
@@ -272,18 +281,26 @@ class AdministrationController extends AbstractController
             {
                 $choiceDelete = (int) $_POST['deleteCategory'];
 
-                if ($choiceDelete == 1)
+                switch ($choiceDelete)
                 {
-                    $categoryModel = new CategoryModel();
-                    $deleteCategory = $categoryModel->deleteCategory($idOfCategory);
-                    FlashBag::addFlash($deleteCategory['message'], 'query');
-                    
-                }
-                elseif ($choiceDelete == 2)
-                {
-                    $deleteCategory = $categoryModel->deleteCategoryWithoutArticles($idOfCategory);
-                    FlashBag::addFlash($deleteCategory['message'], 'query');
-                    
+                    case 1:
+                    {
+                        $categoryModel = new CategoryModel();
+                        $deleteCategory = $categoryModel->deleteCategory($idOfCategory);
+                        FlashBag::addFlash($deleteCategory['message'], 'query');
+                        break;
+                    }
+
+                    case 2:
+                    {
+                        $deleteCategory = $categoryModel->deleteCategoryWithoutArticles($idOfCategory);
+                        FlashBag::addFlash($deleteCategory['message'], 'query');
+                        break;
+                    }
+                    default:
+                    {
+                        $this->redirect('administration');
+                    }
                 }
                 $this->redirect('administration');
             }

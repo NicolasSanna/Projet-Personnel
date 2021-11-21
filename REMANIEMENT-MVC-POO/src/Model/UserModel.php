@@ -66,7 +66,7 @@ class UserModel extends AbstractModel
 
     function deleteUser(int $userId)
     {
-        $sql = 'CALL SP_GrantUpdate(?)';
+        $sql = 'CALL SP_UserDelete(?)';
 
         return $this->database->getOneResult($sql, [$userId]);
     }
