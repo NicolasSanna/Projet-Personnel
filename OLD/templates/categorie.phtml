@@ -1,9 +1,0 @@
-<h2 class="ListeArticles-h2"><?=$articlesCategorie[0]['categorie'];?></h2>
-<?php foreach ($articlesCategorie as $articleCategorie):?>
-    <li class="ListeArticles-li">
-        <h3 class="ListeArticles-h3"><?=$articleCategorie['nom_article'];?></h3>
-                <p class="ListeArticles-date">Date de création : <?=(new DateTimeImmutable($articleCategorie['date_creation_article']))->format('d/m/Y');?></p>
-            <div class="ListeArticles-contenu"><?=mb_substr($articleCategorie['contenu'],0,150);?> [...] </div>
-        <a class="ListeArticles-suite" href="/article?id=<?=$articleCategorie['id_art'];?>">Lire la suite</a>
-    </li>
-<?php endforeach;?>
