@@ -53,12 +53,12 @@ $routes = [
     ],
     'adminusers' => [
         'path' => '/administrerutilisateurs',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationUser',
         'method' => 'administrationUsers'
     ],
     'deleteUser' => [
         'path' => '/supprimerutilisateur',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationUser',
         'method' => 'deleteUser'
     ],
     'myarticles' => [
@@ -83,27 +83,27 @@ $routes = [
     ],
     'addCategory' => [
         'path' => '/ajouterunecategorie',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationCategory',
         'method' => 'addCategory'
     ],
     'adminCategories' => [
         'path' => '/administrerlescategories',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationCategory',
         'method' => 'adminCategories'
     ],
     'modifygrantuser' => [
         'path' => '/modifierprivilegeutilisateur',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationUser',
         'method' => 'modifyGrantUser'
     ],
     'modifycategory' => [
         'path' => '/modifiercategorie',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationCategory',
         'method' => 'modifyCategory'
     ],
     'deletecategory' => [
         'path' => '/supprimercategorie',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationCategory',
         'method' => 'deleteCategory'
     ],
     'categories' => [
@@ -118,22 +118,22 @@ $routes = [
     ],
     'commentsAdministration' => [
         'path' => '/administration/commentaires',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationComments',
         'method' => 'adminCommentsNotApprouved'
     ],
     'commentApprouved' => [
         'path' => '/administration/approuvercommentaire',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationCommentsn',
         'method' => 'commentApprouved'
     ],
     'commentDelete' => [
         'path' => '/administration/supprimercommentaire',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationComments',
         'method' => 'commentRefused'
     ],
     'allCommentsApprouved' => [
         'path' => '/administration/approuvertouslescommentaires',
-        'controller' => 'Admin\\Administration',
+        'controller' => 'Admin\\AdministrationComments',
         'method' => 'AllCommentsApprouved'
     ],
     'search' => [

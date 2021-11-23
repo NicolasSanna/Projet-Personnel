@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Framework\AbstractController;
-use App\Model\UserModel;
 use App\Framework\FlashBag;
+use App\Model\UserModel;
 
 class AccountController extends AbstractController
 {

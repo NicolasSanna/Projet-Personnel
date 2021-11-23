@@ -3,9 +3,9 @@
 namespace App\Controller;
 
 use App\Framework\AbstractController;
+use App\Framework\FlashBag;
 use App\Model\ArticleModel;
 use App\Model\CategoryModel;
-use App\Framework\FlashBag;
 
 class ForumController extends AbstractController
 {
