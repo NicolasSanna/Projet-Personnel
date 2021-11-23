@@ -194,77 +194,77 @@ class ArticleController extends AbstractController
         }
     }
 
-    public function uploadFile()
-    {
-        if(UserSession::administrator() || UserSession::author())
-        {
-            if(!empty($_POST))
-            {
-                $file = $_FILES['file'];
-                $name = trim(htmlspecialchars($_POST['name']));
-                $content = trim(htmlspecialchars($_POST['content']));
+    // public function uploadFile()
+    // {
+    //     if(UserSession::administrator() || UserSession::author())
+    //     {
+    //         if(!empty($_POST))
+    //         {
+    //             $file = $_FILES['file'];
+    //             $name = trim(htmlspecialchars($_POST['name']));
+    //             $content = trim(htmlspecialchars($_POST['content']));
 
-                if(!$name)
-                {
-                    FlashBag::addFlash("Le champ nom est vide", 'error');
-                }
+    //             if(!$name)
+    //             {
+    //                 FlashBag::addFlash("Le champ nom est vide", 'error');
+    //             }
 
-                if (!$content)
-                {
-                    FlashBag::addFlash("Le champ de description est vide", 'error');
-                }
+    //             if (!$content)
+    //             {
+    //                 FlashBag::addFlash("Le champ de description est vide", 'error');
+    //             }
 
-                if(strlen($content) > 200)
-                {
-                    FlashBag::addFlash("Le champ de description ne doit pas contenir plus de 200 caractères", 'error');
-                }
+    //             if(strlen($content) > 200)
+    //             {
+    //                 FlashBag::addFlash("Le champ de description ne doit pas contenir plus de 200 caractères", 'error');
+    //             }
 
-                if(!$file['name'])
-                {
-                    FlashBag::addFlash('La zone de fichier est vide', 'error');
-                }
+    //             if(!$file['name'])
+    //             {
+    //                 FlashBag::addFlash('La zone de fichier est vide', 'error');
+    //             }
 
-                if($file['error'] > 0)
-                {
-                    FlashBag::addFlash('Une erreur est survenue lors du chargement du fichier.', 'error');
-                }
+    //             if($file['error'] > 0)
+    //             {
+    //                 FlashBag::addFlash('Une erreur est survenue lors du chargement du fichier.', 'error');
+    //             }
 
-                if($file['size'] > 8000000)
-                {
-                    FlashBag::addFlash("Le fichier est trop volumineux, au-delà de 8 Mo", 'error');
-                }
+    //             if($file['size'] > 8000000)
+    //             {
+    //                 FlashBag::addFlash("Le fichier est trop volumineux, au-delà de 8 Mo", 'error');
+    //             }
 
 
-                $fileName = $file['name'];
-                $fileExtension = "." . strtolower(substr(strrchr($fileName, "."), 1));
+    //             $fileName = $file['name'];
+    //             $fileExtension = "." . strtolower(substr(strrchr($fileName, "."), 1));
 
-                $validExtension = ['.pdf', '.doc', '.docx', '.odt', '.txt'];
+    //             $validExtension = ['.pdf', '.doc', '.docx', '.odt', '.txt'];
 
-                if(!in_array($fileExtension, $validExtension))
-                {
-                    FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
-                }
+    //             if(!in_array($fileExtension, $validExtension))
+    //             {
+    //                 FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
+    //             }
 
                         
-                if (!(FlashBag::hasMessages('error')))
-                {
+    //             if (!(FlashBag::hasMessages('error')))
+    //             {
                     
-                    FlashBag::addFlash("Votre fichier a bien été enregistré.");
+    //                 FlashBag::addFlash("Votre fichier a bien été enregistré.");
 
-                    $uniqueName = md5(uniqid(rand(), true));
-                    $fileName = $uniqueName . $fileExtension;
-                }
+    //                 $uniqueName = md5(uniqid(rand(), true));
+    //                 $fileName = $uniqueName . $fileExtension;
+    //             }
                 
-            }
+    //         }
 
-        }
-        else
-        {
-            $this->redirect('accessRefused');
-        }
-        return $this->render('uploadfile', [
-            'name' => $name??'',
-            'content' => $content??''
-        ]);
-    }
+    //     }
+    //     else
+    //     {
+    //         $this->redirect('accessRefused');
+    //     }
+    //     return $this->render('uploadfile', [
+    //         'name' => $name??'',
+    //         'content' => $content??''
+    //     ]);
+    // }
 }
