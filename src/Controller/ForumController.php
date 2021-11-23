@@ -55,13 +55,10 @@ class ForumController extends AbstractController
                 FlashBag::addFlash('Aucun article ne correspond à cet identifiant.', 'error');
                 return $this->redirect('forum');
             }
-  
         }
         else
         {
-
             $this->redirect('forum');
-
         }
 
         return $this->render('category', [
@@ -77,7 +74,7 @@ class ForumController extends AbstractController
        if(array_key_exists('search', $_GET) || isset($_GET['search']))
        {
            
-        $search = trim(htmlspecialchars($_GET['search']));
+            $search = trim(htmlspecialchars($_GET['search']));
         
             if(!$search)
             {
@@ -93,9 +90,9 @@ class ForumController extends AbstractController
                     FlashBag::addFlash("Aucun article ne correspond à votre recherche.", 'error');
                 }
             }
-       }
+        }
 
-       return $this->render('search', [
+        return $this->render('search', [
            'searchArticles' => $searchArticles??'',
            'search' => $search??'',
            'pageTitle' => $pageTitle??''

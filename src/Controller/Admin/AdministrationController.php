@@ -54,6 +54,7 @@ class AdministrationController extends AbstractController
 
             $userModel = new UserModel();
             $userInfos = $userModel->getUserById($idOfUser);
+
             $pageTitle = 'Supprimer un utilisateur';
 
             if(!$userInfos)
@@ -116,7 +117,6 @@ class AdministrationController extends AbstractController
             $newCategory = trim($_POST['newcategory']);
             $token = $_POST['token'];
 
-            
             if ($token != UserSession::token())
             {
                 FlashBag::addFlash("MAUVAIS TOKEN !", 'error');
@@ -290,7 +290,6 @@ class AdministrationController extends AbstractController
                         FlashBag::addFlash($deleteCategory['message'], 'query');
                         break;
                     }
-
                     case 2:
                     {
                         $deleteCategory = $categoryModel->deleteCategoryWithoutArticles($idOfCategory);
@@ -304,7 +303,6 @@ class AdministrationController extends AbstractController
                 }
                 $this->redirect('administration');
             }
-
         }
         else
         {

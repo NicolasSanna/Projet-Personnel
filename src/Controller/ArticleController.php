@@ -15,13 +15,9 @@ class ArticleController extends AbstractController
         if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id'])) 
         {
             $idOfArticle = (int) $_GET['id'];
-
             $articleModel = new ArticleModel();
-
             $article = $articleModel->getOneArticle($idOfArticle);
-
             $pageTitle = $article['title'];
-
 
             $commentModel = new CommentModel();
             $comments = $commentModel->getAllcomments($idOfArticle);
@@ -75,11 +71,9 @@ class ArticleController extends AbstractController
                         $commentModel = new CommentModel();
                         $insertComment = $commentModel->addComment($comment, $user_id, $idOfArticle);
                         FlashBag::addFlash("Votre commentaire a bien été pris en compte. Il sera visible prochainement.", "success");
-    
                     }
                 }
-
-                $this->redirect('article', ['id' => $article['id']]);
+                $this->redirect('article', ['id' => $idOfArticle]);
             }
             else
             {

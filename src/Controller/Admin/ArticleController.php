@@ -104,7 +104,6 @@ class ArticleController extends AbstractController
                 $this->redirect('myarticles');
             }
 
-
             $id_user = UserSession::getId();
         
             $title = $checkArticle['title'];

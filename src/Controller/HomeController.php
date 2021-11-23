@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Framework\AbstractController;
-use App\Framework\FlashBag;
-use App\Framework\UserSession;
 
 class HomeController extends AbstractController 
 {
