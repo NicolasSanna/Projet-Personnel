@@ -24,22 +24,27 @@ class AccountController extends AbstractController
             {
                 FlashBag::addFlash("Tous les champs d'inscription n'ont pas été correctement remplis", 'error');
             }
-            else
+
+
+            if (strlen($password) < 8)
             {
-                if(filter_var($email, FILTER_VALIDATE_EMAIL))
-                {
-                    $hash = password_hash($password, PASSWORD_DEFAULT);
-                    $newUser = new UserModel();
-                    $insertUser = $newUser->createUser($firstname, $lastname, $pseudo, $email, $hash);
-    
-                    FlashBag::addFlash($insertUser['message'], 'query');
-                }
-                else
-                {
-                    FlashBag::addFlash('Vérifiez le format de votre email.', 'error'); 
-                }
+                FlashBag::addFlash("Le mot de passe doit contenir au moins 8 caractères.", 'error');
             }
 
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+            {
+                FlashBag::addFlash('Vérifiez le format de votre email.', 'error'); 
+            }
+
+
+            if (!(FlashBag::hasMessages('error')))
+            {
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $newUser = new UserModel();
+                $insertUser = $newUser->createUser($firstname, $lastname, $pseudo, $email, $hash);
+
+                FlashBag::addFlash($insertUser['message'], 'query');
+            }
         }
         return $this->render('inscription', [
             'lastname' => $lastname??'',

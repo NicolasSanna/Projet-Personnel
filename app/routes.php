@@ -142,11 +142,11 @@ $routes = [
         'method' => 'search'
     ],
     
-    // 'uploadFile' => [
-    //     'path' => '/envoyerunfichier',
-    //     'controller' => 'Admin\\Article',
-    //     'method' => 'uploadFile'
-    // ],
+    'uploadFile' => [
+        'path' => '/envoyerunfichier',
+        'controller' => 'Admin\\Article',
+        'method' => 'uploadFile'
+    ],
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
         'path' => $path,

@@ -1,8 +1,11 @@
 <h4>Envoyer un fichier</h4>
 
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="" method="POST" enctype="multipart/form-data" class="uploadfileform">
     <label for="name">Description</label>
-    <input type="text" name="name" id="">
-    <input type="file" name="file" id="" accept="application/pdf">
+    <input type="text" name="name" id="" value="<?=$name;?>">
+    <label for="content">Description</label>
+    <textarea name="content" id="" cols="30" rows="10"><?=$content;?></textarea>
+    <input type="file" name="file" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+text/plain, application/pdf, application/vnd.oasis.opendocument.text">
     <input type="submit" value="Envoyer">
 </form>

@@ -4,12 +4,8 @@
 
 - Créer la table "ressources" qui contiendra le nom des fichiers (créer $_FILES à l'ajout), le titre, la clé étrangère de la catégorie, la clé étrangère de l'utilisateur qui l'a ajouté, et la date d'ajout pour les ressources documentaires. (Accès pour les inscrits, ajout pour les auteurs (réfléchir à la modification et à la suppression)). A ajouter dans le panneau d'administration.
 
-- Renommer les Procédures Stockées de manière conventionnelles.
-
 - S'occuper du CSS.
 
 - Continuer d'écrire le dossier professionnel et le dossier projet.
 
-- Penser aux redirections en cas d'erreur dans l'URL. (.htaccess ?)
-
-- Penser au backup de Base de Données avec article de test, et utilisateur Administrateur (moi) afin d'éviter de changer le statut directement dans la base de données avec le compte de connexion de user.sql. Penser à garder les identifiants. 
+- Penser à mettre le token dans tous les champs cachés et faire la vérification côté serveur/PHP dans les formulaires de création d'article, de catégorie, de suppression d'article, de suppression de catégorie, de modification de catégorie. 
