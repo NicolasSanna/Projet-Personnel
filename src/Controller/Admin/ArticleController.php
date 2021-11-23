@@ -49,9 +49,6 @@ class ArticleController extends AbstractController
         {
             $this->redirect('accessRefused');
         }
-
-
-
     }
 
     public function myArticles()
