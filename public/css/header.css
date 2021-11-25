@@ -1,0 +1,105 @@
+.Header-container {
+  background-image: url(../img/viktor-forgacs-DzpViKMZHe8-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  height: 340px;
+}
+.Header-container-boxtitle {
+  padding-top: 60px;
+}
+.Header-container-boxtitle-box {
+  padding-top: 3px;
+  background-color: black;
+  opacity: 0.8;
+  padding-bottom: 30px;
+  height: 180px;
+}
+.Header-container-boxtitle-box-p {
+  padding-bottom: 20px;
+}
+.Header-container-boxtitle-box-a {
+  text-decoration: none;
+  border: solid white 1px;
+  padding: 15px;
+  color: white;
+}
+.Header-container-boxtitle-box-a:visited {
+  color: white;
+}
+.Header-container-boxtitle-box-a:hover {
+  color: black;
+  background-color: white;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+}
+.Header-container-boxtitle-box-a:link {
+  color: #838383;
+}
+.Header-navbarbox {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+}
+.Header-navbarbox-navbar {
+  display: none;
+  margin-top: -10px;
+  font-size: 17px;
+}
+.Header-navbarbox-navbar-ul {
+  background-color: black;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+.Header-navbarbox-navbar-ul > li {
+  margin-bottom: 3px;
+}
+.Header-navbarbox-navbar-ul-a {
+  text-decoration: none;
+  color: white;
+}
+.Header-navbarbox-navbar-ul-a:hover {
+  color: peru;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+}
+.Header-navbarbox-navbar-ul-a:active {
+  color: peru;
+}
+.Header-navbarbox-burgerOn {
+  cursor: pointer;
+}
+.Header-navbarbox-burgerOn-burger {
+  text-decoration: none;
+  color: white;
+  font-size: 19px;
+}
+.Header-navbarbox-burgerOn-cross {
+  text-decoration: none;
+  color: white;
+  display: none;
+  font-size: 19px;
+}
+
+@-webkit-keyframes glissementMenu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes glissementMenu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=header.css.map */

@@ -21,6 +21,9 @@ function burgerManager()
             menu.style.display = 'block';
             cross.style.display = 'block';
             burger.style.display = 'none';
+            menu.style.animationDuration ='2s';
+            menu.style.animationDirection = 'normal';
+            menu.style.animationName ='glissementMenu';
             
             return;
         }
@@ -38,6 +41,9 @@ function burgerManager()
             menu.style.display = 'none';
             cross.style.display = 'none';
             burger.style.display = 'block';
+            menu.style.animationDuration ='2s';
+            menu.style.animationDirection = 'normal';
+            menu.style.animationName ='glissementMenu';
             
             return;
         }

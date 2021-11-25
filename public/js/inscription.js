@@ -13,6 +13,7 @@ function passwordManager ()
         if (passwordLabel.type === "password")
         {
             passwordLabel.type = "text";
+            passwordBtn.style.backgroundColor = '#CD853F';
         }
         else if (passwordLabel.type === "text")
         {

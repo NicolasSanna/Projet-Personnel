@@ -1,0 +1,78 @@
+@import 'variables';
+
+// FORUM //
+.Forum
+{
+
+
+    &-h1
+    {
+        text-align:center;
+    }
+    &-list
+    {
+
+        
+        padding:10px;
+        display:flex;
+        flex-direction:column;
+        &-article
+        {
+
+            animation-duration: 2s;
+            animation-direction: normal;
+            animation-name: glissement;
+
+            padding-bottom:30px;
+            margin-top:0px;
+            margin-bottom:20px;
+            padding-left:20px;;
+            padding-right:20px;
+            box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
+            border-radius: 10px;
+
+            &-link
+            {
+                text-decoration:none;
+                border:solid $colorPeru 1px;
+                padding:15px;
+                color:white;
+                background-color:$colorPeru;
+
+                border-radius: 5px;
+                &:visited
+                {
+                    color:white;
+                }
+                &:hover
+                {
+                    background-color:white;
+                    color:black;
+                    transition: 0.5s ease-in-out;
+                    opacity:1;
+                }
+            }
+            &-category
+            {
+                padding-bottom:20px;
+
+                &-link
+                {
+                    text-decoration:none;
+                    &:visited
+                    {
+                        color:$colorPeru
+                    }
+                    &:link
+                    {
+                        text-decoration:none; 
+                    }
+                }
+            }
+            &-content
+            {
+                text-align:justify;
+            }
+        }
+    }
+}

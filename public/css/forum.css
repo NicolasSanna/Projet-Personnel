@@ -1,0 +1,55 @@
+.Forum-h1 {
+  text-align: center;
+}
+.Forum-list {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.Forum-list-article {
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-name: glissement;
+          animation-name: glissement;
+  padding-bottom: 30px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.Forum-list-article-link {
+  text-decoration: none;
+  border: solid peru 1px;
+  padding: 15px;
+  color: white;
+  background-color: peru;
+  border-radius: 5px;
+}
+.Forum-list-article-link:visited {
+  color: white;
+}
+.Forum-list-article-link:hover {
+  background-color: white;
+  color: black;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+}
+.Forum-list-article-category {
+  padding-bottom: 20px;
+}
+.Forum-list-article-category-link {
+  text-decoration: none;
+}
+.Forum-list-article-category-link:visited {
+  color: peru;
+}
+.Forum-list-article-category-link:link {
+  text-decoration: none;
+}
+.Forum-list-article-content {
+  text-align: justify;
+}/*# sourceMappingURL=forum.css.map */

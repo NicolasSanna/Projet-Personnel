@@ -1,0 +1,20 @@
+.Article {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.Article-title {
+  text-align: center;
+}
+.Article-content {
+  text-align: justify;
+}
+.Article-category-link {
+  color: peru;
+  text-decoration: none;
+}
+.Article-category-link:visited {
+  color: peru;
+}
+.Article-category-link:link {
+  text-decoration: none;
+}/*# sourceMappingURL=article.css.map */

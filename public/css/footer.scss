@@ -1,0 +1,79 @@
+@import 'variables';
+// FOOTER 
+.Footer
+{
+    background-color:black;
+    &-box
+    {
+        display:flex;
+        flex-direction:column;
+        padding-left:40px;
+        padding-right:40px;
+        margin-bottom:20px;
+        &-copyrights
+        {
+            padding-bottom:15px;
+            text-align: center;
+        }        
+        &-section1 
+        {
+            &-title
+            {
+                font-weight: normal;
+                color:white;
+            }
+            &-informations
+            {
+                text-align: justify;
+            }
+        }
+
+        &-hr
+        {
+            margin-left:40px;
+            margin-right:40px;
+        }
+        &-section2
+        {
+            justify-content: space-between;
+            display:flex;
+            flex-direction:row;
+            &-link
+            {
+                text-decoration: none;
+                color:rgb(80, 80, 80);
+                &:hover
+                {
+                    
+                    color:$colorPeru;
+                    transition: 0.5s ease-in-out;
+                    opacity:1;
+                }
+   
+            }
+            &-left
+            {
+                padding-left:20%;
+
+    
+            }
+            &-right
+            {
+
+                padding-right: 20%;
+            }
+            text-align: center;
+            &-title
+            {
+                font-weight: normal;
+                color:white;
+                margin-bottom: 5px;
+            }
+            &-left 
+            {
+                display:flex;
+                flex-direction:column;
+            }
+        }
+    }
+}

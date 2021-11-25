@@ -18,129 +18,6 @@
     }
 }
 
-// HEADER // 
-
-.Header
-{
-    &-container
-    {
-        background-image: url(../img/viktor-forgacs-DzpViKMZHe8-unsplash.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        text-align:center;
-        color:white;
-        height: 340px;
-
-        
-        &-boxtitle
-        {
-            padding-top: 60px;
-
-            &-box
-            {
-
-                padding-top: 3px;
-                background-color:black;
-                opacity:0.8;
-                padding-bottom:30px;
-                height: 180px;
-
-                &-p
-                {
-                    padding-bottom:20px;
-                }
-                &-a
-                {
-                    text-decoration:none;
-                    border:solid white 1px;
-                    padding:15px;
-                    color:white;
-                    &:visited
-                    {
-                        color:white;
-                    }
-                    &:hover
-                    {
-                        color:black;
-                        background-color:white;
-                        transition: 0.5s ease-in-out;
-                        opacity:1;
-                    }
-                    &:link
-                    {
-                        color:rgb(131, 131, 131);
-                    }
-
-                }
-            }
-        }
-    }
-    &-navbarbox
-    {
-        background-color:black;
-        display:flex;
-        flex-direction:column;
-        text-align:center;
-        width:100%;
-
-        &-navbar
-        {
-            display:none;
-            margin-top: -10px;
-            font-size:17px;
-
-            &-ul
-            {
-                > li
-                {
-                    margin-bottom:3px;
-                }
-                background-color:black;
-                list-style: none;
-                display:flex;
-                flex-direction:column;
-                padding: 0px;
-                &-a
-                {
-                    text-decoration:none;
-                    color:white;
-                    &:hover
-                    {
-                        color:$colorPeru;
-                        transition: 0.5s ease-in-out;
-                        opacity:1;
-                    }
-                    &:active
-                    {
-                        color:$colorPeru
-                    }
-                }
-            }
-        }
-        &-burgerOn
-        {
-            cursor:pointer;
-            
-            &-burger
-            {
-                text-decoration:none;
-                color:white;
-                font-size: 19px;
-                
-            }
-            &-cross
-            {
-                text-decoration:none;
-                color:white;
-                display:none;
-                font-size: 19px;
-               
-            }
-        }
-    }
-}
-
-
 // TEXTAREA
 textarea
 {
@@ -183,76 +60,8 @@ textarea
         background-color:$colorPeru
     }
 }
-// FORUM //
-.Forum
-{
 
 
-    &-h1
-    {
-        text-align:center;
-    }
-    &-list
-
-    {
-        padding:10px;
-        display:flex;
-        flex-direction:column;
-        &-article
-        {
-            padding-bottom:30px;
-            margin-top:0px;
-            margin-bottom:20px;
-            padding-left:20px;;
-            padding-right:20px;
-            box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
-            border-radius: 10px;
-
-            &-link
-            {
-                text-decoration:none;
-                border:solid $colorPeru 1px;
-                padding:15px;
-                color:white;
-                background-color:$colorPeru;
-
-                border-radius: 5px;
-                &:visited
-                {
-                    color:white;
-                }
-                &:hover
-                {
-                    background-color:white;
-                    color:black;
-                    transition: 0.5s ease-in-out;
-                    opacity:1;
-                }
-            }
-            &-category
-            {
-                padding-bottom:20px;
-
-                &-link
-                {
-                    text-decoration:none;
-                    &:visited
-                    {
-                        color:peru;
-                    }
-                    &:link
-                    {
-                        text-decoration:none; 
-                    }
-                }
-            }
-            &-content
-            {
-                text-align:justify;
-            }
-        }
-    }
-}
 
 .Title
 {
@@ -266,6 +75,7 @@ textarea
 {
     text-align: center;
 }
+
 // LISTE
 .List
 {
@@ -306,7 +116,7 @@ textarea
 {
     margin-top: 50px;
     margin-bottom: 10px;
-    background-color:peru;
+    background-color:$colorPeru;
     color:white;
     padding-top:10px;
     padding-bottom:10px;
@@ -329,38 +139,7 @@ textarea
 }
 
 
-// ARTICLE
-.Article
-{
-    padding-left:10px;
-    padding-right:10px;
-    
-    &-title
-    {
-        text-align: center;
-    }
-    &-content
-    {
-        text-align:justify;
-    }
-    &-category
-    {
-        &-link
-        {
-            color:peru;
-                text-decoration:none;
-                &:visited
-                {
-                    color:peru;
-                }
-                &:link
-                {
-                    text-decoration:none; 
-                }
-            
-        }
-    }
-}
+
 
 // HOME
 .Home
@@ -378,90 +157,16 @@ textarea
     }
 }
 
-// FOOTER 
-.Footer
-{
-    background-color:black;
-    &-box
-    {
-        display:flex;
-        flex-direction:column;
-        padding-left:40px;
-        padding-right:40px;
-        margin-bottom:20px;
-        &-copyrights
-        {
-            padding-bottom:15px;
-            text-align: center;
-        }        
-        &-section1 
-        {
-            &-title
-            {
-                font-weight: normal;
-                color:white;
-            }
-            &-informations
-            {
-                text-align: justify;
-            }
-        }
 
-        &-hr
-        {
-            margin-left:40px;
-            margin-right:40px;
-        }
-        &-section2
-        {
-            justify-content: space-between;
-            display:flex;
-            flex-direction:row;
-            &-link
-            {
-                text-decoration: none;
-                color:rgb(80, 80, 80);
-                &:hover
-                {
-                    
-                    color:peru;
-                    transition: 0.5s ease-in-out;
-                    opacity:1;
-                }
-   
-            }
-            &-left
-            {
-                padding-left:20%;
-
-    
-            }
-            &-right
-            {
-
-                padding-right: 20%;
-            }
-            text-align: center;
-            &-title
-            {
-                font-weight: normal;
-                color:white;
-                margin-bottom: 5px;
-            }
-            &-left 
-            {
-                display:flex;
-                flex-direction:column;
-            }
-        }
-    }
-}
 
 // FORMULAIRES
 
 .Form 
 {
 
+    animation-duration: 2s;
+    animation-direction: normal;
+    animation-name: glissement;
     &-title
     {
         text-align: center;
@@ -497,7 +202,7 @@ textarea
         &-button
         {
             margin-top:10px;
-            background-color:peru;
+            background-color:$colorPeru;
             color:white;
             padding-top:10px;
             padding-bottom:10px;
@@ -535,7 +240,7 @@ textarea
         &-button
         {
             margin-top:10px;
-            background-color:peru;
+            background-color:$colorPeru;
             color:white;
             padding-top:10px;
             padding-bottom:10px;
@@ -586,7 +291,7 @@ textarea
         &-button
         {
             margin-top:10px;
-            background-color:peru;
+            background-color:$colorPeru;
             color:white;
             padding-top:10px;
             padding-bottom:10px;
@@ -645,7 +350,7 @@ textarea
         &-button
         {
             margin-top:10px;
-            background-color:peru;
+            background-color:$colorPeru;
             color:white;
             padding-top:10px;
             padding-bottom:10px;
@@ -711,6 +416,8 @@ textarea
         
     }
 }
+
+
 
 @media screen AND (min-width: 730px)
 {
@@ -783,5 +490,22 @@ textarea
         {
             max-width:850px;
         }
+    }
+}
+
+@keyframes glissement 
+{
+    from 
+    {
+      margin-left: 25%;
+      width: 300%;
+      opacity:0;
+    }
+  
+    to 
+    {
+      margin-left: 0%;
+      width: 100%;
+      opacity:1;
     }
 }
