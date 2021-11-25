@@ -1,3 +1,5 @@
+@import 'variables';
+
 .Body, html
 {
     font-family: 'Open Sans', sans-serif;
@@ -85,9 +87,14 @@
         {
             display:none;
             margin-top: -10px;
+            font-size:17px;
 
             &-ul
             {
+                > li
+                {
+                    margin-bottom:3px;
+                }
                 background-color:black;
                 list-style: none;
                 display:flex;
@@ -99,13 +106,13 @@
                     color:white;
                     &:hover
                     {
-                        color:peru;
+                        color:$colorPeru;
                         transition: 0.5s ease-in-out;
                         opacity:1;
                     }
                     &:active
                     {
-                        color:peru;
+                        color:$colorPeru
                     }
                 }
             }
@@ -113,16 +120,21 @@
         &-burgerOn
         {
             cursor:pointer;
+            
             &-burger
             {
                 text-decoration:none;
                 color:white;
+                font-size: 19px;
+                
             }
             &-cross
             {
                 text-decoration:none;
                 color:white;
                 display:none;
+                font-size: 19px;
+               
             }
         }
     }
@@ -168,7 +180,7 @@ textarea
 {
     &-message
     {
-        background-color:peru;
+        background-color:$colorPeru
     }
 }
 // FORUM //
@@ -199,10 +211,10 @@ textarea
             &-link
             {
                 text-decoration:none;
-                border:solid peru 1px;
+                border:solid $colorPeru 1px;
                 padding:15px;
                 color:white;
-                background-color:peru;
+                background-color:$colorPeru;
 
                 border-radius: 5px;
                 &:visited
@@ -267,7 +279,7 @@ textarea
     {
         margin-top: 10px;
         margin-bottom: 10px;
-        background-color:peru;
+        background-color:$colorPeru;
         color:white;
         padding-top:10px;
         padding-bottom:10px;
@@ -277,7 +289,7 @@ textarea
         border:none;
         max-width:auto;
         align-items: flex-end;
-        border:solid 1px peru;
+        border:solid 1px $colorPeru;
         text-decoration: none;
         border-radius:5px;
         &:hover
@@ -304,7 +316,7 @@ textarea
     border:none;
     max-width:auto;
     align-items: flex-end;
-    border:solid 1px peru;
+    border:solid 1px $colorPeru;
     text-decoration: none;
     border-radius:5px;
     &:hover
@@ -495,7 +507,7 @@ textarea
             font-size:15px;
             border:none;
             cursor:pointer;
-            border:solid 1px peru;
+            border:solid 1px $colorPeru;
             border-radius:5px;
             &:hover
             {
@@ -535,7 +547,7 @@ textarea
             cursor:pointer;
             max-width:auto;
             align-items: flex-end;
-            border:solid 1px peru;
+            border:solid 1px $colorPeru;
             border-radius:5px;
             font-size:16px;
             &:hover
@@ -585,7 +597,7 @@ textarea
             cursor:pointer;
             max-width:auto;
             align-items: flex-end;
-            border:solid 1px peru;
+            border:solid 1px $colorPeru;
             border-radius:5px;
             &:hover
             {
@@ -644,7 +656,7 @@ textarea
             cursor:pointer;
             max-width:200px;
             align-items: flex-end;
-            border:solid 1px peru;
+            border:solid 1px $colorPeru;
             border-radius:5px;
             &:hover
             {

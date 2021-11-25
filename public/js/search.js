@@ -18,7 +18,7 @@
 
 //    const response = await fetch(url, options);
 
-//    const htmlSearch = await response.json(options);
+//    const htmlSearch = await response.json();
 
 //    console.log(htmlSearch);
 // }

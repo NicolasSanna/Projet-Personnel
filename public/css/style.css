@@ -1,5 +1,5 @@
 .Body, html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
@@ -9,7 +9,6 @@
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
 }
-
 .Body-main, html-main {
   padding: 15px;
 }
@@ -22,11 +21,9 @@
   color: white;
   height: 340px;
 }
-
 .Header-container-boxtitle {
   padding-top: 60px;
 }
-
 .Header-container-boxtitle-box {
   padding-top: 3px;
   background-color: black;
@@ -34,98 +31,78 @@
   padding-bottom: 30px;
   height: 180px;
 }
-
 .Header-container-boxtitle-box-p {
   padding-bottom: 20px;
 }
-
 .Header-container-boxtitle-box-a {
   text-decoration: none;
   border: solid white 1px;
   padding: 15px;
   color: white;
 }
-
 .Header-container-boxtitle-box-a:visited {
   color: white;
 }
-
 .Header-container-boxtitle-box-a:hover {
   color: black;
   background-color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Header-container-boxtitle-box-a:link {
   color: #838383;
 }
-
 .Header-navbarbox {
   background-color: black;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   text-align: center;
   width: 100%;
 }
-
 .Header-navbarbox-navbar {
   display: none;
   margin-top: -10px;
+  font-size: 17px;
 }
-
 .Header-navbarbox-navbar-ul {
   background-color: black;
   list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding: 0px;
 }
-
+.Header-navbarbox-navbar-ul > li {
+  margin-bottom: 3px;
+}
 .Header-navbarbox-navbar-ul-a {
   text-decoration: none;
   color: white;
 }
-
 .Header-navbarbox-navbar-ul-a:hover {
   color: peru;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Header-navbarbox-navbar-ul-a:active {
   color: peru;
 }
-
 .Header-navbarbox-burgerOn {
   cursor: pointer;
 }
-
 .Header-navbarbox-burgerOn-burger {
   text-decoration: none;
   color: white;
+  font-size: 19px;
 }
-
 .Header-navbarbox-burgerOn-cross {
   text-decoration: none;
   color: white;
   display: none;
+  font-size: 19px;
 }
 
 textarea {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
 }
 
@@ -151,29 +128,20 @@ textarea {
 .Forum-h1 {
   text-align: center;
 }
-
 .Forum-list {
   padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .Forum-list-article {
   padding-bottom: 30px;
   margin-top: 0px;
   margin-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  -webkit-box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
-
 .Forum-list-article-link {
   text-decoration: none;
   border: solid peru 1px;
@@ -182,35 +150,27 @@ textarea {
   background-color: peru;
   border-radius: 5px;
 }
-
 .Forum-list-article-link:visited {
   color: white;
 }
-
 .Forum-list-article-link:hover {
   background-color: white;
   color: black;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Forum-list-article-category {
   padding-bottom: 20px;
 }
-
 .Forum-list-article-category-link {
   text-decoration: none;
 }
-
 .Forum-list-article-category-link:visited {
   color: peru;
 }
-
 .Forum-list-article-category-link:link {
   text-decoration: none;
 }
-
 .Forum-list-article-content {
   text-align: justify;
 }
@@ -226,18 +186,12 @@ textarea {
 }
 
 .List {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
-
 .List-link {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -247,20 +201,16 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   border: none;
   max-width: auto;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
   border: solid 1px peru;
   text-decoration: none;
   border-radius: 5px;
 }
-
 .List-link:hover {
   background-color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -275,20 +225,16 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   border: none;
   max-width: auto;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
   border: solid 1px peru;
   text-decoration: none;
   border-radius: 5px;
 }
-
 .Link:hover {
   background-color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -298,24 +244,19 @@ textarea {
   padding-left: 10px;
   padding-right: 10px;
 }
-
 .Article-title {
   text-align: center;
 }
-
 .Article-content {
   text-align: justify;
 }
-
 .Article-category-link {
   color: peru;
   text-decoration: none;
 }
-
 .Article-category-link:visited {
   color: peru;
 }
-
 .Article-category-link:link {
   text-decoration: none;
 }
@@ -324,10 +265,8 @@ textarea {
   width: 100%;
   height: 100%;
   border: solid black 1px;
-  -webkit-filter: brightness(80%);
-          filter: brightness(80%);
+  filter: brightness(80%);
 }
-
 .Home-h2 {
   text-align: center;
 }
@@ -335,101 +274,65 @@ textarea {
 .Footer {
   background-color: black;
 }
-
 .Footer-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding-left: 40px;
   padding-right: 40px;
   margin-bottom: 20px;
 }
-
 .Footer-box-copyrights {
   padding-bottom: 15px;
   text-align: center;
 }
-
 .Footer-box-section1-title {
   font-weight: normal;
   color: white;
 }
-
 .Footer-box-section1-informations {
   text-align: justify;
 }
-
 .Footer-box-hr {
   margin-left: 40px;
   margin-right: 40px;
 }
-
 .Footer-box-section2 {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  justify-content: space-between;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   text-align: center;
 }
-
 .Footer-box-section2-link {
   text-decoration: none;
   color: #505050;
 }
-
 .Footer-box-section2-link:hover {
   color: peru;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Footer-box-section2-left {
   padding-left: 20%;
 }
-
 .Footer-box-section2-right {
   padding-right: 20%;
 }
-
 .Footer-box-section2-title {
   font-weight: normal;
   color: white;
   margin-bottom: 5px;
 }
-
 .Footer-box-section2-left {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .Form-title {
   text-align: center;
 }
-
 .Form-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 330px;
   margin-left: auto;
   margin-right: auto;
@@ -439,21 +342,17 @@ textarea {
   margin-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  -webkit-box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
-
 .Form-box-label {
   text-align: left;
   margin-bottom: 10px;
 }
-
 .Form-box-input {
   margin-bottom: 10px;
   padding: 5px;
 }
-
 .Form-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -462,17 +361,15 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 15px;
   border: none;
   cursor: pointer;
   border: solid 1px peru;
   border-radius: 5px;
 }
-
 .Form-box-button:hover {
   background-color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -486,10 +383,8 @@ textarea {
   margin-bottom: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
-
 .FormSearch-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -498,50 +393,38 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   border: none;
   cursor: pointer;
   max-width: auto;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
   font-size: 16px;
 }
-
 .FormSearch-box-button:hover {
   background-color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
 }
-
 .FormSearch-label {
   text-align: left;
   margin-bottom: 10px;
   margin-right: 10px;
 }
-
 .FormSearch-input {
   margin-bottom: 10px;
   padding: 10px;
 }
 
 .FormComment-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: auto;
   margin-left: auto;
   margin-right: auto;
 }
-
 .FormComment-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -550,57 +433,43 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   border: none;
   cursor: pointer;
   max-width: auto;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
 }
-
 .FormComment-box-button:hover {
   background-color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
 }
-
 .FormComment-box-textarea {
   height: 100px;
   padding: 5px;
 }
-
 .FormComment-box-label {
   text-align: left;
   margin-bottom: 10px;
 }
 
 .FormArticle-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: auto;
   margin-left: auto;
   margin-right: auto;
 }
-
 .FormArticle-box-label {
   text-align: left;
 }
-
 .FormArticle-box-input {
   margin-bottom: 10px;
   padding: 5px;
 }
-
 .FormArticle-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -609,44 +478,35 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   border: none;
   cursor: pointer;
   max-width: 200px;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
 }
-
 .FormArticle-box-button:hover {
   background-color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
 }
-
 .FormArticle-box-textarea {
   height: 200px;
   padding: 5px;
 }
-
 .FormArticle-box-select {
   margin-top: 10px;
   padding: 5px;
   text-align: left;
 }
-
 .FormArticle-button {
   text-align: end;
   border-radius: 5px;
 }
-
 .FormArticle-button:hover {
   background-color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -667,10 +527,7 @@ textarea {
 
 @media screen and (min-width: 730px) {
   .Footer-box {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
   .Footer-box-section2 {
     margin-right: 0px;
@@ -686,7 +543,6 @@ textarea {
     margin-right: 20px;
   }
 }
-
 @media screen and (min-width: 880px) {
   .Header-navbarbox {
     margin-top: 0px;
@@ -699,13 +555,8 @@ textarea {
     display: block;
   }
   .Header-navbarbox-navbar-ul {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    justify-content: center;
+    flex-direction: row;
     margin-top: 20px;
     margin-bottom: 10px;
   }
@@ -713,11 +564,11 @@ textarea {
     margin-left: 5px;
     margin-right: 5px;
   }
+
   .Home {
     text-align: center;
   }
   .Home-img {
     max-width: 850px;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

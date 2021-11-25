@@ -1,7 +1,16 @@
-let deleteCategoryButton = document.querySelector('#deleteCategory');
+function deleteCategoryManager ()
+{
+    this.construct = function ()
+    {
+        let deleteCategoryBtn = document.querySelector('#deleteCategory');
 
-deleteCategoryButton.addEventListener('click', function (event) {
-    let confirmation = window.confirm("Êtes vous sûr de vouloir effectuer cette action ?")
+        deleteCategoryBtn.addEventListener('click', this.confirmDeleteCategory)
+    }
+
+    this.confirmDeleteCategory = function (event)
+    {
+        let confirmation = window.confirm("Êtes vous sûr de vouloir effectuer cette action ?")
+        
         if (confirmation === true)
         {
 
@@ -10,4 +19,9 @@ deleteCategoryButton.addEventListener('click', function (event) {
         {
             event.preventDefault();
         }
-})
+    }
+
+    this.construct();
+}
+
+deleteCategory = new deleteCategoryManager();

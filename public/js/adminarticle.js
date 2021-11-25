@@ -1,17 +1,30 @@
-let deletebuttons = document.querySelectorAll('.deleteArticle');
-
-deletebuttons.forEach(function (btn)
+function deleteArticleManager ()
 {
-    btn.addEventListener('click', function (event)
+    this.construct = function ()
     {
-        let confirmation = window.confirm("Êtes vous sûr de vouloir supprimer cet article ?")
+        let deletebuttons = document.querySelectorAll('.deleteArticle');
+
+        for (const btn of deletebuttons)
+        {
+            btn.addEventListener('click', this.confirmDelete)
+        }
+    }
+
+    this.confirmDelete = function (event)
+    {
+        let confirmation = window.confirm("Ête-vous sûr de vouloir supprimer cet article ?")
+        
         if (confirmation === true)
         {
-
+    
         }
         else
         {
             event.preventDefault();
         }
-    })
-})
+    }
+
+    this.construct();
+}
+
+articleManager = new deleteArticleManager();

@@ -7,7 +7,6 @@ function burgerManager()
         let cross = document.getElementById('cross')
         
         burger.addEventListener('click', this.burgerEvent);
-
         cross.addEventListener('click', this.crossEvent);
     };
 
@@ -17,6 +16,7 @@ function burgerManager()
         let burger = document.getElementById('burger');
         let cross = document.getElementById('cross')
         let menu = document.querySelector('.Header-navbarbox-navbar')
+
         if (!menu.style.display || menu.style.display == 'none')
         {
             menu.style.display = 'block';
@@ -33,6 +33,7 @@ function burgerManager()
         let burger = document.getElementById('burger');
         let cross = document.getElementById('cross')
         let menu = document.querySelector('.Header-navbarbox-navbar')
+
         if (menu.style.display || menu.style.display == 'block')
         {
             menu.style.display = 'none';
