@@ -24,4 +24,4 @@ function deleteUserManager ()
     this.construct();
 }
 
-userManager = new deleteUserManager();
+const userManager = new deleteUserManager();

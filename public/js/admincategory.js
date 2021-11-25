@@ -24,4 +24,4 @@ function deleteCategoryManager ()
     this.construct();
 }
 
-deleteCategory = new deleteCategoryManager();
+const deleteCategory = new deleteCategoryManager();

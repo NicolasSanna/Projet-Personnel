@@ -1,4 +1,3 @@
-
 function burgerManager()
 {
     this.construct = function()
@@ -47,4 +46,4 @@ function burgerManager()
     this.construct();
 }
 
-burger = new burgerManager();
+const burger = new burgerManager();

@@ -27,4 +27,4 @@ function deleteArticleManager ()
     this.construct();
 }
 
-articleManager = new deleteArticleManager();
+const articleManager = new deleteArticleManager();

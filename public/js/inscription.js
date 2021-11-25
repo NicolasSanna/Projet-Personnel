@@ -23,4 +23,4 @@ function passwordManager ()
 
     this.construct();
 }
-password = new passwordManager ()
+const passwordVisible = new passwordManager ()
