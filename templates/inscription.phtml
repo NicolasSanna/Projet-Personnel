@@ -18,8 +18,14 @@
         <input type="email" class="Form-box-input" name="email" value="<?=$email;?>">
 
         <label for="password" class="Form-box-label">Mot de passe :</label>
-        <input type="password" class="Form-box-input" required name="password">
+        <input type="password" id="password" class="Form-box-input" required name="password">
 
+        <label for="password" class="Form-box-label">Voir le mot de passe</label>
+        <input type="checkbox" class="Form-box-input" id="viewPassword" name="viewPassword">
+
+        <label for="password" class="Form-box-label">Confirmer le mot de passe :</label>
+        <input type="password" class="Form-box-input" required name="confirmPassword">
+        
         <button type="submit" class="Form-box-button" name="validate">S'inscrire</button>
         <a class="Link" href="<?= buildUrl('connexion');?>">J'ai déjà un compte, je me connecte</a>
     </form>
@@ -31,3 +37,5 @@
     <p> Vous êtes déjà connecté. </p>
 
 <?php endif;?>
+
+<script src="<?=asset('js/inscription.js');?>"></script>

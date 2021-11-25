@@ -19,8 +19,9 @@ class AccountController extends AbstractController
             $pseudo = trim(htmlspecialchars($_POST['pseudo']));
             $email = trim(htmlspecialchars($_POST['email']));
             $password = trim(htmlspecialchars($_POST['password']));
+            $confirmPassword = trim(htmlspecialchars($_POST['confirmPassword']));
 
-            if (!$lastname || !$firstname || !$pseudo || !$email || !$password)
+            if (!$lastname || !$firstname || !$pseudo || !$email || !$password || !$confirmPassword)
             {
                 FlashBag::addFlash("Tous les champs d'inscription n'ont pas été correctement remplis", 'error');
             }
@@ -36,6 +37,10 @@ class AccountController extends AbstractController
                 FlashBag::addFlash('Vérifiez le format de votre email.', 'error'); 
             }
 
+            if($password != $confirmPassword)
+            {
+                FlashBag::addFlash("Le mot de passe confirmé ne correspond pas à celui que vous voulez utiliser.", 'error');
+            }
 
             if (!(FlashBag::hasMessages('error')))
             {
