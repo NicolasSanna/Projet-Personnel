@@ -45,7 +45,8 @@ class AdministrationCategoryController extends AbstractController
 
 
         return $this->render('admin/addCategory', [
-            'newCategory' => $newCategory??''
+            'newCategory' => $newCategory??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 
