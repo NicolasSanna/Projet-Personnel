@@ -34,15 +34,6 @@ class ArticleModel extends AbstractModel
 
     }
 
-    function insertArticleWithImage(string $title, string $content, string $filename, int $category_id, int $user_id)
-    {
-        $sql = 'CALL SP_ArticleInsertWithImage(?, ?, ?, ?, ?)';
-
-        $insertArticle = $this->database->executeQuery($sql, [$title, $content, $filename, $category_id, $user_id]);
-
-        return $insertArticle;
-    }
-
     function getMyArticles($userId)
     {
         $sql = 'CALL SP_MyArticlesSelect(?)';
