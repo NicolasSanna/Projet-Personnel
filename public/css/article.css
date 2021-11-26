@@ -3,6 +3,14 @@
   padding-right: 10px;
 }
 
+.Article-box {
+  text-align: center;
+}
+
+.Article-box-img {
+  height: 340px;
+}
+
 .Article-title {
   text-align: center;
 }

@@ -5,6 +5,15 @@
 
     <div class="Article">
         <h3 class="Article-title"><?=htmlspecialchars($article['title']);?></h3>
+
+        <?php if(!empty($article['image'])):?>
+
+            <div class="Article-box">
+                <img  class="Article-box-img"src="<?=asset('img/' . $article['image']);?>" alt="">
+            </div>
+
+        <?php endif;?>
+
         <p class="Article-content"><?=$article['content'];?></p>
         <p class="Article-pseudo">Écrit par : <?=htmlspecialchars($article['pseudo']);?></p>
         <p class="Article-date">Publié le : <?= (new DateTimeImmutable($article['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($article['creation_date']))->format('H:i');?></p>

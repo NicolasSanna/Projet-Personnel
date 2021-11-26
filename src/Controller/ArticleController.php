@@ -18,7 +18,7 @@ class ArticleController extends AbstractController
             $articleModel = new ArticleModel();
             $article = $articleModel->getOneArticle($idOfArticle);
             $pageTitle = $article['title'];
-
+            
             $commentModel = new CommentModel();
             $comments = $commentModel->getAllcomments($idOfArticle);
 

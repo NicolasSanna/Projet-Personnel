@@ -26,18 +26,9 @@ class ArticleModel extends AbstractModel
 
     function insertArticle(string $title, string $content, int $category_id, int $user_id, string $image = null)
     {
-        $sql ='CALL SP_ArticleInsert(?, ?, ?, ?)';
+        $sql ='CALL SP_ArticleInsert(?, ?, ?, ?, ?)';
 
-        $insertArticleId = $this->database->insert($sql, [$title, $content, $category_id, $user_id]);
-
-        if(!is_null($image))
-        {
-            $sql = 'UPDATE articles
-                    SET image = ?
-                    WHERE id = ?';
-
-            $this->database->executeQuery($sql, [$image, $insertArticleId]);
-        }
+        $insertArticleId = $this->database->insert($sql, [$title, $content, $category_id, $user_id, $image]);
 
         return $insertArticleId;
 
