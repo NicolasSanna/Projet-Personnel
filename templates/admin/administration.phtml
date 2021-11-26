@@ -2,52 +2,54 @@
 
 <h3 class="TitlePage">Administration</h3>
 
-<?php if(UserSession::author() || UserSession::administrator()):?>
+<div class="container">
 
-    <h4 class="Title">Articles</h4>
+    <?php if(UserSession::author() || UserSession::administrator()):?>
 
-<div class="List">
-
-<a class="List-link" href="<?=buildUrl('newarticle');?>">Créer un article</a>
-
-    <a class="List-link" href="<?=buildUrl('myarticles');?>">Gérer mes articles</a>
-
-    <!-- <p><a href="<?=buildUrl('uploadFile');?>">Charger des fichiers</a></p> -->
-
-</div>
-
-
-<?php endif;?>
-
-<?php if(UserSession::administrator()):?>
-
-    <h4 class="Title">Membres</h4>
-
-<div class="List">
-
-    <a class="List-link" href="<?=buildUrl('adminusers');?>">Gérer les membres</a>
-
-</div>
-
-<h4 class="Title">Commentaires</h4>
-
-<div class="List">
-
-    <a class="List-link" href="<?=buildUrl('commentsAdministration');?>">Modérer les commentaires</a>
-
-</div>
-
-    <h4 class="Title">Catégories</h4>
+        <h4 class="Title">Articles</h4>
 
     <div class="List">
 
-        <a class="List-link" href="<?=buildUrl('addCategory');?>">Créer une catégorie</a>
+    <a class="List-link" href="<?=buildUrl('newarticle');?>">Créer un article</a>
 
-        <a class="List-link" href="<?=buildUrl('adminCategories');?>">Gérer les catégories</a>
+        <a class="List-link" href="<?=buildUrl('myarticles');?>">Gérer mes articles</a>
+
+        <!-- <p><a href="<?=buildUrl('uploadFile');?>">Charger des fichiers</a></p> -->
 
     </div>
 
 
+    <?php endif;?>
+
+    <?php if(UserSession::administrator()):?>
+
+        <h4 class="Title">Membres</h4>
+
+    <div class="List">
+
+        <a class="List-link" href="<?=buildUrl('adminusers');?>">Gérer les membres</a>
+
+    </div>
+
+    <h4 class="Title">Commentaires</h4>
+
+    <div class="List">
+
+        <a class="List-link" href="<?=buildUrl('commentsAdministration');?>">Modérer les commentaires</a>
+
+    </div>
+
+        <h4 class="Title">Catégories</h4>
+
+        <div class="List">
+
+            <a class="List-link" href="<?=buildUrl('addCategory');?>">Créer une catégorie</a>
+
+            <a class="List-link" href="<?=buildUrl('adminCategories');?>">Gérer les catégories</a>
+
+        </div>
+
+</div>
 
 
 <?php endif;?>

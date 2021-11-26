@@ -25,7 +25,10 @@
             <form class="FormComment-box" method="POST" action="<?=buildUrl('addcomment', ['id' => intval($article['id'])]);?>">
                 <label class="FormComment-box-label" >Ajouter un commentaire :</label>
                 <textarea class="FormComment-box-textarea" type="text" name="comment" id=""></textarea>
-                <button class="FormComment-box-button" type="submit" name="validate" >Ajouter un commentaire</button>
+                <div class="FormComment-box-buttonBox">
+                    <button class="FormComment-box-button" type="submit" name="validate" >Ajouter un commentaire</button>
+                </div>
+
             </form>
         </div>
 

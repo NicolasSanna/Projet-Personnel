@@ -40,6 +40,7 @@ class AdministrationCategoryController extends AbstractController
                 $insertCategory = $categoryModel->createCategory($newCategory);
     
                 FlashBag::addFlash($insertCategory['message'], 'query');
+                $this->redirect('adminCategories');
             }
         }
 
@@ -103,7 +104,7 @@ class AdministrationCategoryController extends AbstractController
                     $categoryModel = new CategoryModel();
                     $modifycategory = $categoryModel->modifyCategory($idOfCategory, $newcategory);
                     FlashBag::addFlash($modifycategory['message'], 'query');
-                    $this->redirect('modifycategory', ['id' => $category['id']]);
+                    $this->redirect('adminCategories');
                 }
             }
 
@@ -138,7 +139,7 @@ class AdministrationCategoryController extends AbstractController
             if(!$category)
             {
                 FlashBag::addFlash("Cette catégorie n'existe pas.", 'error');
-                $this->redirect('administration');
+                $this->redirect('adminCategories');
             }
 
             if (!empty($_POST))
@@ -162,15 +163,15 @@ class AdministrationCategoryController extends AbstractController
                     }
                     default:
                     {
-                        $this->redirect('administration');
+                        $this->redirect('adminCategories');
                     }
                 }
-                $this->redirect('administration');
+                $this->redirect('adminCategories');
             }
         }
         else
         {
-            $this->redirect('administration');
+            $this->redirect('adminCategories');
         }
 
         return $this->render('admin/deleteCategory', [

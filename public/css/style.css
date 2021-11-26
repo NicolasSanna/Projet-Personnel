@@ -107,9 +107,39 @@ textarea {
   border: solid 1px peru;
   text-decoration: none;
   border-radius: 5px;
+  text-align: center;
 }
 
 .Link:hover {
+  background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+  color: black;
+}
+
+.LinkA {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: peru;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  max-width: auto;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  border: solid 1px peru;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.LinkA:hover {
   background-color: white;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
@@ -150,7 +180,7 @@ textarea {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 330px;
+  width: 310px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
@@ -260,6 +290,10 @@ textarea {
   width: auto;
   margin-left: auto;
   margin-right: auto;
+}
+
+.FormComment-box-buttonBox {
+  text-align: end;
 }
 
 .FormComment-box-button {
@@ -383,6 +417,12 @@ textarea {
 .FormCategory-button {
   border-radius: 5px;
   text-align: center;
+}
+
+.container {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (min-width: 730px) {

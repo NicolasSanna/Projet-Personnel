@@ -89,7 +89,7 @@ class AdministrationCommentsController extends AbstractController
         }
         else
         {
-            $this->redirect('administration');
+            $this->redirect('commentsAdministration');
         }
 
     }

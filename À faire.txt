@@ -10,10 +10,8 @@
 
 - Penser à mettre le token dans tous les champs cachés et faire la vérification côté serveur/PHP dans les formulaires de création d'article, de catégorie, de suppression d'article, de suppression de catégorie, de modification de catégorie. 
 
-- Faire un moteur de recherche en AJAX (fonctionne en PHP/MySQL)
+- Faire un moteur de recherche en AJAX (fonctionne en PHP/MySQL).
 
-- Créer un système de pagination pour les articles
+- Créer un système de pagination pour les articles.
 
-- Mettre une transition fluide lors de l'apparition du menu burger et de sa disparition.
-
-- Faire les maquettes (le mockup, le wireframe, le prototype) sur Figma /!\
+- Faire les maquettes (le mockup, le wireframe, le prototype) sur Figma /!\.

@@ -26,7 +26,6 @@ class AccountController extends AbstractController
                 FlashBag::addFlash("Tous les champs d'inscription n'ont pas été correctement remplis", 'error');
             }
 
-
             if (strlen($password) < 8)
             {
                 FlashBag::addFlash("Le mot de passe doit contenir au moins 8 caractères.", 'error');

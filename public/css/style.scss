@@ -129,6 +129,7 @@ textarea
     border:solid 1px $colorPeru;
     text-decoration: none;
     border-radius:5px;
+    text-align:center;
     &:hover
     {
         background-color:white;
@@ -138,6 +139,33 @@ textarea
     }
 }
 
+
+.LinkA
+{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color:$colorPeru;
+    color:white;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:30px;
+    padding-right:30px;
+    font-family: 'Open Sans', sans-serif;
+    border:none;
+    max-width:auto;
+    align-items: flex-end;
+    border:solid 1px $colorPeru;
+    text-decoration: none;
+    border-radius:5px;
+    text-align:center;
+    &:hover
+    {
+        background-color:white;
+        transition: 0.5s ease-in-out;
+        opacity:1;
+        color:black;  
+    }
+}
 
 
 
@@ -175,7 +203,7 @@ textarea
     {
         display:flex;
         flex-direction:column;
-        width:330px;  
+        width:310px;  
         margin-left: auto;
         margin-right: auto;
 
@@ -287,6 +315,11 @@ textarea
         width:auto;  
         margin-left: auto;
         margin-right: auto;
+
+        &-buttonBox
+        {
+            text-align:end;
+        }
         
         &-button
         {
@@ -311,6 +344,7 @@ textarea
                 opacity:1;
                 color:black;      
             }
+
 
         }
         &-textarea
@@ -417,6 +451,12 @@ textarea
     }
 }
 
+.container
+{
+    max-width:300px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 @media screen AND (min-width: 730px)
@@ -492,6 +532,7 @@ textarea
         }
     }
 }
+
 
 @keyframes glissement 
 {

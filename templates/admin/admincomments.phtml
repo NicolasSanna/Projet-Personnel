@@ -1,6 +1,7 @@
 <h3 class="TitlePage">Gérer les commentaires</h3>
 
 <table>
+    
     <thead>
         <tr>
             <th>Id</th>
@@ -10,11 +11,12 @@
             <th colspan="2">Actions</th>
         </tr>
     </thead>
+
     <tbody>
 
     <?php if (!empty($commentsNotApprouved)):?>
 
-        <p><a href="<?=buildUrl('allCommentsApprouved');?>">Approuver tous les commentaires</a></p>
+        <p><a class="Link" href="<?=buildUrl('allCommentsApprouved');?>">Approuver tous les commentaires</a></p>
 
         <?php foreach ($commentsNotApprouved as $commentNotApprouved):?>
 
@@ -36,4 +38,5 @@
     <?php endif;?>
 
     </tbody>
+
 </table>
