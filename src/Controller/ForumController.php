@@ -52,7 +52,7 @@ class ForumController extends AbstractController
 
             if(!$articlesByCategory)
             {
-                FlashBag::addFlash('Aucune catégorie ne correspond à cet identifiant', 'error');
+                FlashBag::addFlash('Aucune catégorie ne correspond à cet identifiant ou aucun article n\'a encore été écrit dans celle-ci.', 'error');
                 return $this->redirect('forum');
             }
         }

@@ -14,29 +14,29 @@
             <th colspan="2">Actions</th>
         </tr>
     </thead>
-        <tbody>
+    <tbody>
 
-            <?php if (!empty($usersInfos)):?>
+        <?php if (!empty($usersInfos)):?>
 
-                <?php foreach ($usersInfos as $userInfos):?>
+            <?php foreach ($usersInfos as $userInfos):?>
 
-                    <tr>
-                        <td><?= htmlspecialchars($userInfos['userId']);?></td>
-                        <td><?= ($userInfos['lastname']);?></td>
-                        <td><?= htmlspecialchars($userInfos['firstname']);?></td>
-                        <td><?= htmlspecialchars($userInfos['email']);?></td>
-                        <td><?= htmlspecialchars($userInfos['pseudo']);?></td>
-                        <td><?= (new DateTimeImmutable($userInfos['inscription_date']))->format('d/m/Y');?></td>
-                        <td><?= $userInfos['number_articles'];?></td>
-                        <td><?= htmlspecialchars($userInfos['privilege']);?></td>
-                        <td><a id="a-modify" href="<?= buildUrl('modifygrantuser', ['id' => intval($userInfos['userId'])]);?>">Modifier le rôle</a></td>
-                        <td><a id="a-delete" href="<?= buildUrl('deleteUser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
-                    </tr>
-                
-                <?php endforeach;?>
+                <tr>
+                    <td><?= htmlspecialchars($userInfos['userId']);?></td>
+                    <td><?= ($userInfos['lastname']);?></td>
+                    <td><?= htmlspecialchars($userInfos['firstname']);?></td>
+                    <td><?= htmlspecialchars($userInfos['email']);?></td>
+                    <td><?= htmlspecialchars($userInfos['pseudo']);?></td>
+                    <td><?= (new DateTimeImmutable($userInfos['inscription_date']))->format('d/m/Y');?></td>
+                    <td><?= $userInfos['number_articles'];?></td>
+                    <td><?= htmlspecialchars($userInfos['privilege']);?></td>
+                    <td><a id="a-modify" href="<?= buildUrl('modifygrantuser', ['id' => intval($userInfos['userId'])]);?>">Modifier le rôle</a></td>
+                    <td><a id="a-delete" href="<?= buildUrl('deleteUser', ['id' => intval($userInfos['userId'])]);?>">Supprimer</a></td>
+                </tr>
+            
+            <?php endforeach;?>
 
-            <?php endif;?>
+        <?php endif;?>
 
-        </tbody>
+    </tbody>
 </table>
 

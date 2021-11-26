@@ -5,13 +5,10 @@
 
 <div class="FormArticle">
     <form class="FormArticle-box" method="POST">
-
         <label for="title"  class="FormArticle-box-label">Titre de l'article :</label>
         <input  name="title" class="FormArticle-box-input" value="<?=$title;?>"></input>
-
         <label for="content" class="FormArticle-box-label">Contenu de l'article : </label>
         <textarea class="FormArticle-box-textarea"  name="content" ><?=$content;?></textarea>
-
         <label for="title" class="FormArticle-box-select">Catégorie :</label>
             <select name="categories" class="FormArticle-box-input FormArticleSelect" id="">
                 <?php foreach ($categories as $category):?>
