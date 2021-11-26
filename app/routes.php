@@ -123,7 +123,7 @@ $routes = [
     ],
     'commentApprouved' => [
         'path' => '/administration/approuvercommentaire',
-        'controller' => 'Admin\\AdministrationCommentsn',
+        'controller' => 'Admin\\AdministrationComments',
         'method' => 'commentApprouved'
     ],
     'commentDelete' => [

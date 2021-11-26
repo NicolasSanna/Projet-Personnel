@@ -10,7 +10,7 @@
 
                 <h3 class="Forum-list-article-title"><?= htmlspecialchars($articleByCategory['title']);?></h3>
 
-                <p class="Forum-list-article-content"><?=mb_substr($articleByCategory['content'], 0, 50);?> [...] <span>[...]</span> </p>
+                <p class="Forum-list-article-content"><?=substr($articleByCategory['content'], 0, 110);?> <span>[...]</span> </p>
 
                 <p class="Forum-list-article-pseudo">Écrit par : <?= htmlspecialchars($articleByCategory['pseudo']);?></p>
 

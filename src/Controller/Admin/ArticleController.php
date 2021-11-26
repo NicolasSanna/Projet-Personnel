@@ -61,8 +61,7 @@ class ArticleController extends AbstractController
     
             $myArticles = $articleModel->getMyarticles($id_user);
 
-            $pageTitle = 'Mes articles';
-            
+            $pageTitle = 'Mes articles';          
 
         }
         else

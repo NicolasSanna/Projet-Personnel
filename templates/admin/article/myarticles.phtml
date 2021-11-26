@@ -5,7 +5,6 @@
         <tr>
             <th>Id</th>
             <th>Titre</th>
-            <th>Contenu</th>
             <th>Date de création</th>
             <th>Catégorie</th>
             <th>Commentaires</th>
@@ -16,14 +15,14 @@
 
         <?php if (!empty($myArticles)):?>
 
+
             <?php foreach ($myArticles as $myArticle):?>
 
                 <tr>
                     <td><?=$myArticle['articleId'];?></td>
-                    <td><?=htmlspecialchars(substr($myArticle['title'], 0, 20));?> [...]</td>
-                    <td><?=substr($myArticle['content'], 0, 20);?> [...]</td>
+                    <td> <a href="<?=buildUrl('article', ['id' => intval($myArticle['articleId'])]);?>"><?=htmlspecialchars(substr($myArticle['title'], 0, 100));?> [...]</a></td>
                     <td><?=(new DateTimeImmutable($myArticle['creation_date']))->format('d/m/Y');?></td>
-                    <td><a href=""></a><?=$myArticle['category'];?></td>
+                    <td><a href="<?=buildUrl('category', ['id' => intval($myArticle['category_id'])]);?>"><?=$myArticle['category'];?></a></td>
                     <td><?=$myArticle['number_comments'];?></td>
                     <td><a id="a-modify" href="<?=buildUrl('modifyarticle', ['id' => intval($myArticle['articleId'])]);?>">Modifier</a></td>
                     <td><a id="a-delete" class="deleteArticle" href="<?=buildUrl('deletearticle', ['id' => intval($myArticle['articleId'])]);?>">Supprimer</a></td>
