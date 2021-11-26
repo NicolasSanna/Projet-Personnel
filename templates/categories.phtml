@@ -2,13 +2,17 @@
 
 <?php if (!empty($categories)):?>
 
-    <div class="List">
+    <div class="container">
+
+        <div class="List">
 
         <?php foreach ($categories as $categorie):?>
 
             <a class="List-link" href="<?=buildUrl('category', ['id' => intval($categorie['id'])]);?>"><?=htmlspecialchars($categorie['category']);?></a>
 
         <?php endforeach;?>
+
+        </div>
 
     </div>
 

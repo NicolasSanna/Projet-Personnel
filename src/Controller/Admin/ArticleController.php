@@ -21,7 +21,7 @@ class ArticleController extends AbstractController
             if(!empty($_POST))
             {
                 $title = trim(htmlspecialchars($_POST['title']));
-                $content = trim(nl2br(htmlspecialchars($_POST['content'])));
+                $content = trim(($_POST['content']));
                 $category = (int) $_POST['categories'];
                 $id_user = UserSession::getId();
     
@@ -118,7 +118,7 @@ class ArticleController extends AbstractController
             if(!empty($_POST))
             {
                 $newtitle = htmlspecialchars(trim($_POST['title']));
-                $newcontent = trim(nl2br(htmlspecialchars($_POST['content'])));
+                $newcontent = trim($_POST['content']);
                 $category = (int) $_POST['categories'];
 
                 if (!$newtitle || !$newcontent || !$category)

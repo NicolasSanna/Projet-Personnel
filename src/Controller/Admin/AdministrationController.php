@@ -16,6 +16,10 @@ class AdministrationController extends AbstractController
             $this->redirect('accessRefused');
         }
 
-        return $this->render('admin/administration');
+        $pageTitle = 'Administration';
+
+        return $this->render('admin/administration', [
+            'pageTitle' => $pageTitle??''
+        ]);
     }
 }

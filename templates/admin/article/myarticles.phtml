@@ -18,12 +18,10 @@
 
             <?php foreach ($myArticles as $myArticle):?>
 
-            <?php  $myArticle = str_replace('<br />', '', $myArticle);?>
-
                 <tr>
                     <td><?=$myArticle['articleId'];?></td>
                     <td><?=htmlspecialchars(substr($myArticle['title'], 0, 20));?> [...]</td>
-                    <td><?=htmlspecialchars(substr($myArticle['content'], 0, 20));?> [...]</td>
+                    <td><?=substr($myArticle['content'], 0, 20);?> [...]</td>
                     <td><?=(new DateTimeImmutable($myArticle['creation_date']))->format('d/m/Y');?></td>
                     <td><a href=""></a><?=$myArticle['category'];?></td>
                     <td><?=$myArticle['number_comments'];?></td>
