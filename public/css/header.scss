@@ -64,12 +64,14 @@
         flex-direction:column;
         text-align:center;
         width:100%;
+        padding-top: 8px;
+        padding-bottom:6px;
 
         &-navbar
         {
             display:none;
             margin-top: -10px;
-            font-size:17px;
+            font-size:16px;
 
             &-ul
             {
@@ -107,7 +109,20 @@
             {
                 text-decoration:none;
                 color:white;
-                font-size: 19px;
+                font-size: 22px;
+
+                &:hover
+                {
+                    color:$colorPeru;
+                    transition: 0.5s ease-in-out;
+                    opacity:1;
+                }
+                &:active
+                {
+                    color:$colorPeru;
+                    transition: 0.5s ease-in-out;
+                    opacity:1;
+                }
                 
             }
             &-cross
@@ -116,7 +131,57 @@
                 color:white;
                 display:none;
                 font-size: 19px;
+
+                &:hover
+                {
+                    color:$colorPeru;
+                    transition: 0.5s ease-in-out;
+                    opacity:1;
+                }
+                &:active
+                {
+                    color:$colorPeru;
+                    transition: 0.5s ease-in-out;
+                    opacity:1;
+                }
                
+            }
+        }
+    }
+}
+
+@media screen AND (min-width: 880px)
+{
+    .Header
+    {
+        &-navbarbox
+        {
+            margin-top:0px;
+            margin-bottom:0px;
+
+            &-burgerOn
+            {
+                display:none;
+            }
+            &-navbar
+            {
+                
+                display:block;
+               
+                &-ul
+                {
+                    justify-content: center;
+                    flex-direction:row;
+                    margin-top:20px;
+                    margin-bottom:10px;
+
+
+                    &-a
+                    {
+                        margin-left:5px;
+                        margin-right:5px;
+                    }
+                }
             }
         }
     }

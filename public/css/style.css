@@ -1,5 +1,5 @@
 .Body, html {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
@@ -9,12 +9,13 @@
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
 }
+
 .Body-main, html-main {
   padding: 15px;
 }
 
 textarea {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
 }
 
@@ -48,12 +49,18 @@ textarea {
 }
 
 .List {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
+
 .List-link {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -63,16 +70,20 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   border: none;
   max-width: auto;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   text-decoration: none;
   border-radius: 5px;
 }
+
 .List-link:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -87,16 +98,20 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   border: none;
   max-width: auto;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   text-decoration: none;
   border-radius: 5px;
 }
+
 .Link:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -106,8 +121,10 @@ textarea {
   width: 100%;
   height: 100%;
   border: solid black 1px;
-  filter: brightness(80%);
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
 }
+
 .Home-h2 {
   text-align: center;
 }
@@ -120,12 +137,19 @@ textarea {
   -webkit-animation-name: glissement;
           animation-name: glissement;
 }
+
 .Form-title {
   text-align: center;
 }
+
 .Form-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 330px;
   margin-left: auto;
   margin-right: auto;
@@ -135,17 +159,21 @@ textarea {
   margin-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
+
 .Form-box-label {
   text-align: left;
   margin-bottom: 10px;
 }
+
 .Form-box-input {
   margin-bottom: 10px;
   padding: 5px;
 }
+
 .Form-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -154,15 +182,17 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 15px;
   border: none;
   cursor: pointer;
   border: solid 1px peru;
   border-radius: 5px;
 }
+
 .Form-box-button:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -176,8 +206,10 @@ textarea {
   margin-bottom: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
+
 .FormSearch-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -186,38 +218,50 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   border: none;
   cursor: pointer;
   max-width: auto;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
   font-size: 16px;
 }
+
 .FormSearch-box-button:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
 }
+
 .FormSearch-label {
   text-align: left;
   margin-bottom: 10px;
   margin-right: 10px;
 }
+
 .FormSearch-input {
   margin-bottom: 10px;
   padding: 10px;
 }
 
 .FormComment-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: auto;
   margin-left: auto;
   margin-right: auto;
 }
+
 .FormComment-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -226,43 +270,57 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   border: none;
   cursor: pointer;
   max-width: auto;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
 }
+
 .FormComment-box-button:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
 }
+
 .FormComment-box-textarea {
   height: 100px;
   padding: 5px;
 }
+
 .FormComment-box-label {
   text-align: left;
   margin-bottom: 10px;
 }
 
 .FormArticle-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: auto;
   margin-left: auto;
   margin-right: auto;
 }
+
 .FormArticle-box-label {
   text-align: left;
 }
+
 .FormArticle-box-input {
   margin-bottom: 10px;
   padding: 5px;
 }
+
 .FormArticle-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -271,35 +329,44 @@ textarea {
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   border: none;
   cursor: pointer;
   max-width: 200px;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
 }
+
 .FormArticle-box-button:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
 }
+
 .FormArticle-box-textarea {
   height: 200px;
   padding: 5px;
 }
+
 .FormArticle-box-select {
   margin-top: 10px;
   padding: 5px;
   text-align: left;
 }
+
 .FormArticle-button {
   text-align: end;
   border-radius: 5px;
 }
+
 .FormArticle-button:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -320,7 +387,10 @@ textarea {
 
 @media screen and (min-width: 730px) {
   .Footer-box {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .Footer-box-section2 {
     margin-right: 0px;
@@ -336,6 +406,7 @@ textarea {
     margin-right: 20px;
   }
 }
+
 @media screen and (min-width: 880px) {
   .Header-navbarbox {
     margin-top: 0px;
@@ -348,8 +419,13 @@ textarea {
     display: block;
   }
   .Header-navbarbox-navbar-ul {
-    justify-content: center;
-    flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     margin-top: 20px;
     margin-bottom: 10px;
   }
@@ -357,7 +433,6 @@ textarea {
     margin-left: 5px;
     margin-right: 5px;
   }
-
   .Home {
     text-align: center;
   }
@@ -365,6 +440,7 @@ textarea {
     max-width: 850px;
   }
 }
+
 @-webkit-keyframes glissement {
   from {
     margin-left: 25%;
@@ -377,6 +453,7 @@ textarea {
     opacity: 1;
   }
 }
+
 @keyframes glissement {
   from {
     margin-left: 25%;
@@ -388,4 +465,5 @@ textarea {
     width: 100%;
     opacity: 1;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+/*# sourceMappingURL=style.css.map */
