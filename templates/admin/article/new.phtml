@@ -1,7 +1,7 @@
 <h3>Publier un article</h3>
 
 <div class="FormArticle">
-    <form class="FormArticle-box" method="POST">
+    <form class="FormArticle-box" method="POST" enctype="multipart/form-data">
         <label for="title" class="FormArticle-box-label">Titre de l'article :</label>
         <input  name="title" class="FormArticle-box-input" value="<?=$title;?>"></input>
         <label for="content" class="FormArticle-box-label">Contenu de l'article : </label>
@@ -14,7 +14,8 @@
         </select>
         <div class="FormArticle-button">
             <button type="submit" class="FormArticle-box-button" name="validate">Publier l'article</button>
-        </div> 
+        </div>
+        <input type="file" name="image" id="">
     </form>
 </div>
 

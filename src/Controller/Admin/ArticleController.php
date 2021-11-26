@@ -24,6 +24,8 @@ class ArticleController extends AbstractController
                 $content = trim($_POST['content']);
                 $category = (int) $_POST['categories'];
                 $id_user = UserSession::getId();
+                $file = $_FILES['image'];
+                dump($file);
     
                 if(!$title || !$content || !$category)
                 {
@@ -31,9 +33,9 @@ class ArticleController extends AbstractController
                 }
                 else
                 {
+                    move_uploaded_file($file['tmp_name'], IMAGE_DIR . '/' . $file['name']);
                     $articleModel = new ArticleModel();
-                    $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user);
-
+                    $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user, $file['tmp_name']);
                     FlashBag::addFlash("Votre article a bien été ajouté.", 'success');
                 }
             }      

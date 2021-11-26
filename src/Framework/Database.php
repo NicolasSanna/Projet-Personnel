@@ -55,8 +55,8 @@ class Database
     {
         $pdoStatement = $this->pdo->prepare($sql);
         $pdoStatement->execute($params);
+        $lastInsertId = $this->pdo->lastInsertId();
 
-        return $this->pdo->lastInsertId();
+        return $lastInsertId;
     }
-
 }

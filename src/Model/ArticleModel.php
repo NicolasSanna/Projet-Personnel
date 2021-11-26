@@ -24,13 +24,22 @@ class ArticleModel extends AbstractModel
         return $article;
     }
 
-    function insertArticle(string $title, string $content, int $category_id, int $user_id)
+    function insertArticle(string $title, string $content, int $category_id, int $user_id, string $image = null)
     {
         $sql ='CALL SP_ArticleInsert(?, ?, ?, ?)';
 
-        $insertArticle = $this->database->executeQuery($sql, [$title, $content, $category_id, $user_id]);
+        $insertArticleId = $this->database->insert($sql, [$title, $content, $category_id, $user_id]);
 
-        return $insertArticle;
+        if(!is_null($image))
+        {
+            $sql = 'UPDATE articles
+                    SET image = ?
+                    WHERE id = ?';
+
+            $this->database->executeQuery($sql, [$image, $insertArticleId]);
+        }
+
+        return $insertArticleId;
 
     }
 
