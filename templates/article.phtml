@@ -54,7 +54,7 @@
                 <p>Écrit par : <?= htmlspecialchars($comment['pseudo']);?></p>
 
                 <p>Publié le : <?=(new DateTimeImmutable($comment['date_publication']))->format('d/m/Y');?></p>
-                
+
             </div>
 
         <?php endforeach;?>
