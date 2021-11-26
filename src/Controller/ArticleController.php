@@ -59,7 +59,7 @@ class ArticleController extends AbstractController
     
                 if(!empty($_POST))
                 {
-                    $comment = trim(nl2br(htmlspecialchars($_POST['comment'])));
+                    $comment = trim($_POST['comment']);
                     $user_id = UserSession::getId();
     
                     if(!$comment)
