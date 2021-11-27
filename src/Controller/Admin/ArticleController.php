@@ -234,6 +234,10 @@ class ArticleController extends AbstractController
 
             if (!(FlashBag::hasMessages('error')))
             {
+                if(!empty($checkArticle['image']))
+                {
+                    unlink(IMAGE_DIR . $checkArticle['image']);
+                }
                 $articleModel = new ArticleModel();
                 $deleteArticle = $articleModel->deleteArticle($idOfArticle, $id_user);
                 FlashBag::addFlash("Article supprimé !", 'success');
