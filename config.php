@@ -4,7 +4,7 @@
 define('PROJECT_DIR', __DIR__);
 define('CONTROLLER_DIR', PROJECT_DIR . '/controller');
 define('TEMPLATE_DIR', PROJECT_DIR . '/templates');
-define ('IMAGE_DIR', PROJECT_DIR . '/public/img');
+define ('IMAGE_DIR', PROJECT_DIR . '/public/img/');
 
 // En local :
 

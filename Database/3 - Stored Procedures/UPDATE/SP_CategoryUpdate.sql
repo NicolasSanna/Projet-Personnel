@@ -16,8 +16,6 @@ BEGIN
     
     IF (exist = 0) THEN
 
-   
-
     	SET message = CONCAT ('La catégorie ', v_id, ' n''existe pas');
 
     END IF; 
@@ -30,28 +28,20 @@ BEGIN
     
     IF(doublon > 0) THEN 
 
-        
     	SET message = CONCAT ('Une catégorie ', v_category, ' existe déjà');
-
 
     END IF; 
 
     IF(message = '') THEN
 
-    
-
     	UPDATE categories
         SET category = v_category
         WHERE id = v_id;
-
-        
         
         SET message = 'La catégorie a bien été modifiée.';
 
     END IF;
-    
-    
-    
+   
     SELECT message;
 
 END // 

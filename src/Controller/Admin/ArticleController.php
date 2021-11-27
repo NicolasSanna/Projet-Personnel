@@ -25,16 +25,43 @@ class ArticleController extends AbstractController
                 $category = (int) $_POST['categories'];
                 $id_user = UserSession::getId();
                 $file = $_FILES['image'];
+
+                $fileName = '';
     
                 if(!$title || !$content || !$category)
                 {
                     FlashBag::addFlash("Tous les champs n'ont pas été correctements remplis.", 'error');
                 }
-                else
+
+                if(!empty($file['name']))
+                {                  
+                    if($file['error'] > 0)
+                    {
+                        FlashBag::addFlash("Une erreur est survenue lors du chargement du fichier.", 'error');
+                    }
+
+                    $fileName = $file['name'];
+                    $fileExtension = "." . strtolower(substr(strrchr($fileName, "."), 1));
+
+                    $validExtension = ['.img', '.png', '.jpgx', '.jpeg', '.jpg'];
+
+                    if(!in_array($fileExtension, $validExtension))
+                    {
+                        FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
+                    }
+                    else
+                    {
+                        
+                        $uniqueName = md5(uniqid(rand(), true));
+                        $fileName = $uniqueName . $fileExtension;
+                    }
+                }
+                
+                if (!(FlashBag::hasMessages('error')))
                 {
-                    move_uploaded_file($file['tmp_name'], IMAGE_DIR . '/' . $file['name']);
+                    move_uploaded_file($file['tmp_name'], IMAGE_DIR  . $fileName);
                     $articleModel = new ArticleModel();
-                    $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user, $file['name']);
+                    $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user, $fileName);
                     FlashBag::addFlash("Votre article a bien été ajouté.", 'success');
                 }
             }      
@@ -107,6 +134,7 @@ class ArticleController extends AbstractController
         
             $title = $checkArticle['title'];
             $content = $checkArticle['content'];
+            $imageExist = $checkArticle['image'];
     
             if($checkArticle['user_id'] != UserSession::getId())
             {
@@ -119,16 +147,45 @@ class ArticleController extends AbstractController
                 $newtitle = htmlspecialchars(trim($_POST['title']));
                 $newcontent = trim(nl2br(htmlspecialchars($_POST['content'])));
                 $category = (int) $_POST['categories'];
+                $file = $_FILES['image'];
+                $fileName = '';
 
                 if (!$newtitle || !$newcontent || !$category)
                 {
                     FlashBag::addFlash("Tous les champs de modification n'ont pas été remplis.", 'error');
                 }
 
+
+                if(!empty($file['name']))
+                {                  
+                    if($file['error'] > 0)
+                    {
+                        FlashBag::addFlash("Une erreur est survenue lors du chargement du fichier.", 'error');
+                    }
+
+                    $fileName = $file['name'];
+                    $fileExtension = "." . strtolower(substr(strrchr($fileName, "."), 1));
+
+                    $validExtension = ['.img', '.png', '.jpgx', '.jpeg', '.jpg'];
+
+                    if(!in_array($fileExtension, $validExtension))
+                    {
+                        FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
+                    }
+                    else
+                    {
+                        
+                        $uniqueName = md5(uniqid(rand(), true));
+                        $fileName = $uniqueName . $fileExtension;
+                    }
+                }
+
                 if (!(FlashBag::hasMessages('error')))
                 {
+                    unlink(IMAGE_DIR . $imageExist);
+                    move_uploaded_file($file['tmp_name'], IMAGE_DIR  . $fileName);
                     $articleModel = new ArticleModel();
-                    $updateArticle = $articleModel->modifyarticle($idOfArticle, $id_user, $newtitle, $newcontent, $category);
+                    $updateArticle = $articleModel->modifyarticle($idOfArticle, $id_user, $newtitle, $newcontent, $category, $fileName);
                     FlashBag::addFlash("Article modifié avec succès!", 'success');
                     $this->redirect('myarticles');
                 }
@@ -137,7 +194,8 @@ class ArticleController extends AbstractController
                 'content' => $content??'',
                 'title' => $title??'',
                 'categories' => $categories??'',
-                'pageTitle' => $pageTitle??''
+                'pageTitle' => $pageTitle??'',
+                'imageExist' => $imageExist??''
             ]);
         }
         else

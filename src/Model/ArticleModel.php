@@ -34,7 +34,7 @@ class ArticleModel extends AbstractModel
 
     }
 
-    function getMyArticles($userId)
+    function getMyArticles(int $userId)
     {
         $sql = 'CALL SP_MyArticlesSelect(?)';
 
@@ -43,7 +43,7 @@ class ArticleModel extends AbstractModel
         return $getMyArticles;
     }
 
-    function deleteArticle($articleId, $userId)
+    function deleteArticle(int $articleId, int $userId)
     {
         $sql = 'CALL SP_ArticleDelete(?, ?)';
 
@@ -52,11 +52,11 @@ class ArticleModel extends AbstractModel
         return $deleteArticle;
     }
 
-    function modifyarticle($articleId, $userId, $newtitle, $newcontent, $newcategory)
+    function modifyarticle(int $articleId, int $userId, string $newtitle, string $newcontent, int $newcategory, string $image = null)
     {
-        $sql = 'CALL SP_ArticleUpdate(?, ?, ?, ?, ?)';
+        $sql = 'CALL SP_ArticleUpdate(?, ?, ?, ?, ?, ?)';
 
-        $updateArticle = $this->database->executeQuery($sql, [$articleId, $userId, $newtitle, $newcontent, $newcategory]);
+        $updateArticle = $this->database->executeQuery($sql, [$articleId, $userId, $newtitle, $newcontent, $newcategory, $image]);
 
         return $updateArticle;
     }

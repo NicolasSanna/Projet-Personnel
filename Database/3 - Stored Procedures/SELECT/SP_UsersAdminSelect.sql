@@ -1,5 +1,5 @@
 DELIMITER //
-DROP PROCEDURE IF EXISTS SP_SelectUsersAdminSelect //
+DROP PROCEDURE IF EXISTS SP_UsersAdminSelect //
 CREATE PROCEDURE SP_UsersAdminSelect ()
 BEGIN
 

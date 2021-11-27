@@ -19,5 +19,3 @@
 - Terminer les boutons (ergonomie)
 
 - CSS des articles
-
-- Ajout d'image pour article 
