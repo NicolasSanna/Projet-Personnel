@@ -459,34 +459,6 @@ textarea
 }
 
 
-@media screen AND (min-width: 730px)
-{
-    .Footer
-    {
-        &-box
-        {
-            flex-direction:row;
-            &-section2 
-            {
-                margin-right:0px;
-
-                margin-left:20px;
-                &-left
-                {
-                    padding-left: 40px; 
-                    padding-right: 40px;
-                }
-                &-right
-                {
-                    padding-left: 20px; 
-                    padding-right: 20px;
-                    margin-right: 20px;
-                }
-            }
-        }
-    }
-}
-
 @media screen AND (min-width: 880px)
 {
     .Header
