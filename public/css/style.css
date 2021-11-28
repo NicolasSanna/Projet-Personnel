@@ -426,31 +426,6 @@ textarea {
 }
 
 @media screen and (min-width: 880px) {
-  .Header-navbarbox {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-  .Header-navbarbox-burgerOn {
-    display: none;
-  }
-  .Header-navbarbox-navbar {
-    display: block;
-  }
-  .Header-navbarbox-navbar-ul {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-  .Header-navbarbox-navbar-ul-a {
-    margin-left: 5px;
-    margin-right: 5px;
-  }
   .Home {
     text-align: center;
   }

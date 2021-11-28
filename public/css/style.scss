@@ -458,42 +458,8 @@ textarea
     margin-right: auto;
 }
 
-
 @media screen AND (min-width: 880px)
-{
-    .Header
-    {
-        &-navbarbox
-        {
-            margin-top:0px;
-            margin-bottom:0px;
-
-            &-burgerOn
-            {
-                display:none;
-            }
-            &-navbar
-            {
-                
-                display:block;
-               
-                &-ul
-                {
-                    justify-content: center;
-                    flex-direction:row;
-                    margin-top:20px;
-                    margin-bottom:10px;
-
-
-                    &-a
-                    {
-                        margin-left:5px;
-                        margin-right:5px;
-                    }
-                }
-            }
-        }
-    }
+{    
 
     .Home
     {
