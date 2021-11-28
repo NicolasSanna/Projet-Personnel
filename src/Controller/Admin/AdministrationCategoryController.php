@@ -26,7 +26,7 @@ class AdministrationCategoryController extends AbstractController
 
             if ($token != UserSession::token())
             {
-                FlashBag::addFlash("MAUVAIS TOKEN !", 'error');
+                FlashBag::addFlash("Une erreur s'est produite.", 'error');
                 $this->redirect('administration');
             }
 
@@ -34,7 +34,9 @@ class AdministrationCategoryController extends AbstractController
             {
                 FlashBag::addFlash('Le champ est vide', 'error');
             }
-            else
+
+
+            if (!(FlashBag::hasMessages('error')))
             {
                 $categoryModel = new CategoryModel();
                 $insertCategory = $categoryModel->createCategory($newCategory);
@@ -99,7 +101,8 @@ class AdministrationCategoryController extends AbstractController
                 {
                     FlashBag::addFlash("Le champ est vide.", 'error');
                 }
-                else
+
+                if (!(FlashBag::hasMessages('error')))
                 {
                     $categoryModel = new CategoryModel();
                     $modifycategory = $categoryModel->modifyCategory($idOfCategory, $newcategory);
@@ -145,6 +148,13 @@ class AdministrationCategoryController extends AbstractController
             if (!empty($_POST))
             {
                 $choiceDelete = (int) $_POST['deleteCategory'];
+                $token = $_POST['token'];
+
+                if ($token != UserSession::token())
+                {
+                    FlashBag::addFlash("Une erreur s'est produite.", 'error');
+                    $this->redirect('administration');
+                }
 
                 switch ($choiceDelete)
                 {

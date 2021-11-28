@@ -53,30 +53,40 @@ class AdministrationUserController extends AbstractController
             if (!empty($_POST))
             {
                 $choice = (int) $_POST['deleteuser'];
+                $token = $_POST['token'];
 
-                switch ($choice)
+                if($token != UserSession::token())
                 {
-                    case 1:
+                    FlashBag::addFlash("Une erreur s'est produite lors de la suppression.", 'error');
+                    $this->redirect('adminusers');
+                }
+
+                if (!(FlashBag::hasMessages('error')))
+                {
+                    switch ($choice)
                     {
-                        $userModel = new userModel();
-                        $deleteUser = $userModel->deleteUser($idOfUser);
-                        Flashbag::addFlash($deleteUser['message'], 'query');
-                        break;
-                    }
-                    case 2:
-                    {
-                        $userModel = new UserModel();
-                        $deleteUser = $userModel->deleteUserWithoutArticlesComments($idOfUser);
-                        FlashBag::addFlash($deleteUser['message'], 'query');
-                        break;
-                    }
-                    default:
-                    {
-                        $this->redirect('administration');
+                        case 1:
+                        {
+                            $userModel = new userModel();
+                            $deleteUser = $userModel->deleteUser($idOfUser);
+                            Flashbag::addFlash($deleteUser['message'], 'query');
+                            break;
+                        }
+                        case 2:
+                        {
+                            $userModel = new UserModel();
+                            $deleteUser = $userModel->deleteUserWithoutArticlesComments($idOfUser);
+                            FlashBag::addFlash($deleteUser['message'], 'query');
+                            break;
+                        }
+                        default:
+                        {
+                            $this->redirect('administration');
+                        }
                     }
                 }
+                $this->redirect('adminusers');    
             }
-            
         }
         else
         {

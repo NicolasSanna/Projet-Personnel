@@ -209,9 +209,10 @@ class ArticleController extends AbstractController
     {
         if (UserSession::author() || UserSession::administrator())
         {
-            if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+            if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']) && array_key_exists('token', $_GET) && $_GET['token'])
             {
                 $idOfArticle = $_GET['id'];
+                $token = $_GET['token'];
             }
             else
             {
@@ -231,6 +232,11 @@ class ArticleController extends AbstractController
             {
                 FlashBag::addFlash("Vous ne pouvez pas supprimer cet article, car vous n'en n'êtes pas l'auteur", 'error');
             }   
+
+            if($token != $_SESSION['user']['token'])
+            {
+                FlashBag::addFlash("Une erreur s'est produite lors de la suppression.", 'error');
+            }
 
             if (!(FlashBag::hasMessages('error')))
             {

@@ -66,7 +66,8 @@ class ArticleController extends AbstractController
                     {
                         FlashBag::addFlash("Le champ commentaire est vide", "error");
                     }
-                    else
+                    
+                    if (!(FlashBag::hasMessages('error')))
                     {
                         $commentModel = new CommentModel();
                         $insertComment = $commentModel->addComment($comment, $user_id, $idOfArticle);

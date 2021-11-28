@@ -79,7 +79,8 @@ class AdministrationCommentsController extends AbstractController
                 FlashBag::addFlash("Ce commentaire n'existe pas.", 'error');
                 
             }
-            else
+            
+            if (!(FlashBag::hasMessages('error')))
             {
                 $deleteComment = $commentModel->commentDelete($idOfComment);
                 FlashBag::addFlash("Ce commentaire a été supprimé.", 'success');

@@ -1,3 +1,6 @@
+<?php use App\Framework\UserSession;?>
+
+
 <h3 class="TitlePage">Supprimer l'utilisateur <?= htmlspecialchars($userInfos['pseudo']);?></h3>
 
 <div class="Form">
@@ -7,6 +10,7 @@
                 <option value="1">Supprimer toutes les données de l'utilisateur</option>
                 <option value="2">Supprimer l'utilisateur mais conserver ses articles et commentaires</option>
             </select>
+            <input type="hidden" name="token" value="<?=UserSession::token();?>">
         <div class="FormCategory-button">
             <button id="deleteUser"  class="FormArticle-box-button" type="submit">Supprimer le membre</button>
         </div> 
