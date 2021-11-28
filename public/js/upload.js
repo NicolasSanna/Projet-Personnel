@@ -20,7 +20,7 @@ function addArticleManager ()
         // On vérifie que l'input de type file a bien reçu une image. 
         if(inputFile.files && inputFile.files.length == 1)
         {
-            // On vérifie la taille de ce qui a été reçu dans l'input de type file. Si c'est supérieur à 800000 octets (8Mo)
+            // On vérifie la taille de ce qui a été reçu dans l'input de type file. Si c'est supérieur à 2000000 octets (2Mo)
             if (inputFile.files[0].size > 2000000)
             {
                 // On arrête la soumission du formulaire en envoyant une popup d'alerte et on stoppe le comportement par défaut du navigateur. 
