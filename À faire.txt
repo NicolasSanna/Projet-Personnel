@@ -4,11 +4,7 @@
 
 - Créer la table "ressources" qui contiendra le nom des fichiers (créer $_FILES à l'ajout), le titre, la clé étrangère de la catégorie, , la description, la clé étrangère de l'utilisateur qui l'a ajouté, et la date d'ajout pour les ressources documentaires. Gérer avec $_FILES et ses vérifications. (Accès pour les inscrits, ajout pour les auteurs (réfléchir à la modification et à la suppression)). A ajouter dans le panneau d'administration.
 
-- S'occuper du CSS.
-
 - Continuer d'écrire le dossier professionnel et le dossier projet.
-
-- Penser à mettre le token dans tous les champs cachés et faire la vérification côté serveur/PHP dans les formulaires de création d'article, de catégorie, de suppression d'article, de suppression de catégorie, de modification de catégorie. 
 
 - Faire un moteur de recherche en AJAX (fonctionne en PHP/MySQL).
 
