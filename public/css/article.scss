@@ -1,3 +1,4 @@
+// IMPORTATION DES VARIABLES DU FICHIER _VARIABLES.SCSS
 @import 'variables';
 
 // ARTICLE
@@ -42,6 +43,7 @@
     }
 }
 
+// CSS DE LA LISTE DE COMMENTAIRES ET DES COMMENTAIRES
 .Comment
 {
     &-list

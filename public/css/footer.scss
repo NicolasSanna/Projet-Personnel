@@ -1,4 +1,7 @@
+
+// IMPORTATION DES VARIABLES DE _VARIABLES.SCSS
 @import 'variables';
+
 // FOOTER 
 .Footer
 {
@@ -78,6 +81,7 @@
     }
 }
 
+// POINT DE RUPTURE DU MEDIA QUERIES A 739 PX.
 @media screen AND (min-width: 730px)
 {
     .Footer

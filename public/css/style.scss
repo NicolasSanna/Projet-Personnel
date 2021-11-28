@@ -1,5 +1,7 @@
+// IMPORTATION DES VARIABLES DU FICHIER _VARIABLES.SCSS
 @import 'variables';
 
+// CSS GLOBAL
 .Body, html
 {
     font-family:$fontGlobal;
@@ -27,7 +29,6 @@ textarea
 
 
 // MESSAGES
-
 .Message
 {
     
@@ -37,6 +38,7 @@ textarea
     font-weight:500;
 }
 
+// MESSAGE DE SUCCES
 .Success
 {
     &-message
@@ -45,6 +47,7 @@ textarea
     }
 }
 
+// MESSAGE D'ERREUR
 .Error
 {
     &-message
@@ -53,6 +56,7 @@ textarea
     }
 }
 
+// MESSAGE VENANT D'UNE QUERY
 .Query
 {
     &-message
@@ -110,6 +114,7 @@ textarea
     }
 }
 
+// LIEN
 .Link
 {
     margin-top: 50px;
@@ -137,6 +142,7 @@ textarea
     }
 }
 
+// CSS DU BOUTON D'AJOUT DE FICHIERS
 .parent-div 
 {
     display: inline-block;
@@ -174,6 +180,7 @@ textarea
     cursor: pointer;
 }
 
+// LIEN D'ERGONOMIE
 .LinkA
 {
     margin-top: 20px;
@@ -205,6 +212,7 @@ textarea
     }
 }
 
+// LIEN A DE FORMULAIRE
 .LinkAForm
 {
     margin-top: 20px;
@@ -233,7 +241,7 @@ textarea
     }
 }
 
-// HOME
+// CSS DE LA PAGE D'ACCUEIL
 .Home
 {
     &-img
@@ -250,7 +258,6 @@ textarea
 }
 
 // FORMULAIRES
-
 .Form 
 {
 
@@ -315,6 +322,7 @@ textarea
     }
 }
 
+// FORMULAIRE DE RECHERCHE
 .FormSearch
 {
     &-box
@@ -368,6 +376,7 @@ textarea
     }
 }
 
+// FORMULAIRE DE COMMENTAIRE
 .FormComment
 {
     &-box
@@ -424,6 +433,7 @@ textarea
     }
 }
 
+// FORMULAIRE D'ARTICLE
 .FormArticle
 {
     &-box
@@ -522,6 +532,7 @@ textarea
     margin-right: auto;
 }
 
+// POINT DE RUPTURE DU MEDIA QUERIES A 880 PX
 @media screen AND (min-width: 880px)
 {    
 
