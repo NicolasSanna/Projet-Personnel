@@ -40,6 +40,11 @@ class ArticleController extends AbstractController
                         FlashBag::addFlash("Une erreur est survenue lors du chargement du fichier.", 'error');
                     }
 
+                    if($file['size'] > 8000000)
+                    {
+                        FlashBag::addFlash("Trop gros !", 'error');
+                    }
+
                     $fileName = $file['name'];
                     $fileExtension = "." . strtolower(substr(strrchr($fileName, "."), 1));
 

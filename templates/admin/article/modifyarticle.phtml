@@ -10,7 +10,7 @@
     <?php endif;?>
 
 <div class="FormArticle">
-    <form class="FormArticle-box" method="POST" enctype="multipart/form-data">
+    <form class="FormArticle-box" method="POST" id="formArticle" enctype="multipart/form-data">
         <label for="title"  class="FormArticle-box-label">Titre de l'article :</label>
         <input  name="title" class="FormArticle-box-input" value="<?=$title;?>"></input>
         <label for="content" class="FormArticle-box-label">Contenu de l'article : </label>
@@ -22,9 +22,11 @@
                 <?php endforeach;?>
             </select>
         <label for="title" class="FormArticle-box-label">Changer ou ajouter une image :</label>
-        <input type="file" class="FormArticle-box-input File" name="image" id="" accept="image/*">
+        <input type="file" class="FormArticle-box-input File" name="image" id="upload" accept="image/*">
         <div class="FormArticle-button">
             <button type="submit" class="FormArticle-box-button" name="validate">Modifier l'article</button>
         </div> 
     </form>
 </div>
+
+<script src="<?=asset('js/upload.js');?>"></script>

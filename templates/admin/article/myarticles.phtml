@@ -1,3 +1,5 @@
+<?php use App\Framework\UserSession;?>
+
 <h3 class="TitlePage">Mes articles</h3>
 
 <table>
@@ -25,7 +27,7 @@
                     <td><a href="<?=buildUrl('category', ['id' => intval($myArticle['category_id'])]);?>"><?=$myArticle['category'];?></a></td>
                     <td><?=$myArticle['number_comments'];?></td>
                     <td><a id="a-modify" href="<?=buildUrl('modifyarticle', ['id' => intval($myArticle['articleId'])]);?>">Modifier</a></td>
-                    <td><a id="a-delete" class="deleteArticle" href="<?=buildUrl('deletearticle', ['id' => intval($myArticle['articleId']), 'token' => $_SESSION['user']['token']]);?>">Supprimer</a></td>
+                    <td><a id="a-delete" class="deleteArticle" href="<?=buildUrl('deletearticle', ['id' => intval($myArticle['articleId']), 'token' => UserSession::token()]);?>">Supprimer</a></td>
                 </tr>
 
             <?php endforeach;?>

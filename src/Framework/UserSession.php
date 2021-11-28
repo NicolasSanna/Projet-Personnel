@@ -20,7 +20,6 @@ class UserSession
     {
         self::sessionCheck();
 
-
         $_SESSION['user'] = [
             'userId' => $userId,
             'firstname' => $firstname,
@@ -29,9 +28,10 @@ class UserSession
             'email' => $email,
             'grant_id' => $grant_id
         ];
+
+        self::token();
+
     }
-
-
 
     static function isAuthenticated()
     {
@@ -112,7 +112,7 @@ class UserSession
         }
         return $_SESSION['user']['grant_id'] == 3;
     }
-    
+
     static function token()
     {
         if (!self::isAuthenticated())
@@ -127,6 +127,4 @@ class UserSession
 
         return $_SESSION['user']['token'];
     }
-
-
 }
