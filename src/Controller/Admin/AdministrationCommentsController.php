@@ -75,7 +75,6 @@ class AdministrationCommentsController extends AbstractController
 
             if(!$checkIfCommentExist)
             {
-                $commentApprouved = $commentModel->commentApprouved($idOfComment);
                 FlashBag::addFlash("Ce commentaire n'existe pas.", 'error');
                 
             }
