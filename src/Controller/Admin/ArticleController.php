@@ -135,8 +135,7 @@ class ArticleController extends AbstractController
                 $this->redirect('myarticles');
             }
 
-            $id_user = UserSession::getId();
-        
+            $id_user = UserSession::getId();        
             $title = $checkArticle['title'];
             $content = $checkArticle['content'];
             $imageExist = $checkArticle['image'];
@@ -153,7 +152,6 @@ class ArticleController extends AbstractController
                 $newcontent = trim(($_POST['content']));
                 $category = (int) $_POST['categories'];
                 $file = $_FILES['image'];
-                $fileName = '';
 
                 if (!$newtitle || !$newcontent || !$category)
                 {
@@ -183,10 +181,6 @@ class ArticleController extends AbstractController
                         $fileName = $uniqueName . $fileExtension;
                         unlink(IMAGE_DIR . $imageExist);
                     }
-                }
-                else
-                {
-                    $fileName = $imageExist;
                 }
 
                 if (!(FlashBag::hasMessages('error')))

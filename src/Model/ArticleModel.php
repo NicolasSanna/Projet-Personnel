@@ -49,48 +49,68 @@ class ArticleModel extends AbstractModel
         return $insertArticleId;
     }
 
+    // On créé une méthode getMyArticles() elle prend en paramètre le numéro d'identifiant de l'utilisateur en session (userId).
     function getMyArticles(int $userId)
     {
+        // On range dans $sql la requête SQL qui permet de récupérer les articles de l'utilisateur grâce au paramètre donné à la procédure stockée MySQL.
         $sql = 'CALL SP_MyArticlesSelect(?)';
 
+        // On range dans $getMyArticles l'exécution de la requête SQL avec en paramètre le numéro d'identifiant grâce à la méthode getAllResults venant de l'objet Database dont on hérite grâce à AbstractModel.
         $getMyArticles = $this->database->getAllResults($sql, [$userId]);
 
+        // On renvoie le résultat.
         return $getMyArticles;
     }
 
+    // On créé une méthode deleteArticle qui prend en paramètre l'identifiant de l'article à supprimer et l'auteur de celui-ci.
     function deleteArticle(int $articleId, int $userId)
     {
+        // On range dans $sql la requête SQL qui prend en paramètre l'identifiant de l'article et son auteur qui veut le supprimer. Ici en procédure stockée.
         $sql = 'CALL SP_ArticleDelete(?, ?)';
 
+        // On range dans $deleteArticle l'exécution de la requête SQL qui a pris en paramètre l'article et l'utilisateur.
         $deleteArticle = $this->database->executeQuery($sql, [$articleId, $userId]);
 
+        // On renvoie le résultat.
         return $deleteArticle;
     }
 
+    // On créé la méthode modifyArticle qui prend en paramètre le numéro d'identifiant de l'article, l'utilisateur, le nouveau titre, le nouveau contenu, la nouvelle catégorie et l'image. Par défaut, l'image est à null car on peut ne pas vouloir mettre d'image.
     function modifyarticle(int $articleId, int $userId, string $newtitle, string $newcontent, int $newcategory, string $image = null)
     {
+        // On range dans $sql la requête SQL qui va réaliser l'opération, grâce aux paramètres qu'on lui donne.
         $sql = 'CALL SP_ArticleUpdate(?, ?, ?, ?, ?, ?)';
 
+        // On exécute la requête SQL grâce aux paramètres du tableau.
         $updateArticle = $this->database->executeQuery($sql, [$articleId, $userId, $newtitle, $newcontent, $newcategory, $image]);
 
+        // On renvoie le résultat.
         return $updateArticle;
     }
 
+    // On créé une méthode searchArticle qui prend en paramètre une chaîne de caractères.
     function searchArticle(string $searchArticle)
     {
+        // On range dans $sql la requête SQL à effectuer dans la base de données et on lui donne en paramètre la chaine de caractèreq contenant ce que l'on désire chercher.
         $sql = 'CALL SP_SearchSelect(?)';
 
+        // On range le résultat de la requête SQL celle-ci une fois exécutée avec les paramètres dans une variable.
         $searchAnArticle = $this->database->getAllResults($sql, [$searchArticle]);
 
+        // On renvoie le résultat.
         return $searchAnArticle;
     }
 
+    // On créé une méthode deleteImageArticle qui prend en paramètre l'identifiant de l'article.
     function deleteImageArticle(int $idOfArticle)
     {
+        // On range dans $sql la requête SQL que l'on veut effectuer. Elle prend en paramètre l'identifiant de l'article dont on va retirer l'image.
         $sql = 'CALL SP_ArticleImageUpdate(?)';
 
+        // On renvoie le résultat de l'exécution de la requête SQL.
         $deleteImageArticle = $this->database->executeQuery($sql, [$idOfArticle]);
 
+        // On retourne le résultat.
         return $deleteImageArticle;
     }
 }
