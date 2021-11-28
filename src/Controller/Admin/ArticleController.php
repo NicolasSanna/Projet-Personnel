@@ -233,7 +233,7 @@ class ArticleController extends AbstractController
                 FlashBag::addFlash("Vous ne pouvez pas supprimer cet article, car vous n'en n'êtes pas l'auteur", 'error');
             }   
 
-            if($token != $_SESSION['user']['token'])
+            if($token != UserSession::token())
             {
                 FlashBag::addFlash("Une erreur s'est produite lors de la suppression.", 'error');
             }
