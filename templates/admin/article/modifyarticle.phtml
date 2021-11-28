@@ -21,15 +21,22 @@
                     <option value="<?= $category['id'];?>" ><?= htmlspecialchars($category['category']);?></option>
                 <?php endforeach;?>
             </select>
-                <?php if(!empty($imageExist)):?>
-                    <a class="LinkAForm" href="<?=buildUrl('deleteImage', ['id' => intval($idOfArticle)]);?>">Supprimer l'image d'arrière-plan</a>
-                <?php endif;?>
-            <label for="title" class="FormArticle-box-label">Changer ou ajouter une image :</label>
-            <input type="file" class="FormArticle-box-input File" name="image" id="upload" accept="image/*">
+            <?php if(!empty($imageExist)):?>
+                <a class="LinkAForm" href="<?=buildUrl('deleteImage', ['id' => intval($idOfArticle)]);?>">Supprimer l'image d'arrière-plan</a>
+            <?php endif;?>
+        <div class="parent-div">
+            <button class="btn-upload">Choisir l'image d'arrière plan</button>
+            <input type="file" class="FormArticle-box-input" name="image" id="upload" accept="image/*">
+        </div>
         <div class="FormArticle-button">
             <button type="submit" class="FormArticle-box-button" name="validate">Modifier l'article</button>
         </div> 
     </form>
 </div>
+
+<div class="parent-div">
+      <button class="btn-upload">Choisir le fichier</button>
+      <input type="file" name="upfile" />
+    </div>
 
 <script src="<?=asset('js/upload.js');?>"></script>

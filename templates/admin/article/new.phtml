@@ -12,8 +12,10 @@
                 <option value="<?= $category['id'];?>" ><?= htmlspecialchars($category['category']);?></option>
             <?php endforeach;?>
         </select>
-        <label for="title" class="FormArticle-box-label">Ajouter une image :</label>
-        <input type="file" class="FormArticle-box-input File" name="image" id="upload" accept="image/*">
+        <div class="parent-div">
+            <button class="btn-upload">Choisir l'image d'arrière plan</button>
+            <input type="file" class="FormArticle-box-input" name="image" id="upload" accept="image/*">
+        </div>
         <div class="FormArticle-button">
             <button type="submit" class="FormArticle-box-button" name="validate">Publier l'article</button>
         </div>
