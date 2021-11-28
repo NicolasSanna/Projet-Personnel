@@ -167,6 +167,34 @@ textarea
     }
 }
 
+.LinkAForm
+{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color:$colorPeru;
+    color:white;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:30px;
+    padding-right:30px;
+    font-family: 'Open Sans', sans-serif;
+    border:none;
+
+    align-items: flex-start;
+    border:solid 1px $colorPeru;
+    text-decoration: none;
+    border-radius:5px;
+    text-align:center;
+    width:250px;
+    &:hover
+    {
+        background-color:white;
+        transition: 0.5s ease-in-out;
+        opacity:1;
+        color:black;  
+    }
+}
+
 
 
 // HOME

@@ -150,7 +150,7 @@ class ArticleController extends AbstractController
             if(!empty($_POST))
             {
                 $newtitle = htmlspecialchars(trim($_POST['title']));
-                $newcontent = trim(nl2br(htmlspecialchars($_POST['content'])));
+                $newcontent = trim(($_POST['content']));
                 $category = (int) $_POST['categories'];
                 $file = $_FILES['image'];
                 $fileName = '';
@@ -159,7 +159,6 @@ class ArticleController extends AbstractController
                 {
                     FlashBag::addFlash("Tous les champs de modification n'ont pas été remplis.", 'error');
                 }
-
 
                 if(!empty($file['name']))
                 {                  
@@ -182,12 +181,17 @@ class ArticleController extends AbstractController
                         
                         $uniqueName = md5(uniqid(rand(), true));
                         $fileName = $uniqueName . $fileExtension;
+                        unlink(IMAGE_DIR . $imageExist);
                     }
+                }
+                else
+                {
+                    $fileName = $imageExist;
                 }
 
                 if (!(FlashBag::hasMessages('error')))
                 {
-                    unlink(IMAGE_DIR . $imageExist);
+
                     move_uploaded_file($file['tmp_name'], IMAGE_DIR  . $fileName);
                     $articleModel = new ArticleModel();
                     $updateArticle = $articleModel->modifyarticle($idOfArticle, $id_user, $newtitle, $newcontent, $category, $fileName);
@@ -200,7 +204,8 @@ class ArticleController extends AbstractController
                 'title' => $title??'',
                 'categories' => $categories??'',
                 'pageTitle' => $pageTitle??'',
-                'imageExist' => $imageExist??''
+                'imageExist' => $imageExist??'',
+                'idOfArticle' => $idOfArticle??''
             ]);
         }
         else
@@ -259,6 +264,36 @@ class ArticleController extends AbstractController
         else
         {
             $this->redirect('accessRefused');
+        }
+    }
+
+    public function deleteImage()
+    {
+        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+        {
+            $idOfArticle = $_GET['id'];
+        }
+        else
+        {
+            $this->redirect('myarticles');
+        }
+
+        $articleModel = new ArticleModel();
+        $checkArticle = $articleModel->getOneArticle($idOfArticle);
+        $imageExist = $checkArticle['image'];
+
+        if(!$checkArticle)
+        {
+            FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
+            $this->redirect('myarticles');
+        }
+
+        else
+        {
+            $articleModel = new ArticleModel();
+            $deleteImageArticle = $articleModel->deleteImageArticle($idOfArticle);
+            unlink(IMAGE_DIR . $imageExist);
+            $this->redirect('modifyarticle', ['id' => $idOfArticle]);
         }
     }
 

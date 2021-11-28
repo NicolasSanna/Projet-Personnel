@@ -21,6 +21,7 @@
                     <option value="<?= $category['id'];?>" ><?= htmlspecialchars($category['category']);?></option>
                 <?php endforeach;?>
             </select>
+            <a class="LinkAForm" href="<?=buildUrl('deleteImage', ['id' => intval($idOfArticle)]);?>">Supprimer l'image d'arrière-plan</a>
         <label for="title" class="FormArticle-box-label">Changer ou ajouter une image :</label>
         <input type="file" class="FormArticle-box-input File" name="image" id="upload" accept="image/*">
         <div class="FormArticle-button">

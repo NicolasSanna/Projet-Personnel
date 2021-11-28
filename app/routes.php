@@ -141,7 +141,11 @@ $routes = [
         'controller' => 'Forum',
         'method' => 'search'
     ],
-    
+    'deleteImage' => [
+        'path' => '/supprimerimage',
+        'controller' => 'Admin\\Article',
+        'method' => 'deleteImage'
+    ],
     // 'uploadFile' => [
     //     'path' => '/envoyerunfichier',
     //     'controller' => 'Admin\\Article',

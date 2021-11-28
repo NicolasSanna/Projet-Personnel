@@ -69,4 +69,13 @@ class ArticleModel extends AbstractModel
 
         return $searchAnArticle;
     }
+
+    function deleteImageArticle(int $idOfArticle)
+    {
+        $sql = 'CALL SP_ArticleImageUpdate(?)';
+
+        $deleteImageArticle = $this->database->executeQuery($sql, [$idOfArticle]);
+
+        return $deleteImageArticle;
+    }
 }
