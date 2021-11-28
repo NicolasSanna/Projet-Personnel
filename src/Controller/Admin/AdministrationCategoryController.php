@@ -153,7 +153,7 @@ class AdministrationCategoryController extends AbstractController
                 if ($token != UserSession::token())
                 {
                     FlashBag::addFlash("Une erreur s'est produite.", 'error');
-                    $this->redirect('administration');
+                    $this->redirect('adminCategories');
                 }
 
                 switch ($choiceDelete)
