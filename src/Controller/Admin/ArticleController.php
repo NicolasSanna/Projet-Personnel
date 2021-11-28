@@ -25,6 +25,7 @@ class ArticleController extends AbstractController
                 $category = (int) $_POST['categories'];
                 $id_user = UserSession::getId();
                 $file = $_FILES['image'];
+                dump($_FILES);
 
                 $fileName = '';
     
@@ -40,9 +41,9 @@ class ArticleController extends AbstractController
                         FlashBag::addFlash("Une erreur est survenue lors du chargement du fichier.", 'error');
                     }
 
-                    if($file['size'] > 8000000)
+                    if($file['size'] > 2000000)
                     {
-                        FlashBag::addFlash("Trop gros !", 'error');
+                        FlashBag::addFlash("Le fichier est trop volumineux (plus de 2Mo)", 'error');
                     }
 
                     $fileName = $file['name'];
