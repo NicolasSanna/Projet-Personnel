@@ -186,12 +186,16 @@ textarea
     padding-right:30px;
     font-family: $fontGlobal;
     border:none;
-    max-width:auto;
+    min-width:auto;
+    max-width:200px;
     align-items: flex-end;
     border:solid 1px $colorPeru;
     text-decoration: none;
     border-radius:5px;
     text-align:center;
+    font-size:13px;
+    align-items: center;
+    justify-content: center;
     &:hover
     {
         background-color:white;

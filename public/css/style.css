@@ -164,7 +164,8 @@ textarea {
   padding-right: 30px;
   font-family: "Open Sans", sans-serif;
   border: none;
-  max-width: auto;
+  min-width: auto;
+  max-width: 200px;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -172,6 +173,13 @@ textarea {
   text-decoration: none;
   border-radius: 5px;
   text-align: center;
+  font-size: 13px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .LinkA:hover {

@@ -22,7 +22,7 @@
                 <?php endforeach;?>
             </select>
             <?php if(!empty($imageExist)):?>
-                <a class="LinkAForm" href="<?=buildUrl('deleteImage', ['id' => intval($idOfArticle)]);?>">Supprimer l'image d'arrière-plan</a>
+                <a class="LinkA" href="<?=buildUrl('deleteImage', ['id' => intval($idOfArticle)]);?>">Supprimer l'image d'arrière-plan</a>
             <?php endif;?>
         <div class="parent-div">
             <button class="btn-upload">Choisir l'image d'arrière plan</button>
@@ -34,9 +34,5 @@
     </form>
 </div>
 
-<div class="parent-div">
-      <button class="btn-upload">Choisir le fichier</button>
-      <input type="file" name="upfile" />
-    </div>
 
 <script src="<?=asset('js/upload.js');?>"></script>
