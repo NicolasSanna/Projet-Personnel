@@ -91,7 +91,6 @@ class AdministrationCommentsController extends AbstractController
         {
             $this->redirect('commentsAdministration');
         }
-
     }
 
     public function AllCommentsApprouved()

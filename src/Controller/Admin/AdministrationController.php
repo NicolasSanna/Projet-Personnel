@@ -8,7 +8,6 @@ use App\Framework\UserSession;
 
 class AdministrationController extends AbstractController
 {
-
     public function index()
     {
         if(!UserSession::isAuthenticated())

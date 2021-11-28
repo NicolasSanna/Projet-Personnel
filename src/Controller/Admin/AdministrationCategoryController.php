@@ -45,8 +45,6 @@ class AdministrationCategoryController extends AbstractController
                 $this->redirect('adminCategories');
             }
         }
-
-
         return $this->render('admin/addCategory', [
             'newCategory' => $newCategory??'',
             'pageTitle' => $pageTitle??''
@@ -110,7 +108,6 @@ class AdministrationCategoryController extends AbstractController
                     $this->redirect('adminCategories');
                 }
             }
-
         }
         else
         {

@@ -129,6 +129,7 @@ class AdministrationUserController extends AbstractController
                 $userChangeGrantModel = new UserModel();
                 $changeGrant = $userChangeGrantModel->changeGrant($userId, $grantId);
                 FlashBag::addFlash($changeGrant['message'], 'query');
+                $this->redirect('adminusers');
             }
         }
         else
