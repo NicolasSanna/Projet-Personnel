@@ -1,49 +1,77 @@
 <?php 
 
+// On indique l'espace de noms : App\Framework (composer.json autoload : src/Framework)
 namespace App\Framework;
 
+// On créé la classe FlashBag.
 class FlashBag 
 {
 
+    // On créé une méthode privée sessionCheck. Elle est chargée de démarrer la session si elle ne l'est pas.
     static private function sessionCheck()
     {
+        // Si le status de la session est à strictement égal à PHP_SESSION_NONE, c'est-à-dire que son status est à none...
         if (session_status() === PHP_SESSION_NONE) 
         {
+            // On lance le démarrage de la session.
             session_start();
         }
     }
 
+    // On créé une méthode privé qui initie dans $_SESSION la clé flash.
     static private function initFlashBag(string $type)
     {
+        // On s'assure du démarrage de session en appelant la méthode sessionCheck().
         self::sessionCheck();
+
+        // Si la clé flash dans la superglobale $_SESSION n'existe pas ou si est nulle...
         if (!array_key_exists('flash', $_SESSION) || is_null($_SESSION['flash'])) 
         {
+            // ... Alors on rentre un table dans la clé flash de $_SESSION.
             $_SESSION['flash'] = [];
         }
-    
+        
+        // Si la clé du type dans la clé flash de $_SESSION n'existe pas, ou si est nul le type...
         if (!array_key_exists($type, $_SESSION['flash']) || is_null($_SESSION['flash'][$type])) 
         {
+            // ... Alors on créé un tableau dans le type de la clé flash du tableau associatif de la superglobale $_SESSION.
             $_SESSION['flash'][$type] = [];
         }
     }
     
+    // On créé la méthode statique addFlash. Elle reçoit en paramètre le message rédigé d'une part, par le type de message. Par défaut, c'est le type success.
     static public function addFlash(string $message, string $type = 'success')
     {
+        // On appelle d'abord la méthode initFlashBag avec en paramètre le type de message.
         self::initFlashBag($type);
+
+        // On place dans le tableau de type dans la clé flash de la superglobale $_SESSION le message.
         $_SESSION['flash'][$type][] = $message;
     }
     
+    // On créé une méthode fetchMessages avec le type en paramètre.
     static public function fetchMessages(string $type)
     {
+        // On appelle la méthode initFlashBag avec en paramètre le type de messages.
         self::initFlashBag($type);
+
+        // On range dans $messages le message venant du type de message du tableau de type, au sein de la clé flash de la superglobale $_SESSION.
         $messages = $_SESSION['flash'][$type];
+
+        // On met les messages du type de message de la clé flash de la superglobale $_SESSION à null afin de vider les messages.
         $_SESSION['flash'][$type] = null;
+
+        // Enfin on renvoie les messages.
         return $messages;
     }
     
+    // On créé une méthode hasMessages qui reçoit en paramètre le type de messages.
     static public function hasMessages(string $type)
     {
+        // On s'assure de faire appel à initFlashBag avec en paramètre le type de message.
         self::initFlashBag($type);
+
+        // On retourne le nombre d'entrées avec la fonction count de messages venant d'un type défini dans la clé flash de la superglobale $_SESSION.
         return count($_SESSION['flash'][$type]);
     }
 }

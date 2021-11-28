@@ -269,105 +269,44 @@ class ArticleController extends AbstractController
 
     public function deleteImage()
     {
-        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+        if (UserSession::author() || UserSession::administrator())
         {
-            $idOfArticle = $_GET['id'];
-        }
-        else
-        {
-            $this->redirect('myarticles');
-        }
+            if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+            {
+                $idOfArticle = $_GET['id'];
+            }
+            else
+            {
+                $this->redirect('myarticles');
+            }
 
-        $articleModel = new ArticleModel();
-        $checkArticle = $articleModel->getOneArticle($idOfArticle);
-        $imageExist = $checkArticle['image'];
-
-        if(!$checkArticle)
-        {
-            FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
-            $this->redirect('myarticles');
-        }
-
-        else
-        {
             $articleModel = new ArticleModel();
-            $deleteImageArticle = $articleModel->deleteImageArticle($idOfArticle);
-            unlink(IMAGE_DIR . $imageExist);
-            $this->redirect('modifyarticle', ['id' => $idOfArticle]);
+            $checkArticle = $articleModel->getOneArticle($idOfArticle);
+            $imageExist = $checkArticle['image'];
+
+            if(!$checkArticle)
+            {
+                FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
+                $this->redirect('myarticles');
+            }
+
+            if($checkArticle['user_id'] != UserSession::getId())
+            {
+                FlashBag::addFlash("Vous ne pouvez pas supprimer cette image de cet article, car vous n'en n'êtes pas l'auteur", 'error');
+                $this->redirect('myarticles');
+            }  
+
+            if (!(FlashBag::hasMessages('error')))
+            {
+                $articleModel = new ArticleModel();
+                $deleteImageArticle = $articleModel->deleteImageArticle($idOfArticle);
+                unlink(IMAGE_DIR . $imageExist);
+                $this->redirect('modifyarticle', ['id' => $idOfArticle]);
+            }
         }
+        else
+        {
+            $this->redirect('accessRefused');
+        }       
     }
-
-    // public function uploadFile()
-    // {
-    //     if(UserSession::administrator() || UserSession::author())
-    //     {
-    //         if(!empty($_POST))
-    //         {
-    //             $file = $_FILES['file'];
-    //             $name = trim(htmlspecialchars($_POST['name']));
-    //             $content = trim(htmlspecialchars($_POST['content']));
-
-    //             if(!$name)
-    //             {
-    //                 FlashBag::addFlash("Le champ nom est vide", 'error');
-    //             }
-
-    //             if (!$content)
-    //             {
-    //                 FlashBag::addFlash("Le champ de description est vide", 'error');
-    //             }
-
-    //             if(strlen($content) > 200)
-    //             {
-    //                 FlashBag::addFlash("Le champ de description ne doit pas contenir plus de 200 caractères", 'error');
-    //             }
-
-    //             if(!$file['name'])
-    //             {
-    //                 FlashBag::addFlash('La zone de fichier est vide', 'error');
-    //             }
-
-    //             if($file['error'] > 0)
-    //             {
-    //                 FlashBag::addFlash('Une erreur est survenue lors du chargement du fichier.', 'error');
-    //             }
-
-    //             if($file['size'] > 8000000)
-    //             {
-    //                 FlashBag::addFlash("Le fichier est trop volumineux, au-delà de 8 Mo", 'error');
-    //             }
-
-
-    //             $fileName = $file['name'];
-    //             $fileExtension = "." . strtolower(substr(strrchr($fileName, "."), 1));
-
-    //             $validExtension = ['.pdf', '.doc', '.docx', '.odt', '.txt'];
-
-    //             if(!in_array($fileExtension, $validExtension))
-    //             {
-    //                 FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
-    //             }
-
-                        
-    //             if (!(FlashBag::hasMessages('error')))
-    //             {
-                    
-    //                 FlashBag::addFlash("Votre fichier a bien été enregistré.");
-
-    //                 $uniqueName = md5(uniqid(rand(), true));
-    //                 $fileName = $uniqueName . $fileExtension;
-    //             }
-                
-    //         }
-
-    //     }
-    //     else
-    //     {
-    //         $this->redirect('accessRefused');
-    //     }
-    //     return $this->render('uploadfile', [
-    //         'name' => $name??'',
-    //         'content' => $content??''
-    //     ]);
-    // }
 }

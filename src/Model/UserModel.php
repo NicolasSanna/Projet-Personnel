@@ -47,7 +47,6 @@ class UserModel extends AbstractModel
         }
 
         return $user;
-
     }
 
     function adminUsers()

@@ -1,5 +1,7 @@
+-- On précise la base de données sur la quelle l'on veut entrer les données. 
 USE huma_scientio;
 
+-- On entre les données des différentes tables.
 INSERT INTO grants (id, privilege)
 VALUES
 (1, 'Administrateur'),

@@ -23,6 +23,7 @@ define('DB_CHARSET', 'utf8');
 // En ligne :
 
 // define('SITE_BASE_URL', 'http://humascientio.nicolassanna.com');
+
 // define('DB_HOST', 'localhost');
 // define('DB_NAME', 'u516239589_huma_scientio');
 // define('DB_USER', 'u516239589_4dm1n1str4teur');

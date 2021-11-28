@@ -146,11 +146,7 @@ $routes = [
         'controller' => 'Admin\\Article',
         'method' => 'deleteImage'
     ],
-    // 'uploadFile' => [
-    //     'path' => '/envoyerunfichier',
-    //     'controller' => 'Admin\\Article',
-    //     'method' => 'uploadFile'
-    // ],
+
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
         'path' => $path,
@@ -159,6 +155,8 @@ $routes = [
     ]
 ];
 
+// On fait de route une constante.
 define('ROUTES', $routes);
 
+// On renvoie le tableau associatif de routes.
 return $routes;

@@ -1,26 +1,36 @@
+// On créé l'objet deleteCategoryManager
 function deleteCategoryManager ()
 {
+    // ON créé une fonction construct.
     this.construct = function ()
     {
+        // On récupère l'input à partir de son Id.
         let deleteCategoryBtn = document.querySelector('#deleteCategory');
 
+        // On pose un écouteur sur le click sur l'input de suppression de catégorie dans le fichier HTML et l'on donne en second paramètre la fonction à éxécuter.
         deleteCategoryBtn.addEventListener('click', this.confirmDeleteCategory)
     }
 
+    // On créé la fonction confirmDeleteCategory qui prend en paramètre event. 
     this.confirmDeleteCategory = function (event)
     {
+        // On créé la variable confirmation qui déclenche une popup à l'utilisateur.
         let confirmation = window.confirm("Êtes vous sûr de vouloir effectuer cette action ?")
         
+        // Si confirmation est vraie (appuyer sur Oui). 
         if (confirmation === true)
         {
 
         }
+        // Sinon...
         else
         {
+            // On arrête le comportement par défaut du navigateur.
             event.preventDefault();
         }
     }
 
+    // On appelle la fonction construct.
     this.construct();
 }
 
