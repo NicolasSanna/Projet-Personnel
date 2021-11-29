@@ -169,31 +169,30 @@ class ArticleController extends AbstractController
                     $fileName = $file['name'];
                     $fileExtension = "." . strtolower(substr(strrchr($fileName, "."), 1));
 
-                    $validExtension = ['.img', '.png', '.jpgx', '.jpeg', '.jpg'];
+                    $validExtension = ['.img', '.png', '.jpg', '.jpeg', '.jpg'];
 
                     if(!in_array($fileExtension, $validExtension))
                     {
                         FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
                     }
                     else
-                    {
-                        
+                    {                      
                         $uniqueName = md5(uniqid(rand(), true));
                         $fileName = $uniqueName . $fileExtension;
-                        /**
-                         * if (!empty($imageExist))
-                         * {
-                         *    unlink(IMAGE_DIR . $imageExist);
-                         * }
-                         */
-                        unlink(IMAGE_DIR . $imageExist);
+
+                        if (!empty($imageExist))
+                        {
+                            unlink(IMAGE_DIR . $imageExist);
+                        }
                     }
                 }
 
                 if (!(FlashBag::hasMessages('error')))
                 {
-
-                    move_uploaded_file($file['tmp_name'], IMAGE_DIR  . $fileName);
+                    if($fileName)
+                    {
+                        move_uploaded_file($file['tmp_name'], IMAGE_DIR  . $fileName);
+                    }
                     $articleModel = new ArticleModel();
                     $updateArticle = $articleModel->modifyarticle($idOfArticle, $id_user, $newtitle, $newcontent, $category, $fileName);
                     FlashBag::addFlash("Article modifié avec succès!", 'success');
@@ -201,7 +200,6 @@ class ArticleController extends AbstractController
                 }
             }
             return $this->render('admin/article/modifyarticle', [
-                // Penser à mettre l'opérateur ternaire = $var = [IF] ? [THEN] : [ELSE]. Pour afficher en premier le contenu des éléments du formulaire de modification, ou bien les éléments venant de la base de données.
                 'content' => $content??'',
                 'title' => $title??'',
                 'categories' => $categories??'',
