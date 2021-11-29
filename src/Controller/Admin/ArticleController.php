@@ -180,6 +180,12 @@ class ArticleController extends AbstractController
                         
                         $uniqueName = md5(uniqid(rand(), true));
                         $fileName = $uniqueName . $fileExtension;
+                        /**
+                         * if (!empty($imageExist))
+                         * {
+                         *    unlink(IMAGE_DIR . $imageExist);
+                         * }
+                         */
                         unlink(IMAGE_DIR . $imageExist);
                     }
                 }
@@ -195,6 +201,7 @@ class ArticleController extends AbstractController
                 }
             }
             return $this->render('admin/article/modifyarticle', [
+                // Penser à mettre l'opérateur ternaire = $var = [IF] ? [THEN] : [ELSE]. Pour afficher en premier le contenu des éléments du formulaire de modification, ou bien les éléments venant de la base de données.
                 'content' => $content??'',
                 'title' => $title??'',
                 'categories' => $categories??'',
