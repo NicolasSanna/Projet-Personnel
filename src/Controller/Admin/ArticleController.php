@@ -203,8 +203,8 @@ class ArticleController extends AbstractController
                 }
             }
             return $this->render('admin/article/modifyarticle', [
-                'content' => $content??'',
-                'title' => $title??'',
+                'content' => $newcontent??$content,
+                'title' => $newtitle??$title,
                 'categories' => $categories??'',
                 'pageTitle' => $pageTitle??'',
                 'imageExist' => $imageExist??'',
