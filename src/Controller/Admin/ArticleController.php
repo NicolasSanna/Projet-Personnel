@@ -45,10 +45,10 @@ class ArticleController extends AbstractController
                         FlashBag::addFlash("Le fichier est trop volumineux (plus de 2Mo)", 'error');
                     }
 
-                    $fileName = $file['name'];
-                    $fileExtension = "." . strtolower(substr(strrchr($fileName, "."), 1));
+                    $fileName = pathinfo($file['name']);
+                    $fileExtension = $fileName['extension'];
 
-                    $validExtension = ['.img', '.png', '.jpgx', '.jpeg', '.jpg'];
+                    $validExtension = ['img', 'png', 'jpg', 'jpeg', 'jpg'];
 
                     if(!in_array($fileExtension, $validExtension))
                     {
@@ -58,7 +58,7 @@ class ArticleController extends AbstractController
                     {
                         
                         $uniqueName = md5(uniqid(rand(), true));
-                        $fileName = $uniqueName . $fileExtension;
+                        $fileName = $uniqueName . '.' . $fileExtension;
                     }
                 }
                 
@@ -169,20 +169,21 @@ class ArticleController extends AbstractController
                         FlashBag::addFlash("Une erreur est survenue lors du chargement du fichier.", 'error');
                     }
 
-                    $fileName = $file['name'];
-                    $fileExtension = "." . strtolower(substr(strrchr($fileName, "."), 1));
+                    $fileName = pathinfo($file['name']);
+                    $fileExtension = $fileName['extension'];
 
-                    $validExtension = ['.img', '.png', '.jpg', '.jpeg', '.jpg'];
+                    $validExtension = ['img', 'png', 'jpg', 'jpeg', 'jpg'];
 
                     if(!in_array($fileExtension, $validExtension))
                     {
                         FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
                     }
                     else
-                    {                      
+                    {
+                        
                         $uniqueName = md5(uniqid(rand(), true));
-                        $fileName = $uniqueName . $fileExtension;
-
+                        $fileName = $uniqueName . '.' . $fileExtension;
+                        
                         if (!empty($imageExist))
                         {
                             unlink(IMAGE_DIR . $imageExist);
