@@ -17,7 +17,7 @@ $routes = [
         'method' => 'index'
     ],
     'article' => [
-        'path' => '/article',
+        'path' => '/forum/article',
         'controller' => 'Article',
         'method' => 'index'
     ],
@@ -37,7 +37,7 @@ $routes = [
         'method' => 'logout'
     ],
     'newarticle' => [
-        'path' => '/forum/creerunarticle',
+        'path' => '/administration/creerunarticle',
         'controller' => 'Admin\\Article',
         'method' => 'new'
     ],
@@ -52,57 +52,57 @@ $routes = [
         'method' => 'index'
     ],
     'adminusers' => [
-        'path' => '/administrerutilisateurs',
+        'path' => '/administration/administrerutilisateurs',
         'controller' => 'Admin\\AdministrationUser',
         'method' => 'administrationUsers'
     ],
     'deleteUser' => [
-        'path' => '/supprimerutilisateur',
+        'path' => '/administration/supprimerutilisateur',
         'controller' => 'Admin\\AdministrationUser',
         'method' => 'deleteUser'
     ],
     'myarticles' => [
-        'path' => '/mesarticles',
+        'path' => '/administration/mesarticles',
         'controller' => 'Admin\\Article',
         'method' => 'myArticles'
     ], 
     'deletearticle' => [
-        'path' => '/supprimerarticle',
+        'path' => '/administraiton/supprimerarticle',
         'controller' => 'Admin\\Article',
         'method' => 'deleteMyArticle',
     ],
     'modifyarticle' => [
-        'path' => '/modifierarticle',
+        'path' => '/administration/modifierarticle',
         'controller' => 'Admin\\Article',
         'method' => 'modifyarticle'
     ],
     'addcomment' => [
-        'path' => '/ajoutercommentaire',
+        'path' => '/forum/ajoutercommentaire',
         'controller' => 'Article',
         'method' => 'addComment'
     ],
     'addCategory' => [
-        'path' => '/ajouterunecategorie',
+        'path' => '/administration/ajouterunecategorie',
         'controller' => 'Admin\\AdministrationCategory',
         'method' => 'addCategory'
     ],
     'adminCategories' => [
-        'path' => '/administrerlescategories',
+        'path' => '/administration/administrerlescategories',
         'controller' => 'Admin\\AdministrationCategory',
         'method' => 'adminCategories'
     ],
     'modifygrantuser' => [
-        'path' => '/modifierprivilegeutilisateur',
+        'path' => '/administration/modifierprivilegeutilisateur',
         'controller' => 'Admin\\AdministrationUser',
         'method' => 'modifyGrantUser'
     ],
     'modifycategory' => [
-        'path' => '/modifiercategorie',
+        'path' => '/administration/modifiercategorie',
         'controller' => 'Admin\\AdministrationCategory',
         'method' => 'modifyCategory'
     ],
     'deletecategory' => [
-        'path' => '/supprimercategorie',
+        'path' => '/administration/supprimercategorie',
         'controller' => 'Admin\\AdministrationCategory',
         'method' => 'deleteCategory'
     ],
@@ -142,7 +142,7 @@ $routes = [
         'method' => 'search'
     ],
     'deleteImage' => [
-        'path' => '/supprimerimage',
+        'path' => '/administration/supprimerimage',
         'controller' => 'Admin\\Article',
         'method' => 'deleteImage'
     ],
