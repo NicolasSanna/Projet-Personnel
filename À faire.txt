@@ -8,8 +8,6 @@
 
 - Faire un moteur de recherche en AJAX (fonctionne en PHP/MySQL).
 
-- Créer un système de pagination pour les articles.
-
 - Faire les maquettes (le mockup, le wireframe, le prototype) sur Figma /!\.
 
 - Terminer les boutons (ergonomie)
