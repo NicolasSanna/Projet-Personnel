@@ -41,9 +41,9 @@ CREATE TABLE users
     grant_id INT NOT NULL,
     inscription_date DATETIME NOT NULL,
     PRIMARY KEY (id),
-    CONSTRAINT fk_grant_id_users
-    FOREIGN KEY (grant_id)
-    REFERENCES grants (id) ON UPDATE CASCADE
+        CONSTRAINT fk_grant_id_users
+        FOREIGN KEY (grant_id)
+            REFERENCES grants (id) ON UPDATE CASCADE
 ) ENGINE = InnoDB ;
 
 DROP TABLE IF EXISTS categories;
@@ -65,12 +65,12 @@ CREATE TABLE articles
     category_id INT NOT NULL,
     creation_date DATETIME NOT NULL,
     PRIMARY KEY (id),
-    CONSTRAINT fk_user_article
-    FOREIGN KEY (user_id)
-        REFERENCES users (id) ON UPDATE CASCADE,
-    CONSTRAINT fk_category_article
-    FOREIGN KEY (category_id)
-        REFERENCES categories (id) ON UPDATE CASCADE
+        CONSTRAINT fk_user_article
+        FOREIGN KEY (user_id)
+            REFERENCES users (id) ON UPDATE CASCADE,
+        CONSTRAINT fk_category_article
+        FOREIGN KEY (category_id)
+            REFERENCES categories (id) ON UPDATE CASCADE
 ) ENGINE = InnoDB ;
 
 DROP TABLE IF EXISTS comments;
@@ -83,15 +83,15 @@ CREATE TABLE comments
     status_id INT NOT NULL,
     date_publication DATETIME NOT NULL,
     PRIMARY KEY (id),
-    CONSTRAINT fk_user_com
-    FOREIGN KEY (user_id)
-        REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT fk_article_com
-    FOREIGN KEY (article_id)
-        REFERENCES articles (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT fk_status_com
-    FOREIGN KEY (status_id)
-        REFERENCES status (id) ON UPDATE CASCADE ON DELETE CASCADE
+        CONSTRAINT fk_user_com
+        FOREIGN KEY (user_id)
+            REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        CONSTRAINT fk_article_com
+        FOREIGN KEY (article_id)
+            REFERENCES articles (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        CONSTRAINT fk_status_com
+        FOREIGN KEY (status_id)
+            REFERENCES status (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB ;
 
 -- On remet les clés étrangères.
