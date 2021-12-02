@@ -75,4 +75,52 @@ class AuthController extends AbstractController
         $this->redirect('homepage');
         exit;
     }
+
+    public function changePassword()
+    {
+        $pageTitle = 'Modifier le mot de passe';
+
+        if (!empty($_POST))
+        {
+            $email = trim(htmlspecialchars($_POST['email']));
+            $newPassword = trim(htmlspecialchars($_POST['newPassword']));
+            $confirmNewPassword = trim(htmlspecialchars($_POST ['confirmNewPassword']));
+
+            if (!$email || !$newPassword || !$confirmNewPassword)
+            {
+                FlashBag::addFlash("Tous les champs de modification n'ont pas été correctement remplis", 'error');
+            }
+            
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+            {
+                FlashBag::addFlash('Vérifiez le format de votre email.', 'error'); 
+            }
+
+            if (strlen($newPassword) < 8)
+            {
+                FlashBag::addFlash("Le mot de passe doit contenir au moins 8 caractères.", 'error');
+            }
+
+            if($newPassword != $confirmNewPassword)
+            {
+                FlashBag::addFlash("Le mot de passe confirmé ne correspond pas à celui que vous voulez utiliser.", 'error');
+            }
+
+            if (!(FlashBag::hasMessages('error')))
+            {
+                $hash = password_hash($newPassword , PASSWORD_DEFAULT);
+                $userModel = new UserModel();
+                $modifyPassword = $userModel->changePassword($email, $hash);
+
+                FlashBag::addFlash($modifyPassword['message'], 'query');
+                $this->redirect('connexion');
+            }
+
+        }
+
+        return $this->render('modifyPassword', [
+            'pageTitle' => $pageTitle??'',
+            'email' => $email??''
+        ]);
+    }
 }

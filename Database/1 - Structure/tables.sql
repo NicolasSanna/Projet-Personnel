@@ -59,7 +59,7 @@ CREATE TABLE articles
 (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
-    content TEXT NOT NULL,
+    content LONGTEXT NOT NULL,
     image VARCHAR(255) NULL,
     user_id INT NOT NULL,
     category_id INT NOT NULL,

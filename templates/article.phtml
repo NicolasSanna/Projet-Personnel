@@ -15,10 +15,15 @@
         <?php endif;?>
 
         <p class="Article-content"><?=$article['content'];?></p>
+
+
+
         <p class="Article-pseudo">Écrit par : <?=htmlspecialchars($article['pseudo']);?></p>
         <p class="Article-date">Publié le : <?= (new DateTimeImmutable($article['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($article['creation_date']))->format('H:i');?></p>
         <p class="Article-category">Catégorie : <a class="Article-category-link" href="<?=buildUrl('category', ['id'=> intval($article['category_id'])]);?>"><?=htmlspecialchars($article['category']);?></a></p>
     </div>
+
+    <hr>
 
     <div class="Comments">
 

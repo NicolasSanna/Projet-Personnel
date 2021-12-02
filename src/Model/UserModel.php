@@ -76,4 +76,11 @@ class UserModel extends AbstractModel
 
         return $this->database->getOneResult($sql, [$userId, $grantId]);
     }
+
+    function changePassword(string $email, string $newPassword)
+    {
+        $sql = 'CALL SP_PasswordUpdate(?, ?)';
+
+        return $this->database->getOneResult($sql, [$email, $newPassword]);
+    }
 }
