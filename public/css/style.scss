@@ -15,6 +15,7 @@
     padding: 0px 0px 0px 0px;
     margin: 0;
     padding: 0;
+    overflow-x:hidden;
     &-main
     {
         padding: 15px;
@@ -255,7 +256,7 @@ textarea
         filter:brightness(90%);
         &-description
         {
-            
+
         }
     }
     &-h2
@@ -267,6 +268,15 @@ textarea
 .Homepage
 {
 
+    &-section1
+    {
+        &-h3
+        {
+            text-align: center;
+            margin-bottom:10px;
+            margin-top:30px;
+        }
+    }
     &-section2
     {
         padding-bottom:10px;
@@ -573,9 +583,6 @@ textarea
     margin-right: auto;
 }
 
-
-
-
 // POINT DE RUPTURE DU MEDIA QUERIES A 880 PX
 @media screen AND (min-width: 880px)
 {    
@@ -595,7 +602,7 @@ textarea
     {
         &-box
         {
-            width: 400px;
+            width: 300px;
         }
         
     }
@@ -606,7 +613,7 @@ textarea
  
 }
 
-
+// POINT DE RUPTURE DU MEDIA QUERIES A 1110 PX
 @media screen AND (min-width: 1100px)
 {
        .Homepage
@@ -628,8 +635,6 @@ textarea
             margin-left:10px;
             margin-right:20px;
             min-width:400px;
-
-
         }
     }
 }

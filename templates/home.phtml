@@ -14,6 +14,8 @@
 
 <div class="Homepage">
     <section class="Homepage-section1">
+
+    <h3 class="Homepage-section1-h3">Présentation</h3>
         <p>Aliquam at fringilla felis. Sed in sem a risus fermentum ullamcorper et eget purus. Praesent gravida turpis vitae lobortis dapibus. In quis magna id arcu elementum eleifend lobortis sit amet ante. Aliquam blandit risus ut orci maximus luctus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas vulputate dapibus molestie. Sed justo orci, porttitor vel eros faucibus, viverra fringilla mauris. Mauris interdum, ante a viverra consectetur, nibh massa aliquet enim, in semper ligula massa id justo. Sed dapibus, nisi a sodales scelerisque, enim est luctus ligula, vitae porta neque lacus ac risus. Aliquam ac nunc pretium, interdum dui in, pretium ipsum. Etiam ut dui et felis commodo dictum nec dapibus neque. Morbi posuere libero ut ante malesuada placerat. Phasellus iaculis rhoncus nunc, ac commodo tortor.
 
         Morbi ornare tempus metus, id vestibulum orci sagittis at. Suspendisse pellentesque sem et varius cursus. Quisque dolor mi, maximus id tortor eget, sagittis sagittis felis. Fusce non condimentum felis. Vivamus eleifend mattis turpis non iaculis. In est odio, finibus ac efficitur ac, posuere eget odio. Curabitur neque risus, pretium id lorem nec, posuere sodales tellus. Cras placerat velit eu justo scelerisque pretium.
@@ -25,6 +27,8 @@
 
             <h3 class="Homepage-section2-h3">Nos derniers articles</h3>
 
+            <hr>
+
             <?php if (!empty($articles)):?>
 
                 <?php foreach ($articles as $article):?>
@@ -34,7 +38,7 @@
                         <p class="Homepage-section2-list-article-pseudo">Écrit par : <?= htmlspecialchars($article['pseudo']);?></p>
                         <p class="Homepage-section2-list-article-date">Date de publication : Le <?= (new DateTimeImmutable($article['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($article['creation_date']))->format('H:i');?></p>
                         <p class="Homepage-section2-list-article-category">Catégorie : <a class="Forum-list-article-category-link" href="<?= buildUrl('category', ['id'=> intval($article['category_id'])]);?>"><?= htmlspecialchars($article['category']);?></a></p>
-                        <a class="LinkA" href="<?= buildUrl('article', ['id' => intval($article['id'])]);?>">Lire la suite</a>
+                        <a class="LinkA" href="<?= buildUrl('article', ['id' => intval($article['id'])]);?>">Lire l'article</a>
                     </div>
 
                     <hr>
