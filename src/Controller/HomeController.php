@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\ArticleModel;
 use App\Framework\AbstractController;
 
 class HomeController extends AbstractController 
@@ -10,10 +11,16 @@ class HomeController extends AbstractController
     public function index()
     {
         $pageTitle = 'Bienvenue';
-        // Affichage : inclusion du template
+
+        $articlesModel = new ArticleModel();
+
+        $articles = $articlesModel->getAllArticles();
+
         return $this->render('home', [
+            'articles' => $articles??'',
             'pageTitle' => $pageTitle??''
         ]);
+       
     }
 
     public function refused()
