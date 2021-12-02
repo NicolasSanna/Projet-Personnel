@@ -246,12 +246,17 @@ textarea
 // CSS DE LA PAGE D'ACCUEIL
 .Home
 {
+    text-align:center;
     &-video
     {
         width: 100%;
         height:100%;
         border:solid $colorPeru 1px;
         filter:brightness(90%);
+        &-description
+        {
+            
+        }
     }
     &-h2
     {
@@ -580,8 +585,10 @@ textarea
         text-align: center;
         &-video
         {
+            text-align: center;
             max-width:850px;
         }
+       
     }
 
     .Form

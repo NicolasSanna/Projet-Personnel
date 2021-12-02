@@ -1,10 +1,15 @@
+<h2 class="TitlePage">Bienvenue sur Huma Scientio</h2>
+
 <div class="Home">
-    <h2 class="TitlePage">Bienvenue sur Huma Scientio</h2>
+
     <video controls playsinline autoplay muted loop class="Home-video">
         <source src="<?= asset('img/production-ID_4205790.mp4');?>">
     </video>
-    <p>Le plateau de Gizeh en Égypte</p>
-    <p>"Le Soleil se Lève en Orient." - Georg Wilhelm Friedrich Hegel</p>
+    <div class="Home-video-description">
+        <p>Le plateau de Gizeh en Égypte</p>
+        <p>"Le Soleil se Lève en Orient." - Georg Wilhelm Friedrich Hegel</p>
+    </div>
+
 </div>
 
 <div class="Homepage">
@@ -31,6 +36,8 @@
                         <p class="Homepage-section2-list-article-category">Catégorie : <a class="Forum-list-article-category-link" href="<?= buildUrl('category', ['id'=> intval($article['category_id'])]);?>"><?= htmlspecialchars($article['category']);?></a></p>
                         <a class="LinkA" href="<?= buildUrl('article', ['id' => intval($article['id'])]);?>">Lire la suite</a>
                     </div>
+
+                    <hr>
 
                 <?php endforeach;?>
 
