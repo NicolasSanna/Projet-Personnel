@@ -200,8 +200,8 @@ textarea {
   text-align: center;
 }
 .Home-video {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   border: solid peru 1px;
   filter: brightness(90%);
 }
@@ -457,7 +457,7 @@ textarea {
   }
   .Home-video {
     text-align: center;
-    max-width: 850px;
+    max-width: 600px;
   }
 
   .Form-box {
