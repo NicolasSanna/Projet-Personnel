@@ -1,8 +1,8 @@
 // On créé la fonction burgerManager
-function burgerManager()
+class burgerManager
 {
     // On créé la fonction construct.
-    this.construct = function()
+    constructor()
     {
         // On récupère les deux identifiants du menu de navigation : le burger et la croix. 
         let burger = document.getElementById('burger');
@@ -15,7 +15,7 @@ function burgerManager()
     };
 
     // On créé une fonction burgerEvent. 
-    this.burgerEvent = function()
+    burgerEvent ()
     {
         // On récupère les deux éléments (le burger et la croix) et l'on récupère le menu de navigation (caché par défaut en display:none, dans le SCSS)
         let burger = document.getElementById('burger');
@@ -38,7 +38,7 @@ function burgerManager()
     }
 
     // On créé une fonction appelée lorsque l'on appuie sur la croix dans le menu. 
-    this.crossEvent = function () 
+    crossEvent () 
     {
  
         let burger = document.getElementById('burger');
@@ -60,8 +60,6 @@ function burgerManager()
         }
     }
 
-    // On appelle la fonction construct.
-    this.construct();
 }
 
 // On créé l'objet burger. 

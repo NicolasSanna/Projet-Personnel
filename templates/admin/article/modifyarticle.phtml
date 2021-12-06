@@ -1,13 +1,12 @@
 <h3 class="TitlePage">Modifier l'article</h3>
 
-    <?php if(!empty($imageExist)):?>
-       
         <div class="Article-box">
-            <h4>Image actuelle :</h4>
-            <img  class="Article-box-img"src="<?=asset('img/' . $imageExist);?>" alt="">
+            <?php if(!empty($imageExist)):?>
+                <img  class="Article-box-img"src="<?=asset('img/' . $imageExist);?>" alt="">
+            <?php else:?>
+                <img  class="Article-box-img"src="#" alt="">
+            <?php endif;?>
         </div>
-
-    <?php endif;?>
 
 <div class="FormArticle">
     <form class="FormArticle-box" method="POST" id="formArticle" enctype="multipart/form-data">
@@ -36,3 +35,4 @@
 
 
 <script src="<?=asset('js/upload.js');?>"></script>
+<script src="<?=asset('js/uploadImage.js');?>"></script>

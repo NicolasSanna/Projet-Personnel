@@ -1,8 +1,8 @@
 // On créé la fonction addArticleManager
-function addArticleManager ()
+class addArticleManager
 {
     // On créé la fonction construct. 
-    this.construct = function ()
+    constructor()
     {
         // On récupère l'élément représentant le formulaire de soumission d'article. 
         let submitAdd = document.getElementById('formArticle');
@@ -12,7 +12,7 @@ function addArticleManager ()
     }
 
     // On créé la fonction addSubmitAdd qui prend en paramètre event. 
-    this.onSubmitAdd = function (event)
+    onSubmitAdd = function (event)
     {
         // On récupère l'identifiant de l'input de type file. 
         inputFile = document.getElementById('upload')
@@ -29,9 +29,6 @@ function addArticleManager ()
             }
         }
     }
-
-    // On appelle la fonction construct. 
-    this.construct();
 }
 
 // On créé l'objet articleAddManager.

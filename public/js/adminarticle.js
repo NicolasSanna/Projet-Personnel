@@ -1,8 +1,8 @@
 // On créé un objet deleteArticleManager.
-function deleteArticleManager ()
+class deleteArticleManager
 {
     // Depuis l'objet grâce à this, on créé une fonction construct.
-    this.construct = function ()
+    constructor()
     {
         // On récupère la totalité des éléments de la classe .deleteArticle grâce à querySelectorAll
         let deletebuttons = document.querySelectorAll('.deleteArticle');
@@ -16,7 +16,7 @@ function deleteArticleManager ()
     }
     
     // On créé une fonction confirmDelete qui prend en paramètre event.
-    this.confirmDelete = function (event)
+    confirmDelete (event)
     {
         // On créé une variable confirmation qui déclenche une popup sur le navigateur à l'utilisateur. 
         let confirmation = window.confirm("Ête-vous sûr de vouloir supprimer cet article ?")
@@ -33,9 +33,6 @@ function deleteArticleManager ()
             event.preventDefault();
         }
     }
-
-    // On appelle la fonction construct.
-    this.construct();
 }
 
 // On créé l'objet articleManager.

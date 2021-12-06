@@ -1,8 +1,8 @@
 // On créé la fonction passwordManager
-function passwordManager ()
+class passwordManager
 {
     // ON créé la fonction construct. 
-    this.construct = function()
+    constructor()
     {
         // On récupère le bouton checkbox du formulaire d'inscription. 
         let passwordBtn = document.getElementById('viewPassword');
@@ -11,7 +11,7 @@ function passwordManager ()
         passwordBtn.addEventListener('click', this.passwordVisibility);
     }
 
-    this.passwordVisibility = function ()
+    passwordVisibility ()
     {
         // On récupère l'input du password. 
         let passwordLabel = document.getElementById('password');
@@ -34,8 +34,6 @@ function passwordManager ()
         return
     }
 
-    // On appelle la fonction construct. 
-    this.construct();
 }
 
 // On créé l'objet passwordVisible. 

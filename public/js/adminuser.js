@@ -1,13 +1,13 @@
-function deleteUserManager ()
+class deleteUserManager
 {
-    this.construct = function ()
+    constructor()
     {
         let deleteUserBtn = document.querySelector('#deleteUser')
 
         deleteUserBtn.addEventListener('click', this.confirmDeleteUser)
     }
 
-    this.confirmDeleteUser = function (event)
+    confirmDeleteUser (event)
     {
         let confirmation = window.confirm("Êtes-vous sûr de vouloir effectuer cette action ?")
         
@@ -21,7 +21,6 @@ function deleteUserManager ()
         }
     }
 
-    this.construct();
 }
 
 const userManager = new deleteUserManager();

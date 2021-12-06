@@ -13,5 +13,3 @@
 - Terminer les boutons (ergonomie)
 
 - CSS des articles
-
-- Gérer l'apparition de l'image uploadé en JS (voir sur Symfony)

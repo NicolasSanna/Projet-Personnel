@@ -1,8 +1,8 @@
 // On créé l'objet deleteCategoryManager
-function deleteCategoryManager ()
+class deleteCategoryManager
 {
     // ON créé une fonction construct.
-    this.construct = function ()
+    constructor()
     {
         // On récupère l'input à partir de son Id.
         let deleteCategoryBtn = document.querySelector('#deleteCategory');
@@ -12,7 +12,7 @@ function deleteCategoryManager ()
     }
 
     // On créé la fonction confirmDeleteCategory qui prend en paramètre event. 
-    this.confirmDeleteCategory = function (event)
+    confirmDeleteCategory (event)
     {
         // On créé la variable confirmation qui déclenche une popup à l'utilisateur.
         let confirmation = window.confirm("Êtes vous sûr de vouloir effectuer cette action ?")
@@ -29,9 +29,6 @@ function deleteCategoryManager ()
             event.preventDefault();
         }
     }
-
-    // On appelle la fonction construct.
-    this.construct();
 }
 
 const deleteCategory = new deleteCategoryManager();
