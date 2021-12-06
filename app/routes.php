@@ -147,11 +147,11 @@ $routes = [
         'method' => 'deleteImage'
     ],
 
-    'modifyPassword' => [
-        'path' => '/modifierlemotdepasse',
-        'controller' => 'Auth',
-        'method' => 'changePassword'
-    ],
+    // 'modifyPassword' => [
+    //     'path' => '/modifierlemotdepasse',
+    //     'controller' => 'Auth',
+    //     'method' => 'changePassword'
+    // ],
 
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
