@@ -122,6 +122,8 @@ textarea {
   position: absolute;
   font-size: 90px;
   cursor: pointer;
+  margin: 0;
+  padding: 0;
 }
 
 .btn-upload {
