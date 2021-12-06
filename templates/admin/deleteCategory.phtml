@@ -4,12 +4,15 @@
 
 <div class="Form">
     <form class="Form-box" method="POST">
+
         <label class="Form-box-label" name="deleteCategory" ></label>
         <select name="deleteCategory" class="FormArticle-box-input FormCategorySelect">
             <option value="1">Supprimer la catégorie et ses articles associés</option>
             <option value="2">Supprimer la catégorie en conservant les articles</option>
         </select>
+
         <input type="hidden" name="token" value="<?=UserSession::token();?>">
+        
         <div class="FormCategory-button">
             <button id="deleteCategory"  type="submit" class="FormArticle-box-button" type="submit">Supprimer</button>
         </div> 
