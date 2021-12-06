@@ -2,9 +2,11 @@
 
 <div class="Form">
     <form class="Form-box" method="POST">
+
         <label class="Form-box-label" for="newcategory">Modifier la catégorie :</label>
         <input type="text" name="newcategory" class="Form-box-input" id="" value="<?= htmlspecialchars($category['category']);?>">
         <input type="hidden" name="idcategory" value="<?=$category['id'];?>">
+        
         <div class="FormCategory-button">
             <button class="Form-box-button" type="submit">Changer le nom de la catégorie</button>
         </div>

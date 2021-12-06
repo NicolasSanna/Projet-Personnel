@@ -3,16 +3,17 @@
 <div class="Form">
     <form class="Form-box" method="POST">
         <label class="Form-box-label" name="grants"></label>
-            <select name="grants" id="" class="FormArticle-box-input FormCategorySelect">
-                <?php if (!empty($grants)):?>
-                    <?php foreach ($grants as $grant):?>
-                        <option value="<?=$grant['id'];?>"><?=$grant['privilege'];?></option>
-                    <?php endforeach;?>
-                <?php endif;?>
-            </select>
-        <div class="FormCategory-button">
-            <button type="submit" class="FormArticle-box-button" >Changer le rôle du membre</button>
-        </div> 
+        <select name="grants" id="" class="FormArticle-box-input FormCategorySelect">
+            <?php if (!empty($grants)):?>
+                <?php foreach ($grants as $grant):?>
+                    <option value="<?=$grant['id'];?>"><?=$grant['privilege'];?></option>
+                <?php endforeach;?>
+            <?php endif;?>
+        </select>
+
+    <div class="FormCategory-button">
+        <button type="submit" class="FormArticle-box-button" >Changer le rôle du membre</button>
+    </div> 
     </form>
     <div class="Form-box">
         <a class="LinkA" href="<?= buildUrl('adminusers');?>">Revenir aux membres</a>
