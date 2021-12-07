@@ -6,10 +6,14 @@ namespace App\Model;
 // On utilise l'AbstractModel. (composer.json : src/App/Framework/AbstractModel).
 use App\Framework\AbstractModel;
 
-// On créé la classe Article Model. Celle-ci hérite des propriétés de l'AbstractModel qui créé l'objet Database et qui est rangé dans $this->database.
+/**
+ * On créé la classe Article Model. Celle-ci hérite des propriétés de l'AbstractModel qui créé l'objet Database et qui est rangé dans $this->database.
+ */
 class ArticleModel extends AbstractModel
 {
-    // On créé une méthode getAllArticles().
+    /**
+     * On créé une méthode getAllArticles().
+     */
     function getAllArticles()
     {
         // On range dans $sql la requête SQL à effectuer. Ici, l'appel d'une procédure stockée MySQL.
@@ -22,7 +26,9 @@ class ArticleModel extends AbstractModel
         return $articles;
     }
 
-    // On créé une méthode getOneArticle qui prend en paramètre un nombre, l'identifiant de l'article.
+    /**
+     * On créé une méthode getOneArticle qui prend en paramètre un nombre, l'identifiant de l'article.
+     */
     function getOneArticle(int $idOfArticle)
     {
         // On range dans $sql la requête SQL à effectuer, ici, l'appel d'une procédure stockée avec un paramètre anonyme, l'identifiant de l'article.
@@ -35,7 +41,9 @@ class ArticleModel extends AbstractModel
         return $article;
     }
 
-    // On créé une méthode insertArticle qui reçoit en paramètre le title, le content, l'identifiant de catégorie, l'identifiant utilisateur, et le nom de l'image qui par défaut est null car il est possible d'ajouter ou non une image. 
+    /**
+     * On créé une méthode insertArticle qui reçoit en paramètre le title, le content, l'identifiant de catégorie, l'identifiant utilisateur, et le nom de l'image qui par défaut est null car il est possible d'ajouter ou non une image. 
+     */
     function insertArticle(string $title, string $content, int $category_id, int $user_id, string $image = null)
     {
 
@@ -49,7 +57,9 @@ class ArticleModel extends AbstractModel
         return $insertArticleId;
     }
 
-    // On créé une méthode getMyArticles() elle prend en paramètre le numéro d'identifiant de l'utilisateur en session (userId).
+    /**
+     * On créé une méthode getMyArticles() elle prend en paramètre le numéro d'identifiant de l'utilisateur en session (userId).
+     */
     function getMyArticles(int $userId)
     {
         // On range dans $sql la requête SQL qui permet de récupérer les articles de l'utilisateur grâce au paramètre donné à la procédure stockée MySQL.
@@ -62,7 +72,9 @@ class ArticleModel extends AbstractModel
         return $getMyArticles;
     }
 
-    // On créé une méthode deleteArticle qui prend en paramètre l'identifiant de l'article à supprimer et l'auteur de celui-ci.
+    /**
+     * On créé une méthode deleteArticle qui prend en paramètre l'identifiant de l'article à supprimer et l'auteur de celui-ci.
+     */
     function deleteArticle(int $articleId, int $userId)
     {
         // On range dans $sql la requête SQL qui prend en paramètre l'identifiant de l'article et son auteur qui veut le supprimer. Ici en procédure stockée.
@@ -75,7 +87,9 @@ class ArticleModel extends AbstractModel
         return $deleteArticle;
     }
 
-    // On créé la méthode modifyArticle qui prend en paramètre le numéro d'identifiant de l'article, l'utilisateur, le nouveau titre, le nouveau contenu, la nouvelle catégorie et l'image. Par défaut, l'image est à null car on peut ne pas vouloir mettre d'image.
+    /**
+     * On créé la méthode modifyArticle qui prend en paramètre le numéro d'identifiant de l'article, l'utilisateur, le nouveau titre, le nouveau contenu, la nouvelle catégorie et l'image. Par défaut, l'image est à null car on peut ne pas vouloir mettre d'image.
+     */
     function modifyarticle(int $articleId, int $userId, string $newtitle, string $newcontent, int $newcategory, string $image = null)
     {
         // On range dans $sql la requête SQL qui va réaliser l'opération, grâce aux paramètres qu'on lui donne.
@@ -88,7 +102,9 @@ class ArticleModel extends AbstractModel
         return $updateArticle;
     }
 
-    // On créé une méthode searchArticle qui prend en paramètre une chaîne de caractères.
+    /**
+     * On créé une méthode searchArticle qui prend en paramètre une chaîne de caractères.
+     */
     function searchArticle(string $searchArticle)
     {
         // On range dans $sql la requête SQL à effectuer dans la base de données et on lui donne en paramètre la chaine de caractèreq contenant ce que l'on désire chercher.
@@ -101,7 +117,9 @@ class ArticleModel extends AbstractModel
         return $searchAnArticle;
     }
 
-    // On créé une méthode deleteImageArticle qui prend en paramètre l'identifiant de l'article.
+    /**
+     * On créé une méthode deleteImageArticle qui prend en paramètre l'identifiant de l'article.
+     */
     function deleteImageArticle(int $idOfArticle)
     {
         // On range dans $sql la requête SQL que l'on veut effectuer. Elle prend en paramètre l'identifiant de l'article dont on va retirer l'image.

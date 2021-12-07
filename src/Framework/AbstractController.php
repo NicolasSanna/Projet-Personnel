@@ -3,10 +3,14 @@
 // Indication de l'espace de nom App\Framework (composer.json : src/Framework)
 namespace App\Framework;
 
-// Création de la classe abstraite AbstractController, classe qui ne s'instancie pas. 
+/**
+ * Création de la classe abstraite AbstractController, classe qui ne s'instancie pas. 
+ */
 abstract class AbstractController 
 {
-    // Création de la méthode publique render. Elle prend en paramètre le nom du template .phtml et en second paramètre d'éventuelles données à afficher sur le templates.
+    /**
+     * Création de la méthode publique render. Elle prend en paramètre le nom du template .phtml et en second paramètre d'éventuelles données à afficher sur le templates.
+     */
     public function render(string $template, array $data = [])
     {
         // On extrait les données.
@@ -22,7 +26,9 @@ abstract class AbstractController
         return ob_get_clean();
     }
 
-    // On créé la méthode redirect qui prend en paramètre le nom de la route et d'éventuels paramètres.
+    /**
+     * On créé la méthode redirect qui prend en paramètre le nom de la route et d'éventuels paramètres.
+     */
     public function redirect(string $routename, array $params = [])
     {
         // La fonction redirect se sert de la fonction buildUrl et des paramètres reçus (données). 

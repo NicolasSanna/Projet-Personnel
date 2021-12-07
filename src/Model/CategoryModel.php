@@ -6,10 +6,14 @@ namespace App\Model;
 // On va chercher App\Framework\AbstractModel (composer.json : src/Framework/AbstractModel).
 use App\Framework\AbstractModel;
 
-// On créé la classe Category Model qui hérite grâce à extends des propriétés et des méthodes de l'Abstract Model. (Celle-ci créé l'objet Database auquel nous avons accès ici).
+/**
+ * On créé la classe Category Model qui hérite grâce à extends des propriétés et des méthodes de l'Abstract Model. (Celle-ci créé l'objet Database auquel nous avons accès ici).
+ */
 class CategoryModel extends AbstractModel
 {
-    // Création de la méthode getOneCategory qui prend en paramètre l'identifiant nunmérique de la catégorie recherchée.
+    /**
+     * Création de la méthode getOneCategory qui prend en paramètre l'identifiant nunmérique de la catégorie recherchée.
+     */
     public function getOneCategory(int $idOfCategory)
     {
         // On créé une variable $sql qui appelle la procédure stockée en lui donnant le paramètre anonyme pour la préparation de la requête.
@@ -22,7 +26,9 @@ class CategoryModel extends AbstractModel
         return $category;
     }
 
-    // On créé une méthode getAllCategories(). Sauf la catégorie Non classée afin de ne pas la supprimer.
+    /**
+     * On créé une méthode getAllCategories(). Sauf la catégorie Non classée afin de ne pas la supprimer.
+     */
     public function getAllCategories()
     {
         // On stocke dans la variable $sql l'appel à la procédure stockée correspondante.
@@ -35,7 +41,9 @@ class CategoryModel extends AbstractModel
         return $categories;
     }
 
-    // On créé une méthode createCategory qui prend en paramètre une chaîne de caractères. C'est cette méthode que l'on appelle pour créer une nouvelle catégorie.
+    /**
+     * On créé une méthode createCategory qui prend en paramètre une chaîne de caractères. C'est cette méthode que l'on appelle pour créer une nouvelle catégorie.
+     */
     public function createCategory(string $newCategory)
     {
         // On stocke dans $sql l'appel de notre procédure stockée.
@@ -48,7 +56,9 @@ class CategoryModel extends AbstractModel
         return $insertNewCategory;
     }
 
-    // On créé une fonction modifyCategory qui prend en paramètre le numéro d'identifiant de la table categories et la chaîne de caractère qui va remplacer l'ancien nom de la catégorie concernée.
+    /**
+     * On créé une fonction modifyCategory qui prend en paramètre le numéro d'identifiant de la table categories et la chaîne de caractère qui va remplacer l'ancien nom de la catégorie concernée.
+     */
     public function modifyCategory(int $idOfCategory, string $newCategoryName)
     {
         // On créé une variable $sql qui va être la requête SQL. Elle appelle la procédure stockée.
@@ -61,7 +71,9 @@ class CategoryModel extends AbstractModel
         return $modifyCategory;
     }
     
-    // On créé une méthode getAllCategoriesForArticle(). Elle contient toutes les catégories. 
+    /**
+     * On créé une méthode getAllCategoriesForArticle(). Elle contient toutes les catégories. 
+     */
     public function getAllCategoriesForArticle()
     {
         // On stocke dans $sql la requête SQL. La procédure stockée ici.
@@ -74,7 +86,9 @@ class CategoryModel extends AbstractModel
         return $allCategoriesForArticle;
     }
 
-    // On créé une méthode deleteCategory qui prend en paramètre le numéro d'identifiant de la table categories.
+    /**
+     * On créé une méthode deleteCategory qui prend en paramètre le numéro d'identifiant de la table categories.
+     */
     public function deleteCategory(int $idOfCategory)
     {
         // On stocke dans $sql l'appel de la procédure stockée.
@@ -87,7 +101,9 @@ class CategoryModel extends AbstractModel
         return $deleteCategory;
     }
 
-    // On créé une fonctionn deleteCategoryWithoutArticles. Elle prend en paramètre le numéro de la catégorie.
+    /**
+     * On créé une fonctionn deleteCategoryWithoutArticles. Elle prend en paramètre le numéro de la catégorie.
+     */
     public function deleteCategoryWithoutArticles(int $idOfCategory)
     {
         // On stocke dans $sql l'appel de la procédure stockée en lui donnant le paramètre anonyme.
@@ -100,7 +116,9 @@ class CategoryModel extends AbstractModel
         return $deleteCategoryWithoutArticles;
     }
 
-    // On créé une méthode getAllCategoriesForForum().
+    /**
+     * On créé une méthode getAllCategoriesForForum().
+     */
     public function getAllCategoriesForForum()
     {
         // On stocke dans $sql l'appel de la procédure stockée.
@@ -113,7 +131,9 @@ class CategoryModel extends AbstractModel
         return $getAllCategoriesForForum;
     }
 
-    // On créé une méthode getArticlesByCategory en prenant en paramètre le numéro d'identifiant de la catégorie concernée. 
+    /**
+     * On créé une méthode getArticlesByCategory en prenant en paramètre le numéro d'identifiant de la catégorie concernée. 
+     */
     public function getArticlesByCategory(int $idOfCategory)
     {
         // On stocke dans $sql la requête SQL à effectuer. Ici, l'appel d'une procédure stockée avec un paramètre anonyme.

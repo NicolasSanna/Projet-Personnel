@@ -2,6 +2,9 @@
 
 namespace App\Framework;
 
+/**
+ * Création de la classe Router.
+ */
 class Router 
 {
 

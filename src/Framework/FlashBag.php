@@ -3,25 +3,30 @@
 // On indique l'espace de noms : App\Framework (composer.json autoload : src/Framework)
 namespace App\Framework;
 
-// On créé la classe FlashBag.
-class FlashBag 
+/**
+ * On créé la classe FlashBag. Elle hérite de AbstractSession
+ */
+class FlashBag extends AbstractSession
 {
-
-    // On créé une méthode privée sessionCheck. Elle est chargée de démarrer la session si elle ne l'est pas.
-    static private function sessionCheck()
+    /**
+     * On appelle le constructeur.
+     */
+    public function __construct()
     {
-        // Si le status de la session est à strictement égal à PHP_SESSION_NONE, c'est-à-dire que son status est à none...
-        if (session_status() === PHP_SESSION_NONE) 
-        {
-            // On lance le démarrage de la session.
-            session_start();
-        }
+        /**
+         * On appele constructeur du parent.
+         */
+        parent::__construct();
     }
 
-    // On créé une méthode privé qui initie dans $_SESSION la clé flash.
+    /**
+     * On créé une méthode privé qui initie dans $_SESSION la clé flash.
+     */
     static private function initFlashBag(string $type)
     {
-        // On s'assure du démarrage de session en appelant la méthode sessionCheck().
+        /**
+         * On s'assure du démarrage de session en appelant la méthode sessionCheck().
+         */
         self::sessionCheck();
 
         // Si la clé flash dans la superglobale $_SESSION n'existe pas ou si est nulle...
@@ -39,7 +44,9 @@ class FlashBag
         }
     }
     
-    // On créé la méthode statique addFlash. Elle reçoit en paramètre le message rédigé d'une part, par le type de message. Par défaut, c'est le type success.
+    /**
+     * On créé la méthode statique addFlash. Elle reçoit en paramètre le message rédigé d'une part, par le type de message. Par défaut, c'est le type success.
+     */
     static public function addFlash(string $message, string $type = 'success')
     {
         // On appelle d'abord la méthode initFlashBag avec en paramètre le type de message.
@@ -49,7 +56,9 @@ class FlashBag
         $_SESSION['flash'][$type][] = $message;
     }
     
-    // On créé une méthode fetchMessages avec le type en paramètre.
+    /**
+     * On créé une méthode fetchMessages avec le type en paramètre.
+     */
     static public function fetchMessages(string $type)
     {
         // On appelle la méthode initFlashBag avec en paramètre le type de messages.
@@ -65,7 +74,9 @@ class FlashBag
         return $messages;
     }
     
-    // On créé une méthode hasMessages qui reçoit en paramètre le type de messages.
+    /**
+     * On créé une méthode hasMessages qui reçoit en paramètre le type de messages.
+     */
     static public function hasMessages(string $type)
     {
         // On s'assure de faire appel à initFlashBag avec en paramètre le type de message.

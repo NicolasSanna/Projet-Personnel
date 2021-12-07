@@ -6,7 +6,9 @@ namespace App\Model;
 // On indique que l'on se sert de la class AbstractModel.
 use App\Framework\AbstractModel;
 
-// On créé la classe GrantModel, elle hérite de l'AbstractModel et des propriétés de Database lors de son instanciation dans ce fichier AbstractModel.php.
+/**
+ * On créé la classe GrantModel, elle hérite de l'AbstractModel et des propriétés de Database lors de son instanciation dans ce fichier AbstractModel.php.
+ */
 class GrantModel extends AbstractModel
 {
     // On créé une fcontion getAllGrants.

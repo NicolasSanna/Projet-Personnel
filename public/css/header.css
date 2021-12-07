@@ -111,6 +111,9 @@
   opacity: 1;
 }
 
+/*
+  Crédits : https://codepen.io/braedencraig/pen/dBVKzO
+*/
 /* ---------- Fog ---------- */
 .fogwrapper {
   height: 100%;
@@ -150,7 +153,6 @@
   'attachment: scroll' can be added or removed; results remain the same
   'attachment: fixed' causing unexpected results in Chrome
   'repeat-x' || 'no-repeat'; results remain the same
-  Crédits : https://codepen.io/braedencraig/pen/dBVKzO
 */
 #foglayer_01 .image01, #foglayer_01 .image02 {
   background: url(../img/fog1.png) center center/cover no-repeat transparent;

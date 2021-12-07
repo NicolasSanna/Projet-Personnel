@@ -3,19 +3,15 @@
 // On indique l'espace de nom : App\Framework (composer.json : src/Framework).
 namespace App\Framework;
 
-// On créé la classe UserSession.
-class UserSession 
+/**
+ * On créé la classe UserSession.
+ */
+class UserSession extends AbstractSession
 {
-
-    // On créé la méthode privée sessionCheck().
-    static private function sessionCheck()
+    // On créé la fonction __construct() le constructeur. Il appelle le constructeur parent et hérite de ses méthodes.
+    public function __construct()
     {
-        // Si le status de la session est à PHP_SESSION_NONE...
-        if (session_status() === PHP_SESSION_NONE) 
-        {
-            // On démarre la session.
-            session_start();
-        }
+        parent::__construct();
     }
 
     /**
@@ -41,7 +37,9 @@ class UserSession
 
     }
 
-    // On créé une méthode statique is authenticated.
+    /**
+     * On créé une méthode statique is authenticated.
+     */
     static function isAuthenticated()
     {
         // On s'assure que la session est bien démarrée en appelant la méthode sessionCheck().
@@ -51,7 +49,9 @@ class UserSession
         return array_key_exists('user', $_SESSION) && isset($_SESSION['user']);
     }
 
-    // On créé une méthode statique logout.
+    /**
+     * On créé une méthode statique logout.
+     */
     static function logout()
     {
         // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne.
@@ -65,7 +65,9 @@ class UserSession
         session_destroy();
     }
 
-    // On créé une méthode statique getId.
+    /**
+     * On créé une méthode statique getId.
+     */
     static function getId()
     {
         // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne null.
@@ -78,7 +80,9 @@ class UserSession
         return $_SESSION['user']['userId'];
     }
 
-    // On créé une méthode statique getFirstname()
+    /**
+     * On créé une méthode statique getFirstname()
+     */
     static function getFirstname()
     {
         // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne null.
@@ -90,7 +94,9 @@ class UserSession
         return $_SESSION['user']['firstname'];
     }
 
-    // On créé une méthode statique getFirstname()
+    /**
+     * On créé une méthode statique getFirstname()
+     */
     static function getLastname()
     {
          // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne null.
@@ -102,7 +108,22 @@ class UserSession
         return $_SESSION['user']['lastname'];
     }
 
-    // On créé une méthode statique getFirstname()
+    /**
+     * Retourne le nom complet de l'utilisateur connecté
+     */
+    static function getUserFullname()
+    {
+        if (!self::isAuthenticated())
+        {
+            return null;
+        }
+
+        return $_SESSION['user']['firstname'] . ' ' . $_SESSION['user']['lastname'];
+    }
+
+    /**
+     * On créé une méthode statique getFirstname()
+     */
     static function getEmail()
     {
         // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne null.
@@ -115,7 +136,9 @@ class UserSession
         return $_SESSION['user']['email'];
     }
     
-    // On créé une méthode statique administrator()
+    /**
+     * On créé une méthode statique administrator()
+     */
     static function administrator()
     {
         // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne null.
@@ -128,7 +151,9 @@ class UserSession
         return $_SESSION['user']['grant_id'] == 1;
     }
 
-    // On créé une méthode statique author()
+    /**
+     * On créé une méthode statique author()
+     */
     static function author()
     {
         // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne null.
@@ -141,7 +166,9 @@ class UserSession
         return $_SESSION['user']['grant_id'] == 2;
     }
 
-    // On créé une méthode statique newRegistered()
+    /**
+     * On créé une méthode statique newRegistered()
+     */
     static function newRegistered()
     {
         // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne null.
@@ -153,7 +180,9 @@ class UserSession
         return $_SESSION['user']['grant_id'] == 3;
     }
 
-    // On créé une fonction statique token().
+    /**
+     * On créé une fonction statique token().
+     */
     static function token()
     {
         // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne null.

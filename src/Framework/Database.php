@@ -7,19 +7,25 @@ namespace App\Framework;
 use \PDO;
 use \PDOStatement;
 
-// On créé la classe Database. 
+/**
+ * // On créé la classe Database. 
+ */
 class Database 
 {
     // On créé une propriété $pdo en privé, par conséquent inaccessible en dehors de la classe Database. 
     private $pdo;
 
-    // On créé la fonction __construct() celle ci ne reçoit pas de paramètre, mais on range $this->getPdoConnection dans $this->pdo. 
+    /**
+     * On créé la fonction __construct() celle ci ne reçoit pas de paramètre, mais on range $this->getPdoConnection dans $this->pdo. 
+     */
     public function __construct()
     {
         $this->pdo = $this->getPdoConnection();
     }
 
-    // On créé la fonction getPdoConnexion() qui est un objet PDO. PHP Datas Objects. (Objets de données PHP)
+    /**
+     * On créé la fonction getPdoConnexion() qui est un objet PDO. PHP Datas Objects. (Objets de données PHP)
+     */
     function getPdoConnection(): PDO
     {
         // Dans le DSN (Data Source Name), on indique les différents paramètres de la connexion à la base de données. On se set des constantes du config.php afin de donner les paramètres :
@@ -51,7 +57,9 @@ class Database
         return $pdo;
     }
 
-    // Création de la méthode executeQuery qui prend en paramètre une chaîne de caractère représentant la requête SQL et un tableau de paramètre erprésentants les données à recevoir et exécuter.
+    /**
+     * Création de la méthode executeQuery qui prend en paramètre une chaîne de caractère représentant la requête SQL et un tableau de paramètre erprésentants les données à recevoir et exécuter.
+     */
     function executeQuery(string $sql, array $params = []): PDOStatement
     {
         // On créé la variable $pdoStatement qui reçoit la variable $this->pdo, qui prépare la requête SQL qu'elle prend en paramètre. La méthode prepare() et execute() permet de distinguer la requête SQL d'un côté, avec des paramètres anonymes (?, ou :variable).
@@ -64,7 +72,9 @@ class Database
         return $pdoStatement;
     }
 
-    // On créé la méthode getOneResult qui prend en paramètre une chaîne de caractères représentant la requête SQL à exécuter, et un tableau de paramètres à insérer grâce à la reuqête SQL.
+    /**
+     * On créé la méthode getOneResult qui prend en paramètre une chaîne de caractères représentant la requête SQL à exécuter, et un tableau de paramètres à insérer grâce à la reuqête SQL.
+     */
     function getOneResult(string $sql, array $params = [])
     {
         // la variable $pdoStatement reçoit la méthode executeQuery ayant en paramètre la requête SQL et les paramètres reçus.
@@ -77,7 +87,9 @@ class Database
         return $result;
     }
 
-    // On créé la méthode getAllResults qui reçoit en paramètre une chaîne de caractère qui est la requête SQL et les paramètres à exécuter dans la requête SQL.
+    /**
+     * On créé la méthode getAllResults qui reçoit en paramètre une chaîne de caractère qui est la requête SQL et les paramètres à exécuter dans la requête SQL.
+     */
     function getAllResults(string $sql, array $params = [])
     {
         // On range dans $pdoStatement la méthode exécuteQuery avec les paramètres de la requête SQL et des données.
@@ -90,7 +102,9 @@ class Database
         return $results;
     }
 
-    // On créé une méthode insert() qui reçoit en paramètre la chaîne de caractères représentant la requête SQL, puis les données en paramètres. 
+    /**
+     * On créé une méthode insert() qui reçoit en paramètre la chaîne de caractères représentant la requête SQL, puis les données en paramètres. 
+     */
     function insert(string $sql, array $params = [])
     {
         // On prépare la requête SQL en donnant en paramètre la chaîne de caractères dans la méthode prépare.
