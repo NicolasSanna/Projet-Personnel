@@ -152,8 +152,8 @@ class ArticleController extends AbstractController
 
             if(!empty($_POST))
             {
-                $newtitle = htmlspecialchars(trim($_POST['title']));
-                $newcontent = trim(($_POST['content']));
+                $newtitle = trim(htmlspecialchars($_POST['title']));
+                $newcontent = trim($_POST['content']);
                 $category = (int) $_POST['categories'];
                 $file = $_FILES['image'];
 

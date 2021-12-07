@@ -3,7 +3,7 @@
 namespace App\Framework;
 
 /**
- * Création de la classe abstraite AbstractSession. Elle démarre la session et elle peut être héritable pour la classe FlashBag et UserSession.
+ * Création de la classe abstraite AbstractSession. Elle démarre la session et elle peut être héritable pour la classe FlashBag et
  */
 abstract class AbstractSession 
 {
