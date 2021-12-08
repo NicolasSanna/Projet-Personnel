@@ -1,12 +1,14 @@
+<?php use App\Framework\UserSession;?>
+
 <h3 class="TitlePage">Modifier l'article</h3>
 
-        <div class="Article-box">
-            <?php if(!empty($imageExist)):?>
-                <img  class="Article-box-img"src="<?=asset('img/' . $imageExist);?>" alt="">
-            <?php else:?>
-                <img  class="Article-box-img"src="#" alt="">
-            <?php endif;?>
-        </div>
+    <div class="Article-box">
+        <?php if(!empty($imageExist)):?>
+            <img  class="Article-box-img"src="<?=asset('img/imgArticle/' . $imageExist);?>" alt="">
+        <?php else:?>
+            <img  class="Article-box-img"src="#" alt="">
+        <?php endif;?>
+    </div>
 
 <div class="FormArticle">
     <form class="FormArticle-box" method="POST" id="formArticle" enctype="multipart/form-data">
@@ -14,6 +16,7 @@
         <input  name="title" class="FormArticle-box-input" value="<?=$title;?>"></input>
         <label for="content" class="FormArticle-box-label">Contenu de l'article : </label>
         <textarea class="FormArticle-box-textarea" id="textarea" name="content" ><?=$content;?></textarea>
+        <input type="hidden" name="token" value="<?=UserSession::token();?>">
         <label for="title" class="FormArticle-box-select">Catégorie :</label>
             <select name="categories" class="FormArticle-box-input FormArticleSelect" id="">
                 <?php foreach ($categories as $category):?>

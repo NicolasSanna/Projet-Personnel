@@ -319,15 +319,18 @@
   0% { left: 0; }
   100% { left: -100%; }
 }
-@-moz-keyframes foglayer_moveme {
+@-moz-keyframes foglayer_moveme 
+{
   0% { left: 0; }
   100% { left: -100%; }
 }
-@-o-keyframes foglayer_moveme {
+@-o-keyframes foglayer_moveme 
+{
   0% { left: 0; }
   100% { left: -100%; }
 }
-@keyframes foglayer_moveme {
+@keyframes foglayer_moveme 
+{
   0% { left: 0; }
   100% { left: -100%; }
 }

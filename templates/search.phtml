@@ -13,13 +13,17 @@
 
     <?php foreach ($searchArticles as $searchArticle):?>
 
-        <div class="Forum-list-article">
-            <h3 class="Forum-list-article-title"><?=htmlspecialchars($searchArticle['title']);?></h3>
-            <p class="Forum-list-article-content"><?=htmlspecialchars_decode(mb_substr($searchArticle['content'], 0, 100));?> <span>[...] </span></p>
-            <p class="Forum-list-article-pseudo">Écrit par : <?= htmlspecialchars($searchArticle['pseudo']);?></p>
-            <p class="Forum-list-article-date">Date de publication : Le <?= (new DateTimeImmutable($searchArticle['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($searchArticle['creation_date']))->format('H:i');?></p>
-            <p class="Forum-list-article-category">Catégorie : <a class="Forum-list-article-category-link" href="<?= buildUrl('category', ['id'=> intval($searchArticle['category_id'])]);?>"><?= htmlspecialchars($searchArticle['category']);?></a></p>
-            <a class="Forum-list-article-link" href="<?= buildUrl('article', ['id' => intval($searchArticle['id_article'])]);?>">Lire la suite</a>
+        <div class="Search-list">
+
+            <div class="Search-list-article">
+                <h3 class="Search-list-article-title"><?=htmlspecialchars($searchArticle['title']);?></h3>
+                <p class="Search-list-article-content"><?=htmlspecialchars_decode(mb_substr($searchArticle['content'], 0, 100));?> <span>[...] </span></p>
+                <p class="Search-list-article-pseudo">Écrit par : <?= htmlspecialchars($searchArticle['pseudo']);?></p>
+                <p class="Search-list-article-date">Date de publication : Le <?= (new DateTimeImmutable($searchArticle['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($searchArticle['creation_date']))->format('H:i');?></p>
+                <p class="Search-list-article-category">Catégorie : <a class="Search-list-article-category-link" href="<?= buildUrl('category', ['id'=> intval($searchArticle['category_id'])]);?>"><?= htmlspecialchars($searchArticle['category']);?></a></p>
+                <a class="Search-list-article-link" href="<?= buildUrl('article', ['id' => intval($searchArticle['id_article'])]);?>">Lire la suite</a>
+            </div>
+
         </div>
 
     <?php endforeach;?>

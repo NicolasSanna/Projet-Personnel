@@ -28,23 +28,23 @@ class AuthController extends AbstractController
             }
             else
             {
-                UserSession::register($user['id'], $user['firstname'], $user['lastname'], $user['pseudo'], $user['email'], $user['grant_id']);
+                UserSession::register($user['id'], $user['firstname'], $user['lastname'], $user['pseudo'], $user['email'], $user['grant_id'], $user['grant_label']);
 
-                switch ($user['grant_id'])
+                switch ($user['grant_label'])
                 {
-                    case 1:
+                    case "['ROLE_ADMINISTRATOR']":
                     {
                         FlashBag::addFlash('Connexion réussie, bienvenue Administrateur!', 'success');
                         UserSession::administrator();
                         break;
                     }
-                    case 2:
+                    case "['ROLE_AUTHOR']":
                     {
                         FlashBag::addFlash('Connexion réussie, bienvenue auteur !', 'success');
                         UserSession::author();
                         break;
                     }
-                    case 3:
+                    case "['ROLE_NEW_USER']":
                     {
                         FlashBag::addFlash('Connexion réussie, bienvenue nouvel utilisateur !', 'success');
                         UserSession::newRegistered();

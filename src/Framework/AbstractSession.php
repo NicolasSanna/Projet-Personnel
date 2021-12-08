@@ -7,15 +7,6 @@ namespace App\Framework;
  */
 abstract class AbstractSession 
 {
-
-    /**
-    * On créé le constructeur. Il appelle la fonction sessionCheck()
-    */
-    public function __construct()
-    {
-        $this->sessionCheck();
-    }
-
     /**
     * Démarre une session si aucune session n'est démarrée
     */

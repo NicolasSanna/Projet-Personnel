@@ -26,30 +26,8 @@ class passwordManager
          */
         let passwordLabel = document.getElementById('password');
 
-        /**
-         * Si le type de label récupéré est password...
-         */
-        if (passwordLabel.type === "password")
-        {
+        passwordLabel.type = passwordLabel.type ==="password"? "text":"password"
 
-            /**
-             * On le transforme en type texte afin de le faire apparaître. 
-             */
-            passwordLabel.type = "text";
-
-        }
-
-        /**
-         * Si le type est text...
-         */
-        else if (passwordLabel.type === "text")
-        {
-            /**
-             * Alors on change le type de text à password. 
-             */
-            passwordLabel.type = "password";
-        }
-        return
     }
 
 }

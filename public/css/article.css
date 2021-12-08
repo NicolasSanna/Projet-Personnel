@@ -2,41 +2,54 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
 .Article-box {
   text-align: center;
 }
+
 .Article-box-img {
   height: 340px;
 }
+
 .Article-title {
   text-align: center;
 }
+
 .Article-content {
   text-align: justify;
 }
+
 .Article-category-link {
   color: peru;
   text-decoration: none;
 }
+
 .Article-category-link:visited {
   color: peru;
 }
+
 .Article-category-link:link {
   text-decoration: none;
 }
 
 .Comment-list {
   padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  padding-bottom: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-top: 0px;
   margin-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
+
 .Comment-list-link {
   text-decoration: none;
   border: solid peru 1px;
@@ -45,27 +58,36 @@
   background-color: peru;
   border-radius: 5px;
 }
+
 .Comment-list-link:visited {
   color: white;
 }
+
 .Comment-list-link:hover {
   background-color: white;
   color: black;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
+
 .Comment-list-category {
   padding-bottom: 20px;
 }
+
 .Comment-list-category-link {
   text-decoration: none;
 }
+
 .Comment-list-category-link:visited {
   color: peru;
 }
+
 .Comment-list-category-link:link {
   text-decoration: none;
 }
+
 .Comment-list-content {
   text-align: justify;
-}/*# sourceMappingURL=article.css.map */
+}
+/*# sourceMappingURL=article.css.map */

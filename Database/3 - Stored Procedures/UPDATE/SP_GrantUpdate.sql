@@ -10,6 +10,12 @@ BEGIN
     DECLARE pseudoinfo VARCHAR(255);
     DECLARE privilegeinfo VARCHAR(255);
 
+    DECLARE label_author VARCHAR(255);
+    DECLARE label_new_user VARCHAR(255);
+
+    SET label_author = "['ROLE_AUTHOR']";
+    SET label_new_user = "['ROLE_NEW_USER']";
+
     SET message = '';
 
     SELECT COUNT(id)
@@ -37,6 +43,22 @@ BEGIN
         END IF;
 
         IF (existGrant > 0) THEN
+
+            IF (v_grantId = 2)  THEN
+        
+                UPDATE users
+                SET grant_label = label_author
+                WHERE id = v_userId;
+
+            END IF;
+
+            IF (v_grantId = 3) THEN
+
+                UPDATE users
+                SET grant_label = label_new_user
+                WHERE id = v_userId;
+
+            END IF;
 
             UPDATE users
             SET grant_id = v_grantId
@@ -72,6 +94,12 @@ BEGIN
     DECLARE pseudoinfo VARCHAR(255);
     DECLARE privilegeinfo VARCHAR(255);
 
+    DECLARE label_author VARCHAR(255);
+    DECLARE label_new_user VARCHAR(255);
+
+    SET label_author = "['ROLE_AUTHOR']";
+    SET label_new_user = "['ROLE_NEW_USER']";
+
     SELECT COUNT(id)
     INTO existUser 
     FROM users
@@ -89,6 +117,22 @@ BEGIN
     END IF;
 
     IF (existUser > 0 AND existGrant > 0) THEN
+
+        IF (v_grantId = 2)  THEN
+    
+            UPDATE users
+            SET grant_label = label_author
+            WHERE id = v_userId;
+
+        END IF;
+
+        IF (v_grantId = 3) THEN
+
+            UPDATE users
+            SET grant_label = label_new_user
+            WHERE id = v_userId;
+
+        END IF;
    
         UPDATE users
         SET grant_id = v_grantId

@@ -3,9 +3,9 @@
 namespace App\Controller;
 
 use App\Framework\AbstractController;
-use App\Model\ArticleModel;
 use App\Framework\FlashBag;
 use App\Framework\UserSession;
+use App\Model\ArticleModel;
 use App\Model\CommentModel;
 
 class ArticleController extends AbstractController

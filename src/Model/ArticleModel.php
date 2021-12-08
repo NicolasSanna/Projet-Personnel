@@ -26,6 +26,15 @@ class ArticleModel extends AbstractModel
         return $articles;
     }
 
+    function getLastFiveArticles()
+    {
+        $sql = 'CALL SP_FiveArticlesOrderByDateSelect()';
+
+        $lastFiveArticles = $this->database->getAllResults($sql);
+
+        return $lastFiveArticles;
+    }
+
     /**
      * On créé une méthode getOneArticle qui prend en paramètre un nombre, l'identifiant de l'article.
      */

@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 
 // On indique l'utilisation de l'AbstractController.
 use App\Framework\AbstractController;
-
 // On indique l'utilisation de UserSession.
 use App\Framework\UserSession;
 

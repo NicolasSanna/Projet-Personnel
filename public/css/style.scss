@@ -618,11 +618,13 @@ textarea
 // POINT DE RUPTURE DU MEDIA QUERIES A 1110 PX
 @media screen AND (min-width: 1100px)
 {
-       .Homepage
+    .Homepage
     {
         display:flex;
         flex-direction:row;
         text-align: justify;
+        margin-left:100px;
+        margin-right:100px;
         &-section1
         {
             max-width: auto;
@@ -639,6 +641,24 @@ textarea
             min-width:400px;
         }
     }
+
+    .Forum
+    {
+        &-list
+        {
+            margin-left:200px;
+            margin-right:200px;
+        }
+    }
+
+    .Search 
+    {
+        &-list
+        {
+            margin-left:200px;
+            margin-right:200px;
+        }
+    }
 }
 
 // ANIMATION SLIDE DES ARTICLES
@@ -647,7 +667,7 @@ textarea
     from 
     {
       margin-left: 25%;
-      width: 300%;
+      width: 100%;
       opacity:0;
     }
   

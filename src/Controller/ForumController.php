@@ -13,7 +13,7 @@ class ForumController extends AbstractController
     {
         $articlesModel = new ArticleModel();
 
-        $articles = $articlesModel->getAllArticles();
+        $articles = $articlesModel->getLastFiveArticles();
 
         $pageTitle = 'Forum';
 
@@ -76,24 +76,28 @@ class ForumController extends AbstractController
            
             $search = trim(htmlspecialchars($_GET['search']));
         
-            if(!$search)
-            {
-                FlashBag::addFlash("Le champ de recherche est vide.", 'error');
-            }
-            else
-            {
+            // if(!$search)
+            // {
+            //     FlashBag::addFlash("Le champ de recherche est vide.", 'error');
+            // }
+            // else
+            // {
                 $articleModel = new ArticleModel();
                 $searchArticles = $articleModel->searchArticle($search);
 
-                if(empty($searchArticles))
-                {
-                    FlashBag::addFlash("Aucun article ne correspond à votre recherche.", 'error');
-                }
-            }
+                echo $searchArticles = json_encode($searchArticles);
+
+            //     if(empty($searchArticles))
+            //     {
+                
+            //         FlashBag::addFlash("Aucun article ne correspond à votre recherche.", 'error');
+            //     }
+            
+            // }
         }
 
         return $this->render('search', [
-           'searchArticles' => $searchArticles??'',
+        //    'searchArticles' => $searchArticles??'',
            'search' => $search??'',
            'pageTitle' => $pageTitle??''
        ]);

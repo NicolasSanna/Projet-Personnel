@@ -32,19 +32,12 @@ class deleteCategoryManager
         /**
          * Si confirmation est vraie (appuyer sur Oui). 
          */
-        if (confirmation === true)
-        {
-
-        }
-        /**
-         * Sinon...
-         */
-        else
+        if (confirmation === false)
         {
             /**
              * On arrête le comportement par défaut du navigateur.
              */
-            event.preventDefault();
+             event.preventDefault();
         }
     }
 }

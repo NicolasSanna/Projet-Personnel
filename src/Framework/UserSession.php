@@ -8,20 +8,14 @@ namespace App\Framework;
  */
 class UserSession extends AbstractSession
 {
-    // On créé la fonction __construct() le constructeur. Il appelle le constructeur parent et hérite de ses méthodes.
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     /**
      * Enregistre les informations de l'utilisateur en session venant du formulaire de connexion et avec les informations relatives venant de la base de données.
      */
-    static function register(int $userId, string $firstname, string $lastname, string $pseudo, string $email, int $grant_id)
+    static function register(int $userId, string $firstname, string $lastname, string $pseudo, string $email, int $grant_id, string $grant_label)
     {
-        // On s'assure du démarrage de la session.
-        self::sessionCheck();
 
+           // On s'assure que la session est bien démarrée en appelant la méthode sessionCheck().
+           self::sessionCheck();
         // On créé une clé User dans la superglobal $_SESSION qui est un tableau associatif contenant les diverses informations relatives à l'utilisation qui s'est connecté.
         $_SESSION['user'] = [
             'userId' => $userId,
@@ -29,7 +23,8 @@ class UserSession extends AbstractSession
             'lastname' => $lastname,
             'pseudo' => $pseudo,
             'email' => $email,
-            'grant_id' => $grant_id
+            'grant_id' => $grant_id,
+            'grant_label' => $grant_label
         ];
 
         // On appelle la méthode privée token afin de générer le token aléatoire lors de la connexion de l'utilisateur.
@@ -148,7 +143,7 @@ class UserSession extends AbstractSession
         }
 
         // On retourne l'identifiant du grant_id venant de la base de données en fonction de l'utilisateur en session. Ici 1.
-        return $_SESSION['user']['grant_id'] == 1;
+        return $_SESSION['user']['grant_label'] == "['ROLE_ADMINISTRATOR']";
     }
 
     /**
@@ -163,7 +158,7 @@ class UserSession extends AbstractSession
         }
 
         // On retourne l'identifiant du grant_id venant de la base de données en fonction de l'utilisateur en session. Ici 2.
-        return $_SESSION['user']['grant_id'] == 2;
+        return $_SESSION['user']['grant_label'] == "['ROLE_AUTHOR']";
     }
 
     /**
@@ -177,7 +172,7 @@ class UserSession extends AbstractSession
             return null;
         }
         // On retourne l'identifiant du grant_id venant de la base de données en fonction de l'utilisateur en session. Ici 3.
-        return $_SESSION['user']['grant_id'] == 3;
+        return $_SESSION['user']['grant_label'] == "['ROLE_NEW_USER']";
     }
 
     /**

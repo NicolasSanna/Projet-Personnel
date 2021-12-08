@@ -9,26 +9,13 @@ namespace App\Framework;
 class FlashBag extends AbstractSession
 {
     /**
-     * On appelle le constructeur.
-     */
-    public function __construct()
-    {
-        /**
-         * On appele constructeur du parent.
-         */
-        parent::__construct();
-    }
-
-    /**
      * On créé une méthode privé qui initie dans $_SESSION la clé flash.
      */
     static private function initFlashBag(string $type)
     {
-        /**
-         * On s'assure du démarrage de session en appelant la méthode sessionCheck().
-         */
-        self::sessionCheck();
 
+          // On s'assure que la session est bien démarrée en appelant la méthode sessionCheck().
+          self::sessionCheck();
         // Si la clé flash dans la superglobale $_SESSION n'existe pas ou si est nulle...
         if (!array_key_exists('flash', $_SESSION) || is_null($_SESSION['flash'])) 
         {

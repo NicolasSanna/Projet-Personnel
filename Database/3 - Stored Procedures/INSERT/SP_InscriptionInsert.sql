@@ -8,8 +8,10 @@ BEGIN
     DECLARE existeDelete SMALLINT;
     DECLARE v_grantId SMALLINT;
     DECLARE existPseudo SMALLINT;
+    DECLARE v_grant_label VARCHAR(255);
     
     SET v_grantId = 3;
+    SET v_grant_label = "['ROLE_NEW_USER']";
 
     SELECT COUNT(id)
     INTO existeDelete
@@ -49,9 +51,9 @@ BEGIN
         
         IF (exist = 0 AND existPseudo = 0) THEN
 
-            INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, inscription_date)
+            INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, grant_label, inscription_date)
             VALUES
-            (v_firstname, v_lastname, v_pseudo, v_email, v_password, v_grantId, NOW());
+            (v_firstname, v_lastname, v_pseudo, v_email, v_password, v_grantId, v_grant_label, NOW());
 
             SET message = "Vous êtes bien enregistré, vous pouvez vous connecter.";
 
@@ -91,9 +93,9 @@ BEGIN
 
         IF (exist = 0 AND existPseudo = 0) THEN
 
-            INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, inscription_date)
+            INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, grant_label, inscription_date)
             VALUES
-            (v_firstname, v_lastname, v_pseudo, v_email, v_password, v_grantId, NOW());
+            (v_firstname, v_lastname, v_pseudo, v_email, v_password, v_grantId, v_grant_label, NOW());
 
             SET message = "Vous êtes bien enregistré, vous pouvez vous connecter.";
 

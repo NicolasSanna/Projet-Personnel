@@ -155,11 +155,17 @@ class ArticleController extends AbstractController
                 $newtitle = trim(htmlspecialchars($_POST['title']));
                 $newcontent = trim($_POST['content']);
                 $category = (int) $_POST['categories'];
+                $token = $_POST['token'];
                 $file = $_FILES['image'];
 
                 if (!$newtitle || !$newcontent || !$category)
                 {
                     FlashBag::addFlash("Tous les champs de modification n'ont pas été remplis.", 'error');
+                }
+
+                if($token != UserSession::token())
+                {
+                    FlashBag::addFlash("Une erreur s'est produite lors de la modification.", 'error');
                 }
 
                 if(!empty($file['name']))
@@ -304,7 +310,7 @@ class ArticleController extends AbstractController
             {
                 $articleModel = new ArticleModel();
                 $deleteImageArticle = $articleModel->deleteImageArticle($idOfArticle);
-                unlink(IMAGE_DIR . $imageExist);
+                unlink(IMAGE_DIR . '/' . $imageExist);
                 $this->redirect('modifyarticle', ['id' => $idOfArticle]);
             }
         }

@@ -1,6 +1,5 @@
 <?php use App\Framework\UserSession;?>
 
-
 <?php if (!empty($article)):?>
 
     <div class="Article">
@@ -9,7 +8,7 @@
         <?php if(!empty($article['image'])):?>
 
             <div class="Article-box">
-                <img  class="Article-box-img"src="<?=asset('img/' . $article['image']);?>" alt="">
+                <img  class="Article-box-img"src="<?=asset('img/imgArticle/' . $article['image']);?>" alt="">
             </div>
 
         <?php endif;?>

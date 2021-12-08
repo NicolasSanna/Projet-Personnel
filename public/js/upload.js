@@ -27,7 +27,8 @@ class addArticleManager
         /**
          * On récupère l'identifiant de l'input de type file. 
          */
-        inputFile = document.getElementById('upload')
+       
+        const inputFile = document.getElementById('upload')
 
         /**
          * On vérifie que l'input de type file a bien reçu une image. 
@@ -37,6 +38,7 @@ class addArticleManager
             /**
              * On vérifie la taille de ce qui a été reçu dans l'input de type file. Si c'est supérieur à 2000000 octets (2Mo)
              */
+            console.log(inputFile.files[0].size )
             if (inputFile.files[0].size > 2000000)
             {
                 

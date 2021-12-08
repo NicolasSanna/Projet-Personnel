@@ -11,11 +11,7 @@ class deleteUserManager
     {
         let confirmation = window.confirm("Êtes-vous sûr de vouloir effectuer cette action ?")
         
-        if (confirmation === true)
-        {
-    
-        }
-        else
+        if (confirmation === false)
         {
             event.preventDefault();
         }

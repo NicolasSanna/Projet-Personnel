@@ -38,19 +38,13 @@ class deleteArticleManager
         /**
          * Si confirmation est vrai (on appuie sur OK) alors le nagivateur recharge la page vers laquelle il était censé se rendre.
          */
-        if (confirmation === true)
+        if (confirmation === false)
         {
-    
-        }
-        /**
-         * Sinon...
-         */
-        else
-        {
-            /**
+               /**
              * On bloque le comportement par défaut du navigateur qui devait recharger la page. 
              */
-            event.preventDefault();
+                event.preventDefault();
+            
         }
     }
 }
