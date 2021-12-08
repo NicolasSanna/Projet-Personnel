@@ -66,7 +66,7 @@ class ArticleController extends AbstractController
                 {
                     if ($fileName)
                     {
-                        move_uploaded_file($file['tmp_name'], IMAGE_DIR  . $fileName);
+                        move_uploaded_file($file['tmp_name'], IMAGE_DIR .  '/' . $fileName);
                     }
                     $articleModel = new ArticleModel();
                     $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user, $fileName);
@@ -186,7 +186,7 @@ class ArticleController extends AbstractController
                         
                         if (!empty($imageExist))
                         {
-                            unlink(IMAGE_DIR . $imageExist);
+                            unlink(IMAGE_DIR . '/' . $imageExist);
                         }
                     }
                 }
@@ -195,7 +195,7 @@ class ArticleController extends AbstractController
                 {
                     if($fileName)
                     {
-                        move_uploaded_file($file['tmp_name'], IMAGE_DIR  . $fileName);
+                        move_uploaded_file($file['tmp_name'], IMAGE_DIR . '/' . $fileName);
                     }
                     $articleModel = new ArticleModel();
                     $updateArticle = $articleModel->modifyarticle($idOfArticle, $id_user, $newtitle, $newcontent, $category, $fileName);
@@ -256,7 +256,7 @@ class ArticleController extends AbstractController
             {
                 if(!empty($checkArticle['image']))
                 {
-                    unlink(IMAGE_DIR . $checkArticle['image']);
+                    unlink(IMAGE_DIR . '/' . $checkArticle['image']);
                 }
                 $articleModel = new ArticleModel();
                 $deleteArticle = $articleModel->deleteArticle($idOfArticle, $id_user);
