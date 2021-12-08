@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Framework\AbstractController;
 use App\Model\ArticleModel;
+use App\Framework\AbstractController;
 
 class HomeController extends AbstractController 
 {

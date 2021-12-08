@@ -14,8 +14,9 @@ class UserSession extends AbstractSession
     static function register(int $userId, string $firstname, string $lastname, string $pseudo, string $email, int $grant_id, string $grant_label)
     {
 
-           // On s'assure que la session est bien démarrée en appelant la méthode sessionCheck().
-           self::sessionCheck();
+        // On s'assure que la session est bien démarrée en appelant la méthode sessionCheck(). C'est une méthode statique héritée de l'AbstractSession : pas besoin d'instancier le constructeur parent.
+        self::sessionCheck();
+        
         // On créé une clé User dans la superglobal $_SESSION qui est un tableau associatif contenant les diverses informations relatives à l'utilisation qui s'est connecté.
         $_SESSION['user'] = [
             'userId' => $userId,

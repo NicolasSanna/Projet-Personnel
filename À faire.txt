@@ -10,4 +10,6 @@
 
 - Faire les maquettes (le mockup, le wireframe, le prototype) sur Figma /!\.
 
-- SCSS et CSS
+- Factoriser le JS avec les modules.
+
+- SCSS et CSS.

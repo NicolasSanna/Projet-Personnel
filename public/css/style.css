@@ -17,6 +17,16 @@
   padding: 15px;
 }
 
+audio::-webkit-media-controls-timeline,
+video::-webkit-media-controls-timeline {
+  display: none;
+}
+
+audio::-webkit-media-controls,
+video::-webkit-media-controls {
+  display: none;
+}
+
 textarea {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;

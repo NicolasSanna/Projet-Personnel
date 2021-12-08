@@ -14,8 +14,9 @@ class FlashBag extends AbstractSession
     static private function initFlashBag(string $type)
     {
 
-          // On s'assure que la session est bien démarrée en appelant la méthode sessionCheck().
-          self::sessionCheck();
+        // On s'assure que la session est bien démarrée en appelant la méthode sessionCheck(). C'est une méthode statique héritée de l'AbstractSession : pas besoin d'instancier le constructeur parent.
+        self::sessionCheck();
+        
         // Si la clé flash dans la superglobale $_SESSION n'existe pas ou si est nulle...
         if (!array_key_exists('flash', $_SESSION) || is_null($_SESSION['flash'])) 
         {

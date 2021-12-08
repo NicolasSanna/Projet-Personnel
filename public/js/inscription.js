@@ -35,4 +35,4 @@ class passwordManager
 /**
  * On créé l'objet passwordVisible. 
  */
-const passwordVisible = new passwordManager ()
+const passwordVisible = new passwordManager ();
