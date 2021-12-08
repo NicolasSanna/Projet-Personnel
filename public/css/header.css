@@ -9,11 +9,9 @@
   position: -webkit-sticky;
   position: sticky;
 }
-
 .Header-container-boxtitle {
   padding-top: 60px;
 }
-
 .Header-container-boxtitle-box {
   padding-top: 3px;
   background-color: black;
@@ -21,129 +19,94 @@
   padding-bottom: 30px;
   height: 180px;
 }
-
 .Header-container-boxtitle-box-p {
   padding-bottom: 20px;
 }
-
 .Header-container-boxtitle-box-a {
   text-decoration: none;
   border: solid white 1px;
   padding: 15px;
   color: white;
 }
-
 .Header-container-boxtitle-box-a:visited {
   color: white;
 }
-
 .Header-container-boxtitle-box-a:hover {
   color: black;
   background-color: white;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Header-container-boxtitle-box-a:link {
   color: white;
 }
-
 .Header-navbarbox {
   background-color: black;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   text-align: center;
   width: 100%;
   padding-top: 8px;
   padding-bottom: 6px;
 }
-
 .Header-navbarbox-navbar {
   display: none;
   margin-top: -10px;
   font-size: 16px;
 }
-
 .Header-navbarbox-navbar-ul {
   background-color: black;
   list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding: 0px;
 }
-
 .Header-navbarbox-navbar-ul > li {
   margin-bottom: 3px;
 }
-
 .Header-navbarbox-navbar-ul-a {
   text-decoration: none;
   color: white;
 }
-
 .Header-navbarbox-navbar-ul-a:hover {
   color: peru;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Header-navbarbox-navbar-ul-a:active {
   color: peru;
 }
-
 .Header-navbarbox-burgerOn {
   cursor: pointer;
 }
-
 .Header-navbarbox-burgerOn-burger {
   text-decoration: none;
   color: white;
   font-size: 22px;
 }
-
 .Header-navbarbox-burgerOn-burger:hover {
   color: peru;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Header-navbarbox-burgerOn-burger:active {
   color: peru;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Header-navbarbox-burgerOn-cross {
   text-decoration: none;
   color: white;
   display: none;
   font-size: 19px;
 }
-
 .Header-navbarbox-burgerOn-cross:hover {
   color: peru;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Header-navbarbox-burgerOn-cross:active {
   color: peru;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
@@ -157,7 +120,6 @@
   position: absolute;
   top: 0;
   width: 100%;
-  -webkit-filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
   filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
 }
 
@@ -204,120 +166,114 @@
 /* ---------- Keyframe Layer 1 ---------- */
 @-webkit-keyframes foglayer_01_opacity {
   0% {
-    opacity: .1;
+    opacity: 0.1;
   }
   22% {
-    opacity: .5;
+    opacity: 0.5;
   }
   40% {
-    opacity: .28;
+    opacity: 0.28;
   }
   58% {
-    opacity: .4;
+    opacity: 0.4;
   }
   80% {
-    opacity: .16;
+    opacity: 0.16;
   }
   100% {
-    opacity: .1;
+    opacity: 0.1;
   }
 }
-
 @keyframes foglayer_01_opacity {
   0% {
-    opacity: .1;
+    opacity: 0.1;
   }
   22% {
-    opacity: .5;
+    opacity: 0.5;
   }
   40% {
-    opacity: .28;
+    opacity: 0.28;
   }
   58% {
-    opacity: .4;
+    opacity: 0.4;
   }
   80% {
-    opacity: .16;
+    opacity: 0.16;
   }
   100% {
-    opacity: .1;
+    opacity: 0.1;
   }
 }
-
 /* ---------- Keyframe Layer 2 ---------- */
 @-webkit-keyframes foglayer_02_opacity {
   0% {
-    opacity: .5;
+    opacity: 0.5;
   }
   25% {
-    opacity: .2;
+    opacity: 0.2;
   }
   50% {
-    opacity: .1;
+    opacity: 0.1;
   }
   80% {
-    opacity: .3;
+    opacity: 0.3;
   }
   100% {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
-
 @keyframes foglayer_02_opacity {
   0% {
-    opacity: .5;
+    opacity: 0.5;
   }
   25% {
-    opacity: .2;
+    opacity: 0.2;
   }
   50% {
-    opacity: .1;
+    opacity: 0.1;
   }
   80% {
-    opacity: .3;
+    opacity: 0.3;
   }
   100% {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
-
 /* ---------- Keyframe Layer 3 ---------- */
 @-webkit-keyframes foglayer_03_opacity {
   0% {
-    opacity: .8;
+    opacity: 0.8;
   }
   27% {
-    opacity: .2;
+    opacity: 0.2;
   }
   52% {
-    opacity: .6;
+    opacity: 0.6;
   }
   68% {
-    opacity: .3;
+    opacity: 0.3;
   }
   100% {
-    opacity: .8;
+    opacity: 0.8;
   }
 }
-
 @keyframes foglayer_03_opacity {
   0% {
-    opacity: .8;
+    opacity: 0.8;
   }
   27% {
-    opacity: .2;
+    opacity: 0.2;
   }
   52% {
-    opacity: .6;
+    opacity: 0.6;
   }
   68% {
-    opacity: .3;
+    opacity: 0.3;
   }
   100% {
-    opacity: .8;
+    opacity: 0.8;
   }
 }
-
 /* ---------- Keyframe moveMe ---------- */
 @-webkit-keyframes foglayer_moveme {
   0% {
@@ -327,7 +283,6 @@
     left: -100%;
   }
 }
-
 @keyframes foglayer_moveme {
   0% {
     left: 0;
@@ -336,7 +291,6 @@
     left: -100%;
   }
 }
-
 @media screen and (min-width: 880px) {
   .Header-navbarbox {
     margin-top: 0px;
@@ -349,13 +303,8 @@
     display: block;
   }
   .Header-navbarbox-navbar-ul {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    justify-content: center;
+    flex-direction: row;
     margin-top: 20px;
     margin-bottom: 10px;
   }
@@ -364,7 +313,6 @@
     margin-right: 5px;
   }
 }
-
 @-webkit-keyframes glissementMenu {
   from {
     opacity: 0;
@@ -373,7 +321,6 @@
     opacity: 1;
   }
 }
-
 @keyframes glissementMenu {
   from {
     opacity: 0;
@@ -381,5 +328,4 @@
   to {
     opacity: 1;
   }
-}
-/*# sourceMappingURL=header.css.map */
+}/*# sourceMappingURL=header.css.map */

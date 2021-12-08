@@ -1,18 +1,11 @@
 .Forum-h1 {
   text-align: center;
 }
-
 .Forum-list {
   padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .Forum-list-article {
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
@@ -25,11 +18,9 @@
   margin-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  -webkit-box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
-
 .Forum-list-article-link {
   text-decoration: none;
   border: solid peru 1px;
@@ -38,36 +29,28 @@
   background-color: peru;
   border-radius: 5px;
 }
-
 .Forum-list-article-link:visited {
   color: white;
 }
-
 .Forum-list-article-link:hover {
   background-color: white;
   color: black;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Forum-list-article-category {
   padding-bottom: 20px;
 }
-
 .Forum-list-article-category-link {
   text-decoration: none;
 }
-
 .Forum-list-article-category-link:visited {
   color: peru;
 }
-
 .Forum-list-article-category-link:link {
   text-decoration: none;
   color: peru;
 }
-
 .Forum-list-article-content {
   text-align: justify;
 }
@@ -75,18 +58,11 @@
 .Search-h1 {
   text-align: center;
 }
-
 .Search-list {
   padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .Search-list-article {
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
@@ -99,11 +75,9 @@
   margin-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  -webkit-box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
-
 .Search-list-article-link {
   text-decoration: none;
   border: solid peru 1px;
@@ -112,37 +86,28 @@
   background-color: peru;
   border-radius: 5px;
 }
-
 .Search-list-article-link:visited {
   color: white;
 }
-
 .Search-list-article-link:hover {
   background-color: white;
   color: black;
-  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-
 .Search-list-article-category {
   padding-bottom: 20px;
 }
-
 .Search-list-article-category-link {
   text-decoration: none;
 }
-
 .Search-list-article-category-link:visited {
   color: peru;
 }
-
 .Search-list-article-category-link:link {
   text-decoration: none;
   color: peru;
 }
-
 .Search-list-article-content {
   text-align: justify;
-}
-/*# sourceMappingURL=forum.css.map */
+}/*# sourceMappingURL=forum.css.map */
