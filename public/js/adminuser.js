@@ -20,7 +20,6 @@ class deleteUserManager
             event.preventDefault();
         }
     }
-
 }
 
 const userManager = new deleteUserManager();
