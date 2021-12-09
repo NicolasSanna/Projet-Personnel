@@ -1,7 +1,7 @@
 /**
  * On créé la fonction burgerManager
  */
-class burgerManager
+export class burgerManager
 {
     /**
      * On créé la fonction construct.
@@ -45,7 +45,7 @@ class burgerManager
             menu.style.display = 'block';
             cross.style.display = 'block';
             burger.style.display = 'none';
-            menu.style.animationDuration ='2s';
+            menu.style.animationDuration = '2s';
             menu.style.animationDirection = 'normal';
             menu.style.animationName ='glissementMenu';
  
@@ -79,10 +79,9 @@ class burgerManager
             
         }
     }
-
 }
 
 /**
  * On créé l'objet burger. 
  */
-const burger = new burgerManager();
+// const burger = new burgerManager();

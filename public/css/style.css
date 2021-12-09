@@ -6,12 +6,10 @@
   color: #505050;
   width: 100% !important;
   height: 100% !important;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
+
 .Body-main, html-main {
   padding: 15px;
   margin-left: 20px;
@@ -63,12 +61,18 @@ textarea {
 }
 
 .List {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
+
 .List-link {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -81,13 +85,17 @@ textarea {
   font-family: "Open Sans", sans-serif;
   border: none;
   max-width: auto;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   text-decoration: none;
   border-radius: 5px;
 }
+
 .List-link:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -105,15 +113,19 @@ textarea {
   font-family: "Open Sans", sans-serif;
   border: none;
   max-width: auto;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   text-decoration: none;
   border-radius: 5px;
   text-align: center;
   font-size: 14px;
 }
+
 .Link:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -169,17 +181,25 @@ textarea {
   border: none;
   min-width: auto;
   max-width: 200px;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   text-decoration: none;
   border-radius: 5px;
   text-align: center;
   font-size: 13px;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .LinkA:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -196,15 +216,19 @@ textarea {
   padding-right: 30px;
   font-family: "Open Sans", sans-serif;
   border: none;
-  align-items: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   border: solid 1px peru;
   text-decoration: none;
   border-radius: 5px;
   text-align: center;
   width: 250px;
 }
+
 .LinkAForm:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -213,12 +237,15 @@ textarea {
 .Home {
   text-align: center;
 }
+
 .Home-video {
   width: 80%;
   height: 80%;
   border: solid peru 1px;
-  filter: brightness(90%);
+  -webkit-filter: brightness(90%);
+          filter: brightness(90%);
 }
+
 .Home-h2 {
   text-align: center;
 }
@@ -228,22 +255,27 @@ textarea {
   margin-bottom: 10px;
   margin-top: 30px;
 }
+
 .Homepage-section2 {
   padding-bottom: 10px;
   padding-top: 10px;
   margin-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
+
 .Homepage-section2-h3 {
   text-align: center;
   margin-bottom: 10px;
 }
+
 .Homepage-section2-list-article {
   margin-bottom: 35px;
 }
+
 .Homepage-section2-list-article-category {
   padding-bottom: 5px;
 }
@@ -256,12 +288,19 @@ textarea {
   -webkit-animation-name: glissement;
           animation-name: glissement;
 }
+
 .Form-title {
   text-align: center;
 }
+
 .Form-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 250px;
   margin-left: auto;
   margin-right: auto;
@@ -271,17 +310,21 @@ textarea {
   margin-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
+
 .Form-box-label {
   text-align: left;
   margin-bottom: 10px;
 }
+
 .Form-box-input {
   margin-bottom: 10px;
   padding: 5px;
 }
+
 .Form-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -297,8 +340,10 @@ textarea {
   border: solid 1px peru;
   border-radius: 5px;
 }
+
 .Form-box-button:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -312,8 +357,10 @@ textarea {
   margin-bottom: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
+
 .FormSearch-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -326,37 +373,57 @@ textarea {
   border: none;
   cursor: pointer;
   max-width: auto;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
   font-size: 16px;
 }
+
 .FormSearch-box-button:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
 }
+
 .FormSearch-label {
   text-align: left;
   margin-bottom: 10px;
   margin-right: 10px;
 }
+
 .FormSearch-input {
   margin-bottom: 10px;
   padding: 10px;
 }
 
+.FormComment {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
 .FormComment-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: auto;
   margin-left: auto;
   margin-right: auto;
 }
+
 .FormComment-box-buttonBox {
   text-align: end;
 }
+
 .FormComment-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -369,41 +436,55 @@ textarea {
   border: none;
   cursor: pointer;
   max-width: auto;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
 }
+
 .FormComment-box-button:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
 }
+
 .FormComment-box-textarea {
   height: 100px;
   padding: 5px;
 }
+
 .FormComment-box-label {
   text-align: left;
   margin-bottom: 10px;
 }
 
 .FormArticle-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: auto;
   margin-left: auto;
   margin-right: auto;
 }
+
 .FormArticle-box-label {
   text-align: left;
   margin-top: 20px;
   margin-bottom: 5px;
 }
+
 .FormArticle-box-input {
   margin-bottom: 10px;
   padding: 5px;
 }
+
 .FormArticle-box-button {
   margin-top: 10px;
   background-color: peru;
@@ -416,31 +497,40 @@ textarea {
   border: none;
   cursor: pointer;
   max-width: 200px;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
 }
+
 .FormArticle-box-button:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
 }
+
 .FormArticle-box-textarea {
   height: 200px;
   padding: 5px;
 }
+
 .FormArticle-box-select {
   margin-top: 10px;
   padding: 5px;
   text-align: left;
 }
+
 .FormArticle-button {
   text-align: end;
   border-radius: 5px;
 }
+
 .FormArticle-button:hover {
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
   color: black;
@@ -473,15 +563,20 @@ textarea {
     text-align: center;
     max-width: 600px;
   }
-
   .Form-box {
     width: 300px;
   }
 }
+
 @media screen and (min-width: 1300px) {
   .Homepage {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     text-align: justify;
   }
   .Homepage-section1 {
@@ -497,12 +592,12 @@ textarea {
     margin-right: 20px;
     min-width: 400px;
   }
-
   .Body-main {
     margin-left: 200px;
     margin-right: 200px;
   }
 }
+
 @-webkit-keyframes glissement {
   from {
     margin-left: 25%;
@@ -515,6 +610,7 @@ textarea {
     opacity: 1;
   }
 }
+
 @keyframes glissement {
   from {
     margin-left: 25%;
@@ -527,6 +623,7 @@ textarea {
     opacity: 1;
   }
 }
+
 @-webkit-keyframes glissementMenu {
   from {
     opacity: 0;
@@ -535,6 +632,7 @@ textarea {
     opacity: 1;
   }
 }
+
 @keyframes glissementMenu {
   from {
     opacity: 0;
@@ -542,4 +640,5 @@ textarea {
   to {
     opacity: 1;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+/*# sourceMappingURL=style.css.map */

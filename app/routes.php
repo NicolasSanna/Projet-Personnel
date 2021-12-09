@@ -147,16 +147,12 @@ $routes = [
         'method' => 'deleteImage'
     ],
 
-    // 'modifyPassword' => [
-    //     'path' => '/modifierlemotdepasse',
-    //     'controller' => 'Auth',
-    //     'method' => 'changePassword'
-    // ],
     'searchAjax' => [
-        'path' => '/rechercher',
+        'path' => '/ajax/rechercher',
         'controller' => 'Forum',
         'method' => 'searchAjax'
     ],
+
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
         'path' => $path,

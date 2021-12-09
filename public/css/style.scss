@@ -11,16 +11,16 @@
 	color: rgb(80, 80, 80);
 	width: 100% !important;
 	height: 100% !important;
-    margin:0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
     margin: 0;
     padding: 0;
-    overflow-x:hidden;
+    
+   
     &-main
     {
         padding: 15px;
         margin-left:20px;
         margin-right:20px;
+        
     }
 }
 
@@ -446,6 +446,10 @@ textarea
 // FORMULAIRE DE COMMENTAIRE
 .FormComment
 {
+    margin-left:40px;
+    margin-right:40px;
+    margin-bottom:30px;
+    margin-top:30px;
     &-box
     {
         display:flex;

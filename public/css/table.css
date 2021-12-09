@@ -39,7 +39,7 @@ table thead tr th
 
 table thead tr th:first-child 
 {
-    padding-left: 40px;
+    padding-left: 22px;
 }
 
 table thead tr th:last-child 

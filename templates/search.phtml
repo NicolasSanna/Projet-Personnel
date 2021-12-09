@@ -1,13 +1,18 @@
 <h4>Recherche</h4>
 
 <div class="FormSearch">
-    <form class="FormSearch-box" id="search-form" action="<?= buildUrl('search');?>" method="GET">
+    <form class="FormSearch-box" id="search-form" action="<?= buildUrl('searchAjax');?>" method="POST">
         <label for="search" class="FormSearch-label">Rechercher un article : </label>
         <input type="text" class="FormSearch-input" value="<?=$search;?>" name="search" />
         <input type="submit" class="FormSearch-box-button" value="Rechercher">
     </form>
 </div>
 
+<div class="containerSearch" >
+
+</div>
+
+<!-- Résultat du moteur de recherche version PHP/MySQL -->
 
 <?php if (!empty($searchArticles)):?>
 

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="<?=asset('css/article.css');?>">
     <script src="<?=asset('js/tinymce/tinymce.min.js');?>"></script>
     <script src="https://cdn.tiny.cloud/1/nsjbtpknw22gfqakd09e980h6d6hin28dwzelpv03mcupto7/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>tinymce.init({selector:'#textarea', language : "fr_FR",});</script>
+    <script>tinymce.init({selector:'#textarea', language : "fr_FR", });</script>
     <title>Huma Scientio - <?=$pageTitle??'';?></title>
 
 </head>
@@ -53,6 +53,6 @@
 
         <?php require TEMPLATE_DIR . '/footer.phtml';?>
 
-        <script src="<?= asset('js/app.js');?>"></script>      
+        <script type="module" src="<?=asset('js/main.js');?>"></script>
     </body>
 </html>

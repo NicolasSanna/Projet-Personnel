@@ -67,6 +67,9 @@ class ForumController extends AbstractController
         ]);
    }
 
+   /**
+    * (Moteur de recherche version PHP/MySQL)
+    */
    public function search()
    {
         $pageTitle = 'Rechercher';
@@ -100,17 +103,38 @@ class ForumController extends AbstractController
    }
 
     /**
-     * Version AJAX
+     * Moteur de recherche version AJAX
      */
    public function searchAjax()
    {
  
+        /**
+         * On récupère la valeur de $_POST['search'] venant du formulaire dans $search.
+         */
         $search = $_POST['search'];
         $articleModel = new ArticleModel();
         $searchArticles = $articleModel->searchArticle($search);
 
+        /**
+         * On effectue une boucle foreach clé-valeur.
+         */
+        foreach ($searchArticles as $index => $searchArticle)
+        {
+            /**
+             * On ajoute une clé supplémentaire avec une valeur que l'on nomme. Et on donne l'adresse complète que l'on renvoie ensuite.
+             */
+            $searchArticles[$index]['articleUrl'] = SITE_BASE_URL . buildUrl('article', ['id' => intval($searchArticle['id_article'])]);
+            $searchArticles[$index]['categoryUrl'] = SITE_BASE_URL . buildUrl('category', ['id' => intval($searchArticle['id_category'])]);
+        }
+
+        /**
+         * On récupère le résultat dans searchArticlesAjax depuis le json_encode qui prend en paramètre l'intégralité du résultat.
+         */
         $searchArticlesAjax = json_encode($searchArticles);  
         
+        /**
+         * On fait un echo du résultat afin que la requête Ajax de JavaScript récupère les résultats.
+         */
         echo $searchArticlesAjax;
    }
 }

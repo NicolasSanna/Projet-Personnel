@@ -6,10 +6,12 @@
 
 - Continuer d'écrire le dossier professionnel et le dossier projet.
 
-- Faire un moteur de recherche en AJAX (fonctionne en PHP/MySQL).
+- Factoriser le moteur de recherche en objet et en module.
 
 - Faire les maquettes (le mockup, le wireframe, le prototype) sur Figma /!\.
 
 - Factoriser le JS avec les modules.
 
 - SCSS et CSS.
+
+- Gérer le système d'inscription par email avec token, gérer le changement de mot de passe par token CF : https://doeken.org/blog/using-symfony-mailer-without-framework

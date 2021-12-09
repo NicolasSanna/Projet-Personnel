@@ -3,8 +3,10 @@
 // HEADER // 
 .Header
 {
+
     // CONTAINER DU HEADER
     &-container
+    
     {
         background-image: url(../img/viktor-forgacs-DzpViKMZHe8-unsplash.jpg);
         background-repeat: no-repeat;
@@ -13,7 +15,7 @@
         color:white;
         height: 340px;
         position:sticky;
-
+        overflow-x:hidden;
         // BOÎTE DE TITRE HUMA SCIENTIO
         &-boxtitle
         {
@@ -378,10 +380,14 @@
     from 
     {
       opacity:0;
+      animation-duration: 2s;
+      animation-direction: normal;
     }
   
     to 
     {
       opacity:1;
+      animation-duration: 2s;
+      animation-direction: normal;
     }
 }
