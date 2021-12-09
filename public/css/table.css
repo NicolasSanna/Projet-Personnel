@@ -28,7 +28,7 @@ td a
 table thead tr th 
 {
     font-family: 'Open Sans';
-    font-size: 18px;
+    font-size: 14px;
     color: #fff;
     line-height: 1.2;
     font-weight: 600;
@@ -39,7 +39,7 @@ table thead tr th
 
 table thead tr th:first-child 
 {
-    padding-left: 22px;
+    padding-left: 40px;
 }
 
 table thead tr th:last-child 
@@ -83,8 +83,8 @@ tbody tr:nth-child(even)
 {
     color:darkred;
     text-decoration:none;
-    padding-right: 20px;
-    padding-left:20px;
+    /* padding-right: 20px;
+    padding-left:20px; */
 
 }
 
@@ -92,8 +92,8 @@ tbody tr:nth-child(even)
 {
     color:peru;
     text-decoration:none;
-    padding-right: 20px;
-    padding-left:20px;
+    /* padding-right: 20px;
+    padding-left:20px; */
 }
 
 tbody tr td
