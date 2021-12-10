@@ -18,7 +18,11 @@
 
 - Système de mailer (se servir de mailtrap)
 
-- reCAPTCHA sur le formulaire d'inscription https://nouvelle-techno.fr/articles/integrer-google-recaptcha-sur-votre-site
+https://www.sitepoint.com/sending-emails-php-phpmailer/
+
+- reCAPTCHA sur le formulaire d'inscription 
+https://nouvelle-techno.fr/articles/integrer-google-recaptcha-sur-votre-site
+https://grafikart.fr/tutoriels/recaptcha-anti-spam-346
 
 - CSS Page d'accueil
 
