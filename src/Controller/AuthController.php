@@ -7,7 +7,6 @@ use App\Framework\UserSession;
 use App\Framework\FlashBag;
 use App\Model\UserModel;
 
-
 class AuthController extends AbstractController
 {
     public function login()

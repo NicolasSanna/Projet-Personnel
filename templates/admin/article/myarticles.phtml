@@ -4,21 +4,21 @@
 
 <p><a class="Link" href="<?=buildUrl('newarticle');?>">Créer un article</a></p>
 
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Titre</th>
-            <th>Date de création</th>
-            <th>Catégorie</th>
-            <th>Commentaires</th>
-            <th colspan="2">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+<?php if (!empty($myArticles)):?>
 
-        <?php if (!empty($myArticles)):?>
-
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Date de création</th>
+                <th>Catégorie</th>
+                <th>Commentaires</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+                
             <?php foreach ($myArticles as $myArticle):?>
 
                 <tr>
@@ -32,14 +32,14 @@
                 </tr>
 
             <?php endforeach;?>
+            
+        </tbody>
+    </table>
 
-        <?php else:?>
+<?php else:?>
 
-            <p>Vous n'avez publié aucun article.</p>
+    <p class="noArticle">Vous n'avez publié aucun article.</p>
 
-        <?php endif;?>
-        
-    </tbody>
-</table>
+<?php endif;?>
 
 <script src="<?= asset('js/adminarticle.js');?>"></script>

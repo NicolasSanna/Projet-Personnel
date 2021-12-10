@@ -23,6 +23,12 @@
     }
 }
 
+.noArticle
+{
+    padding-top:10px;
+    padding-bottom:5px;
+}
+
 // SUPPRESSION DES CONTRÔLES DE LA BALISE VIDEO HTML
 audio::-webkit-media-controls-timeline,
 video::-webkit-media-controls-timeline 
@@ -42,11 +48,9 @@ textarea
     font-size: 14px;
 }
 
-
 // MESSAGES
 .Message
-{
-    
+{ 
     padding:10px;
     margin:0px;
     color:rgb(240, 240, 240);
@@ -59,6 +63,7 @@ textarea
     &-message
     {
         background-color:rgb(0, 66, 0);
+        border-radius: 5px;
     }
 }
 
@@ -68,6 +73,7 @@ textarea
     &-message
     {
         background-color: darkred;
+        border-radius: 5px;
     }
 }
 
@@ -76,14 +82,14 @@ textarea
 {
     &-message
     {
-        background-color:$colorPeru
+        background-color:$colorPeru;
+        border-radius: 5px;
     }
 }
 
 .Title
 {
     text-align: center;
-
     margin-top:30px;
     margin-bottom:0px;
 }
@@ -91,6 +97,15 @@ textarea
 .TitlePage
 {
     text-align: center;
+}
+
+// CSS DE DU COMMENTAIRE DANS LE DASHBOARD
+.Comment
+{
+    &-content
+    {
+        text-align: justify;
+    }
 }
 
 // LISTE
@@ -157,10 +172,6 @@ textarea
         color:black;  
     }
 }
-
-// CSS DES MENUS DÉROULANTS
-
-
 
 // CSS DU BOUTON D'AJOUT DE FICHIERS
 .parent-div 
@@ -390,9 +401,18 @@ textarea
     }
 }
 
+// CSS DU TITRE DE LA PAGE DE RECHERCHE 
+.searchTitle
+{
+    margin-left:10px;
+    text-align: center;
+}
+
 // FORMULAIRE DE RECHERCHE
 .FormSearch
 {
+    margin-left:10px;
+    margin-right:10px;
     &-box
     {
         width:auto;  
@@ -403,6 +423,7 @@ textarea
         padding-top:0px;
         padding-bottom:0px;
         justify-content: space-around;
+        text-align: center;
         &-button
         {
             margin-top:10px;
@@ -433,14 +454,16 @@ textarea
     &-label
     {
         text-align:left;
-        margin-bottom:10px;
-        margin-right:10px;
+        margin-bottom:30px;
         
     }
     &-input
     {
         margin-bottom:10px;
         padding:10px;
+        margin-right:10px;
+        margin-top: 10px;
+        margin-left:10px;
     }
 }
 
@@ -627,6 +650,14 @@ textarea
             // align-items: center;
         }
         
+    }
+
+    .FormSearch
+    {
+        &-input
+        {
+            width:400px;
+        }
     }
 }
 

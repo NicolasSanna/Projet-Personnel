@@ -1,22 +1,22 @@
 <h3 class="TitlePage">Gérer les utilisateurs</h3>
 
-<table>
-    <thead>
-        <tr>
-            <th>Identifiant</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>E-mail</th>
-            <th>Pseudo</th>
-            <th>Date d'inscription</th>
-            <th>Nombre d'articles</th>
-            <th>Rôle</th>
-            <th colspan="2">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+<?php if (!empty($usersInfos)):?>
 
-        <?php if (!empty($usersInfos)):?>
+    <table>
+        <thead>
+            <tr>
+                <th>Identifiant</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>E-mail</th>
+                <th>Pseudo</th>
+                <th>Date d'inscription</th>
+                <th>Nombre d'articles</th>
+                <th>Rôle</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
 
             <?php foreach ($usersInfos as $userInfos):?>
 
@@ -35,8 +35,12 @@
             
             <?php endforeach;?>
 
-        <?php endif;?>
-
         </tbody>
-</table>
+    </table>
+
+<?php else:?>
+
+    <p>Il n'y a pas d'utilisateurs pour le moment.</p>
+
+<?php endif;?>
 

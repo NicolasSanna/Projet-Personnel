@@ -1,42 +1,41 @@
 <h3 class="TitlePage">Gérer les commentaires</h3>
 
-<table>
-    
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Titre de l'article</th>
-            <th>Commentaire</th>
-            <th>Date</th>
-            <th colspan="2">Actions</th>
-        </tr>
-    </thead>
+<?php if (!empty($commentsNotApprouved)):?>
 
-    <tbody>
-
-    <?php if (!empty($commentsNotApprouved)):?>
-
-        <p><a class="Link" href="<?=buildUrl('allCommentsApprouved');?>">Approuver tous les commentaires</a></p>
-
-        <?php foreach ($commentsNotApprouved as $commentNotApprouved):?>
-
+    <table>
+        <thead>
             <tr>
-                <td><?= $commentNotApprouved['id'];?></td>
-                <td><a href="<?=buildUrl('article', ['id' => $commentNotApprouved['article_id']]);?>"><?= htmlspecialchars($commentNotApprouved['title']) ;?></a></td>
-                <td><?= $commentNotApprouved['content'];?></td>
-                <td><?= (new DateTimeImmutable($commentNotApprouved['date_publication']))->format('d/m/Y');?></td>
-                <td><a href="<?=buildUrl('commentApprouved', ['id' => $commentNotApprouved['id']]);?>">Approuver</a></td>
-                <td><a href="<?=buildUrl('commentDelete', ['id' => $commentNotApprouved['id']]);?>">Supprimer</a></td>
+                <th>Id</th>
+                <th>Titre de l'article</th>
+                <th>Commentaire</th>
+                <th>Date</th>
+                <th colspan="2">Actions</th>
             </tr>
+        </thead>
+        <tbody>
 
-        <?php endforeach;?>
+            <p><a class="Link commentManager" href="<?=buildUrl('allCommentsApprouved');?>">Approuver tous les commentaires</a></p>
 
-    <?php else :?>
+            <?php foreach ($commentsNotApprouved as $commentNotApprouved):?>
 
-        <p>Il n'y a pas de commentaires à modérer pour le moment.</p>
+                <tr>
+                    <td><?= $commentNotApprouved['id'];?></td>
+                    <td><a href="<?=buildUrl('article', ['id' => $commentNotApprouved['article_id']]);?>"><?= htmlspecialchars($commentNotApprouved['title']) ;?></a></td>
+                    <td class="Comment-content"><?= htmlspecialchars($commentNotApprouved['content']);?></td>
+                    <td><?= (new DateTimeImmutable($commentNotApprouved['date_publication']))->format('d/m/Y');?></td>
+                    <td><a href="<?=buildUrl('commentApprouved', ['id' => $commentNotApprouved['id']]);?>">Approuver</a></td>
+                    <td><a class="commentManager" href="<?=buildUrl('commentDelete', ['id' => $commentNotApprouved['id']]);?>">Supprimer</a></td>
+                </tr>
 
-    <?php endif;?>
+            <?php endforeach;?>
 
-    </tbody>
+        </tbody>
+    </table>
 
-</table>
+<?php else :?>
+
+    <p>Il n'y a pas de commentaires à modérer pour le moment.</p>
+
+<?php endif;?>
+
+<script src="<?=asset('js/admincomment.js');?>"></script>

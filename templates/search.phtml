@@ -1,4 +1,4 @@
-<h4>Recherche</h4>
+<h3 class="searchTitle">Recherche</h3>
 
 <div class="FormSearch">
     <form class="FormSearch-box" id="search-form" action="<?= buildUrl('searchAjax');?>" method="POST">
@@ -8,13 +8,15 @@
     </form>
 </div>
 
+<hr>
+
 <div class="containerSearch" >
 
 </div>
 
 <!-- Résultat du moteur de recherche version PHP/MySQL -->
 
-<?php if (!empty($searchArticles)):?>
+<!-- <?php if (!empty($searchArticles)):?>
 
     <?php foreach ($searchArticles as $searchArticle):?>
 
@@ -33,6 +35,6 @@
 
     <?php endforeach;?>
 
-<?php endif;?>
+<?php endif;?> -->
 
 <script src="<?= asset('js/search.js');?>"></script> 

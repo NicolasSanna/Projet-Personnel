@@ -16,4 +16,3 @@ BEGIN
     ORDER BY art.creation_date DESC;
 
 END //
-

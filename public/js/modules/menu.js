@@ -14,7 +14,6 @@ export class burgerManager
         let burger = document.getElementById('burger');
         let cross = document.getElementById('cross')
         
-
         /**
          * On pose un écouteur d'événement sur les deux éléments qui déclencheront deux fonction différentes. 
          */
