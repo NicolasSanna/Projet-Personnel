@@ -146,7 +146,6 @@ $routes = [
         'controller' => 'Admin\\Article',
         'method' => 'deleteImage'
     ],
-
     'searchAjax' => [
         'path' => '/ajax/rechercher',
         'controller' => 'Forum',

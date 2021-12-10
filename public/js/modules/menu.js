@@ -80,8 +80,3 @@ export class burgerManager
         }
     }
 }
-
-/**
- * On créé l'objet burger. 
- */
-// const burger = new burgerManager();

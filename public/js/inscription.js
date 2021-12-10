@@ -26,10 +26,12 @@ class passwordManager
          */
         let passwordLabel = document.getElementById('password');
 
-        passwordLabel.type = passwordLabel.type ==="password"? "text":"password"
+        /**
+         * Opérateur ternaire : SI passwordLabel.type === "passowrd" (?), alors on met "text" SINON (:) on change le type en "password".
+         */
+        passwordLabel.type = passwordLabel.type === "password" ? "text" : "password"
 
     }
-
 }
 
 /**

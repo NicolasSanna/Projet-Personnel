@@ -102,7 +102,7 @@ textarea {
 }
 
 .Link {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 10px;
   background-color: peru;
   color: white;
@@ -265,6 +265,8 @@ textarea {
   -webkit-box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .Homepage-section2-h3 {
@@ -496,7 +498,7 @@ textarea {
   font-family: "Open Sans", sans-serif;
   border: none;
   cursor: pointer;
-  max-width: 200px;
+  max-width: 300px;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;

@@ -133,7 +133,7 @@ textarea
 // LIEN
 .Link
 {
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 10px;
     background-color:$colorPeru;
     color:white;
@@ -158,6 +158,10 @@ textarea
         color:black;  
     }
 }
+
+// CSS DES MENUS DÉROULANTS
+
+
 
 // CSS DU BOUTON D'AJOUT DE FICHIERS
 .parent-div 
@@ -270,10 +274,6 @@ textarea
         height:80%;
         border:solid $colorPeru 1px;
         filter:brightness(90%);
-        &-description
-        {
-
-        }
     }
     &-h2
     {
@@ -302,6 +302,8 @@ textarea
         padding-right:20px;
         box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
         border-radius: 10px;
+        margin-left:50px;
+        margin-right:50px;
 
         &-h3
         {
@@ -538,7 +540,7 @@ textarea
             font-family: $fontGlobal;
             border:none;
             cursor:pointer;
-            max-width:200px;
+            max-width:300px;
             align-items: flex-end;
             border:solid 1px $colorPeru;
             border-radius:5px;
@@ -623,14 +625,10 @@ textarea
         &-box
         {
             width: 300px;
+            // align-items: center;
         }
         
     }
-    .LinkA
-    {
-        // max-width:100%;
-    }
- 
 }
 
 // POINT DE RUPTURE DU MEDIA QUERIES A 1110 PX
@@ -656,22 +654,6 @@ textarea
             margin-left:10px;
             margin-right:20px;
             min-width:400px;
-        }
-    }
-
-    .Forum
-    {
-        &-list
-        {
-            
-        }
-    }
-
-    .Search 
-    {
-        &-list
-        {
-           
         }
     }
 
