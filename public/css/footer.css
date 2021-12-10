@@ -93,8 +93,7 @@
             flex-direction: row;
   }
   .Footer-box-section2 {
-    margin-right: 0px;
-    margin-left: 20px;
+    margin-left: auto;
   }
   .Footer-box-section2-left {
     padding-left: 40px;

@@ -112,7 +112,14 @@ class ForumController extends AbstractController
          * On récupère la valeur de $_POST['search'] venant du formulaire dans $search.
          */
         $search = $_POST['search'];
+        /**
+         * On créé l'objet ArticleModel
+         */
         $articleModel = new ArticleModel();
+
+        /**
+         * On stocke dans $searchArticles l'appel à la méthode searchArticles de l'objet $articleModel en donnant en paramètre ce que l'on a récupéré du formulaire.
+         */
         $searchArticles = $articleModel->searchArticle($search);
 
         /**

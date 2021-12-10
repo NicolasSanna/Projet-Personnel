@@ -82,7 +82,7 @@
     }
 }
 
-// POINT DE RUPTURE DU MEDIA QUERIES A 739 PX.
+// POINT DE RUPTURE DU MEDIA QUERIES A 730 PX.
 @media screen AND (min-width: 730px)
 {
     .Footer
@@ -92,9 +92,7 @@
             flex-direction:row;
             &-section2 
             {
-                margin-right:0px;
-
-                margin-left:20px;
+                margin-left:auto;
                 &-left
                 {
                     padding-left: 40px; 

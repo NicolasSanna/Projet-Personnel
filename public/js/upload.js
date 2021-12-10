@@ -35,6 +35,7 @@ class addArticleManager
          */
         if(inputFile.files && inputFile.files.length == 1)
         {
+            
             /**
              * On vérifie la taille de ce qui a été reçu dans l'input de type file. Si c'est supérieur à 2000000 octets (2Mo)
              */

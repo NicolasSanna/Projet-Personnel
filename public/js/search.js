@@ -12,7 +12,6 @@ async function onSubmitFormSearch(event)
      * On arrête le comportement par défaut du navigateur.
      */
     event.preventDefault();
-    console.log('arret du navigateur');
 
     /**
      * On créé on objet FormData qui prend en paramètre l'élément HTML du formulaire stocké dans form.
@@ -27,7 +26,6 @@ async function onSubmitFormSearch(event)
      * On créé la constante url, pour cela, on récupère l'action venant de la constante form de la balise HTML.
      */
     const url = form.action; 
-    console.log(url);
 
     /**
      * On stocke dans options la méthode à savoir post, du formulaire, et le corps de la requête venant de formData (objet FormData).
@@ -38,19 +36,16 @@ async function onSubmitFormSearch(event)
         body: formData,
 
     }
-    console.log(options)
 
     /**
      * On créé la constante response qui attend le fetch. Le fetch prend en paramètre l'url de destination ainsi que les paramètres de options.
      */
     const response = await fetch(url, options);
-    console.log(response);
 
     /**
      * On récupère la réponse en json et on stocke dans results.
      */
     const results = await response.json();
-    console.log(results);
 
     /**
      * On récupère la balise containerSearch venant du template HTML dans la constante container.
@@ -95,11 +90,11 @@ async function onSubmitFormSearch(event)
         /**
          * On met le nombre de caractères de 0 à 200. Et on contatène ensuite les crochets trois points.
          */
-        articleContent.innerHTML = result['content'].substr(0, 100) + ' [...]';
+        articleContent.innerHTML = `${result['content'].substr(0, 100)} [...]`;
 
         let articlePseudo = divSearchListArticle.appendChild(document.createElement('p'));
         articlePseudo.classList.add('Search-list-article-pseudo');
-        articlePseudo.innerHTML = 'Écrit par : ' + result['pseudo'];
+        articlePseudo.innerHTML = `Écrit par : ${result['pseudo']}`;
 
         let articleDate = divSearchListArticle.appendChild(document.createElement('p'));
         articleDate.classList.add('Search-list-article-date');
@@ -108,7 +103,7 @@ async function onSubmitFormSearch(event)
          * On créé un objet date qui prend en paramètre le résultat brute venant de la base de données et de la requête Ajax. Et on lui applique la méthode toLocalDateString en donnant le fuseau horaire français et le format français de date.
          */
         let date = new Date(result['creation_date']).toLocaleDateString('fr-FR');
-        articleDate.innerHTML = 'Date de publication : Le : ' + date;
+        articleDate.innerHTML = `Date de publication : Le : ${date}`;
 
         let articleCategory = divSearchListArticle.appendChild(document.createElement('p'));
         articleCategory.classList.add('Search-list-article-category');
