@@ -11,6 +11,8 @@ ALTER TABLE articles DROP CONSTRAINT fk_category_article;
 ALTER TABLE comments DROP CONSTRAINT fk_article_com;
 ALTER TABLE comments DROP CONSTRAINT fk_status_com;
 ALTER TABLE comments DROP CONSTRAINT fk_user_com;
+ALTER TABLE messages DROP CONSTRAINT fk_from_user;
+ALTER TABLE messages DROP CONSTRAINT fk_to_user;
 
 -- On commence la création des tables ici.
 DROP TABLE IF EXISTS grants;
@@ -91,6 +93,27 @@ CREATE TABLE comments
         FOREIGN KEY (article_id)
             REFERENCES articles (id) ON UPDATE CASCADE ON DELETE CASCADE,
         CONSTRAINT fk_status_com
+        FOREIGN KEY (status_id)
+            REFERENCES status (id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE = InnoDB ;
+
+DROP TABLE IF EXISTS messages;
+CREATE TABLE messages
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    content LONGTEXT NOT NULL,
+    from_user_id INT NOT NULL,
+    to_user_id INT NOT NULL,
+    publication_date DATETIME NOT NULL,
+    status_id INT NOT NULL,
+    PRIMARY KEY (id),
+        CONSTRAINT fk_from_user
+        FOREIGN KEY (from_user_id)
+            REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        CONSTRAINT fk_to_user
+        FOREIGN KEY (to_user_id)
+            REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        CONSTRAINT fk_status_msg
         FOREIGN KEY (status_id)
             REFERENCES status (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB ;
