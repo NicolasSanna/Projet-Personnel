@@ -30,4 +30,4 @@ https://grafikart.fr/tutoriels/recaptcha-anti-spam-346
 
 - Modifier le CSS du menu de navigation différencier la partie site, et la partie admin.
 
-- Ajouter un système de messagerie interne : ajout d'une table message (id, message, from_id, to_id, piecejointe), table intermédiaire user_authorization_message (user_id, status[blocked, authorized]), liste noire, liste blanche. (LAST_INSERT_ID(), pour récupérer le nouvel identifiant de l'utilisateur inscrit dans la Procédure Stockée).
+- Ajouter un système de messagerie interne : ajout d'une table message (id, message, from_id, to_id, piecejointe, authorize)
