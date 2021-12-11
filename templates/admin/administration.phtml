@@ -13,11 +13,16 @@
                 <a class="List-link" href="<?=buildUrl('myarticles');?>">Gérer mes articles</a>
             </div>
 
+        <h4 class="Title">Membres</h4>
+        
+            <div class="List">
+                <a class="List-link" href="#">Messagerie</a>
+            </div>
+
     <?php endif;?>
 
     <?php if(UserSession::administrator()):?>
 
-        <h4 class="Title">Membres</h4>
         <div class="List">
             <a class="List-link" href="<?=buildUrl('adminusers');?>">Gérer les membres</a>
         </div>
