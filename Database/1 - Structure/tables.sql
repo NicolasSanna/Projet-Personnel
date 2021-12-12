@@ -13,7 +13,9 @@ ALTER TABLE comments DROP CONSTRAINT fk_status_com;
 ALTER TABLE comments DROP CONSTRAINT fk_user_com;
 ALTER TABLE messages DROP CONSTRAINT fk_from_user;
 ALTER TABLE messages DROP CONSTRAINT fk_to_user;
-ALTER TABLE messages DROP CONSTRAINT fk_read_message_status;
+ALTER TABLE messages DROP CONSTRAINT fk_message_status_sender;
+ALTER TABLE messages DROP CONSTRAINT fk_message_status_receptor;
+ALTER TABLE messages DROP CONSTRAINT fk_status_user_sender;
 
 -- On commence la création des tables ici.
 DROP TABLE IF EXISTS grants;
@@ -134,15 +136,12 @@ CREATE TABLE messages
         CONSTRAINT fk_to_user
         FOREIGN KEY (to_user_id)
             REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
-
         CONSTRAINT fk_message_status_sender
         FOREIGN KEY (status_message_sender_id)
             REFERENCES message_status (id) ON UPDATE CASCADE ON DELETE CASCADE,
-
         CONSTRAINT fk_message_status_receptor
         FOREIGN KEY (status_message_receptor_id)
             REFERENCES message_status (id) ON UPDATE CASCADE ON DELETE CASCADE,
-
         CONSTRAINT fk_status_user_sender
         FOREIGN KEY (status_sender_id)
             REFERENCES user_status (id) ON UPDATE CASCADE ON DELETE CASCADE
