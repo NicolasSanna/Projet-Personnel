@@ -172,10 +172,27 @@ class MessageController extends AbstractController
             }
 
             $messageModel = new MessageModel();
-            $deleteFromUserMessage = $messageModel->moveToTrashFromUserMessage($idOfMessage);
-            FlashBag::addFlash('Message Supprimé', 'success');
-            $this->redirect('mymessages');
+            $messageExist = $messageModel->messageRead($idOfMessage);
 
+            if(!$messageExist)
+            {
+                FlashBag::addFlash("Il n'existe pas de message sous cet identifiant", 'error');
+            }
+
+            if ($messageExist['from_user_id'] != UserSession::getId())
+            {
+                FlashBag::addFlash("Vous ne pouvez pas supprimer un message qui ne vous est pas destiné.", 'error');
+            }
+
+            if (!(FlashBag::hasMessages('error')))
+            {
+                
+                $messageModel = new MessageModel();
+                $deleteFromUserMessage = $messageModel->moveToTrashFromUserMessage($idOfMessage);
+                FlashBag::addFlash('Message Supprimé', 'success');
+                
+            }
+            $this->redirect('mymessages');
         }
 
         else
@@ -201,8 +218,26 @@ class MessageController extends AbstractController
             }
 
             $messageModel = new MessageModel();
-            $deleteFromUserMessage = $messageModel-> moveToTrashToUserMessage($idOfMessage);
-            FlashBag::addFlash('Message Supprimé', 'success');
+            $messageExist = $messageModel->messageRead($idOfMessage);
+
+            if(!$messageExist)
+            {
+                FlashBag::addFlash("Il n'existe pas de message sous cet identifiant", 'error');
+            }
+
+            if ($messageExist['to_user_id'] != UserSession::getId())
+            {
+                FlashBag::addFlash("Vous ne pouvez pas supprimer un message qui ne vous est pas destiné.", 'error');
+            }
+
+            if (!(FlashBag::hasMessages('error')))
+            {
+                
+                $messageModel = new MessageModel();
+                $deleteFromUserMessage = $messageModel->moveToTrashToUserMessage($idOfMessage);
+                FlashBag::addFlash('Message Supprimé', 'success');
+                
+            }
             $this->redirect('mymessages');
 
         }

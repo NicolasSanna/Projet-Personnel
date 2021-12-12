@@ -174,12 +174,12 @@ $routes = [
     ],
 
     'messageTrashFromUser' => [
-        'path' => '/supprimermonmessage',
+        'path' => '/administration/supprimermonmessage',
         'controller' => 'Admin\\Message',
         'method' => 'moveToTrashFromUser'
     ],
     'messageTrashToUser' => [
-        'path' => '/supprimersonmessage',
+        'path' => '/administration/supprimersonmessage',
         'controller' => 'Admin\\Message',
         'method' => 'moveToTrashToUser'
     ],
