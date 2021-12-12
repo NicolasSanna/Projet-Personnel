@@ -182,14 +182,14 @@ $routes = [
         'path' => '/supprimersonmessage',
         'controller' => 'Admin\\Message',
         'method' => 'moveToTrashToUser'
-    ]
+    ],
 
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
-    // '404' => [
-    //     'path' => $path,
-    //     'controller' => 'Home',
-    //     'method' => 'notFound'
-    // ]
+    '404' => [
+        'path' => $path,
+        'controller' => 'Home',
+        'method' => 'notFound'
+    ]
 ];
 
 // On fait de route une constante.
