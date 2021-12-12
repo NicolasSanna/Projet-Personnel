@@ -1,0 +1,29 @@
+<?php use App\Framework\UserSession;?>
+
+
+<h3>Message</h3>
+
+<div class="MyMessage">
+
+    <p>Sujet : <?=$message['subject'];?></p>
+    <p>De : <?=$message['pseudoFrom'];?></p>
+    <p>À <?=$message['pseudoTo'];?></p>
+    <p>Message :</p>
+    <p><?=$message['content'];?></p>
+
+</div>
+
+<?php if ($message['from_user_id'] != UserSession::getId()):?>
+
+    <div class="anwser">
+        <form action="" method="POST">
+            <label for="subject">Sujet :</label>
+            <input type="text" name="subject" id="">
+            <label for="content">Message :</label>
+            <textarea name="content"></textarea>
+            <input type="hidden" name="toUser" value="<?=$message['from_user_id'];?>">
+            <input type="submit" value="Répondre">
+        </form>
+    </div>
+
+<?php endif;?>

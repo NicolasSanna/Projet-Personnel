@@ -1,0 +1,14 @@
+<h3>Écrire un nouveau message</h3>
+
+<form action="" method="POST">
+    <label for="subject">Sujet :</label>
+    <input type="text" name="subject" id="">
+    <label for="content">Message :</label>
+    <textarea name="content"></textarea>
+    <select name="selectUser" id="">
+        <?php foreach ($users as $user):?>
+        <option value="<?=$user['id'];?>"><?=$user['pseudo'];?></option>
+        <?php endforeach;?>
+    </select>
+    <input type="submit" value="Envoyer le message">
+</form>

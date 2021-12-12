@@ -152,12 +152,44 @@ $routes = [
         'method' => 'searchAjax'
     ],
 
-    // Mettre cette route en tout dernier si aucune ne correspond. /!\
-    '404' => [
-        'path' => $path,
-        'controller' => 'Home',
-        'method' => 'notFound'
+    'mymessages' => [
+        'path' => '/administration/mesmessages',
+        'controller' => 'Admin\\Message',
+        'method' => 'index'
+    ],
+    'newmessage' => [
+        'path' => '/administration/nouveaumessage',
+        'controller' => 'Admin\\Message',
+        'method' => 'new'
+    ],
+    'sendbox' => [
+        'path' => '/administration/messagesenvoyes',
+        'controller' => 'Admin\\Message',
+        'method' => 'sendbox'
+    ],
+    'message' => [
+        'path' => '/administration/message',
+        'controller' => 'Admin\\Message',
+        'method' => 'message'
+    ],
+
+    'messageTrashFromUser' => [
+        'path' => '/supprimermonmessage',
+        'controller' => 'Admin\\Message',
+        'method' => 'moveToTrashFromUser'
+    ],
+    'messageTrashToUser' => [
+        'path' => '/supprimersonmessage',
+        'controller' => 'Admin\\Message',
+        'method' => 'moveToTrashToUser'
     ]
+
+    // Mettre cette route en tout dernier si aucune ne correspond. /!\
+    // '404' => [
+    //     'path' => $path,
+    //     'controller' => 'Home',
+    //     'method' => 'notFound'
+    // ]
 ];
 
 // On fait de route une constante.

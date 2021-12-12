@@ -494,6 +494,17 @@ textarea {
   margin-right: auto;
 }
 
+.MyMessages {
+  display: flex;
+  flex-direction: row;
+}
+
+.ListMessagerie {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
 @media screen and (min-width: 880px) {
   .Home {
     text-align: center;

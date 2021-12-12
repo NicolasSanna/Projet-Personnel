@@ -108,6 +108,8 @@ textarea
     }
 }
 
+
+
 // LISTE
 .List
 {
@@ -625,6 +627,19 @@ textarea
     max-width:300px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.MyMessages
+{
+    display:flex;
+    flex-direction:row;
+}
+
+.ListMessagerie
+{
+    display:flex;
+    flex-direction:column;
+    text-align: center;
 }
 
 // POINT DE RUPTURE DU MEDIA QUERIES A 880 PX

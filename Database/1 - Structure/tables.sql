@@ -13,6 +13,7 @@ ALTER TABLE comments DROP CONSTRAINT fk_status_com;
 ALTER TABLE comments DROP CONSTRAINT fk_user_com;
 ALTER TABLE messages DROP CONSTRAINT fk_from_user;
 ALTER TABLE messages DROP CONSTRAINT fk_to_user;
+ALTER TABLE messages DROP CONSTRAINT fk_read_message_status;
 
 -- On commence la création des tables ici.
 DROP TABLE IF EXISTS grants;
@@ -97,15 +98,35 @@ CREATE TABLE comments
             REFERENCES status (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB ;
 
+DROP TABLE IF EXISTS user_status;
+CREATE TABLE user_status
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    label VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB ;
+
+DROP TABLE IF EXISTS message_status;
+CREATE TABLE message_status
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    label VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
 DROP TABLE IF EXISTS messages;
 CREATE TABLE messages
 (
     id INT NOT NULL AUTO_INCREMENT,
+    id_message VARCHAR(128) NOT NULL,
+    subject VARCHAR(255) NOT NULL,
     content LONGTEXT NOT NULL,
     from_user_id INT NOT NULL,
     to_user_id INT NOT NULL,
     publication_date DATETIME NOT NULL,
-    status_id INT NOT NULL,
+    status_message_sender_id INT NOT NULL,
+    status_message_receptor_id INT NOT NULL,
+    status_sender_id INT NOT NULL,
     PRIMARY KEY (id),
         CONSTRAINT fk_from_user
         FOREIGN KEY (from_user_id)
@@ -113,9 +134,18 @@ CREATE TABLE messages
         CONSTRAINT fk_to_user
         FOREIGN KEY (to_user_id)
             REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        CONSTRAINT fk_status_msg
-        FOREIGN KEY (status_id)
-            REFERENCES status (id) ON UPDATE CASCADE ON DELETE CASCADE
+
+        CONSTRAINT fk_message_status_sender
+        FOREIGN KEY (status_message_sender_id)
+            REFERENCES message_status (id) ON UPDATE CASCADE ON DELETE CASCADE,
+
+        CONSTRAINT fk_message_status_receptor
+        FOREIGN KEY (status_message_receptor_id)
+            REFERENCES message_status (id) ON UPDATE CASCADE ON DELETE CASCADE,
+
+        CONSTRAINT fk_status_user_sender
+        FOREIGN KEY (status_sender_id)
+            REFERENCES user_status (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB ;
 
 -- On remet les clés étrangères.

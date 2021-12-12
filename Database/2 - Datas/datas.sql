@@ -19,6 +19,14 @@ VALUES
 INSERT INTO status (id, label)
 VALUES
 (1, "En attente d'approbation"),
-(2, "Approuvé"),
-(3, "Message autorisé"),
-(4, "Message bloqué");
+(2, "Approuvé");
+
+INSERT INTO message_status (id, label)
+VALUES
+(1, "Conservé"),
+(2, "Supprimé");
+
+INSERT INTO user_status (id, label)
+VALUES
+(1, "Autorisé"),
+(2, "Bloqué");
