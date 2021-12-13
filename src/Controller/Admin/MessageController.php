@@ -248,6 +248,35 @@ class MessageController extends AbstractController
         }
     }
 
+    public function blockUser()
+    {
+
+        if (UserSession::author() || UserSession::administrator())
+        {
+            $messageModel = new MessageModel();
+            $users = $messageModel->getAllUsers();
+
+            $pageTitle = "Bloquer un utilisateur";
+
+            if(!empty($_POST))
+            {
+                $userToBlock = (int) $_POST['selectUser'];
+                $id_user = UserSession::getId();
+
+                $querySP = $messageModel->blockUser($userToBlock, $id_user);
+                FlashBag::addFlash($querySP['message'], 'query');
+
+                $this->redirect('mymessages');
+            }
+        }
+
+
+        return $this->render('admin/message/blockuser', [
+            'pageTitle' => $pageTitle,
+            'users' => $users
+        ]);
+    }
+
 
     
 }

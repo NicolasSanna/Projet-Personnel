@@ -1,0 +1,10 @@
+<h3>Bloquer un utilisateur</h3>
+
+<form action="" method="POST">
+    <select name="selectUser" id="">
+        <?php foreach ($users as $user):?>
+        <option value="<?=$user['id'];?>"><?=$user['pseudo'];?></option>
+        <?php endforeach;?>
+    </select>
+    <input type="submit" value="Bloquer l'utilisateur">
+</form>

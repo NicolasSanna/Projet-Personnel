@@ -61,4 +61,13 @@ class MessageModel extends AbstractModel
 
         $moveToTrash = $this->database->executeQuery($sql, [$messageId]);
     }
+
+    public function blockUser(int $userToBlock, int $userId)
+    {
+        $sql = 'CALL SP_BlockUserUpdate(?, ?)';
+
+        $blockUser = $this->database->getOneResult($sql, [$userToBlock, $userId]);
+        
+        return $blockUser;
+    }
 }

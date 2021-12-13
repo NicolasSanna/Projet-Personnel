@@ -184,6 +184,11 @@ $routes = [
         'method' => 'moveToTrashToUser'
     ],
 
+    'blockUser' => [
+        'path' => '/administration/bloquerunutilisateur',
+        'controller' => 'Admin\\Message',
+        'method' => 'blockUser'
+    ],
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
         'path' => $path,
