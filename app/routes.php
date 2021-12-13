@@ -189,6 +189,12 @@ $routes = [
         'controller' => 'Admin\\Message',
         'method' => 'blockUser'
     ],
+
+    'inboxAjax' => [
+        'path' => '/administration/messagesajax',
+        'controller' => 'Admin\\Message',
+        'method' => 'inBoxAjax'
+    ],
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
         'path' => $path,

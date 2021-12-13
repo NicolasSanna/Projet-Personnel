@@ -1,11 +1,14 @@
 <h3>Messagerie</h3>
+
+<a id="inboxAjax" class="Link" href="<?=buildUrl('inboxAjax');?>">Rafraichir</a>
+
 <div class="MyMessages">
 
     <?php include TEMPLATE_DIR . '/admin/message/adminmessages.phtml';?>
 
     <?php include TEMPLATE_DIR . '/admin/message/table.phtml';?>
 
-        <tbody>
+        <tbody id="tbody">
 
             <?php if (!empty($messages)):?>
 
@@ -15,7 +18,7 @@
                         <td><?=$message['pseudoFrom'];?></td>
                         <td><?=$message['pseudoTo'];?></td>
                         <td><?=$message['subject'];?></td>
-                        <td>Le <?=(new DateTimeImmutable($message['publication_date']))->format('d/m/Y');?> à <?=(new DateTimeImmutable($message['publication_date']))->format('H:i');?></td>
+                        <td>Le <?=(new DateTimeImmutable($message['publication_date']))->format('d/m/Y');?></td>
                         <td><a href="<?=buildUrl('message', ['id' => $message['id_message']]);?>">Lire</a></td>
                         <td><a href="<?=buildUrl('messageTrashToUser', ['id' => $message['id_message']]);?>">Supprimer</a></td>
                     </tr>
@@ -27,3 +30,5 @@
         </tbody>
     </table>
 </div>
+
+<script src="<?=asset('js/inbox.js');?>"></script>

@@ -14,7 +14,7 @@
                         <td><?=$message['pseudoFrom'];?></td>
                         <td><?=$message['pseudoTo'];?></td>
                         <td><?=$message['subject'];?></td>
-                        <td>Le <?=(new DateTimeImmutable($message['publication_date']))->format('d/m/Y');?> à <?=(new DateTimeImmutable($message['publication_date']))->format('H:i');?></td>
+                        <td>Le <?=(new DateTimeImmutable($message['publication_date']))->format('d/m/Y');?></td>
                         <td><a href="<?=buildUrl('message', ['id' => $message['id_message']]);?>">Lire</a></td>
                         <td><a href="<?=buildUrl('messageTrashFromUser', ['id' => $message['id_message']]);?>">Supprimer</a></td>
                     </tr>

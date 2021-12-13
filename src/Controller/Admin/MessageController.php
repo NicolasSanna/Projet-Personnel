@@ -285,6 +285,24 @@ class MessageController extends AbstractController
         ]);
     }
 
+    public function inBoxAjax()
+    {
+        $userId = UserSession::getId();
+
+        $messageModel = new MessageModel();
+        $messages = $messageModel->inbox($userId);
+
+        foreach ($messages as $index => $message)
+        {
+            $messages[$index]['readUrl'] = SITE_BASE_URL . buildUrl('message', ['id' => $message['id_message']]);
+            $messages[$index]['deleteUrl'] = SITE_BASE_URL . buildUrl('messageTrashToUser', ['id' => $message['id_message']]);
+        }
+
+        $results = json_encode($messages);
+
+        echo $results;
+    }
+
 
     
 }
