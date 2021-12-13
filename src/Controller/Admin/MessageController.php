@@ -263,10 +263,18 @@ class MessageController extends AbstractController
                 $userToBlock = (int) $_POST['selectUser'];
                 $id_user = UserSession::getId();
 
-                $querySP = $messageModel->blockUser($userToBlock, $id_user);
-                FlashBag::addFlash($querySP['message'], 'query');
-
-                $this->redirect('mymessages');
+                if($userToBlock == UserSession::getId())
+                {
+                    FlashBag::addFlash("Vous ne pouvez pas vous bloquer vous-même", 'error');
+                }
+                
+                if (!(FlashBag::hasMessages('error')))
+                {
+                    $querySP = $messageModel->blockUser($userToBlock, $id_user);
+                    FlashBag::addFlash($querySP['message'], 'query');
+    
+                    $this->redirect('mymessages');
+                }
             }
         }
 
