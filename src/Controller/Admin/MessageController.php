@@ -6,6 +6,7 @@ use App\Framework\FlashBag;
 use App\Model\MessageModel;
 use App\Framework\UserSession;
 use App\Framework\AbstractController;
+use App\Framework\Server;
 
 class MessageController extends AbstractController
 {
@@ -289,6 +290,11 @@ class MessageController extends AbstractController
     {
         if (UserSession::author() || UserSession::administrator())
         {
+            if (!Server::referer())
+            {
+                $this->redirect('mymessages');
+            }
+
             $userId = UserSession::getId();
 
             $messageModel = new MessageModel();

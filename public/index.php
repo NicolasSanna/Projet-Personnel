@@ -9,10 +9,17 @@ require '../config.php';
 // Inclusion des dépendances (fichiers de fonctions)
 require '../library/functions.php';
 
+//  On appelle la classe Router.
 use App\Framework\Router;
 
-$fullPath = $_SERVER['REQUEST_URI'] ?? '/';
-$path = explode('?', $fullPath)[0];
+// On utilise la classe Server et sa méthode Path qui permet de retourner le path sans la rupture (?)
+use App\Framework\Server;
+
+// On appelle la fonction statique path() pour récupérer le path de la requête HTTP courante.
+$path = Server::path();
+
+// $fullPath = $_SERVER['REQUEST_URI'] ?? '/';
+// $path = explode('?', $fullPath)[0];
 
 // On va chercher les routes dans le fichier de configuration routes.php
 $routes = include '../app/routes.php';
