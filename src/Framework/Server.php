@@ -33,19 +33,13 @@ class Server
     }
 
     /**
-     * Création de la fonction statique referer, permettant de connaître la page de provenance de l'utilisateur avant celle sur laquelle il se trouve désormais.
+     * Création de la fonction statique verifyAjax qui contrôle si c'est une requête Ajax qui est reçue.
      */
-    static function referer ()
+    static function verifyAjax()
     {
-        /**
-         * Si n'est pas null la $_SERVER['HTTP_REFERER'], qui permet de connaître la page précédente...
-         */
-        if(!is_null($_SERVER['HTTP_REFERER']))
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' )
         {
-            /**
-             * On renvoie faux.
-             */
-            return false;
+            return true;
         }
     }
 }

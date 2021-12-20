@@ -8,9 +8,15 @@ async function onClickEvent (event)
     event.preventDefault();
     console.log('arrêt du navigateur');
 
-    const response = await fetch (this.href);
+    const options = 
+    {
+        headers: 
+        {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    }
 
-
+    const response = await fetch (this.href, options);
 
     const results = await response.json();
     console.log(results);
