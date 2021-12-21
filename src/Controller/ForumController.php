@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Framework\AbstractController;
 use App\Framework\FlashBag;
+use App\Framework\Server;
 use App\Model\ArticleModel;
 use App\Model\CategoryModel;
 
@@ -107,41 +108,49 @@ class ForumController extends AbstractController
      */
    public function searchAjax()
    {
- 
-        /**
-         * On récupère la valeur de $_POST['search'] venant du formulaire dans $search.
-         */
-        $search = $_POST['search'];
-        /**
-         * On créé l'objet ArticleModel
-         */
-        $articleModel = new ArticleModel();
-
-        /**
-         * On stocke dans $searchArticles l'appel à la méthode searchArticles de l'objet $articleModel en donnant en paramètre ce que l'on a récupéré du formulaire.
-         */
-        $searchArticles = $articleModel->searchArticle($search);
-
-        /**
-         * On effectue une boucle foreach clé-valeur.
-         */
-        foreach ($searchArticles as $index => $searchArticle)
+        if(Server::verifyAjax())
         {
             /**
-             * On ajoute une clé supplémentaire avec une valeur que l'on nomme. Et on donne l'adresse complète que l'on renvoie ensuite.
+             * On récupère la valeur de $_POST['search'] venant du formulaire dans $search.
              */
-            $searchArticles[$index]['articleUrl'] = SITE_BASE_URL . buildUrl('article', ['id' => intval($searchArticle['id_article'])]);
-            $searchArticles[$index]['categoryUrl'] = SITE_BASE_URL . buildUrl('category', ['id' => intval($searchArticle['id_category'])]);
-        }
+            $search = $_POST['search'];
+            /**
+             * On créé l'objet ArticleModel
+             */
+            $articleModel = new ArticleModel();
 
-        /**
-         * On récupère le résultat dans searchArticlesAjax depuis le json_encode qui prend en paramètre l'intégralité du résultat.
-         */
-        $searchArticlesAjax = json_encode($searchArticles);  
-        
-        /**
-         * On fait un echo du résultat afin que la requête Ajax de JavaScript récupère les résultats.
-         */
-        echo $searchArticlesAjax;
+            /**
+             * On stocke dans $searchArticles l'appel à la méthode searchArticles de l'objet $articleModel en donnant en paramètre ce que l'on a récupéré du formulaire.
+             */
+            $searchArticles = $articleModel->searchArticle($search);
+
+            /**
+             * On effectue une boucle foreach clé-valeur.
+             */
+            foreach ($searchArticles as $index => $searchArticle)
+            {
+                /**
+                 * On ajoute une clé supplémentaire avec une valeur que l'on nomme. Et on donne l'adresse complète que l'on renvoie ensuite.
+                 */
+                $searchArticles[$index]['articleUrl'] = SITE_BASE_URL . buildUrl('article', ['id' => intval($searchArticle['id_article'])]);
+                $searchArticles[$index]['categoryUrl'] = SITE_BASE_URL . buildUrl('category', ['id' => intval($searchArticle['id_category'])]);
+            }
+
+            /**
+             * On récupère le résultat dans searchArticlesAjax depuis le json_encode qui prend en paramètre l'intégralité du résultat.
+             */
+            $searchArticlesAjax = json_encode($searchArticles);  
+            
+            /**
+             * On fait un echo du résultat afin que la requête Ajax de JavaScript récupère les résultats.
+             */
+            echo $searchArticlesAjax;
+       }
+       else
+       {
+           $this->redirect('search');
+       }
+ 
+       
    }
 }

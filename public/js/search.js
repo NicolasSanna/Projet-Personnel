@@ -34,6 +34,10 @@ async function onSubmitFormSearch(event)
     {
         method: 'post',
         body: formData,
+        headers:
+        {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
 
     }
 
