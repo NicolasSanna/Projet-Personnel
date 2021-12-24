@@ -35,7 +35,7 @@ class Server
     /**
      * Création de la fonction statique verifyAjax qui contrôle si c'est une requête Ajax qui est reçue.
      */
-    static function verifyAjax()
+    static function ajaxisOkay()
     {
         if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' )
         {

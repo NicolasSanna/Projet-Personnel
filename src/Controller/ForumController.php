@@ -108,7 +108,7 @@ class ForumController extends AbstractController
      */
    public function searchAjax()
    {
-        if(Server::verifyAjax())
+        if(Server::ajaxIsOkay())
         {
             /**
              * On récupère la valeur de $_POST['search'] venant du formulaire dans $search.

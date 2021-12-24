@@ -290,7 +290,7 @@ class MessageController extends AbstractController
     {
         if (UserSession::author() || UserSession::administrator())
         {
-            if (Server::verifyAjax()) 
+            if (Server::ajaxIsOkay()) 
             {
                 $userId = UserSession::getId();
 
