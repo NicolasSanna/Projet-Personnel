@@ -23,6 +23,19 @@ async function onSubmitFormSearch(event)
     console.log(formData.get('search'));
 
     /**
+     * TODO = Vérifier le champs vide
+     * let search = formData.get('search');
+     * if (search =="")
+     * {
+     *  aler("le champ de recherche est vide")
+     * }
+     * else
+     * {
+     * ...
+     * }
+     */
+
+    /**
      * On créé la constante url, pour cela, on récupère l'action venant de la constante form de la balise HTML.
      */
     const url = form.action; 
