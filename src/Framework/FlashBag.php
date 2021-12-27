@@ -52,7 +52,7 @@ class FlashBag extends AbstractSession
         // On appelle la méthode initFlashBag avec en paramètre le type de messages.
         self::initFlashBag($type);
 
-        // On range dans $messages le message venant du type de message du tableau de type, au sein de la clé flash de la superglobale $_SESSION.
+        // On range dans $messages les messages venant du type de message du tableau de type, au sein de la clé flash de la superglobale $_SESSION.
         $messages = $_SESSION['flash'][$type];
 
         // On met les messages du type de message de la clé flash de la superglobale $_SESSION à null afin de vider les messages.
