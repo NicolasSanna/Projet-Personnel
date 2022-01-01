@@ -1,12 +1,15 @@
+# <IfModule mod_rewrite.c>
 # RewriteEngine On
+# RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 # RewriteBase /
 # RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteCond %{REQUEST_FILENAME} !-d
 
-# Chargement de tous les fichiers (JS, CSS)
+# # Chargement de tous les fichiers (JS, CSS)
 # RewriteRule ^(.*)\.(.*)$ /public/$1.$2 [L]
 
-# Redirection vers le répertoire public et le fichier index.php
-# Attention /!\ Penser à changer le SITE_BASE_URL dans le fichier config.php !
+# # Redirection vers le répertoire public et le fichier index.php
+# # Attention /!\ Penser à changer le SITE_BASE_URL dans le fichier config.php !
 # RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteRule ^(.*)$ public/index.php [QSA]     
+# RewriteRule ^(.*)$ /public/index.php [QSA] 
+# </IfModule> 
