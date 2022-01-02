@@ -2,11 +2,12 @@
 
 namespace App\Controller\Admin;
 
-use App\Framework\AbstractController;
+use App\Framework\File;
 use App\Framework\FlashBag;
-use App\Framework\UserSession;
-use App\Model\CategoryModel;
 use App\Model\ArticleModel;
+use App\Model\CategoryModel;
+use App\Framework\UserSession;
+use App\Framework\AbstractController;
 
 class ArticleController extends AbstractController
 {
@@ -34,32 +35,9 @@ class ArticleController extends AbstractController
                 }
 
                 if(!empty($file['name']))
-                {                  
-                    if($file['error'] > 0)
-                    {
-                        FlashBag::addFlash("Une erreur est survenue lors du chargement du fichier.", 'error');
-                    }
-
-                    if($file['size'] > 2000000)
-                    {
-                        FlashBag::addFlash("Le fichier est trop volumineux (plus de 2Mo)", 'error');
-                    }
-
-                    $fileName = pathinfo($file['name']);
-                    $fileExtension = $fileName['extension'];
-
-                    $validExtension = ['img', 'png', 'jpg', 'jpeg', 'jpg'];
-
-                    if(!in_array($fileExtension, $validExtension))
-                    {
-                        FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
-                    }
-                    else
-                    {
-                        
-                        $uniqueName = md5(uniqid(rand(), true));
-                        $fileName = $uniqueName . '.' . $fileExtension;
-                    }
+                {                                    
+                    $fileModel = new File();
+                    $fileName = $fileModel->UploadFileImage($file);
                 }
                 
                 if (!(FlashBag::hasMessages('error')))
@@ -68,6 +46,7 @@ class ArticleController extends AbstractController
                     {
                         move_uploaded_file($file['tmp_name'], IMAGE_DIR .  '/' . $fileName);
                     }
+                    
                     $articleModel = new ArticleModel();
                     $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user, $fileName);
                     FlashBag::addFlash("Votre article a bien été ajouté.", 'success');
@@ -170,31 +149,9 @@ class ArticleController extends AbstractController
 
                 if(!empty($file['name']))
                 {                  
-                    if($file['error'] > 0)
-                    {
-                        FlashBag::addFlash("Une erreur est survenue lors du chargement du fichier.", 'error');
-                    }
+                    $fileModel = new File();
 
-                    $fileName = pathinfo($file['name']);
-                    $fileExtension = $fileName['extension'];
-
-                    $validExtension = ['img', 'png', 'jpg', 'jpeg', 'jpg'];
-
-                    if(!in_array($fileExtension, $validExtension))
-                    {
-                        FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
-                    }
-                    else
-                    {
-                        
-                        $uniqueName = md5(uniqid(rand(), true));
-                        $fileName = $uniqueName . '.' . $fileExtension;
-                        
-                        if (!empty($imageExist))
-                        {
-                            unlink(IMAGE_DIR . '/' . $imageExist);
-                        }
-                    }
+                    $fileName = $fileModel->uploadFileImage($file, $imageExist);
                 }
 
                 if (!(FlashBag::hasMessages('error')))

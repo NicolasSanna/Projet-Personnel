@@ -61,8 +61,6 @@ class MessageController extends AbstractController
                 $messageModel = new MessageModel();
                 $insertMessage = $messageModel->sendMessage($idMessage, $id_user, $toUser, $subject, $content);
                 }
-                
-                
             }
         }
         else
@@ -86,8 +84,6 @@ class MessageController extends AbstractController
 
             $messageModel = new MessageModel();
             $messages = $messageModel->sendbox($userId);
-
-
 
             return $this->render ('admin/message/sendbox', [
                 'pageTitle' => $pageTitle, 
