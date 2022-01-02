@@ -106,7 +106,7 @@ class MessageController extends AbstractController
         {
             if (array_key_exists('id', $_GET) && $_GET['id'])
             {
-                $idOfMessage = $_GET['id'];
+                $idOfMessage = htmlspecialchars($_GET['id']);
             }
             else
             {
@@ -165,7 +165,7 @@ class MessageController extends AbstractController
         {
             if (array_key_exists('id', $_GET) && $_GET['id'])
             {
-                $idOfMessage = $_GET['id'];
+                $idOfMessage = htmlspecialchars($_GET['id']);
             }
             else
             {
@@ -211,7 +211,7 @@ class MessageController extends AbstractController
         {
             if (array_key_exists('id', $_GET) && $_GET['id'])
             {
-                $idOfMessage = $_GET['id'];
+                $idOfMessage = htmlspecialchars($_GET['id']);
             }
             else
             {
