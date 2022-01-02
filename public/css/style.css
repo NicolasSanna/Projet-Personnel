@@ -8,6 +8,8 @@
   height: 100% !important;
   margin: 0;
   padding: 0;
+  -webkit-animation: fadeInFromNone 0.7s ease-out;
+          animation: fadeInFromNone 0.7s ease-out;
 }
 .Body-main, html-main {
   padding: 15px;
@@ -260,10 +262,6 @@ textarea {
 }
 
 .Form {
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-direction: normal;
-          animation-direction: normal;
   -webkit-animation-name: glissement;
           animation-name: glissement;
 }
@@ -545,6 +543,34 @@ textarea {
   .Body-main {
     margin-left: 200px;
     margin-right: 200px;
+  }
+}
+@-webkit-keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
   }
 }
 @-webkit-keyframes glissement {

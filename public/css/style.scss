@@ -13,12 +13,14 @@
 	height: 100% !important;
     margin: 0;
     padding: 0;
+    animation: fadeInFromNone 0.7s ease-out;
    
     &-main
     {
         padding: 15px;
         margin-left:20px;
         margin-right:20px;
+
         
     }
 }
@@ -342,8 +344,8 @@ textarea
 .Form 
 {
 
-    animation-duration: 2s;
-    animation-direction: normal;
+    // // animation-duration: 2s;
+    // animation-direction: normal;
     animation-name: glissement;
     &-title
     {
@@ -710,6 +712,81 @@ textarea
             margin-left:200px;
             margin-right:200px;
         }
+    }
+}
+
+@-webkit-keyframes fadeInFromNone 
+{
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone 
+{
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone 
+{
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone 
+{
+    0%
+    {
+        display: none;
+        opacity: 0;
+    }
+
+    1% 
+    {
+        display: block;
+        opacity: 0;
+    }
+
+    100% 
+    {
+        display: block;
+        opacity: 1;
     }
 }
 
