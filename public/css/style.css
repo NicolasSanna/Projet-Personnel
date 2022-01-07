@@ -262,6 +262,10 @@ textarea {
 }
 
 .Form {
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
   -webkit-animation-name: glissement;
           animation-name: glissement;
 }
