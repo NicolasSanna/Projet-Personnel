@@ -1,19 +1,22 @@
 /**
+ * On récupère les deux identifiants du menu de navigation : le burger la croix et le menu.
+ */
+
+let burger = document.getElementById('burger');
+let cross = document.getElementById('cross')
+let menu = document.querySelector('.Header-navbarbox-navbar')
+
+/**
  * On créé la fonction burgerManager
  */
 export class burgerManager
 {
     /**
-     * On créé la fonction construct.
+     * On appelle le constructeur.
      */
+
     constructor()
     {
-        /**
-         * On récupère les deux identifiants du menu de navigation : le burger et la croix. 
-         */
-        let burger = document.getElementById('burger');
-        let cross = document.getElementById('cross')
-        
         /**
          * On pose un écouteur d'événement sur les deux éléments qui déclencheront deux fonction différentes. 
          */
@@ -26,13 +29,6 @@ export class burgerManager
      */
     burgerEvent ()
     {
-        /**
-         * On récupère les deux éléments (le burger et la croix) et l'on récupère le menu de navigation (caché par défaut en display:none, dans le SCSS)
-         */
-        let burger = document.getElementById('burger');
-        let cross = document.getElementById('cross')
-        let menu = document.querySelector('.Header-navbarbox-navbar')
-
         /**
          * Si au click, le menu est en display none, ou non déclaré...
          */
@@ -56,10 +52,7 @@ export class burgerManager
      */
     crossEvent () 
     {
- 
-        let burger = document.getElementById('burger');
-        let cross = document.getElementById('cross')
-        let menu = document.querySelector('.Header-navbarbox-navbar')
+
 
         /**
         *  Si le menu est en display block, et donc visible ...
