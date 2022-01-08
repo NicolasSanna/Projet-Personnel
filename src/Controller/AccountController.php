@@ -24,10 +24,6 @@ class AccountController extends AbstractController
             $confirmPassword = Post::verifyContent('confirmPassword');
             $recaptchaResponse = Post::verifyContent('recaptcha-response');
 
-            $bodyVar = array (
-                'email' => $email
-            );
-
             if (!$lastname || !$firstname || !$pseudo || !$email || !$password || !$confirmPassword || !$recaptchaResponse)
             {
                 FlashBag::addFlash("Tous les champs d'inscription n'ont pas été correctement remplis", 'error');
@@ -69,6 +65,11 @@ class AccountController extends AbstractController
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $newUser = new UserModel();
                 $insertUser = $newUser->createUser($firstname, $lastname, $pseudo, $email, $hash);
+
+                $bodyVar = [
+                    'email' => $email
+                ];
+
                 $emailing = new Mailing();
                 $emailing->sendEmailtoAdmin($bodyVar);
                 FlashBag::addFlash($insertUser['message'], 'query');
