@@ -14,13 +14,13 @@ class File
         if($file['error'] > 0)
         {
             FlashBag::addFlash("Une erreur est survenue lors du chargement du fichier.", 'error');
-            return;
+            return null;
         }
 
         if($file['size'] > 2000000)
         {
             FlashBag::addFlash("Le fichier est trop volumineux (plus de 2Mo)", 'error');
-            return;
+            return null;
         }
 
         $fileName = pathinfo($file['name']);
@@ -31,7 +31,7 @@ class File
         if(!in_array($fileExtension, $validExtension))
         {
             FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
-            return;
+            return null;
         }
         else
         {

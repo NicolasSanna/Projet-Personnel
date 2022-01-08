@@ -44,7 +44,7 @@ class ArticleController extends AbstractController
                 
                 if (!(FlashBag::hasMessages('error')))
                 {
-                    if ($fileName)
+                    if ($fileName != null)
                     {
                         move_uploaded_file($file['tmp_name'], IMAGE_DIR .  '/' . $fileName);
                     }
@@ -158,7 +158,7 @@ class ArticleController extends AbstractController
 
                 if (!(FlashBag::hasMessages('error')))
                 {
-                    if($fileName)
+                    if($fileName != null)
                     {
                         move_uploaded_file($file['tmp_name'], IMAGE_DIR . '/' . $fileName);
                     }
@@ -242,7 +242,7 @@ class ArticleController extends AbstractController
         {
             if (Get::existsDigit('id'))
             {
-                $idOfArticle = Get::existsDigit('id');
+                $idOfArticle = Get::key('id');
             }
             else
             {
