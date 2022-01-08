@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
-use App\Framework\AbstractController;
-use App\Framework\FlashBag;
+use App\Framework\Post;
 use App\Framework\Server;
+use App\Framework\FlashBag;
 use App\Model\ArticleModel;
 use App\Model\CategoryModel;
+use App\Framework\AbstractController;
 
 class ForumController extends AbstractController
 {
@@ -113,7 +114,7 @@ class ForumController extends AbstractController
             /**
              * On récupère la valeur de $_POST['search'] venant du formulaire dans $search.
              */
-            $search = $_POST['search'];
+            $search = Post::verifyContent('search');
             /**
              * On créé l'objet ArticleModel
              */

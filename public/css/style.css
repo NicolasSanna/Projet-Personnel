@@ -419,6 +419,58 @@ textarea {
   margin-bottom: 10px;
 }
 
+.FormMessage {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.FormMessage-box {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.FormMessage-box-select {
+  margin-top: 10px;
+  max-width: 200px;
+}
+.FormMessage-box-buttonBox {
+  text-align: end;
+}
+.FormMessage-box-button {
+  margin-top: 10px;
+  background-color: peru;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  cursor: pointer;
+  max-width: auto;
+  align-items: flex-end;
+  border: solid 1px peru;
+  border-radius: 5px;
+}
+.FormMessage-box-button:hover {
+  background-color: white;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+  color: black;
+}
+.FormMessage-box-textarea {
+  height: 100px;
+  padding: 5px;
+}
+.FormMessage-box-label {
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
 .FormArticle-box {
   display: flex;
   flex-direction: column;

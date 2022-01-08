@@ -1,10 +1,22 @@
 <h3>Bloquer un utilisateur</h3>
+<div class="Form">
 
-<form action="" method="POST">
-    <select name="selectUser" id="">
+<form action="" class="Form-box" method="POST" id="blockUserForm">
+
+
+    <select name="selectUser" id="" class="FormArticle-box-input">
         <?php foreach ($users as $user):?>
         <option value="<?=$user['id'];?>"><?=$user['pseudo'];?></option>
         <?php endforeach;?>
     </select>
-    <input type="submit" value="Bloquer l'utilisateur">
+
+
+
+    <div class="FormCategory-button">
+    <input type="submit" class="FormArticle-box-button" value="Bloquer l'utilisateur">
+    </div>
+
 </form>
+</div>
+
+<script src="<?=asset('js/blockuser.js');?>"></script>

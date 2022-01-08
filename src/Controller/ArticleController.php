@@ -2,19 +2,21 @@
 
 namespace App\Controller;
 
-use App\Framework\AbstractController;
+use App\Framework\Get;
+use App\Framework\Post;
 use App\Framework\FlashBag;
-use App\Framework\UserSession;
 use App\Model\ArticleModel;
 use App\Model\CommentModel;
+use App\Framework\UserSession;
+use App\Framework\AbstractController;
 
 class ArticleController extends AbstractController
 {
     public function index()
     {
-        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id'])) 
+        if (Get::existsDigit('id')) 
         {
-            $idOfArticle = (int) $_GET['id'];
+            $idOfArticle = (int) Get::key('id');
             $articleModel = new ArticleModel();
             $article = $articleModel->getOneArticle($idOfArticle);
             $pageTitle = $article['title'];
@@ -25,7 +27,7 @@ class ArticleController extends AbstractController
             if(empty($article['id']))
             {
                 FlashBag::addFlash('Aucun article ne correspond à cet identifiant.', 'error');
-                return $this->redirect('forum');
+                $this->redirect('forum');
             }
         }
         else
@@ -44,7 +46,7 @@ class ArticleController extends AbstractController
     {
         if (UserSession::author() || UserSession::administrator())
         {
-            if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+            if (Get::existsDigit('id'))
             {
                 $idOfArticle = (int) $_GET['id'];
                 
@@ -59,7 +61,7 @@ class ArticleController extends AbstractController
     
                 if(!empty($_POST))
                 {
-                    $comment = trim($_POST['comment']);
+                    $comment = Post::verifyContent('comment');
                     $user_id = UserSession::getId();
     
                     if(!$comment)

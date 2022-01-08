@@ -2,10 +2,11 @@
 
 namespace App\Controller\Admin;
 
-use App\Framework\AbstractController;
+use App\Framework\Get;
 use App\Framework\FlashBag;
-use App\Framework\UserSession;
 use App\Model\CommentModel;
+use App\Framework\UserSession;
+use App\Framework\AbstractController;
 
 class AdministrationCommentsController extends AbstractController
 {
@@ -34,9 +35,9 @@ class AdministrationCommentsController extends AbstractController
             $this->redirect('accessRefused');
         }
 
-        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+        if (Get::existsDigit('id'))
         {
-            $idOfComment = $_GET['id'];
+            $idOfComment = Get::key('id');
 
             $commentModel = new CommentModel();
             $checkIfCommentExist = $commentModel->getOneComment($idOfComment);
@@ -65,10 +66,10 @@ class AdministrationCommentsController extends AbstractController
             $this->redirect('accessRefused');
         }
 
-        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+        if (Get::existsDigit('id'))
         {
 
-            $idOfComment = $_GET['id'];
+            $idOfComment = Get::key('id');
 
             $commentModel = new CommentModel();
             $checkIfCommentExist = $commentModel->getOneComment($idOfComment);

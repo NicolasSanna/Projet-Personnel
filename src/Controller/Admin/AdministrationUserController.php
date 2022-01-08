@@ -2,11 +2,13 @@
 
 namespace App\Controller\Admin;
 
-use App\Framework\AbstractController;
-use App\Framework\FlashBag;
-use App\Framework\UserSession;
+use App\Framework\Get;
+use App\Framework\Post;
 use App\Model\UserModel;
 use App\Model\GrantModel;
+use App\Framework\FlashBag;
+use App\Framework\UserSession;
+use App\Framework\AbstractController;
 
 class AdministrationUserController extends AbstractController
 {
@@ -35,9 +37,9 @@ class AdministrationUserController extends AbstractController
             $this->redirect('accessRefused');
         }
 
-        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+        if (Get::existsDigit('id'))
         {
-            $idOfUser = $_GET['id'];
+            $idOfUser = Get::key('id');
 
             $userModel = new UserModel();
             $userInfos = $userModel->getUserById($idOfUser);
@@ -53,7 +55,7 @@ class AdministrationUserController extends AbstractController
             if (!empty($_POST))
             {
                 $choice = (int) $_POST['deleteuser'];
-                $token = $_POST['token'];
+                $token = Post::verifyContent('token');
 
                 if($token != UserSession::token())
                 {
@@ -110,9 +112,9 @@ class AdministrationUserController extends AbstractController
         $grants = $grantModel->getAllGrants();
         $pageTitle = 'Modifier les privilèges utilisateur';
 
-        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+        if (Get::existsDigit('id'))
         {
-            $userId = $_GET['id'];
+            $userId = Get::key('id');
             $userModel = new UserModel();
             $userInfos = $userModel->getUserById($userId);
 

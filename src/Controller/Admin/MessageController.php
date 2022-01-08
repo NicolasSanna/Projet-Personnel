@@ -2,11 +2,13 @@
 
 namespace App\Controller\Admin;
 
+use App\Framework\Get;
+use App\Framework\Post;
+use App\Framework\Server;
 use App\Framework\FlashBag;
 use App\Model\MessageModel;
 use App\Framework\UserSession;
 use App\Framework\AbstractController;
-use App\Framework\Server;
 
 class MessageController extends AbstractController
 {
@@ -44,8 +46,8 @@ class MessageController extends AbstractController
 
             if(!empty($_POST))
             {
-                $content = trim(htmlspecialchars($_POST['content']));
-                $subject = trim(htmlspecialchars($_POST['subject']));
+                $content = Post::verifyContent('content');
+                $subject = Post::verifyContent('subject');
                 $toUser = (int) $_POST['selectUser'];
                 $id_user = UserSession::getId();
 
@@ -57,9 +59,10 @@ class MessageController extends AbstractController
                 if (!(FlashBag::hasMessages('error')))
                 {
                     $idMessage = bin2hex(openssl_random_pseudo_bytes(6));
+                    $messageModel = new MessageModel();
+                    $insertMessage = $messageModel->sendMessage($idMessage, $id_user, $toUser, $subject, $content);
 
-                $messageModel = new MessageModel();
-                $insertMessage = $messageModel->sendMessage($idMessage, $id_user, $toUser, $subject, $content);
+                    FlashBag::addFlash("Votre message a bien été envoyé", 'success');
                 }
             }
         }
@@ -69,8 +72,10 @@ class MessageController extends AbstractController
         }
 
         return $this->render('admin/message/new', [
-            'users' => $users,
-            'pageTitle' => $pageTitle
+            'users' => $users??'',
+            'pageTitle' => $pageTitle??'',
+            'content' => $content??'',
+            'subject' => $subject??''
         ]);
     }
 
@@ -102,15 +107,18 @@ class MessageController extends AbstractController
         {
             if (array_key_exists('id', $_GET) && $_GET['id'])
             {
-                $idOfMessage = htmlspecialchars($_GET['id']);
+                $idOfMessage = Get::key('id');
             }
             else
             {
                 $this->redirect('mymessages');
             }
 
+            $pageTitle = 'Message';
+
             $messageModel = new MessageModel();
             $users = $messageModel->getAllUsers();
+
 
 
             $id_user = UserSession::getId();
@@ -118,13 +126,17 @@ class MessageController extends AbstractController
             $messageModel = new MessageModel();
             $message = $messageModel->messageRead($idOfMessage);
 
-
+            $subjectMessage = $message['subject'];
+            $pseudoFrom = $message['pseudoFrom'];
+            $pseudoTo = $message['pseudoTo'];
+            $pseudoFromId = $message['from_user_id'];
+            $messageContent = $message['content'];
 
             if(!empty($_POST))
             {
-                $content = trim(htmlspecialchars($_POST['content']));
-                $subject = trim(htmlspecialchars($_POST['subject']));
-                $toUser = $_POST['toUser'];
+                $content = Post::verifyContent('content');
+                $subject = Post::verifyContent('subject');
+                $toUser = (int) $_POST['toUser'];
                 $id_user = UserSession::getId();
 
                 if (!$content || !$subject || !$toUser)
@@ -136,16 +148,26 @@ class MessageController extends AbstractController
                 {
                     $idMessage = bin2hex(openssl_random_pseudo_bytes(6));
 
-                $messageModel = new MessageModel();
-                $insertMessage = $messageModel->sendMessage($idMessage, $id_user, $toUser, $subject, $content);
-                }               
+                    $messageModel = new MessageModel();
+                    $insertMessage = $messageModel->sendMessage($idMessage, $id_user, $toUser, $subject, $content);
+                    FlashBag::addFlash("La réponse a bien été envoyée", 'success');
+                    
+                }        
                 
             }
 
             return $this->render('admin/message/message', [
-                'message' => $message,
-                'users' => $users
+                'users' => $users??'',
+                'subjectMessage' => $subjectMessage??'',
+                'pseudoFrom' => $pseudoFrom??'',
+                'messageContent' => $messageContent??'',
+                'pseudoTo' => $pseudoTo??'',
+                'pseudoFromId' => $pseudoFromId??'',
+                'subject' => $subject??'',
+                'content' => $content??'',
+                'pageTitle' => $pageTitle??''
             ]);
+
         }
         else
         {
@@ -161,7 +183,7 @@ class MessageController extends AbstractController
         {
             if (array_key_exists('id', $_GET) && $_GET['id'])
             {
-                $idOfMessage = htmlspecialchars($_GET['id']);
+                $idOfMessage = Get::key('id');
             }
             else
             {
@@ -207,7 +229,7 @@ class MessageController extends AbstractController
         {
             if (array_key_exists('id', $_GET) && $_GET['id'])
             {
-                $idOfMessage = htmlspecialchars($_GET['id']);
+                $idOfMessage = Get::key('id');
             }
             else
             {

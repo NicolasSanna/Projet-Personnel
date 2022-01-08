@@ -2,10 +2,12 @@
 
 namespace App\Controller\Admin;
 
-use App\Framework\AbstractController;
+use App\Framework\Get;
+use App\Framework\Post;
 use App\Framework\FlashBag;
-use App\Framework\UserSession;
 use App\Model\CategoryModel;
+use App\Framework\UserSession;
+use App\Framework\AbstractController;
 
 class AdministrationCategoryController extends AbstractController
 {
@@ -21,7 +23,7 @@ class AdministrationCategoryController extends AbstractController
         if(!empty($_POST))
         {
             
-            $newCategory = trim($_POST['newcategory']);
+            $newCategory = Post::verifyContent('newcategory');
             $token = $_POST['token'];
 
             if ($token != UserSession::token())
@@ -78,9 +80,9 @@ class AdministrationCategoryController extends AbstractController
 
         $pageTitle = 'Modifier une catégorie';
 
-        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+        if (Get::existsDigit('id'))
         {
-            $idOfCategory = $_GET['id'];
+            $idOfCategory = Get::key('id');
             $categoryModel = new CategoryModel();
             $category = $categoryModel->getOneCategory($idOfCategory);
 
@@ -93,7 +95,7 @@ class AdministrationCategoryController extends AbstractController
             if(!empty($_POST))
             {
                 $idOfCategory = $_POST['idcategory'];
-                $newcategory = trim($_POST['newcategory']);
+                $newcategory = Post::verifyContent('newcategory');
 
                 if(!$newcategory)
                 {
@@ -130,9 +132,9 @@ class AdministrationCategoryController extends AbstractController
 
         $pageTitle = 'Supprimer une catégorie';
 
-        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+        if (Get::existsDigit('id'))
         {
-            $idOfCategory = $_GET['id'];
+            $idOfCategory = Get::key('id');
             $categoryModel = new CategoryModel();
             $category = $categoryModel->getOneCategory($idOfCategory);
 

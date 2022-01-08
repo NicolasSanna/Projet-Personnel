@@ -1,5 +1,16 @@
 <?php if (!App\Framework\UserSession::isAuthenticated()):?>
 
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LeH3ZYdAAAAAG22efVyrDWwoyIbkgpPw1vRQYQ7"></script>
+<script>
+grecaptcha.ready(function() {
+    grecaptcha.execute('6LeH3ZYdAAAAAG22efVyrDWwoyIbkgpPw1vRQYQ7', {action: 'homepage'}).then(function(token) {
+        document.getElementById('recaptchaResponse').value = token
+    });
+});
+</script>
+
+
 <h3 class="Form-title">Inscription</h3>
 
 <div class="Form">
@@ -24,6 +35,8 @@
 
         <label for="password" class="Form-box-label">Confirmer le mot de passe :</label>
         <input type="password" class="Form-box-input" required name="confirmPassword">
+
+        <input type="hidden" id="recaptchaResponse" name="recaptcha-response">
         
         <button type="submit" class="Form-box-button" name="validate">S'inscrire</button>
         <a class="Link" href="<?= buildUrl('connexion');?>">J'ai déjà un compte, je me connecte</a>

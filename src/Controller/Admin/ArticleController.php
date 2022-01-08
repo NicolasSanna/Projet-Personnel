@@ -2,7 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Framework\Get;
 use App\Framework\File;
+use App\Framework\Post;
 use App\Framework\FlashBag;
 use App\Model\ArticleModel;
 use App\Model\CategoryModel;
@@ -21,7 +23,7 @@ class ArticleController extends AbstractController
 
             if(!empty($_POST))
             {
-                $title = trim($_POST['title']);
+                $title = Post::verifyContent('title');
                 $content = trim($_POST['content']);
                 $category = (int) $_POST['categories'];
                 $id_user = UserSession::getId();
@@ -95,9 +97,9 @@ class ArticleController extends AbstractController
     {
         if (UserSession::author() || UserSession::administrator())
         {
-            if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+            if (Get::existsDigit('id'))
             {
-                $idOfArticle = $_GET['id'];
+                $idOfArticle = Get::key('id');
             }
             else
             {
@@ -131,7 +133,7 @@ class ArticleController extends AbstractController
 
             if(!empty($_POST))
             {
-                $newtitle = trim(htmlspecialchars($_POST['title']));
+                $newtitle = Post::verifyContent('title');
                 $newcontent = trim($_POST['content']);
                 $category = (int) $_POST['categories'];
                 $token = $_POST['token'];
@@ -186,10 +188,10 @@ class ArticleController extends AbstractController
     {
         if (UserSession::author() || UserSession::administrator())
         {
-            if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']) && array_key_exists('token', $_GET) && $_GET['token'])
+            if (Get::existsDigit('id') && array_key_exists('token', $_GET) && $_GET['token'])
             {
-                $idOfArticle = $_GET['id'];
-                $token = $_GET['token'];
+                $idOfArticle = Get::key('id');
+                $token = Get::key('token');
             }
             else
             {
@@ -238,9 +240,9 @@ class ArticleController extends AbstractController
     {
         if (UserSession::author() || UserSession::administrator())
         {
-            if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+            if (Get::existsDigit('id'))
             {
-                $idOfArticle = $_GET['id'];
+                $idOfArticle = Get::existsDigit('id');
             }
             else
             {

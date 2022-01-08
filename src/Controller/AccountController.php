@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
-use App\Framework\AbstractController;
-use App\Framework\FlashBag;
+use App\Framework\Post;
 use App\Model\UserModel;
+use App\Framework\Mailing;
+use App\Framework\FlashBag;
+use App\Framework\AbstractController;
 
 class AccountController extends AbstractController
 {
@@ -14,14 +16,19 @@ class AccountController extends AbstractController
 
         if(!empty($_POST))
         {
-            $lastname = trim(htmlspecialchars($_POST['lastname']));
-            $firstname = trim(htmlspecialchars($_POST['firstname']));
-            $pseudo = trim(htmlspecialchars($_POST['pseudo']));
-            $email = trim(htmlspecialchars($_POST['email']));
-            $password = trim(htmlspecialchars($_POST['password']));
-            $confirmPassword = trim(htmlspecialchars($_POST['confirmPassword']));
+            $lastname = Post::verifyContent('lastname');
+            $firstname = Post::verifyContent('firstname');
+            $pseudo = Post::verifyContent('pseudo');
+            $email = Post::verifyContent('email');
+            $password = Post::verifyContent('password');
+            $confirmPassword = Post::verifyContent('confirmPassword');
+            $recaptchaResponse = Post::verifyContent('recaptcha-response');
 
-            if (!$lastname || !$firstname || !$pseudo || !$email || !$password || !$confirmPassword)
+            $bodyVar = array (
+                'email' => $email
+            );
+
+            if (!$lastname || !$firstname || !$pseudo || !$email || !$password || !$confirmPassword || !$recaptchaResponse)
             {
                 FlashBag::addFlash("Tous les champs d'inscription n'ont pas été correctement remplis", 'error');
             }
@@ -41,12 +48,29 @@ class AccountController extends AbstractController
                 FlashBag::addFlash("Le mot de passe confirmé ne correspond pas à celui que vous voulez utiliser.", 'error');
             }
 
+            $url = "https://www.google.com/recaptcha/api/siteverify?secret=6LeH3ZYdAAAAAA8Dl0tIO-mqBLW32JoqD65FDS2D&response={$recaptchaResponse}";
+            $response = file_get_contents($url);
+
+            // On vérifie qu'on a une réponse
+            if(empty($response) || is_null($response))
+            {
+                FlashBag::addFlash('Erreur à l\'inscription', 'error');
+            }
+
+            $data = json_decode($response);
+
+            if(!$data->success)
+            {
+                FlashBag::addFlash('Erreur à l\'inscription', 'error');
+            }
+
             if (!(FlashBag::hasMessages('error')))
             {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $newUser = new UserModel();
                 $insertUser = $newUser->createUser($firstname, $lastname, $pseudo, $email, $hash);
-
+                $emailing = new Mailing();
+                $emailing->sendEmailtoAdmin($bodyVar);
                 FlashBag::addFlash($insertUser['message'], 'query');
             }
         }

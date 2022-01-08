@@ -10,8 +10,6 @@
 
 - Faire les maquettes (le mockup, le wireframe, le prototype) sur Figma /!\.
 
-- Factoriser le JS avec les modules et tout mettre en orienté objet.
-
 - SCSS et CSS.
 
 - Gérer le système d'inscription par email avec token, gérer le changement de mot de passe par token CF : https://doeken.org/blog/using-symfony-mailer-without-framework
@@ -30,4 +28,4 @@ https://grafikart.fr/tutoriels/recaptcha-anti-spam-346
 
 - Modifier le CSS du menu de navigation différencier la partie site, et la partie admin.
 
-- Ajouter un système de messagerie interne : S'occuper du CSS et des boutons en JavaScript (window.confirm);
+- Faire le CSS pour la messagerie.

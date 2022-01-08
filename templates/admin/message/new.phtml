@@ -1,14 +1,23 @@
 <h3>Écrire un nouveau message</h3>
+    <div class="FormMessage">
+    <form action="" method="POST" class="FormMessage-box">
 
-<form action="" method="POST">
-    <label for="subject">Sujet :</label>
-    <input type="text" name="subject" id="">
-    <label for="content">Message :</label>
-    <textarea name="content"></textarea>
-    <select name="selectUser" id="">
-        <?php foreach ($users as $user):?>
-        <option value="<?=$user['id'];?>"><?=$user['pseudo'];?></option>
-        <?php endforeach;?>
-    </select>
-    <input type="submit" value="Envoyer le message">
-</form>
+        <label for="subject" class="FormMessage-box-label">Sujet :</label>
+        <input type="text" name="subject" id="" class="FormMessage-box-input" value="<?=$subject;?>">
+
+        <label for="content" class="FormMessage-box-label">Message :</label>
+        <textarea class="FormMessage-box-textarea" name="content"><?=htmlspecialchars($content);?></textarea>
+
+        <label for="selectUser" class="FormMessage-box-label">Destinaire :</label>
+        <select name="selectUser" id="" class="FormMessage-box-select">
+            <?php foreach ($users as $user):?>
+            <option value="<?=$user['id'];?>"><?=$user['pseudo'];?></option>
+            <?php endforeach;?>
+        </select>
+
+        <div class="FormMessage-box-buttonBox">
+            <input class="FormMessage-box-button" type="submit" value="Envoyer le message">
+        </div>
+        
+    </form>
+</div>
