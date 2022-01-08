@@ -126,6 +126,12 @@ class MessageController extends AbstractController
             $messageModel = new MessageModel();
             $message = $messageModel->messageRead($idOfMessage);
 
+            if(!$message)
+            {
+                FlashBag::addFlash('Aucun message ne correspond à cet identifiant', 'error');
+                $this->redirect('mymessages');
+            }
+
             $subjectMessage = $message['subject'];
             $pseudoFrom = $message['pseudoFrom'];
             $pseudoTo = $message['pseudoTo'];
