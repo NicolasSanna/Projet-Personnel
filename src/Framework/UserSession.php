@@ -26,12 +26,10 @@ class UserSession extends AbstractSession
             'email' => $email,
             'grant_id' => $grant_id,
             'grant_label' => $grant_label,
-            // On appelle la méthode privée token afin de générer le token aléatoire lors de la connexion de l'utilisateur. On le place dans la clé token.
-            'token' => self::token()
         ];
 
         // On appelle la méthode privée token afin de générer le token aléatoire lors de la connexion de l'utilisateur.
-        // self::token();
+        self::token();
 
     }
 
@@ -189,8 +187,8 @@ class UserSession extends AbstractSession
             return null;
         }
      
-        // Si $_SESSION['user']['token'] n'est pas déclarée...
-        if(!isset($_SESSION['user']['token']))
+        // Si $_SESSION['user']['token'] n'est pas déclarée ou est vide...
+        if(!isset($_SESSION['user']['token']) || empty($_SESSION['user']['token']))
         {
             // On créé la clé token dans user dans $_SESSION et qui reçoit une chaîne de caractères composées de chiffres et de lettres aléatoires et qui change à chaque connexion.
             $_SESSION['user']['token'] = bin2hex(openssl_random_pseudo_bytes(24));
