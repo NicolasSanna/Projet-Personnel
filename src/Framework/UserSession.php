@@ -25,11 +25,13 @@ class UserSession extends AbstractSession
             'pseudo' => $pseudo,
             'email' => $email,
             'grant_id' => $grant_id,
-            'grant_label' => $grant_label
+            'grant_label' => $grant_label,
+            // On appelle la méthode privée token afin de générer le token aléatoire lors de la connexion de l'utilisateur. On le place dans la clé token.
+            'token' => self::token()
         ];
 
         // On appelle la méthode privée token afin de générer le token aléatoire lors de la connexion de l'utilisateur.
-        self::token();
+        // self::token();
 
     }
 
