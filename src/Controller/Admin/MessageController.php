@@ -137,30 +137,41 @@ class MessageController extends AbstractController
             $pseudoTo = $message['pseudoTo'];
             $pseudoFromId = $message['from_user_id'];
             $messageContent = $message['content'];
+            $pseudoToId = $message['to_user_id'];
 
-            if(!empty($_POST))
+            if($pseudoFromId == UserSession::getId() || $pseudoToId == UserSession::getId())
             {
-                $content = Post::verifyContent('content');
-                $subject = Post::verifyContent('subject');
-                $toUser = (int) $_POST['toUser'];
-                $id_user = UserSession::getId();
-
-                if (!$content || !$subject || !$toUser)
+                if(!empty($_POST))
                 {
-                    FlashBag::addFlash("Tous les champs n'ont pas été remplis", 'error');
-                }
-
-                if (!(FlashBag::hasMessages('error')))
-                {
-                    $idMessage = bin2hex(openssl_random_pseudo_bytes(6));
-
-                    $messageModel = new MessageModel();
-                    $insertMessage = $messageModel->sendMessage($idMessage, $id_user, $toUser, $subject, $content);
-                    FlashBag::addFlash("La réponse a bien été envoyée", 'success');
+                    $content = Post::verifyContent('content');
+                    $subject = Post::verifyContent('subject');
+                    $toUser = (int) $_POST['toUser'];
+                    $id_user = UserSession::getId();
+    
+                    if (!$content || !$subject || !$toUser)
+                    {
+                        FlashBag::addFlash("Tous les champs n'ont pas été remplis", 'error');
+                    }
+    
+                    if (!(FlashBag::hasMessages('error')))
+                    {
+                        $idMessage = bin2hex(openssl_random_pseudo_bytes(6));
+    
+                        $messageModel = new MessageModel();
+                        $insertMessage = $messageModel->sendMessage($idMessage, $id_user, $toUser, $subject, $content);
+                        FlashBag::addFlash("La réponse a bien été envoyée", 'success');
+                        
+                    }        
                     
-                }        
-                
+                }
             }
+            else
+            {
+                FlashBag::addFlash("Vous ne pouvez pas consulter ce message, car il ne vous est pas destiné.", 'error');
+                $this->redirect('mymessages');
+            }
+
+
 
             return $this->render('admin/message/message', [
                 'users' => $users??'',
