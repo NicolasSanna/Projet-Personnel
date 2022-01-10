@@ -38,13 +38,13 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users
 (
     id INT NOT NULL AUTO_INCREMENT,
-    firstname VARCHAR(255) NOT NULL,
-    lastname VARCHAR(255) NOT NULL,
-    pseudo VARCHAR(255) NOT NULL UNIQUE,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
+    firstname VARCHAR(128) NOT NULL,
+    lastname VARCHAR(128) NOT NULL,
+    pseudo VARCHAR(128) NOT NULL UNIQUE,
+    email VARCHAR(128) NOT NULL UNIQUE,
+    password VARCHAR(128) NOT NULL,
     grant_id INT NOT NULL,
-    grant_label VARCHAR(255) NOT NULL,
+    grant_label VARCHAR(128) NOT NULL,
     inscription_date DATETIME NOT NULL,
     PRIMARY KEY (id),
         CONSTRAINT fk_grant_id_users
