@@ -51,11 +51,16 @@
                     <li>
                         <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('connexion');?>">Connexion</a>
                     </li>
+                    
                     <li>
                         <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('signup');?>">Créer un compte</a>
                     </li>
                 
                 <?php else: ?>
+
+                    <li>
+                        <span class="Header-navbarbox-navbar-ul-a">–</span>
+                    </li>
                     
                     <li>
                         <span class="Header-navbarbox-navbar-ul-a"> Bienvenue <?=UserSession::getUserFullname();?></span>

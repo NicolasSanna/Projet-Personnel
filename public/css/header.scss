@@ -28,7 +28,7 @@
                 background-color:black;
                 opacity:0.8;
                 padding-bottom:30px;
-                height: 180px;
+                height: 187px;
 
                 &-p
                 {
@@ -79,30 +79,30 @@
 
             &-ul
             {
-                > li
-                {
-                    margin-bottom:3px;
-                }
-                background-color:black;
-                list-style: none;
-                display:flex;
-                flex-direction:column;
-                padding: 0px;
-                &-a
-                {
-                    text-decoration:none;
-                    color:white;
-                    &:hover
-                    {
-                        color:$colorPeru;
-                        transition: 0.5s ease-in-out;
-                        opacity:1;
-                    }
-                    &:active
-                    {
-                        color:$colorPeru
-                    }
-                }
+              > li
+              {
+                  margin-bottom:3px;
+              }
+              background-color:black;
+              list-style: none;
+              display:flex;
+              flex-direction:column;
+              padding: 0px;
+              &-a
+              {
+                  text-decoration:none;
+                  color:white;
+                  &:hover
+                  {
+                      color:$colorPeru;
+                      transition: 0.5s ease-in-out;
+                      opacity:1;
+                  }
+                  &:active
+                  {
+                      color:$colorPeru
+                  }
+              }
             }
         }
         // BURGER

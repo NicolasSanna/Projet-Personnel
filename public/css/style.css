@@ -10,6 +10,7 @@
   padding: 0;
   -webkit-animation: fadeInFromNone 0.7s ease-out;
           animation: fadeInFromNone 0.7s ease-out;
+  background-color: #fdfaf5;
 }
 .Body-main, html-main {
   padding: 15px;
@@ -521,12 +522,6 @@ textarea {
 .FormArticle-button {
   text-align: end;
   border-radius: 5px;
-}
-.FormArticle-button:hover {
-  background-color: white;
-  transition: 0.5s ease-in-out;
-  opacity: 1;
-  color: black;
 }
 
 .FormArticleSelect {
