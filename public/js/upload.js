@@ -22,7 +22,7 @@ class addArticleManager
     /**
      * On créé la fonction addSubmitAdd qui prend en paramètre event. 
      */
-    onSubmitAdd = function (event)
+    onSubmitAdd (event)
     {
         /**
          * On récupère l'identifiant de l'input de type file. 
