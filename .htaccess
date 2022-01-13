@@ -11,5 +11,5 @@
 # # Redirection vers le répertoire public et le fichier index.php
 # # Attention /!\ Penser à changer le SITE_BASE_URL dans le fichier config.php !
 # RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteRule ^(.*)$ /public/index.php [QSA] 
+# RewriteRule ^(.*)$ /public/index.php
 # </IfModule> 
