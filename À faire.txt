@@ -6,15 +6,9 @@
 
 - Continuer d'écrire le dossier professionnel et le dossier projet.
 
-- Factoriser le moteur de recherche en objet et en module.
-
 - Faire les maquettes (le mockup, le wireframe, le prototype) sur Figma /!\.
 
-- SCSS et CSS.
-
 - Gérer le système d'inscription par email avec token, gérer le changement de mot de passe par token CF : https://doeken.org/blog/using-symfony-mailer-without-framework
-
-- Système de mailer (se servir de mailtrap)
 
 https://www.sitepoint.com/sending-emails-php-phpmailer/
 
@@ -25,7 +19,3 @@ https://grafikart.fr/tutoriels/recaptcha-anti-spam-346
 - CSS Page d'accueil
 
 - CSS page article 
-
-- Modifier le CSS du menu de navigation différencier la partie site, et la partie admin.
-
-- Faire le CSS pour la messagerie.
