@@ -15,7 +15,7 @@
 
         <p class="Article-content"><?=$article['content'];?></p>
         <p class="Article-pseudo">Écrit par : <?=htmlspecialchars($article['pseudo']);?></p>
-        <p class="Article-date">Publié le : <?= (new DateTimeImmutable($article['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($article['creation_date']))->format('H:i');?></p>
+        <p class="Article-date">Publié <?= $article['creation_date'];?></p>
         <p class="Article-category">Catégorie : <a class="Article-category-link" href="<?=buildUrl('category', ['id'=> intval($article['category_id'])]);?>"><?=htmlspecialchars($article['category']);?></a></p>
     </div>
 
@@ -53,7 +53,7 @@
                 <div class="Comment-list">
                     <p><?= $comment['content'];?></p>
                     <p>Écrit par : <?= htmlspecialchars($comment['pseudo']);?></p>
-                    <p>Publié le : <?=(new DateTimeImmutable($comment['date_publication']))->format('d/m/Y');?></p>
+                    <p>Publié <?=$comment['date_publication'];?></p>
                 </div>
 
             <?php endforeach;?>

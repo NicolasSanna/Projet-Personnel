@@ -26,7 +26,7 @@
                     <td><?= htmlspecialchars($userInfos['firstname']);?></td>
                     <td><?= htmlspecialchars($userInfos['email']);?></td>
                     <td><?= htmlspecialchars($userInfos['pseudo']);?></td>
-                    <td><?= (new DateTimeImmutable($userInfos['inscription_date']))->format('d/m/Y');?></td>
+                    <td><?= $userInfos['inscription_date'];?></td>
                     <td><?= $userInfos['number_articles'];?></td>
                     <td><?= htmlspecialchars($userInfos['privilege']);?></td>
                     <td><a id="a-modify" href="<?= buildUrl('modifygrantuser', ['id' => intval($userInfos['userId'])]);?>">Modifier le rôle</a></td>

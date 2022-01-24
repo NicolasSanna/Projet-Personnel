@@ -12,7 +12,7 @@
                 <h3 class="Forum-list-article-title"><?=htmlspecialchars($article['title']);?></h3>
                 <p class="Forum-list-article-content"><?=htmlspecialchars_decode(substr($article['content'], 0, 100));?> <span>[...] </span></p>
                 <p class="Forum-list-article-pseudo">Écrit par : <?= htmlspecialchars($article['pseudo']);?></p>
-                <p class="Forum-list-article-date">Date de publication : Le <?= (new DateTimeImmutable($article['creation_date']))->format('d/m/Y');?> à <?= (new DateTimeImmutable($article['creation_date']))->format('H:i');?></p>
+                <p class="Forum-list-article-date">Date de publication : <?= $article['creation_date'];?></p>
                 <p class="Forum-list-article-category">Catégorie : <a class="Forum-list-article-category-link" href="<?= buildUrl('category', ['id'=> intval($article['category_id'])]);?>"><?= htmlspecialchars($article['category']);?></a></p>
                 <a class="Forum-list-article-link" href="<?= buildUrl('article', ['id' => intval($article['id'])]);?>">Lire la suite</a>
             </div>

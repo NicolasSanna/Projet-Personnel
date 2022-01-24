@@ -24,7 +24,7 @@
                 <tr>
                     <td><?=$myArticle['articleId'];?></td>
                     <td> <a href="<?=buildUrl('article', ['id' => intval($myArticle['articleId'])]);?>"><?=htmlspecialchars(substr($myArticle['title'], 0, 100));?> [...]</a></td>
-                    <td><?=(new DateTimeImmutable($myArticle['creation_date']))->format('d/m/Y');?></td>
+                    <td><?=$myArticle['creation_date'];?></td>
                     <td><a href="<?=buildUrl('category', ['id' => intval($myArticle['category_id'])]);?>"><?=$myArticle['category'];?></a></td>
                     <td><?=$myArticle['number_comments'];?></td>
                     <td><a id="a-modify" href="<?=buildUrl('modifyarticle', ['id' => intval($myArticle['articleId'])]);?>">Modifier</a></td>

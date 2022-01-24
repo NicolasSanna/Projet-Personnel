@@ -138,6 +138,7 @@ class MessageController extends AbstractController
             $pseudoFromId = $message['from_user_id'];
             $messageContent = $message['content'];
             $pseudoToId = $message['to_user_id'];
+            $date = $message['publication_date'];
 
             if($pseudoFromId == UserSession::getId() || $pseudoToId == UserSession::getId())
             {
@@ -182,7 +183,8 @@ class MessageController extends AbstractController
                 'pseudoFromId' => $pseudoFromId??'',
                 'subject' => $subject??'',
                 'content' => $content??'',
-                'pageTitle' => $pageTitle??''
+                'pageTitle' => $pageTitle??'',
+                'date' => $date??''
             ]);
 
         }

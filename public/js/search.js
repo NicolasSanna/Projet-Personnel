@@ -121,11 +121,7 @@ class SearchManager
                 let articleDate = divSearchListArticle.appendChild(document.createElement('p'));
                 articleDate.classList.add('Search-list-article-date');
 
-                /**
-                 * On créé un objet date qui prend en paramètre le résultat brute venant de la base de données et de la requête Ajax. Et on lui applique la méthode toLocalDateString en donnant le fuseau horaire français et le format français de date.
-                 */
-                let date = new Date(result['creation_date']).toLocaleDateString('fr-FR');
-                articleDate.innerHTML = `Date de publication : Le ${date}`;
+                articleDate.innerHTML = `Date de publication : ${result['creation_date']}`;
 
                 let articleCategory = divSearchListArticle.appendChild(document.createElement('p'));
                 articleCategory.classList.add('Search-list-article-category');
