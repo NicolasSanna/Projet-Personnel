@@ -3,7 +3,7 @@ DROP PROCEDURE IF EXISTS SP_AllCommentsNotApprouvedSelect //
 CREATE PROCEDURE SP_AllCommentsNotApprouvedSelect ()
 BEGIN
 
-    SELECT com.id, com.content, com.date_publication, u.pseudo, com.article_id, art.title
+    SELECT com.id, com.content, DATE_FORMAT(com.date_publication, 'Le %d/%m/%Y à %H:%i') AS date_publication, u.pseudo, com.article_id, art.title
     FROM comments com
     INNER JOIN users u ON com.user_id = u.id
     INNER JOIN articles art ON com.article_id = art.id
