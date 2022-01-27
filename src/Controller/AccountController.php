@@ -70,9 +70,13 @@ class AccountController extends AbstractController
                     'email' => $email
                 ];
 
-                $emailing = new Mailing();
-                $emailing->sendEmailtoAdmin($bodyVar);
                 FlashBag::addFlash($insertUser['message'], 'query');
+
+                if ($insertUser['message'] == "Vous êtes bien enregistré, vous pouvez vous connecter.")
+                {
+                    $emailing = new Mailing();
+                    $emailing->sendEmailtoAdmin($bodyVar);
+                }
             }
         }
         return $this->render('inscription', [
