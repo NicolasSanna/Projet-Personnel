@@ -60,6 +60,14 @@ textarea {
   border-radius: 5px;
 }
 
+#adminCategory {
+  margin-left: 25px;
+}
+
+#adminArticles {
+  margin-left: 25px;
+}
+
 .Title {
   text-align: center;
   margin-top: 30px;
