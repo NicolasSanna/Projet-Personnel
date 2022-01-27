@@ -60,7 +60,8 @@ class ArticleController extends AbstractController
                 'content' => $content??'',
                 'title' => $title??'',
                 'categories' => $categories??'',
-                'pageTitle' => $pageTitle??''
+                'pageTitle' => $pageTitle??'',
+                'selectedCategory' => $category??null
             ]);
         }
         else
@@ -174,7 +175,8 @@ class ArticleController extends AbstractController
                 'categories' => $categories??'',
                 'pageTitle' => $pageTitle??'',
                 'imageExist' => $imageExist??'',
-                'idOfArticle' => $idOfArticle??''
+                'idOfArticle' => $idOfArticle??'',
+                'selectedCategory' => $category??null
             ]);
         }
         else

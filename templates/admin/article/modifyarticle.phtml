@@ -20,7 +20,8 @@
         <label for="title" class="FormArticle-box-select">Catégorie :</label>
             <select name="categories" class="FormArticle-box-input FormArticleSelect" id="">
                 <?php foreach ($categories as $category):?>
-                    <option value="<?= $category['id'];?>" ><?= htmlspecialchars($category['category']);?></option>
+                    <?php $selected = isset($selectedCategory) && $category['id'] == $selectedCategory ? 'selected' : '';?>
+                    <option <?=$selected;?> value="<?= $category['id'];?>" ><?= htmlspecialchars($category['category']);?></option>
                 <?php endforeach;?>
             </select>
             <?php if(!empty($imageExist)):?>
