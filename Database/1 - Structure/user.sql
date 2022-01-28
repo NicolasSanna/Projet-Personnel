@@ -8,8 +8,8 @@ DROP USER '4dm1n1str4teur'@'localhost';
 CREATE USER '4dm1n1str4teur'@'localhost' IDENTIFIED BY 'TODO';
 
 -- Phase de développement : On donne les privilèges nécessaires DDL et DML pendant la phase de création.
-REVOKE ALL PRIVILEGES, 
-GRANT OPTION
+REVOKE ALL PRIVILEGES
+ON huma_scientio.*
 FROM '4dm1n1str4teur'@'localhost';
 
 GRANT ALL PRIVILEGES
@@ -19,8 +19,8 @@ TO '4dm1n1str4teur'@'localhost';
 FLUSH PRIVILEGES ;
 
 -- Après : Une fois la phase de développée terminée pour mise en production, on retire tous les privilèges sauf ceux nécessaires à l'utilisateur connecté à la base de données. 
-REVOKE ALL PRIVILEGES, 
-GRANT OPTION
+REVOKE ALL PRIVILEGES
+ON huma_scientio.*
 FROM '4dm1n1str4teur'@'localhost';
 
 FLUSH PRIVILEGES ;
