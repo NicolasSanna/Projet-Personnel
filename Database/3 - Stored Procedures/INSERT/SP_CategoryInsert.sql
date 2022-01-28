@@ -3,37 +3,31 @@ DROP PROCEDURE IF EXISTS SP_CategoryInsert //
 CREATE PROCEDURE SP_CategoryInsert (v_category VARCHAR(255)) 
 BEGIN 
 
-	 DECLARE message VARCHAR(512); 
-    DECLARE exist SMALLINT; 
-    
-    SET message = ''; 
-
+   DECLARE message VARCHAR(512); 
+   DECLARE exist SMALLINT; 
    
-    
-    SELECT COUNT(id)
-    INTO exist
-    FROM categories
-    WHERE LOWER(categories.category) = LOWER(v_category);
+   SET message = ''; 
+   
+   SELECT COUNT(id)
+   INTO exist
+   FROM categories
+   WHERE LOWER(categories.category) = LOWER(v_category);
 
-    
-    
-    IF(exist > 0) THEN 
-       SET message = CONCAT('La catégorie ', v_category, ' existe déjà.'); 
-    END IF; 
+   IF(exist > 0) THEN 
 
-    
-       
-    IF(exist = 0) THEN 
+      SET message = CONCAT('La catégorie ', v_category, ' existe déjà.'); 
+      
+   END IF; 
+         
+   IF(exist = 0) THEN 
 
-       INSERT INTO categories (category)
-       VALUES(v_category);
+      INSERT INTO categories (category)
+      VALUES(v_category);
 
-       SET message = CONCAT('La catégorie ', v_category ,' a bien été ajoutée.');
+      SET message = CONCAT('La catégorie ', v_category ,' a bien été ajoutée.');
 
-    END IF;
+   END IF;
 
-    
-
-  	SELECT message;
+   SELECT message;
 
 END //
