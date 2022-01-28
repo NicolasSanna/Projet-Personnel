@@ -51,7 +51,7 @@
             <?php foreach ($comments as $comment):?>
 
                 <div class="Comment-list">
-                    <p><?= $comment['content'];?></p>
+                    <p><?= htmlspecialchars($comment['content']);?></p>
                     <p>Écrit par : <?= htmlspecialchars($comment['pseudo']);?></p>
                     <p>Publié <?=$comment['date_publication'];?></p>
                 </div>
