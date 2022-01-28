@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Framework\Get;
 use App\Framework\Post;
 use App\Framework\Server;
 use App\Framework\FlashBag;
@@ -42,10 +43,9 @@ class ForumController extends AbstractController
    public function seeOneCategoryAndArticles()
    {
 
-        if (array_key_exists('id', $_GET) && $_GET['id'] && ctype_digit($_GET['id']))
+        if (Get::existsDigit('id')) 
         {
-
-            $idOfCategory = $_GET['id'];
+            $idOfCategory = (int) Get::key('id');
 
             $categoryModel = new CategoryModel();
             $articlesByCategory = $categoryModel->getArticlesByCategory($idOfCategory);
