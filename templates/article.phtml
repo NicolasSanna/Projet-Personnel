@@ -26,9 +26,10 @@
         <?php if (UserSession::author() || UserSession::administrator()):?>
 
             <div class="FormComment">
-                <form class="FormComment-box" method="POST" action="<?=buildUrl('addcomment', ['id' => intval($article['id'])]);?>">
+                <form class="FormComment-box" method="POST" action="<?=buildUrl('addcomment');?>">
                     <label class="FormComment-box-label" >Ajouter un commentaire :</label>
                     <textarea class="FormComment-box-textarea" type="text" name="comment" id=""></textarea>
+                    <input type="hidden" name="article-id" value="<?=intval($article['id']);?>">
                     <div class="FormComment-box-buttonBox">
                         <button class="FormComment-box-button" type="submit" name="validate" >Ajouter un commentaire</button>
                     </div>

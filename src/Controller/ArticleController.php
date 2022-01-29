@@ -46,37 +46,34 @@ class ArticleController extends AbstractController
     {
         if (UserSession::author() || UserSession::administrator())
         {
-            if (Get::existsDigit('id'))
+            if(!empty($_POST))
             {
-                $idOfArticle = (int) $_GET['id'];
-                
+                $idOfArticle = (int) Post::verifyContent('article-id');
+                $comment = Post::verifyContent('comment');
+                $user_id = UserSession::getId();
+
                 $articleModel = new ArticleModel();
                 $article = $articleModel->getOneArticle($idOfArticle);
 
                 if(!$article)
                 {
-                    FlashBag::addFlash("Aucun article trouvé", 'error');
+                    FlashBag::addFlash("Aucun article trouvé.", 'error');
                     $this->redirect('forum');
                 }
-    
-                if(!empty($_POST))
+
+                if(!$comment)
                 {
-                    $comment = Post::verifyContent('comment');
-                    $user_id = UserSession::getId();
-    
-                    if(!$comment)
-                    {
-                        FlashBag::addFlash("Le champ commentaire est vide", "error");
-                    }
-                    
-                    if (!(FlashBag::hasMessages('error')))
-                    {
-                        $commentModel = new CommentModel();
-                        $insertComment = $commentModel->addComment($comment, $user_id, $idOfArticle);
-                        FlashBag::addFlash("Votre commentaire a bien été pris en compte. Il sera visible prochainement.", "success");
-                    }
+                    FlashBag::addFlash("Le champ commentaire est vide", "error");
+                }
+                
+                if (!(FlashBag::hasMessages('error')))
+                {
+                    $commentModel = new CommentModel();
+                    $insertComment = $commentModel->addComment($comment, $user_id, $idOfArticle);
+                    FlashBag::addFlash("Votre commentaire a bien été pris en compte. Il sera visible prochainement.", "success");
                 }
                 $this->redirect('article', ['id' => $idOfArticle]);
+
             }
             else
             {
