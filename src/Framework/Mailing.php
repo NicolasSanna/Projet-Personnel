@@ -13,6 +13,8 @@ class Mailing
     const EMAIL_USERNAME = '74f3b81336c24e';
     const EMAIL_PASSWORD = '16b9b2f1f4e485';
 
+    private $transport;
+
     public function __construct()
     {
         $this->transport = Transport::fromDsn('smtp://'.self::EMAIL_USERNAME.':'.self::EMAIL_PASSWORD.'@'.self::EMAIL_HOST.':'.self::EMAIL_PORT.'?encryption=tls&auth_mode=login');
