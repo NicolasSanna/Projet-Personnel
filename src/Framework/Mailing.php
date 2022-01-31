@@ -68,9 +68,9 @@ class Mailing
             $mailer = new Mailer($this->transport);
             $newEmail = (new Email())
             ->from($bodyVar['email'])
-            ->to('nico13sanna@gmail.com')
+            ->to($bodyVar['email'])
             ->priority(Email::PRIORITY_HIGHEST)
-            ->subject('Demande de validation de compte utilisateur')
+            ->subject('Demande de réinitialisation de mot de passe')
             ->html($template);
     
             $mailer->send($newEmail);

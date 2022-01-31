@@ -61,6 +61,9 @@ class AuthController extends AbstractController
 
     public function sendEmailForgetPassword()
     {
+        
+        $pageTitle = 'Réinitialiser le mot de passe';
+
         if(!empty($_POST))
         {
             $email = Post::verifyContent('email');
@@ -72,6 +75,7 @@ class AuthController extends AbstractController
 
             $userModel = new UserModel();
             $emailExists = $userModel->getUserByEmail($email);
+
 
             if(!$emailExists)
             {
@@ -87,7 +91,6 @@ class AuthController extends AbstractController
             if(!(FlashBag::hasMessages('error')))
             {
                 
-
                 $keyReinitialization = bin2hex(openssl_random_pseudo_bytes(24));
 
                 $userModel->keyReinitialization($email, $keyReinitialization);
@@ -100,21 +103,27 @@ class AuthController extends AbstractController
                 $emailing = new Mailing();
                 $emailing->sendEmailForgetPassword($bodyVar);
 
-                FlashBag::addFlash('Votre demande de réinitialisation de mot de passe a bien été prise en compte. Vous allez recevoir un email afin de poursuivre la procédure.', 'success');
+                FlashBag::addFlash("Votre demande de réinitialisation de mot de passe a bien été prise en compte. Vous allez recevoir la clé de réinitialisation par email. Pour continuer, cliquez sur 'changer le mot de passe'.", 'success');
             }
         }
         return $this->render('sendEmailForgetPassword', [
-            'email' => $email??''
+            'email' => $email??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 
     public function changePassword()
     {
+        $pageTitle = 'Modifier le mot de passe';
+
         if(!empty($_POST))
         {
             $email = Post::verifyContent('email');
             $newPassword = Post::verifyContent('newPassword');
             $confirmNewPassword = Post::verifyContent('confirmNewPassword');
+            $keyReinitialization = Post::verifyContent('keyReinitialization');
+
+
 
             if(!$email || !$newPassword || !$confirmNewPassword)
             {
@@ -129,22 +138,32 @@ class AuthController extends AbstractController
                 FlashBag::addFlash('Cet email n\'existe pas.', 'error');
             }
 
+            if (strlen($newPassword) < 8)
+            {
+                FlashBag::addFlash("Le mot de passe doit contenir au moins 8 caractères.", 'error');
+            }
+
             if(!filter_var($email, FILTER_VALIDATE_EMAIL))
             {
                 FlashBag::addFlash('Vérifiez le format de votre email.', 'error'); 
             }
 
-            if(!(FlashBag::hasMessages('error')))
+            if($newPassword != $confirmNewPassword)
             {
-                FlashBag::addFlash('Youpi', 'success'); 
-                dump($_POST);
+                FlashBag::addFlash('Le mot de passe et sa confirmation sont différents.', 'error'); 
             }
 
-           
-
+            if(!(FlashBag::hasMessages('error')))
+            {
+                
+                $hash = password_hash($newPassword, PASSWORD_DEFAULT);
+                $result = $userModel->changePassword($email, $hash, $keyReinitialization);
+                FlashBag::addFlash($result['message'], 'query'); 
+            }
         }
         return $this->render('changePassword', [
-            'email' => $email??''
+            'email' => $email??'',
+            'pageTitle' => $pageTitle??''
         ]);
     }
 

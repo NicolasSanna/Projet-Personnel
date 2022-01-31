@@ -16,6 +16,7 @@ ALTER TABLE messages DROP CONSTRAINT fk_to_user;
 ALTER TABLE messages DROP CONSTRAINT fk_message_status_sender;
 ALTER TABLE messages DROP CONSTRAINT fk_message_status_receptor;
 ALTER TABLE messages DROP CONSTRAINT fk_status_user_sender;
+ALTER TABLE user_password_change DROP CONSTRAINT fk_user_change;
 
 -- On commence la création des tables ici.
 DROP TABLE IF EXISTS grants;
