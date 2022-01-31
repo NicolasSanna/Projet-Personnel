@@ -20,8 +20,8 @@ BEGIN
 
     IF (existeDelete = 0) THEN
 
-        INSERT INTO users (id, firstname, lastname, pseudo, email, password, inscription_date, grant_id)
-        VALUES (1, 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', NOW(), v_grantId);
+        INSERT INTO users (id, firstname, lastname, pseudo, email, password, inscription_date, grant_id, grant_label)
+        VALUES (1, 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', NOW(), v_grantId, v_grant_label);
 
         SELECT COUNT(id)
         INTO exist
