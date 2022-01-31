@@ -8,6 +8,16 @@ use Symfony\Component\Mailer\Transport;
 
 class Mailing
 {
+    const EMAIL_HOST = "smtp.mailtrap.io";
+    const EMAIL_PORT = 2525;
+    const EMAIL_USERNAME = '74f3b81336c24e';
+    const EMAIL_PASSWORD = '16b9b2f1f4e485';
+
+    public function __construct()
+    {
+        $this->transport = Transport::fromDsn('smtp://'.self::EMAIL_USERNAME.':'.self::EMAIL_PASSWORD.'@'.self::EMAIL_HOST.':'.self::EMAIL_PORT.'?encryption=tls&auth_mode=login');
+    }
+
     public function sendEmailtoAdmin($bodyVar)
     {
 
@@ -22,11 +32,10 @@ class Mailing
     
         try
         {
-            $transport = Transport::fromDsn('smtp://74f3b81336c24e:16b9b2f1f4e485@smtp.mailtrap.io:2525?encryption=tls&auth_mode=login');
     
-            $mailer = new Mailer($transport);
+            $mailer = new Mailer($this->transport);
             $newEmail = (new Email())
-            ->from('coucou@gmail.com')
+            ->from($bodyVar['email'])
             ->to('nico13sanna@gmail.com')
             ->priority(Email::PRIORITY_HIGHEST)
             ->subject('Demande de validation de compte utilisateur')
