@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
-use App\Framework\AbstractController;
-use App\Framework\UserSession;
-use App\Framework\FlashBag;
+use App\Framework\Post;
 use App\Model\UserModel;
+use App\Framework\Mailing;
+use App\Framework\FlashBag;
+use App\Framework\UserSession;
+use App\Framework\AbstractController;
 
 class AuthController extends AbstractController
 {
@@ -57,51 +59,93 @@ class AuthController extends AbstractController
         exit;
     }
 
-    // public function changePassword()
-    // {
-    //     $pageTitle = 'Modifier le mot de passe';
+    public function sendEmailForgetPassword()
+    {
+        if(!empty($_POST))
+        {
+            $email = Post::verifyContent('email');
 
-    //     if (!empty($_POST))
-    //     {
-    //         $email = trim(htmlspecialchars($_POST['email']));
-    //         $newPassword = trim(htmlspecialchars($_POST['newPassword']));
-    //         $confirmNewPassword = trim(htmlspecialchars($_POST ['confirmNewPassword']));
+            if(!$email)
+            {
+                FlashBag::addFlash('Le champ email est vide', 'error');
+            }
 
-    //         if (!$email || !$newPassword || !$confirmNewPassword)
-    //         {
-    //             FlashBag::addFlash("Tous les champs de modification n'ont pas été correctement remplis", 'error');
-    //         }
-            
-    //         if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-    //         {
-    //             FlashBag::addFlash('Vérifiez le format de votre email.', 'error'); 
-    //         }
+            $userModel = new UserModel();
+            $emailExists = $userModel->getUserByEmail($email);
 
-    //         if (strlen($newPassword) < 8)
-    //         {
-    //             FlashBag::addFlash("Le mot de passe doit contenir au moins 8 caractères.", 'error');
-    //         }
+            if(!$emailExists)
+            {
+                FlashBag::addFlash('Cet email n\'existe pas.', 'error');
+            }
 
-    //         if($newPassword != $confirmNewPassword)
-    //         {
-    //             FlashBag::addFlash("Le mot de passe confirmé ne correspond pas à celui que vous voulez utiliser.", 'error');
-    //         }
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+            {
+                FlashBag::addFlash('Vérifiez le format de votre email.', 'error'); 
+            }
 
-    //         if (!(FlashBag::hasMessages('error')))
-    //         {
-    //             $hash = password_hash($newPassword , PASSWORD_DEFAULT);
-    //             $userModel = new UserModel();
-    //             $modifyPassword = $userModel->changePassword($email, $hash);
 
-    //             FlashBag::addFlash($modifyPassword['message'], 'query');
-    //             $this->redirect('connexion');
-    //         }
+            if(!(FlashBag::hasMessages('error')))
+            {
+                
 
-    //     }
+                $keyReinitialization = bin2hex(openssl_random_pseudo_bytes(24));
 
-    //     return $this->render('modifyPassword', [
-    //         'pageTitle' => $pageTitle??'',
-    //         'email' => $email??''
-    //     ]);
-    // }
+                $userModel->keyReinitialization($email, $keyReinitialization);
+
+                $bodyVar = [
+                    'email' => $email,
+                    'keyReinitialization' => $keyReinitialization
+                ];
+
+                $emailing = new Mailing();
+                $emailing->sendEmailForgetPassword($bodyVar);
+
+                FlashBag::addFlash('Votre demande de réinitialisation de mot de passe a bien été prise en compte. Vous allez recevoir un email afin de poursuivre la procédure.', 'success');
+            }
+        }
+        return $this->render('sendEmailForgetPassword', [
+            'email' => $email??''
+        ]);
+    }
+
+    public function changePassword()
+    {
+        if(!empty($_POST))
+        {
+            $email = Post::verifyContent('email');
+            $newPassword = Post::verifyContent('newPassword');
+            $confirmNewPassword = Post::verifyContent('confirmNewPassword');
+
+            if(!$email || !$newPassword || !$confirmNewPassword)
+            {
+                FlashBag::addFlash('Tous les champs n\'ont pas été remplis.', 'error');
+            }
+
+            $userModel = new UserModel();
+            $emailExists = $userModel->getUserByEmail($email);
+
+            if(!$emailExists)
+            {
+                FlashBag::addFlash('Cet email n\'existe pas.', 'error');
+            }
+
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+            {
+                FlashBag::addFlash('Vérifiez le format de votre email.', 'error'); 
+            }
+
+            if(!(FlashBag::hasMessages('error')))
+            {
+                FlashBag::addFlash('Youpi', 'success'); 
+                dump($_POST);
+            }
+
+           
+
+        }
+        return $this->render('changePassword', [
+            'email' => $email??''
+        ]);
+    }
+
 }

@@ -50,4 +50,36 @@ class Mailing
         }
         return $result;
     }
+
+    public function sendEmailForgetPassword($bodyVar)
+    {
+        $result = '';
+    
+        $template = file_get_contents(TEMPLATE_DIR . '/' . 'mail/mailforgetpassword.html');
+
+        foreach($bodyVar as $key => $value)
+        {
+            $template = str_replace("{{". $key ."}}", $value, $template);
+        }
+    
+        try
+        {
+    
+            $mailer = new Mailer($this->transport);
+            $newEmail = (new Email())
+            ->from($bodyVar['email'])
+            ->to('nico13sanna@gmail.com')
+            ->priority(Email::PRIORITY_HIGHEST)
+            ->subject('Demande de validation de compte utilisateur')
+            ->html($template);
+    
+            $mailer->send($newEmail);
+        }
+    
+        catch(\Exception $e)
+        {
+                $result = 'Erreur d\'envoi du message';
+        }
+        return $result;
+    }
 }

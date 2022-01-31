@@ -195,6 +195,17 @@ $routes = [
         'controller' => 'Admin\\Message',
         'method' => 'inBoxAjax'
     ],
+
+    'sendEmailForgetPassword' => [
+        'path' => '/envoyeremailmotdepasseoublie',
+        'controller' => 'Auth',
+        'method' => 'sendEmailForgetPassword'
+    ],
+    'changePassword' => [
+        'path' => '/changerlemotdepasse',
+        'controller' => 'Auth',
+        'method' => 'changePassword'
+    ],
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
         'path' => $path,
