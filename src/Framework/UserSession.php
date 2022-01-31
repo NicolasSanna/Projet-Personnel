@@ -143,8 +143,13 @@ class UserSession extends AbstractSession
             return null;
         }
 
+        if ($_SESSION['user']['grant_label'] === "['ROLE_ADMINISTRATOR']")
+        {
+            return true;
+        }
+
         // On retourne l'identifiant du grant_id venant de la base de données en fonction de l'utilisateur en session. Ici 1.
-        return $_SESSION['user']['grant_label'] == "['ROLE_ADMINISTRATOR']";
+        // return $_SESSION['user']['grant_label'] == "['ROLE_ADMINISTRATOR']";
     }
 
     /**
@@ -159,7 +164,12 @@ class UserSession extends AbstractSession
         }
 
         // On retourne l'identifiant du grant_id venant de la base de données en fonction de l'utilisateur en session. Ici 2.
-        return $_SESSION['user']['grant_label'] == "['ROLE_AUTHOR']";
+        // return $_SESSION['user']['grant_label'] == "['ROLE_AUTHOR']";
+
+        if ($_SESSION['user']['grant_label'] === "['ROLE_AUTHOR']")
+        {
+            return true;
+        }
     }
 
     /**
@@ -173,7 +183,12 @@ class UserSession extends AbstractSession
             return null;
         }
         // On retourne l'identifiant du grant_id venant de la base de données en fonction de l'utilisateur en session. Ici 3.
-        return $_SESSION['user']['grant_label'] == "['ROLE_NEW_USER']";
+        // return $_SESSION['user']['grant_label'] == "['ROLE_NEW_USER']";
+
+        if ($_SESSION['user']['grant_label'] === "['ROLE_NEW_USER']")
+        {
+            return true;
+        }
     }
 
     /**
