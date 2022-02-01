@@ -14,7 +14,7 @@ class HomeController extends AbstractController
 
         $articlesModel = new ArticleModel();
 
-        $articles = $articlesModel->getAllArticles();
+        $articles = $articlesModel->getLastTwoArticles();
 
         return $this->render('home', [
             'articles' => $articles??'',

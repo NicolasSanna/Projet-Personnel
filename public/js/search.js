@@ -13,7 +13,7 @@ class SearchManager
         form.addEventListener('submit', this.onSubmitFormSearch);
     }
 
-        /**
+    /**
      * Création de la fonction asynchrone onSubmitFormSearch, qui prend en paramètre event.
      */
     async onSubmitFormSearch(event)
@@ -36,7 +36,7 @@ class SearchManager
         
         if (search == '')
         {
-            alert("Le champs de recherche est vide");
+            alert("Le champ de recherche est vide");
         }
         else
         {
@@ -138,7 +138,6 @@ class SearchManager
                 articleLink.href = result['articleUrl'];
             } 
         }
-    
     }
 }
 

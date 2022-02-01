@@ -26,9 +26,9 @@ class ArticleModel extends AbstractModel
         return $articles;
     }
 
-    public function getLastFiveArticles()
+    public function getLastTwoArticles()
     {
-        $sql = 'CALL SP_FiveArticlesOrderByDateSelect()';
+        $sql = 'CALL SP_TwoArticlesOrderByDateSelect()';
 
         $lastFiveArticles = $this->database->getAllResults($sql);
 
