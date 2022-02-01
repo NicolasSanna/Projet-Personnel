@@ -121,9 +121,7 @@ class AuthController extends AbstractController
             $email = Post::verifyContent('email');
             $newPassword = Post::verifyContent('newPassword');
             $confirmNewPassword = Post::verifyContent('confirmNewPassword');
-            $keyReinitialization = Post::verifyContent('keyReinitialization');
-
-
+            $keyReinitialization = $_POST['keyReinitialization'];
 
             if(!$email || !$newPassword || !$confirmNewPassword || !$keyReinitialization)
             {
@@ -151,6 +149,11 @@ class AuthController extends AbstractController
             if($newPassword != $confirmNewPassword)
             {
                 FlashBag::addFlash('Le mot de passe et sa confirmation sont différents.', 'error'); 
+            }
+
+            if(str_contains($keyReinitialization, ' '))
+            {
+                FlashBag::addFlash('La clé de réinitialisation est incorrecte.', 'error');
             }
 
             if(!(FlashBag::hasMessages('error')))
