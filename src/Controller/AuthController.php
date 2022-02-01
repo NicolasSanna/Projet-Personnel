@@ -125,7 +125,7 @@ class AuthController extends AbstractController
 
 
 
-            if(!$email || !$newPassword || !$confirmNewPassword)
+            if(!$email || !$newPassword || !$confirmNewPassword || !$keyReinitialization)
             {
                 FlashBag::addFlash('Tous les champs n\'ont pas été remplis.', 'error');
             }
