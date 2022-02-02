@@ -2,44 +2,47 @@
 
 <h3 class="TitlePage">Mes articles</h3>
 
-<p><a class="Link" id="adminArticles" href="<?=buildUrl('newarticle');?>">Créer un article</a></p>
+ 
+    <p><a class="Link" id="adminArticles" href="<?=buildUrl('newarticle');?>">Créer un article</a></p>
 
-<?php if (!empty($myArticles)):?>
+    <?php if (!empty($myArticles)):?>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Date de création</th>
-                <th>Catégorie</th>
-                <th>Commentaires</th>
-                <th colspan="2">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-                
-            <?php foreach ($myArticles as $myArticle):?>
-
+        <table>
+            <thead>
                 <tr>
-                    <td><?=$myArticle['articleId'];?></td>
-                    <td> <a href="<?=buildUrl('article', ['id' => intval($myArticle['articleId'])]);?>"><?=htmlspecialchars(substr($myArticle['title'], 0, 100));?> [...]</a></td>
-                    <td><?=$myArticle['creation_date'];?></td>
-                    <td><a href="<?=buildUrl('category', ['id' => intval($myArticle['category_id'])]);?>"><?=$myArticle['category'];?></a></td>
-                    <td><?=$myArticle['number_comments'];?></td>
-                    <td><a id="a-modify" href="<?=buildUrl('modifyarticle', ['id' => intval($myArticle['articleId'])]);?>">Modifier</a></td>
-                    <td><a id="a-delete" class="deleteArticle" href="<?=buildUrl('deletearticle', ['id' => intval($myArticle['articleId']), 'token' => UserSession::token()]);?>">Supprimer</a></td>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Date de création</th>
+                    <th>Catégorie</th>
+                    <th>Commentaires</th>
+                    <th colspan="2">Actions</th>
                 </tr>
+            </thead>
+            <tbody>
+                    
+                <?php foreach ($myArticles as $myArticle):?>
 
-            <?php endforeach;?>
-            
-        </tbody>
-    </table>
+                    <tr>
+                        <td><?=$myArticle['articleId'];?></td>
+                        <td> <a href="<?=buildUrl('article', ['id' => intval($myArticle['articleId'])]);?>"><?=htmlspecialchars(substr($myArticle['title'], 0, 100));?> [...]</a></td>
+                        <td><?=$myArticle['creation_date'];?></td>
+                        <td><a href="<?=buildUrl('category', ['id' => intval($myArticle['category_id'])]);?>"><?=$myArticle['category'];?></a></td>
+                        <td><?=$myArticle['number_comments'];?></td>
+                        <td><a id="a-modify" href="<?=buildUrl('modifyarticle', ['id' => intval($myArticle['articleId'])]);?>">Modifier</a></td>
+                        <td><a id="a-delete" class="deleteArticle" href="<?=buildUrl('deletearticle', ['id' => intval($myArticle['articleId']), 'token' => UserSession::token()]);?>">Supprimer</a></td>
+                    </tr>
 
-<?php else:?>
+                <?php endforeach;?>
+                
+            </tbody>
+        </table>
 
-    <p class="noArticle">Vous n'avez publié aucun article.</p>
+    <?php else:?>
 
-<?php endif;?>
+        <p class="noArticle">Vous n'avez publié aucun article.</p>
+
+    <?php endif;?>
+
+
 
 <script src="<?= asset('js/adminarticle.js');?>"></script>

@@ -2,8 +2,6 @@
 // POUR LE PROJET //
 ///////////////////
 
-- Créer la table "ressources" qui contiendra le nom des fichiers (créer $_FILES à l'ajout), le titre, la clé étrangère de la catégorie, , la description, la clé étrangère de l'utilisateur qui l'a ajouté, et la date d'ajout pour les ressources documentaires. Gérer avec $_FILES et ses vérifications. (Accès pour les inscrits, ajout pour les auteurs (réfléchir à la modification et à la suppression)). A ajouter dans le panneau d'administration.
-
 - Continuer d'écrire le dossier professionnel et le dossier projet.
 
 - Faire les maquettes (le mockup, le wireframe, le prototype) sur Figma /!\.
@@ -12,10 +10,7 @@
 
 https://www.sitepoint.com/sending-emails-php-phpmailer/
 
-- reCAPTCHA sur le formulaire d'inscription 
 https://nouvelle-techno.fr/articles/integrer-google-recaptcha-sur-votre-site
 https://grafikart.fr/tutoriels/recaptcha-anti-spam-346
-
-- CSS Page d'accueil
 
 - CSS page article 

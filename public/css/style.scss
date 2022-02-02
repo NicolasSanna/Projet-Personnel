@@ -92,12 +92,12 @@ textarea
 
 #adminCategory
 {
-    margin-left: 25px;
+    margin-left: 5%;
 }
 
 #adminArticles
 {
-    margin-left: 25px;
+    margin-left: 5%;
 }
 
 .Title
@@ -112,7 +112,7 @@ textarea
     text-align: center;
 }
 
-// CSS DE DU COMMENTAIRE DANS LE DASHBOARD
+// CSS DU COMMENTAIRE DANS LE DASHBOARD
 .Comment
 {
     &-content
@@ -120,6 +120,14 @@ textarea
         text-align: justify;
     }
 }
+
+// POUR LES TABLEAUX
+
+// .Tableau
+// {
+//     display:flex;
+//     flex-direction: column;
+// }
 
 
 
@@ -719,6 +727,8 @@ textarea
     flex-direction:column;
     text-align: center;
 }
+
+
 
 // POINT DE RUPTURE DU MEDIA QUERIES A 880 PX
 @media screen AND (min-width: 1100px)

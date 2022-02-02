@@ -9,31 +9,31 @@
 
     <section class="Homepage-section2">
 
-            <h3 class="Homepage-section2-h3">Nos deux derniers articles</h3>
+        <?php if (!empty($articles)):?>
 
-            <hr>
+            <?php foreach ($articles as $article):?>
 
-            <?php if (!empty($articles)):?>
+                <h3 class="Homepage-section2-h3">Nos deux derniers articles</h3>
 
-                <?php foreach ($articles as $article):?>
+                <hr>
 
-                    <div class="Homepage-section2-list-article">
-                        <h3 class="Homepage-section2-list-article-title"><?=htmlspecialchars($article['title']);?></h3>
-                        <p class="Homepage-section2-list-article-pseudo">Écrit par : <?= htmlspecialchars($article['pseudo']);?></p>
-                        <p class="Homepage-section2-list-article-date">Date de publication : <?= $article['creation_date'];?></p>
-                        <p class="Homepage-section2-list-article-category">Catégorie : <a class="Forum-list-article-category-link" href="<?= buildUrl('category', ['id'=> intval($article['category_id'])]);?>"><?= htmlspecialchars($article['category']);?></a></p>
-                        <a class="LinkA" href="<?= buildUrl('article', ['id' => intval($article['id'])]);?>">Lire l'article</a>
-                    </div>
+                <div class="Homepage-section2-list-article">
+                    <h3 class="Homepage-section2-list-article-title"><?=htmlspecialchars($article['title']);?></h3>
+                    <p class="Homepage-section2-list-article-pseudo">Écrit par : <?= htmlspecialchars($article['pseudo']);?></p>
+                    <p class="Homepage-section2-list-article-date">Date de publication : <?= $article['creation_date'];?></p>
+                    <p class="Homepage-section2-list-article-category">Catégorie : <a class="Forum-list-article-category-link" href="<?= buildUrl('category', ['id'=> intval($article['category_id'])]);?>"><?= htmlspecialchars($article['category']);?></a></p>
+                    <a class="LinkA" href="<?= buildUrl('article', ['id' => intval($article['id'])]);?>">Lire l'article</a>
+                </div>
 
-                    <hr>
+                <hr>
 
-                <?php endforeach;?>
+            <?php endforeach;?>
 
-            <?php else:?>
+        <?php else:?>
 
-                <p>Il n'y a encore aucun article.</p>
+            <p>Il n'y a encore aucun article.</p>
 
-            <?php endif;?>
+        <?php endif;?>
 
     </section>
 
