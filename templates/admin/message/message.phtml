@@ -21,10 +21,10 @@
         <form action="" method="POST" class="FormMessage-box">
 
             <label for="subject" class="FormMessage-box-label">Sujet :</label>
-            <input type="text" name="subject" id="" value="<?=htmlspecialchars($subject);?>">
+            <input type="text" name="subject" id="subject" value="<?=htmlspecialchars($subject);?>">
 
             <label for="content" class="FormMessage-box-label">Message :</label>
-            <textarea class="FormMessage-box-textarea" name="content" ><?=htmlspecialchars($content);?></textarea>
+            <textarea class="FormMessage-box-textarea" id="content" name="content" ><?=htmlspecialchars($content);?></textarea>
             
             <input type="hidden" name="toUser" value="<?=$pseudoFromId;?>">
 

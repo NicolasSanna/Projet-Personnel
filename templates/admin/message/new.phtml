@@ -1,17 +1,19 @@
 <h3>Écrire un nouveau message</h3>
-    <div class="FormMessage">
-    <form action="" method="POST" class="FormMessage-box">
+
+<div class="FormMessage">
+
+    <form method="POST" class="FormMessage-box" action="">
 
         <label for="subject" class="FormMessage-box-label">Sujet :</label>
-        <input type="text" name="subject" id="" class="FormMessage-box-input" value="<?=$subject;?>">
+        <input type="text" name="subject" id="subject" class="FormMessage-box-input" value="<?=$subject;?>">
 
         <label for="content" class="FormMessage-box-label">Message :</label>
-        <textarea class="FormMessage-box-textarea" name="content"><?=htmlspecialchars($content);?></textarea>
+        <textarea class="FormMessage-box-textarea" id="content" name="content"><?=htmlspecialchars($content);?></textarea>
 
         <label for="selectUser" class="FormMessage-box-label">Destinaire :</label>
-        <select name="selectUser" id="" class="FormMessage-box-select">
+        <select name="selectUser" id="selectUser" class="FormMessage-box-select">
             <?php foreach ($users as $user):?>
-            <option value="<?=$user['id'];?>"><?=$user['pseudo'];?></option>
+                <option value="<?=$user['id'];?>"><?=$user['pseudo'];?></option>
             <?php endforeach;?>
         </select>
 
@@ -20,4 +22,5 @@
         </div>
         
     </form>
+
 </div>

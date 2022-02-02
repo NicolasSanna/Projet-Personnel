@@ -1,14 +1,21 @@
 <?php use App\Framework\UserSession;?>
 
 <h3 class="TitlePage">Créer une catégorie</h3>
+
 <div class="Form">
+
     <form class="Form-box" method="POST">
+
         <label class="Form-box-label" for="newcategory">Créer une catégorie : </label>
-        <input type="text" class="Form-box-input" name="newcategory" id="category" value="<?=$newCategory;?>">
+        <input type="text" class="Form-box-input" name="newcategory" id="newcategory" value="<?=$newCategory;?>">
+
         <input type="hidden" name="token" value="<?=UserSession::token();?>">
         <input type="submit"  class="Form-box-button" value="Créer une catégorie" />
+
     </form>
+
     <div class="Form-box">
         <a class="Link" href="<?= buildUrl('adminCategories');?>">Revenir aux catégories</a>
     </div>
+
 </div>

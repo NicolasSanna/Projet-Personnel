@@ -11,9 +11,9 @@
                 <?php foreach ($messages as $message):?>
 
                     <tr>
-                        <td><?=$message['pseudoFrom'];?></td>
-                        <td><?=$message['pseudoTo'];?></td>
-                        <td><?=$message['subject'];?></td>
+                        <td><?=htmlspecialchars($message['pseudoFrom']);?></td>
+                        <td><?=htmlspecialchars($message['pseudoTo']);?></td>
+                        <td><?=htmlspecialchars($message['subject']);?></td>
                         <td><?=$message['publication_date'];?></td>
                         <td><a href="<?=buildUrl('message', ['id' => $message['id_message']]);?>">Lire</a></td>
                         <td><a href="<?=buildUrl('messageTrashFromUser', ['id' => $message['id_message']]);?>">Supprimer</a></td>

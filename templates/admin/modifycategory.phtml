@@ -1,10 +1,11 @@
 <h3 class="TitlePage">Modifier la catégorie : <?=$category['category'];?></h3>
 
 <div class="Form">
-    <form class="Form-box" method="POST">
+    <form class="Form-box" method="POST" action="">
 
         <label class="Form-box-label" for="newcategory">Modifier la catégorie :</label>
         <input type="text" name="newcategory" class="Form-box-input" id="" value="<?= htmlspecialchars($category['category']);?>">
+        
         <input type="hidden" name="idcategory" value="<?=$category['id'];?>">
         
         <div class="FormCategory-button">

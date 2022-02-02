@@ -4,18 +4,15 @@
 
     <video controls playsinline autoplay muted loop class="Home-video">
         <source src="<?= asset('img/production-ID_4205790.mp4');?>">
-
     </video>
 
     <section class="Homepage-section2">
 
         <?php if (!empty($articles)):?>
 
+            <h3 class="Homepage-section2-h3">Nos deux derniers articles</h3>
+
             <?php foreach ($articles as $article):?>
-
-                <h3 class="Homepage-section2-h3">Nos deux derniers articles</h3>
-
-                <hr>
 
                 <div class="Homepage-section2-list-article">
                     <h3 class="Homepage-section2-list-article-title"><?=htmlspecialchars($article['title']);?></h3>

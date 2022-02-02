@@ -6,11 +6,15 @@ table
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    width: 90%;
-    margin: 0 auto;
+    max-width: fit-content;
     position: relative;
     -webkit-box-shadow: 3px 6px 9px 0px rgba(0,0,0,0.3); 
     box-shadow: 3px 6px 9px 0px rgba(0,0,0,0.3);
+    margin:0;
+    margin-left:auto;
+    margin-right:auto;
+    min-width: 70%;
+
 }
 
 table thead tr 

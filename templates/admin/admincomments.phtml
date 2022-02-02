@@ -2,6 +2,8 @@
 
 <?php if (!empty($commentsNotApprouved)):?>
 
+    <p><a class="Link commentManager"  id="adminComments"href="<?=buildUrl('allCommentsApprouved');?>">Approuver tous les commentaires</a></p>
+
     <table>
         <thead>
             <tr>
@@ -13,8 +15,6 @@
             </tr>
         </thead>
         <tbody>
-
-            <p><a class="Link commentManager" href="<?=buildUrl('allCommentsApprouved');?>">Approuver tous les commentaires</a></p>
 
             <?php foreach ($commentsNotApprouved as $commentNotApprouved):?>
 

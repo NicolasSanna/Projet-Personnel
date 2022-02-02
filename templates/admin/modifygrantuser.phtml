@@ -1,9 +1,9 @@
 <h3 class="TitlePage">Modifier les privilèges utilisateurs de <?= htmlspecialchars($userInfos['pseudo']);?></h3>
 
 <div class="Form">
-    <form class="Form-box" method="POST">
-        <label class="Form-box-label" name="grants"></label>
-        <select name="grants" id="" class="FormArticle-box-input FormCategorySelect">
+    <form class="Form-box" method="POST" action="">
+        <label for="grants" class="Form-box-label"></label>
+        <select name="grants" id="grants" class="FormArticle-box-input FormCategorySelect">
             <?php if (!empty($grants)):?>
                 <?php foreach ($grants as $grant):?>
                     <option value="<?=$grant['id'];?>"><?=$grant['privilege'];?></option>
@@ -11,9 +11,10 @@
             <?php endif;?>
         </select>
 
-    <div class="FormCategory-button">
-        <button type="submit" class="FormArticle-box-button" >Changer le rôle du membre</button>
-    </div> 
+        <div class="FormCategory-button">
+            <button type="submit" class="FormArticle-box-button" >Changer le rôle du membre</button>
+        </div> 
+
     </form>
     <div class="Form-box">
         <a class="Link" href="<?= buildUrl('adminusers');?>">Revenir aux membres</a>
