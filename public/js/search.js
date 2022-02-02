@@ -105,14 +105,6 @@ class SearchManager
                  * On remplit la balise avec les résultats de la requête Ajax. result['']. On place l'identifiant du tableau associatif.
                  */
                 h3.innerHTML = result['title'];
-                
-                let articleContent = divSearchListArticle.appendChild(document.createElement('p'));
-                articleContent.classList.add('Search-list-article-content');
-
-                /**
-                 * On met le nombre de caractères de 0 à 200. Et on contatène ensuite les crochets trois points.
-                 */
-                articleContent.innerHTML = `${result['content'].substr(0, 100)} [...]`;
 
                 let articlePseudo = divSearchListArticle.appendChild(document.createElement('p'));
                 articlePseudo.classList.add('Search-list-article-pseudo');
