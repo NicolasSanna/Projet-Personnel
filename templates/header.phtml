@@ -34,7 +34,9 @@
         </div>
 
         <div class ="Header-navbarbox-navbar">
+
             <ul class="Header-navbarbox-navbar-ul">
+
                 <li>
                     <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('homepage');?>">Accueil</a>
                 </li>
@@ -47,6 +49,7 @@
                 <li>
                     <a class="Header-navbarbox-navbar-ul-a" href="<?= buildUrl('search');?>">Rechercher</a>
                 </li>
+                
                 <?php if (!UserSession::isAuthenticated()): ?>
 
                     <li>
@@ -76,7 +79,11 @@
                     </li>
 
                 <?php endif;?>
+
             </ul>
+
         </div>
+
     </nav>
+
 </header>
