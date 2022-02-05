@@ -378,6 +378,8 @@ textarea {
   margin-right: 10px;
 }
 .FormSearch-box {
+  display: flex;
+  flex-direction: column;
   width: auto;
   margin-left: auto;
   margin-right: auto;
@@ -385,11 +387,10 @@ textarea {
   margin-bottom: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  justify-content: space-around;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 .FormSearch-box-button {
-  margin-top: 10px;
   background-color: peru;
   color: white;
   padding-top: 10px;
@@ -413,13 +414,12 @@ textarea {
 }
 .FormSearch-label {
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .FormSearch-input {
   margin-bottom: 10px;
   padding: 10px;
   margin-right: 10px;
-  margin-top: 10px;
   margin-left: 10px;
 }
 
@@ -637,8 +637,16 @@ textarea {
     width: 300px;
   }
 
+  .FormSearch-box {
+    flex-direction: row;
+    align-items: center;
+  }
   .FormSearch-input {
     width: 400px;
+    margin-bottom: 0px;
+  }
+  .FormSearch-label {
+    margin-bottom: 0px;
   }
 
   .Homepage {
