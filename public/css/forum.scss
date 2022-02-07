@@ -15,6 +15,7 @@
         padding:10px;
         display:flex;
         flex-direction:column;
+        align-items: center;
         &-article
         {
 
@@ -25,10 +26,11 @@
             padding-bottom:30px;
             margin-top:0px;
             margin-bottom:20px;
-            padding-left:20px;;
+            padding-left:20px;
             padding-right:20px;
             box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
             border-radius: 10px;
+            width:100%;
 
             &-link
             {
@@ -90,6 +92,8 @@
         padding:10px;
         display:flex;
         flex-direction:column;
+        flex-direction:column;
+        align-items: center;
         &-article
         {
 
@@ -97,13 +101,14 @@
             animation-direction: normal;
             animation-name: glissement;
 
-            padding-bottom:35px;
+            padding-bottom:30px;
             margin-top:0px;
             margin-bottom:20px;
-            padding-left:20px;;
+            padding-left:20px;
             padding-right:20px;
             box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
             border-radius: 10px;
+            width:100%;
 
             &-link
             {

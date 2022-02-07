@@ -703,24 +703,20 @@ textarea {
 @-webkit-keyframes glissement {
   from {
     margin-left: 25%;
-    width: 100%;
     opacity: 0;
   }
   to {
     margin-left: 0%;
-    width: 100%;
     opacity: 1;
   }
 }
 @keyframes glissement {
   from {
     margin-left: 25%;
-    width: 100%;
     opacity: 0;
   }
   to {
     margin-left: 0%;
-    width: 100%;
     opacity: 1;
   }
 }
