@@ -36,7 +36,7 @@ BEGIN
 
     IF (existEmail > 0 AND existPseudo > 0) THEN
 
-        SET message = "Un autre utilisateur avec email et ce pseudo existe déjà.";
+        SET message = "Un autre utilisateur avec cet email et ce pseudo existe déjà.";
 
     END IF;
 
