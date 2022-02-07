@@ -4,7 +4,7 @@ CREATE PROCEDURE SP_InscriptionInsert (v_firstname VARCHAR(255), v_lastname VARC
 BEGIN
 
     DECLARE message VARCHAR(512);
-    DECLARE exist SMALLINT;
+    DECLARE existEmail SMALLINT;
     DECLARE existeDelete SMALLINT;
     DECLARE v_grantId SMALLINT;
     DECLARE existPseudo SMALLINT;
@@ -27,19 +27,25 @@ BEGIN
         INTO exist
         FROM users
         WHERE email = LOWER(v_email);
+        
+        SELECT COUNT(id)
+        INTO existPseudo
+        FROM users
+        WHERE pseudo = LOWER(v_pseudo);
 
-        IF (exist > 0) THEN
+        IF (existEmail > 0 AND existPseudo > 0) THEN
+
+            SET message = "Un autre utilisateur avec email et ce pseudo existe déjà.";
+
+        END IF;
+
+        IF (existEmail > 0) THEN
 
             SET message = "Un autre utilisateur avec cet email existe déjà.";
 
             SELECT message;
 
         END IF;
-
-        SELECT COUNT(id)
-        INTO existPseudo
-        FROM users
-        WHERE pseudo = LOWER(v_pseudo);
 
         IF (existPseudo > 0) THEN
 
@@ -49,7 +55,7 @@ BEGIN
         
         END IF;
         
-        IF (exist = 0 AND existPseudo = 0) THEN
+        IF (existEmail = 0 AND existPseudo = 0) THEN
 
             INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, grant_label, inscription_date)
             VALUES
@@ -69,19 +75,25 @@ BEGIN
         INTO exist
         FROM users
         WHERE email = LOWER(v_email);
+        
+        SELECT COUNT(id)
+        INTO existPseudo
+        FROM users
+        WHERE pseudo = LOWER(v_pseudo);
 
-        IF (exist > 0) THEN
+        IF (existEmail > 0 AND existPseudo > 0) THEN
+
+            SET message = "Un autre utilisateur avec email et ce pseudo existe déjà.";
+
+        END IF;
+
+        IF (existEmail > 0) THEN
 
             SET message = "Un autre utilisateur avec cet email existe déjà.";
 
             SELECT message;
 
         END IF;
-
-        SELECT COUNT(id)
-        INTO existPseudo
-        FROM users
-        WHERE pseudo = LOWER(v_pseudo);
 
         IF (existPseudo > 0) THEN
 
@@ -91,7 +103,7 @@ BEGIN
         
         END IF;
 
-        IF (exist = 0 AND existPseudo = 0) THEN
+        IF (existEmail = 0 AND existPseudo = 0) THEN
 
             INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, grant_label, inscription_date)
             VALUES
