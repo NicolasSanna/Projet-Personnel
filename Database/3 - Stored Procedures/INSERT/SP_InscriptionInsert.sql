@@ -24,7 +24,7 @@ BEGIN
         VALUES (1, 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', NOW(), v_grantId, v_grant_label);
 
         SELECT COUNT(id)
-        INTO exist
+        INTO existEmail
         FROM users
         WHERE email = LOWER(v_email);
         
@@ -33,26 +33,23 @@ BEGIN
         FROM users
         WHERE pseudo = LOWER(v_pseudo);
 
-        IF (existEmail > 0 AND existPseudo > 0) THEN
-
-            SET message = "Un autre utilisateur avec email et ce pseudo existe déjà.";
-
-        END IF;
-
         IF (existEmail > 0) THEN
 
             SET message = "Un autre utilisateur avec cet email existe déjà.";
-
-            SELECT message;
 
         END IF;
 
         IF (existPseudo > 0) THEN
 
             SET message = "Un autre utilisateur avec ce pseudo existe déjà.";
-
-            SELECT message;
         
+        END IF;
+
+        
+        IF (existEmail > 0 AND existPseudo > 0) THEN
+
+            SET message = "Un autre utilisateur avec email et ce pseudo existe déjà.";
+
         END IF;
         
         IF (existEmail = 0 AND existPseudo = 0) THEN
@@ -63,16 +60,16 @@ BEGIN
 
             SET message = "Vous êtes bien enregistré, vous pouvez vous connecter.";
 
-            SELECT message;
-
         END IF;
+        
+        SELECT message;
 
     END IF;
 
     IF (existeDelete > 0) THEN
 
         SELECT COUNT(id)
-        INTO exist
+        INTO existEmail
         FROM users
         WHERE email = LOWER(v_email);
         
@@ -81,26 +78,22 @@ BEGIN
         FROM users
         WHERE pseudo = LOWER(v_pseudo);
 
-        IF (existEmail > 0 AND existPseudo > 0) THEN
-
-            SET message = "Un autre utilisateur avec email et ce pseudo existe déjà.";
-
-        END IF;
-
         IF (existEmail > 0) THEN
 
             SET message = "Un autre utilisateur avec cet email existe déjà.";
-
-            SELECT message;
 
         END IF;
 
         IF (existPseudo > 0) THEN
 
             SET message = "Un autre utilisateur avec ce pseudo existe déjà.";
-
-            SELECT message;
         
+        END IF;
+
+        IF (existEmail > 0 AND existPseudo > 0) THEN
+
+            SET message = "Un autre utilisateur avec email et ce pseudo existe déjà.";
+
         END IF;
 
         IF (existEmail = 0 AND existPseudo = 0) THEN
@@ -111,9 +104,9 @@ BEGIN
 
             SET message = "Vous êtes bien enregistré, vous pouvez vous connecter.";
 
-            SELECT message;
-
         END IF;
+
+        SELECT message;
 
     END IF;
 
