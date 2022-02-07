@@ -5,7 +5,6 @@ BEGIN
 
     DECLARE message VARCHAR(512);
     DECLARE existEmail SMALLINT;
-    DECLARE existeDelete SMALLINT;
     DECLARE v_grantId SMALLINT;
     DECLARE existPseudo SMALLINT;
     DECLARE v_grant_label VARCHAR(255);
@@ -14,100 +13,43 @@ BEGIN
     SET v_grant_label = "['ROLE_NEW_USER']";
 
     SELECT COUNT(id)
-    INTO existeDelete
+    INTO existEmail
     FROM users
-    WHERE pseudo = LOWER('Supprimé');
+    WHERE email = LOWER(v_email);
+    
+    SELECT COUNT(id)
+    INTO existPseudo
+    FROM users
+    WHERE pseudo = LOWER(v_pseudo);
 
-    IF (existeDelete = 0) THEN
+    IF (existEmail > 0) THEN
 
-        INSERT INTO users (id, firstname, lastname, pseudo, email, password, inscription_date, grant_id, grant_label)
-        VALUES (1, 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', NOW(), v_grantId, v_grant_label);
-
-        SELECT COUNT(id)
-        INTO existEmail
-        FROM users
-        WHERE email = LOWER(v_email);
-        
-        SELECT COUNT(id)
-        INTO existPseudo
-        FROM users
-        WHERE pseudo = LOWER(v_pseudo);
-
-        IF (existEmail > 0) THEN
-
-            SET message = "Un autre utilisateur avec cet email existe déjà.";
-
-        END IF;
-
-        IF (existPseudo > 0) THEN
-
-            SET message = "Un autre utilisateur avec ce pseudo existe déjà.";
-        
-        END IF;
-
-        
-        IF (existEmail > 0 AND existPseudo > 0) THEN
-
-            SET message = "Un autre utilisateur avec email et ce pseudo existe déjà.";
-
-        END IF;
-        
-        IF (existEmail = 0 AND existPseudo = 0) THEN
-
-            INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, grant_label, inscription_date)
-            VALUES
-            (v_firstname, v_lastname, v_pseudo, v_email, v_password, v_grantId, v_grant_label, NOW());
-
-            SET message = "Vous êtes bien enregistré, vous pouvez vous connecter.";
-
-        END IF;
-        
-        SELECT message;
+        SET message = "Un autre utilisateur avec cet email existe déjà.";
 
     END IF;
 
-    IF (existeDelete > 0) THEN
+    IF (existPseudo > 0) THEN
 
-        SELECT COUNT(id)
-        INTO existEmail
-        FROM users
-        WHERE email = LOWER(v_email);
-        
-        SELECT COUNT(id)
-        INTO existPseudo
-        FROM users
-        WHERE pseudo = LOWER(v_pseudo);
+        SET message = "Un autre utilisateur avec ce pseudo existe déjà.";
+    
+    END IF;
 
-        IF (existEmail > 0) THEN
+    IF (existEmail > 0 AND existPseudo > 0) THEN
 
-            SET message = "Un autre utilisateur avec cet email existe déjà.";
-
-        END IF;
-
-        IF (existPseudo > 0) THEN
-
-            SET message = "Un autre utilisateur avec ce pseudo existe déjà.";
-        
-        END IF;
-
-        IF (existEmail > 0 AND existPseudo > 0) THEN
-
-            SET message = "Un autre utilisateur avec email et ce pseudo existe déjà.";
-
-        END IF;
-
-        IF (existEmail = 0 AND existPseudo = 0) THEN
-
-            INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, grant_label, inscription_date)
-            VALUES
-            (v_firstname, v_lastname, v_pseudo, v_email, v_password, v_grantId, v_grant_label, NOW());
-
-            SET message = "Vous êtes bien enregistré, vous pouvez vous connecter.";
-
-        END IF;
-
-        SELECT message;
+        SET message = "Un autre utilisateur avec email et ce pseudo existe déjà.";
 
     END IF;
+
+    IF (existEmail = 0 AND existPseudo = 0) THEN
+
+        INSERT INTO users (firstname, lastname, pseudo, email, password, grant_id, grant_label, inscription_date)
+        VALUES
+        (v_firstname, v_lastname, v_pseudo, v_email, v_password, v_grantId, v_grant_label, NOW());
+
+        SET message = "Vous êtes bien enregistré, vous pouvez vous connecter.";
+
+    END IF;
+
+    SELECT message;
 
 END //
