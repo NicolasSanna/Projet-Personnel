@@ -4,7 +4,7 @@ CREATE PROCEDURE SP_AllCategoriesSelect ()
 BEGIN
 
     SELECT *
-    FROM Categories
+    FROM categories
     WHERE id <> 1
     AND category <> "Non classé";
 
