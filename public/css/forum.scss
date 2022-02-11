@@ -9,9 +9,7 @@
         text-align:center;
     }
     &-list
-    {
-        
-        
+    { 
         padding:10px;
         display:flex;
         flex-direction:column;
@@ -39,7 +37,7 @@
                 padding:15px;
                 color:white;
                 background-color:$colorPeru;
-
+                transition: 0.2s ease-in-out;
                 border-radius: 5px;
                 &:visited
                 {
@@ -117,7 +115,7 @@
                 padding:15px;
                 color:white;
                 background-color:$colorPeru;
-
+                transition: 0.2s ease-in-out;
                 border-radius: 5px;
                 &:visited
                 {

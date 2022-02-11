@@ -8,13 +8,13 @@
     font-size:16px;
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
-	color: rgb(80, 80, 80);
+	color: rgb(58, 58, 58);
 	width: 100% !important;
 	height: 100% !important;
     margin: 0;
     padding: 0;
     animation: fadeInFromNone 0.7s ease-out;
-    background-color:#fdfaf5;
+    background-color:#fcefd9;
    
     &-main
     {
@@ -209,6 +209,7 @@ textarea
     border-radius:5px;
     text-align:center;
     font-size:14px;
+    transition: 0.2s ease-in-out;
     &:hover
     {
         background-color:white;
@@ -281,6 +282,7 @@ textarea
     font-size:13px;
     align-items: center;
     justify-content: center;
+    transition: 0.2s ease-in-out;
     &:hover
     {
         background-color:white;
@@ -310,6 +312,7 @@ textarea
     border-radius:5px;
     text-align:center;
     width:250px;
+    transition: 0.2s ease-in-out;
     &:hover
     {
         background-color:white;
@@ -331,6 +334,8 @@ textarea
         filter:brightness(90%);
         margin-top:auto;
         margin-bottom:auto;
+        box-shadow: 3px 5px 8px 0px rgb(0 0 0 / 20%);
+        border-radius: 10px;
     }
     &-h2
     {
@@ -393,6 +398,7 @@ textarea
     animation-duration: 2s;
     animation-direction: normal;
     animation-name: glissement;
+    
     &-title
     {
         text-align: center;
@@ -440,6 +446,7 @@ textarea
             cursor:pointer;
             border:solid 1px $colorPeru;
             border-radius:5px;
+            transition: 0.2s ease-in-out;
             &:hover
             {
                 background-color:white;
@@ -557,6 +564,7 @@ textarea
             align-items: flex-end;
             border:solid 1px $colorPeru;
             border-radius:5px;
+            transition: 0.2s ease-in-out;
             &:hover
             {
                 background-color:white;
@@ -623,6 +631,7 @@ textarea
             align-items: flex-end;
             border:solid 1px $colorPeru;
             border-radius:5px;
+            transition: 0.2s ease-in-out;
             &:hover
             {
                 background-color:white;
@@ -687,6 +696,7 @@ textarea
             align-items: flex-end;
             border:solid 1px $colorPeru;
             border-radius:5px;
+            transition: 0.2s ease-in-out;
             &:hover
             {
                 background-color:white;
@@ -770,6 +780,7 @@ textarea
 
         &-video
         {
+
             text-align: center;
             width:460px;
         }

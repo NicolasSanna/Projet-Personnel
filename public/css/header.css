@@ -16,7 +16,7 @@
 .Header-container-boxtitle-box {
   padding-top: 3px;
   background-color: black;
-  opacity: 0.8;
+  opacity: 0.67;
   padding-bottom: 30px;
   height: 187px;
 }
@@ -28,6 +28,7 @@
   border: solid white 1px;
   padding: 15px;
   color: white;
+  transition: 0.2s ease-in-out;
 }
 .Header-container-boxtitle-box-a:visited {
   color: white;
@@ -36,13 +37,9 @@
   color: black;
   background-color: white;
   transition: 0.5s ease-in-out;
-  opacity: 1;
-}
-.Header-container-boxtitle-box-a:link {
-  color: white;
 }
 .Header-navbarbox {
-  background-color: black;
+  background-color: #0f0803;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -56,7 +53,6 @@
   font-size: 16px;
 }
 .Header-navbarbox-navbar-ul {
-  background-color: black;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -68,6 +64,7 @@
 .Header-navbarbox-navbar-ul-a {
   text-decoration: none;
   color: white;
+  transition: 0.2s ease-in-out;
 }
 .Header-navbarbox-navbar-ul-a:hover {
   color: peru;
@@ -84,6 +81,7 @@
   text-decoration: none;
   color: white;
   font-size: 22px;
+  transition: 0.2s ease-in-out;
 }
 .Header-navbarbox-burgerOn-burger:hover {
   color: peru;
@@ -100,6 +98,7 @@
   color: white;
   display: none;
   font-size: 19px;
+  transition: 0.2s ease-in-out;
 }
 .Header-navbarbox-burgerOn-cross:hover {
   color: peru;

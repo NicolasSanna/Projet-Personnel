@@ -1,5 +1,5 @@
 .Footer {
-  background-color: black;
+  background-color: #0f0803;
   margin-bottom: -17px;
 }
 .Footer-box {
@@ -12,6 +12,7 @@
 .Footer-box-copyrights {
   padding-bottom: 15px;
   text-align: center;
+  font-size: 13px;
 }
 .Footer-box-section1-title {
   font-weight: normal;
@@ -70,5 +71,9 @@
     padding-left: 20px;
     padding-right: 20px;
     margin-right: 20px;
+  }
+  .Footer-box-copyrights {
+    margin-right: 40px;
+    text-align: end;
   }
 }/*# sourceMappingURL=footer.css.map */

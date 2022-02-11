@@ -3,14 +3,14 @@
   font-size: 16px;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  color: #505050;
+  color: #3a3a3a;
   width: 100% !important;
   height: 100% !important;
   margin: 0;
   padding: 0;
   -webkit-animation: fadeInFromNone 0.7s ease-out;
           animation: fadeInFromNone 0.7s ease-out;
-  background-color: #fdfaf5;
+  background-color: #fcefd9;
 }
 .Body-main, html-main {
   padding: 15px;
@@ -166,6 +166,7 @@ textarea {
   border-radius: 5px;
   text-align: center;
   font-size: 14px;
+  transition: 0.2s ease-in-out;
 }
 .Link:hover {
   background-color: white;
@@ -232,6 +233,7 @@ textarea {
   font-size: 13px;
   align-items: center;
   justify-content: center;
+  transition: 0.2s ease-in-out;
 }
 .LinkA:hover {
   background-color: white;
@@ -257,6 +259,7 @@ textarea {
   border-radius: 5px;
   text-align: center;
   width: 250px;
+  transition: 0.2s ease-in-out;
 }
 .LinkAForm:hover {
   background-color: white;
@@ -275,6 +278,8 @@ textarea {
   filter: brightness(90%);
   margin-top: auto;
   margin-bottom: auto;
+  box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 .Home-h2 {
   text-align: center;
@@ -360,6 +365,7 @@ textarea {
   cursor: pointer;
   border: solid 1px peru;
   border-radius: 5px;
+  transition: 0.2s ease-in-out;
 }
 .Form-box-button:hover {
   background-color: white;
@@ -454,6 +460,7 @@ textarea {
   align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
+  transition: 0.2s ease-in-out;
 }
 .FormComment-box-button:hover {
   background-color: white;
@@ -505,6 +512,7 @@ textarea {
   align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
+  transition: 0.2s ease-in-out;
 }
 .FormMessage-box-button:hover {
   background-color: white;
@@ -553,6 +561,7 @@ textarea {
   align-items: flex-end;
   border: solid 1px peru;
   border-radius: 5px;
+  transition: 0.2s ease-in-out;
 }
 .FormArticle-box-button:hover {
   background-color: white;

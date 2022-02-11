@@ -29,6 +29,7 @@
   padding: 15px;
   color: white;
   background-color: peru;
+  transition: 0.2s ease-in-out;
   border-radius: 5px;
 }
 .Forum-list-article-link:visited {
@@ -89,6 +90,7 @@
   padding: 15px;
   color: white;
   background-color: peru;
+  transition: 0.2s ease-in-out;
   border-radius: 5px;
 }
 .Search-list-article-link:visited {
