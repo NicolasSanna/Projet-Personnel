@@ -60,7 +60,7 @@ class ForumController extends AbstractController
         }
         else
         {
-            $this->redirect('forum');
+            return $this->redirect('forum');
         }
 
         return $this->render('category', [
@@ -149,7 +149,7 @@ class ForumController extends AbstractController
        }
        else
        {
-           $this->redirect('search');
+           return $this->redirect('search');
        }
  
        

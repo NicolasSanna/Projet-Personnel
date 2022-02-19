@@ -152,50 +152,6 @@ $routes = [
         'method' => 'searchAjax'
     ],
 
-    'mymessages' => [
-        'path' => '/administration/mesmessages',
-        'controller' => 'Admin\\Message',
-        'method' => 'index'
-    ],
-    'newmessage' => [
-        'path' => '/administration/nouveaumessage',
-        'controller' => 'Admin\\Message',
-        'method' => 'new'
-    ],
-    'sendbox' => [
-        'path' => '/administration/messagesenvoyes',
-        'controller' => 'Admin\\Message',
-        'method' => 'sendbox'
-    ],
-    'message' => [
-        'path' => '/administration/message',
-        'controller' => 'Admin\\Message',
-        'method' => 'message'
-    ],
-
-    'messageTrashFromUser' => [
-        'path' => '/administration/supprimermonmessage',
-        'controller' => 'Admin\\Message',
-        'method' => 'moveToTrashFromUser'
-    ],
-    'messageTrashToUser' => [
-        'path' => '/administration/supprimersonmessage',
-        'controller' => 'Admin\\Message',
-        'method' => 'moveToTrashToUser'
-    ],
-
-    'blockUser' => [
-        'path' => '/administration/bloquerunutilisateur',
-        'controller' => 'Admin\\Message',
-        'method' => 'blockUser'
-    ],
-
-    'inboxAjax' => [
-        'path' => '/administration/messagesajax',
-        'controller' => 'Admin\\Message',
-        'method' => 'inBoxAjax'
-    ],
-
     'sendEmailForgetPassword' => [
         'path' => '/envoyeremailmotdepasseoublie',
         'controller' => 'Auth',

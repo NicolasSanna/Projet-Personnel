@@ -11,11 +11,6 @@ ALTER TABLE articles DROP CONSTRAINT fk_category_article;
 ALTER TABLE comments DROP CONSTRAINT fk_article_com;
 ALTER TABLE comments DROP CONSTRAINT fk_status_com;
 ALTER TABLE comments DROP CONSTRAINT fk_user_com;
-ALTER TABLE messages DROP CONSTRAINT fk_from_user;
-ALTER TABLE messages DROP CONSTRAINT fk_to_user;
-ALTER TABLE messages DROP CONSTRAINT fk_message_status_sender;
-ALTER TABLE messages DROP CONSTRAINT fk_message_status_receptor;
-ALTER TABLE messages DROP CONSTRAINT fk_status_user_sender;
 ALTER TABLE user_password_change DROP CONSTRAINT fk_user_change;
 
 -- On commence la création des tables ici.
@@ -99,65 +94,6 @@ CREATE TABLE comments
         CONSTRAINT fk_status_com
         FOREIGN KEY (status_id)
             REFERENCES status (id) ON UPDATE CASCADE ON DELETE CASCADE
-) ENGINE = InnoDB ;
-
-DROP TABLE IF EXISTS user_status;
-CREATE TABLE user_status
-(
-    id INT NOT NULL AUTO_INCREMENT,
-    label VARCHAR(50) NOT NULL,
-    PRIMARY KEY (id)
-) ENGINE = InnoDB ;
-
-DROP TABLE IF EXISTS message_status;
-CREATE TABLE message_status
-(
-    id INT NOT NULL AUTO_INCREMENT,
-    label VARCHAR(50) NOT NULL,
-    PRIMARY KEY (id)
-) ENGINE = InnoDB;
-
-DROP TABLE IF EXISTS messages;
-CREATE TABLE messages
-(
-    id INT NOT NULL AUTO_INCREMENT,
-    id_message VARCHAR(128) NOT NULL,
-    subject VARCHAR(255) NOT NULL,
-    content LONGTEXT NOT NULL,
-    from_user_id INT NOT NULL,
-    to_user_id INT NOT NULL,
-    publication_date DATETIME NOT NULL,
-    status_message_sender_id INT NOT NULL,
-    status_message_receptor_id INT NOT NULL,
-    status_sender_id INT NOT NULL,
-    PRIMARY KEY (id),
-        CONSTRAINT fk_from_user
-        FOREIGN KEY (from_user_id)
-            REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        CONSTRAINT fk_to_user
-        FOREIGN KEY (to_user_id)
-            REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        CONSTRAINT fk_message_status_sender
-        FOREIGN KEY (status_message_sender_id)
-            REFERENCES message_status (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        CONSTRAINT fk_message_status_receptor
-        FOREIGN KEY (status_message_receptor_id)
-            REFERENCES message_status (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        CONSTRAINT fk_status_user_sender
-        FOREIGN KEY (status_sender_id)
-            REFERENCES user_status (id) ON UPDATE CASCADE ON DELETE CASCADE
-) ENGINE = InnoDB ;
-
-DROP TABLE IF EXISTS user_password_change;
-CREATE TABLE user_password_change
-(
-    id INT NOT NULL AUTO_INCREMENT,
-    key_change_password VARCHAR(512) NOT NULL,
-    user_id INT NOT NULL,
-    PRIMARY KEY (id),
-        CONSTRAINT fk_user_change
-        FOREIGN KEY (user_id)
-            REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB ;
 
 -- On remet les clés étrangères.

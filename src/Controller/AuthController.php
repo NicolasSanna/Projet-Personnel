@@ -40,7 +40,7 @@ class AuthController extends AbstractController
                     
                 FlashBag::addFlash("Connexion réussie, bienvenue !", 'success');
 
-                $this->redirect('homepage');
+                return $this->redirect('homepage');
 
             }
 
@@ -55,7 +55,7 @@ class AuthController extends AbstractController
     {
         UserSession::logout();
 
-        $this->redirect('homepage');
+        return $this->redirect('homepage');
         exit;
     }
 

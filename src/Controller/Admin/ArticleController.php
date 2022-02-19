@@ -52,7 +52,7 @@ class ArticleController extends AbstractController
                     $articleModel = new ArticleModel();
                     $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user, $fileName);
                     FlashBag::addFlash("Votre article a bien été ajouté.", 'success');
-                    $this->redirect('myarticles');
+                    return $this->redirect('myarticles');
                 }
             }      
             
@@ -66,7 +66,7 @@ class ArticleController extends AbstractController
         }
         else
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
     }
 

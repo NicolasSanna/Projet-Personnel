@@ -14,7 +14,7 @@ class AdministrationCommentsController extends AbstractController
     {
         if(!UserSession::administrator())
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         $pageTitle = 'Modérer les commentaires';
@@ -32,7 +32,7 @@ class AdministrationCommentsController extends AbstractController
     {
         if(!UserSession::administrator())
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         if (Get::existsDigit('id'))
@@ -51,11 +51,11 @@ class AdministrationCommentsController extends AbstractController
                 $commentApprouved = $commentModel->commentApprouved($idOfComment);
                 FlashBag::addFlash("Ce commentaire a été approuvé", 'success');
             }
-            $this->redirect('commentsAdministration');
+            return $this->redirect('commentsAdministration');
         }
         else
         {
-            $this->redirect('administration');
+            return $this->redirect('administration');
         }
     }
 
@@ -63,7 +63,7 @@ class AdministrationCommentsController extends AbstractController
     {
         if(!UserSession::administrator())
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         if (Get::existsDigit('id'))
@@ -86,11 +86,11 @@ class AdministrationCommentsController extends AbstractController
                 FlashBag::addFlash("Ce commentaire a été supprimé.", 'success');
                 
             }
-            $this->redirect('commentsAdministration');
+            return $this->redirect('commentsAdministration');
         }
         else
         {
-            $this->redirect('commentsAdministration');
+            return $this->redirect('commentsAdministration');
         }
     }
 
@@ -98,7 +98,7 @@ class AdministrationCommentsController extends AbstractController
     {
         if(!UserSession::administrator())
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         $commentModel = new CommentModel();

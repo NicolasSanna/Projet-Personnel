@@ -27,12 +27,12 @@ class ArticleController extends AbstractController
             if(empty($article['id']))
             {
                 FlashBag::addFlash('Aucun article ne correspond à cet identifiant.', 'error');
-                $this->redirect('forum');
+                return $this->redirect('forum');
             }
         }
         else
         {
-            $this->redirect('forum');
+            return $this->redirect('forum');
         }
 
         return $this->render('article', [

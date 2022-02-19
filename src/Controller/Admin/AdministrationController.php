@@ -18,7 +18,7 @@ class AdministrationController extends AbstractController
         if(!UserSession::isAuthenticated())
         {
             // ... On est redirigé vers la route accessRefused du tableau de routes.
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         // On indique le titre de la page qui s'affichera dans l'entête de l'onglet de page.

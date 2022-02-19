@@ -15,7 +15,7 @@ class AdministrationCategoryController extends AbstractController
     {
         if(!UserSession::administrator())
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         $pageTitle = 'Ajouter une catégorie';
@@ -29,7 +29,7 @@ class AdministrationCategoryController extends AbstractController
             if ($token != UserSession::token())
             {
                 FlashBag::addFlash("Une erreur s'est produite.", 'error');
-                $this->redirect('administration');
+                return $this->redirect('administration');
             }
 
             if(!$newCategory)
@@ -44,7 +44,7 @@ class AdministrationCategoryController extends AbstractController
                 $insertCategory = $categoryModel->createCategory($newCategory);
     
                 FlashBag::addFlash($insertCategory['message'], 'query');
-                $this->redirect('adminCategories');
+                return $this->redirect('adminCategories');
             }
         }
         return $this->render('admin/addCategory', [
@@ -57,7 +57,7 @@ class AdministrationCategoryController extends AbstractController
     {
         if(!UserSession::administrator())
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         $pageTitle ='Administrer les catégories';
@@ -75,7 +75,7 @@ class AdministrationCategoryController extends AbstractController
     {
         if(!UserSession::administrator())
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         $pageTitle = 'Modifier une catégorie';
@@ -89,7 +89,7 @@ class AdministrationCategoryController extends AbstractController
             if(!$category)
             {
                 FlashBag::addFlash("Cette catégorie n'existe pas.", 'error');
-                $this->redirect('administration');
+                return $this->redirect('administration');
             }
 
             if(!empty($_POST))
@@ -113,7 +113,7 @@ class AdministrationCategoryController extends AbstractController
         }
         else
         {
-            $this->redirect('administration');
+            return $this->redirect('administration');
         }
 
         return $this->render('admin/modifycategory', [
@@ -127,7 +127,7 @@ class AdministrationCategoryController extends AbstractController
     {
         if(!UserSession::administrator())
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         $pageTitle = 'Supprimer une catégorie';
@@ -141,7 +141,7 @@ class AdministrationCategoryController extends AbstractController
             if(!$category)
             {
                 FlashBag::addFlash("Cette catégorie n'existe pas.", 'error');
-                $this->redirect('adminCategories');
+                return $this->redirect('adminCategories');
             }
 
             if (!empty($_POST))
@@ -152,7 +152,7 @@ class AdministrationCategoryController extends AbstractController
                 if ($token != UserSession::token())
                 {
                     FlashBag::addFlash("Une erreur s'est produite.", 'error');
-                    $this->redirect('adminCategories');
+                    return $this->redirect('adminCategories');
                 }
 
                 switch ($choiceDelete)
@@ -172,15 +172,15 @@ class AdministrationCategoryController extends AbstractController
                     }
                     default:
                     {
-                        $this->redirect('adminCategories');
+                        return $this->redirect('adminCategories');
                     }
                 }
-                $this->redirect('adminCategories');
+                return $this->redirect('adminCategories');
             }
         }
         else
         {
-            $this->redirect('adminCategories');
+            return $this->redirect('adminCategories');
         }
 
         return $this->render('admin/deleteCategory', [

@@ -16,7 +16,7 @@ class AdministrationUserController extends AbstractController
     {
         if(!UserSession::administrator())
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         $userModel = new UserModel();
@@ -34,7 +34,7 @@ class AdministrationUserController extends AbstractController
     {
         if(!UserSession::administrator())
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
 
         if (Get::existsDigit('id'))
@@ -49,7 +49,7 @@ class AdministrationUserController extends AbstractController
             if(!$userInfos)
             {
                 FlashBag::addFlash("Cet utilisateur n'existe pas", 'error');
-                $this->redirect('adminusers');
+                return $this->redirect('adminusers');
             }
 
             if (!empty($_POST))
@@ -60,7 +60,7 @@ class AdministrationUserController extends AbstractController
                 if($token != UserSession::token())
                 {
                     FlashBag::addFlash("Une erreur s'est produite lors de la suppression.", 'error');
-                    $this->redirect('adminusers');
+                    return $this->redirect('adminusers');
                 }
 
                 if (!(FlashBag::hasMessages('error')))
@@ -87,12 +87,12 @@ class AdministrationUserController extends AbstractController
                         }
                     }
                 }
-                $this->redirect('adminusers');    
+                return $this->redirect('adminusers');    
             }
         }
         else
         {
-            $this->redirect('administration');
+            return $this->redirect('administration');
         }
 
         return $this->render('admin/deleteUser', [
