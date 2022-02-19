@@ -41,8 +41,10 @@ class UserSession extends AbstractSession
         // On s'assure que la session est bien démarrée en appelant la méthode sessionCheck().
         self::sessionCheck();
 
-        // On retourne le tableau contenant la clé user et si est bien déclarée $_SESSION['user'];
-        return array_key_exists('user', $_SESSION) && isset($_SESSION['user']);
+        if(array_key_exists('user', $_SESSION) && isset($_SESSION['user']))
+        {
+            return true;
+        }
     }
 
     /**
