@@ -84,4 +84,36 @@ class Mailing
         }
         return $result;
     }
+
+    public function sendEmailChangeGrants($bodyVar)
+    {
+        $result = '';
+    
+        $template = file_get_contents(TEMPLATE_DIR . '/' . 'mail/mailchangegrant.html');
+
+        foreach($bodyVar as $key => $value)
+        {
+            $template = str_replace("{{". $key ."}}", $value, $template);
+        }
+    
+        try
+        {
+    
+            $mailer = new Mailer($this->transport);
+            $newEmail = (new Email())
+            ->from('nico13sanna@gmail.com')
+            ->to($bodyVar['email'])
+            ->priority(Email::PRIORITY_HIGHEST)
+            ->subject('Changements de privilèges utilisateur')
+            ->html($template);
+    
+            $mailer->send($newEmail);
+        }
+    
+        catch(\Exception $e)
+        {
+                $result = 'Erreur d\'envoi du message';
+        }
+        return $result;
+    }
 }

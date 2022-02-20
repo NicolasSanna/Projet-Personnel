@@ -6,6 +6,7 @@ use App\Framework\Get;
 use App\Framework\Post;
 use App\Model\UserModel;
 use App\Model\GrantModel;
+use App\Framework\Mailing;
 use App\Framework\FlashBag;
 use App\Framework\UserSession;
 use App\Framework\AbstractController;
@@ -83,7 +84,7 @@ class AdministrationUserController extends AbstractController
                         }
                         default:
                         {
-                            $this->redirect('administration');
+                            return $this->redirect('administration');
                         }
                     }
                 }
@@ -121,7 +122,7 @@ class AdministrationUserController extends AbstractController
             if(!$userInfos)
             {
                 FlashBag::addFlash("Cet utilisateur n'existe pas", 'error');
-                $this->redirect('adminusers');
+                return $this->redirect('adminusers');
             }
 
             if(!empty($_POST))
@@ -130,13 +131,22 @@ class AdministrationUserController extends AbstractController
 
                 $userChangeGrantModel = new UserModel();
                 $changeGrant = $userChangeGrantModel->changeGrant($userId, $grantId);
+
+                $bodyVar = [
+                    'email' => $userInfos['email']
+                ];
+
+                $emailng = new Mailing();
+                $emailng->sendEmailChangeGrants($bodyVar);
+
+
                 FlashBag::addFlash($changeGrant['message'], 'query');
-                $this->redirect('adminusers');
+                return $this->redirect('adminusers');
             }
         }
         else
         {
-            $this->redirect('administration');
+            return $this->redirect('administration');
         }
         
         return $this->render('admin/modifygrantuser', [
