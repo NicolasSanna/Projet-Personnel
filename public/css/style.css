@@ -10,7 +10,7 @@
   padding: 0;
   -webkit-animation: fadeInFromNone 0.7s ease-out;
           animation: fadeInFromNone 0.7s ease-out;
-  background-color: #fcefd9;
+  background-color: #faf7f1;
 }
 .Body-main, html-main {
   padding: 15px;
@@ -268,11 +268,11 @@ textarea {
   color: black;
 }
 
-.Home {
+.HomePage {
   text-align: center;
 }
-.Home-video {
-  width: 65%;
+.HomePage-video {
+  width: 55%;
   height: 65%;
   border: solid peru 1px;
   filter: brightness(90%);
@@ -281,22 +281,13 @@ textarea {
   box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
-.Home-h2 {
+.HomePage-h2 {
   text-align: center;
 }
-
-.Homepage-section1 {
-  text-align: justify;
-}
-.Homepage-section1-h3 {
-  text-align: center;
-  margin-bottom: 10px;
-  margin-top: 30px;
-}
-.Homepage-section2 {
+.HomePage-section {
   padding-bottom: 10px;
   padding-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
   box-shadow: 3px 5px 8px 0px rgba(0, 0, 0, 0.2);
@@ -305,16 +296,20 @@ textarea {
   margin-right: 50px;
   margin-top: 20px;
 }
-.Homepage-section2-h3 {
+.HomePage-section-h3 {
   text-align: center;
   margin-bottom: 10px;
 }
-.Homepage-section2-list-article {
+.HomePage-section-list-article {
   text-align: left;
   margin-bottom: 35px;
 }
-.Homepage-section2-list-article-category {
+.HomePage-section-list-article-category {
   padding-bottom: 5px;
+}
+
+.Home-section {
+  text-align: justify;
 }
 
 .Form {
@@ -615,17 +610,6 @@ textarea {
 }
 
 @media screen and (min-width: 1100px) {
-  .Home {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-  }
-  .Home-video {
-    text-align: center;
-    width: 460px;
-  }
-
   #inboxAjax {
     display: block;
     margin-left: 40px;
@@ -657,28 +641,40 @@ textarea {
   .FormSearch-label {
     margin-bottom: 0px;
   }
-
-  .Homepage {
-    display: flex;
-    flex-direction: row;
-  }
-  .Homepage-section1 {
-    padding-left: 10px;
-    padding-right: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .Homepage-section2 {
-    padding-right: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    min-width: 400px;
-  }
 }
 @media screen and (min-width: 1300px) {
   .Body-main {
     margin-left: 10%;
     margin-right: 10%;
+  }
+
+  .HomePage {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .HomePage-video {
+    text-align: center;
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+  .HomePage-section {
+    width: 460px;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .HomePage-video {
+    text-align: center;
+    width: 465px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
   }
 }
 @-webkit-keyframes fadeInFromNone {

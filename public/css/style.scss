@@ -14,7 +14,7 @@
     margin: 0;
     padding: 0;
     animation: fadeInFromNone 0.7s ease-out;
-    background-color:#fcefd9;
+    background-color:#faf7f1;
    
     &-main
     {
@@ -321,12 +321,12 @@ textarea
 }
 
 // CSS DE LA PAGE D'ACCUEIL
-.Home
+.HomePage
 {
     text-align:center;
     &-video
     {
-        width: 65%;
+        width: 55%;
         height:65%;
         border:solid $colorPeru 1px;
         filter:brightness(90%);
@@ -339,26 +339,11 @@ textarea
     {
         text-align: center;
     }
-}
-
-.Homepage
-{
-
-    &-section1
-    {
-        text-align: justify;
-        &-h3
-        {
-            text-align: center;
-            margin-bottom:10px;
-            margin-top:30px;
-        }
-    }
-    &-section2
+    &-section
     {
         padding-bottom:10px;
         padding-top:10px;
-        margin-bottom:10px;
+        margin-bottom:20px;
         padding-left:20px;
         padding-right:20px;
         box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
@@ -384,6 +369,14 @@ textarea
                 }
             }
         }
+    }
+}
+
+.Home
+{
+    &-section
+    {
+        text-align: justify;
     }
 }
 
@@ -768,23 +761,6 @@ textarea
 // POINT DE RUPTURE DU MEDIA QUERIES A 880 PX
 @media screen AND (min-width: 1100px)
 {    
-
-    .Home
-    {
-        display:flex;
-        flex-direction: row;
-        text-align: center;
-        justify-content: center;
-
-        &-video
-        {
-
-            text-align: center;
-            width:460px;
-        }
-       
-    }
-
     #inboxAjax
     {
         display:block;
@@ -832,27 +808,6 @@ textarea
             margin-bottom:0px;
         }
     }
-
-    .Homepage
-    {
-        display:flex;
-        flex-direction:row;
-        
-        &-section1
-        {
-            padding-left:10px;
-            padding-right:20px;
-            margin-left:20px;
-            margin-right:20px;
-        }
-        &-section2
-        {
-            padding-right:20px;
-            margin-left:20px;
-            margin-right:20px;
-            min-width:400px;
-        }
-    }
 }
 
 // POINT DE RUPTURE DU MEDIA QUERIES A 1110 PX
@@ -865,6 +820,47 @@ textarea
         {
             margin-left:10%;
             margin-right:10%;
+        }
+    }       
+
+    .HomePage
+    {
+        display:flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content:center;
+        align-items: center;
+
+        &-video
+        {
+
+            text-align: center;
+            width:40%;
+            margin-top:20px;
+            margin-bottom:20px;
+            margin-right:50px;
+            margin-left:50px;
+        }
+        &-section
+        {
+            width:460px;
+        }
+    }
+}
+
+@media screen AND (min-width: 1500px)
+{
+    .HomePage
+    {
+        &-video
+        {
+
+            text-align: center;
+            width:465px;
+            margin-top:20px;
+            margin-bottom:20px;
+            margin-right:50px;
+            margin-left:50px;
         }
     }
 }
