@@ -77,12 +77,12 @@ class ArticleController extends AbstractController
             }
             else
             {
-                $this->redirect('forum');
+                return $this->redirect('forum');
             }
         }
         else
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
     }
 }

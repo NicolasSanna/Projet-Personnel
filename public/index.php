@@ -22,7 +22,7 @@ $path = Server::path();
 // $path = explode('?', $fullPath)[0];
 
 // On va chercher les routes dans le fichier de configuration routes.php
-$routes = include '../app/routes.php';
+$routes = require '../app/routes.php';
 
 // Appel du Router pour récupérer le contrôleur à appeler (nom de la classe + nom de la méthode)
 $router = new Router($routes);
