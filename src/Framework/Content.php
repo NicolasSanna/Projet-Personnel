@@ -26,14 +26,19 @@ class Content
         $path = Server::path();
 
         /**
+         * On créé un tableau dans lequel on indique les paths qui autorisent l'interprétation des balises HTML.
+         */
+        $pathAutorized = ['/forum/article', '/administration/modifierarticle', '/administration/creerunarticle'];
+
+        /**
          * On effectue une boucle de récupération du tableau associatif clé => valeur
          */
         foreach ($array as $key => $value)
         {
             /**
-             * Si le path de la page courante est différent de /forum/article OU /administration/modifierarticle (puisque ce sont les deux SEULES pages où l'on autorise l'interpréation de balises HTML pour le rendu d'affichage) du TinyMCE...
+             * Si le path recherché n'est pas présent dans le tableau des paths autorisés à interpréter les balises HTML...
              */
-            if ($path != '/forum/article' || $path != '/administration/modifierarticle')
+            if (!in_array($path, $pathAutorized))
             {
                 /**
                  * Si la valeur est un tableau (retour de boucle de données) alors on rappelle la même méthode et l'on transforme les caractères spéciaux en entités HTML que le navigateur ne doit pas interpréter. Et l'on range cela dans la clé du tableau associatif.

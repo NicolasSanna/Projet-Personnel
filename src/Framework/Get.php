@@ -22,7 +22,7 @@ class Get
     }
 
     /**
-     * Création de la fonction statique key, elle permet de contrôller qu'un paramètre donné en GET n'est pas interprété.
+     * Création de la fonction statique key, elle permet de contrôller qu'un paramètre donné en GET n'est pas interprété par des balises HTML.
      */
     static function key(string $key)
     {
