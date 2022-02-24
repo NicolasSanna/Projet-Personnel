@@ -31,22 +31,23 @@ class Content
         $pathAutorized = ['/forum/article', '/administration/modifierarticle', '/administration/creerunarticle'];
 
         /**
-         * On effectue une boucle de récupération du tableau associatif clé => valeur
+         * Si le path recherché n'est pas présent dans le tableau des paths autorisés à interpréter les balises HTML...
          */
-        foreach ($array as $key => $value)
+        if (!in_array($path, $pathAutorized))
         {
             /**
-             * Si le path recherché n'est pas présent dans le tableau des paths autorisés à interpréter les balises HTML...
+             * On effectue une boucle de récupération du tableau associatif clé => valeur
              */
-            if (!in_array($path, $pathAutorized))
+            foreach ($array as $key => $value)
             {
+
                 /**
                  * Si la valeur est un tableau (retour de boucle de données) alors on rappelle la même méthode et l'on transforme les caractères spéciaux en entités HTML que le navigateur ne doit pas interpréter. Et l'on range cela dans la clé du tableau associatif.
                  */
                 $array[$key] = is_array($value) ?  self::verifyChars($value) : htmlspecialchars($value);
+                
             }
         }
-
         /**
          * On renvoie l'ensemble des données du tableau à l'AbstractController.
          */
