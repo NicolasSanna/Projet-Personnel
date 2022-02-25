@@ -472,13 +472,11 @@ textarea
         margin-bottom:0px;
         padding-top:0px;
         padding-bottom:0px;
-        // justify-content: center;
-        // text-align: center;
         align-items: center;
         justify-content: center;
         &-button
         {
-            // margin-top:10px;
+
             background-color:$colorPeru;
             color:white;
             padding-top:10px;
@@ -514,7 +512,6 @@ textarea
         margin-bottom:10px;
         padding:10px;
         margin-right:10px;
-        // margin-top: 10px;
         margin-left:10px;
     }
 }
@@ -756,6 +753,27 @@ textarea
     margin-right:20px;
 }
 
+@media screen AND (min-width: 880px)
+{
+    .HomePage
+    {
+        &-section
+        {
+            margin-left:150px;
+            margin-right:150px;
+        }
+    }
+
+    .Home
+    {
+        &-section
+        {
+            margin-left:70px;
+            margin-right:70px;
+        }
+    }
+}
+
 
 
 // POINT DE RUPTURE DU MEDIA QUERIES A 880 PX
@@ -786,7 +804,6 @@ textarea
         &-box
         {
             width: 300px;
-            // align-items: center;
         }
         
     }
@@ -831,6 +848,7 @@ textarea
         justify-content:center;
         align-items: center;
 
+
         &-video
         {
 
@@ -838,12 +856,14 @@ textarea
             width:40%;
             margin-top:20px;
             margin-bottom:20px;
-            margin-right:50px;
-            margin-left:50px;
+            margin-right: 20px;
+            margin-left: 20px;
         }
         &-section
         {
             width:460px;
+            margin-left:20px;
+            margin-right:20px;
         }
     }
 }
@@ -859,8 +879,6 @@ textarea
             width:465px;
             margin-top:20px;
             margin-bottom:20px;
-            margin-right:50px;
-            margin-left:50px;
         }
     }
 }

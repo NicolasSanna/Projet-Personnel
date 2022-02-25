@@ -609,6 +609,17 @@ textarea {
   margin-right: 20px;
 }
 
+@media screen and (min-width: 880px) {
+  .HomePage-section {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
+  .Home-section {
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+}
 @media screen and (min-width: 1100px) {
   #inboxAjax {
     display: block;
@@ -660,11 +671,13 @@ textarea {
     width: 40%;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
   }
   .HomePage-section {
     width: 460px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 @media screen and (min-width: 1500px) {
@@ -673,8 +686,6 @@ textarea {
     width: 465px;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-right: 50px;
-    margin-left: 50px;
   }
 }
 @-webkit-keyframes fadeInFromNone {
