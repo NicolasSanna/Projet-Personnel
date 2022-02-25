@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Framework\Get;
-use App\Framework\Post;
 use App\Framework\FlashBag;
 use App\Model\CategoryModel;
 use App\Framework\UserSession;
@@ -23,7 +22,7 @@ class AdministrationCategoryController extends AbstractController
         if(!empty($_POST))
         {
             
-            $newCategory = Post::verifyContent('newcategory');
+            $newCategory = trim($_POST['newcategory']);
             $token = $_POST['token'];
 
             if ($token != UserSession::token())
@@ -95,7 +94,7 @@ class AdministrationCategoryController extends AbstractController
             if(!empty($_POST))
             {
                 $idOfCategory = $_POST['idcategory'];
-                $newcategory = Post::verifyContent('newcategory');
+                $newcategory = trim($_POST['newcategory']);
 
                 if(!$newcategory)
                 {

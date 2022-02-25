@@ -28,7 +28,7 @@ class Content
         /**
          * On créé un tableau dans lequel on indique les paths qui autorisent l'interprétation des balises HTML.
          */
-        $pathAutorized = ['/forum/article', '/administration/modifierarticle', '/administration/creerunarticle'];
+        $pathAutorized = ['/forum/article', '/administration/modifierarticle', '/administration/creerunarticle', '/administration/commentaires'];
 
         /**
          * Si le path recherché n'est pas présent dans le tableau des paths autorisés à interpréter les balises HTML...

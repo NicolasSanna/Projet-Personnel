@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Framework\Post;
 use App\Model\UserModel;
 use App\Framework\Mailing;
 use App\Framework\FlashBag;
@@ -66,7 +65,7 @@ class AuthController extends AbstractController
 
         if(!empty($_POST))
         {
-            $email = Post::verifyContent('email');
+            $email = trim($_POST['email']);
 
             if(!$email)
             {
@@ -118,9 +117,9 @@ class AuthController extends AbstractController
 
         if(!empty($_POST))
         {
-            $email = Post::verifyContent('email');
-            $newPassword = Post::verifyContent('newPassword');
-            $confirmNewPassword = Post::verifyContent('confirmNewPassword');
+            $email = trim($_POST['email']);
+            $newPassword = trim($_POST['newPassword']);
+            $confirmNewPassword = trim($_POST['confirmNewPassword']);
             $keyReinitialization = $_POST['keyReinitialization'];
 
             if(!$email || !$newPassword || !$confirmNewPassword || !$keyReinitialization)

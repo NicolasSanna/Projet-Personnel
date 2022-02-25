@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Framework\Post;
 use App\Model\UserModel;
 use App\Framework\Mailing;
 use App\Framework\FlashBag;
@@ -16,13 +15,13 @@ class AccountController extends AbstractController
 
         if(!empty($_POST))
         {
-            $lastname = Post::verifyContent('lastname');
-            $firstname = Post::verifyContent('firstname');
-            $pseudo = Post::verifyContent('pseudo');
-            $email = Post::verifyContent('email');
-            $password = Post::verifyContent('password');
-            $confirmPassword = Post::verifyContent('confirmPassword');
-            $recaptchaResponse = Post::verifyContent('recaptcha-response');
+            $lastname = trim($_POST['lastname']);
+            $firstname = trim($_POST['firstname']);
+            $pseudo = trim($_POST['pseudo']);
+            $email = trim($_POST['email']);
+            $password = trim($_POST['password']);
+            $confirmPassword = trim($_POST['confirmPassword']);
+            $recaptchaResponse = trim($_POST['recaptcha-response']);
 
             if (!$lastname || !$firstname || !$pseudo || !$email || !$password || !$confirmPassword || !$recaptchaResponse)
             {

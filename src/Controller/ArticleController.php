@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Framework\Get;
-use App\Framework\Post;
 use App\Framework\FlashBag;
 use App\Model\ArticleModel;
 use App\Model\CommentModel;
@@ -48,8 +47,8 @@ class ArticleController extends AbstractController
         {
             if(!empty($_POST))
             {
-                $idOfArticle = (int) Post::verifyContent('article-id');
-                $comment = Post::verifyContent('comment');
+                $idOfArticle = (int) $_POST['article-id'];
+                $comment = trim($_POST['comment']);
                 $user_id = UserSession::getId();
 
                 $articleModel = new ArticleModel();

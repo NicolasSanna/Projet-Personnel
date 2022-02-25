@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Framework\Get;
-use App\Framework\Post;
 use App\Framework\Server;
 use App\Framework\FlashBag;
 use App\Model\ArticleModel;
@@ -114,7 +113,7 @@ class ForumController extends AbstractController
             /**
              * On récupère la valeur de $_POST['search'] venant du formulaire dans $search.
              */
-            $search = Post::verifyContent('search');
+            $search = trim($_POST['search']);
             /**
              * On créé l'objet ArticleModel
              */

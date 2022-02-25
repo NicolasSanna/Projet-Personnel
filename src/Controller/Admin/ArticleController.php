@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Framework\Get;
 use App\Framework\File;
-use App\Framework\Post;
 use App\Framework\FlashBag;
 use App\Model\ArticleModel;
 use App\Model\CategoryModel;
@@ -23,7 +22,7 @@ class ArticleController extends AbstractController
 
             if(!empty($_POST))
             {
-                $title = Post::verifyContent('title');
+                $title = trim($_POST['title']);
                 $content = trim($_POST['content']);
                 $category = (int) $_POST['categories'];
                 $id_user = UserSession::getId();
@@ -134,7 +133,7 @@ class ArticleController extends AbstractController
 
             if(!empty($_POST))
             {
-                $newtitle = Post::verifyContent('title');
+                $newtitle = trim($_POST['title']);
                 $newcontent = trim($_POST['content']);
                 $category = (int) $_POST['categories'];
                 $token = $_POST['token'];
