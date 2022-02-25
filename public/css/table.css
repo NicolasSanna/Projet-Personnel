@@ -13,7 +13,7 @@ table
     margin:0;
     margin-left:auto;
     margin-right:auto;
-    min-width: 70%;
+    min-width: 30%;
 
 }
 
@@ -89,16 +89,14 @@ tbody tr:nth-child(even)
 {
     color:darkred;
     text-decoration:none;
-    /* padding-right: 20px;
-    padding-left:20px; */
+
 }
 
 #a-modify
 {
     color:peru;
     text-decoration:none;
-    /* padding-right: 20px;
-    padding-left:20px; */
+
 }
 
 tbody tr td
@@ -107,4 +105,28 @@ tbody tr td
     padding-bottom:10px;
     padding-left:15px;
     padding-right:15px;
+}
+
+@media screen and (max-width: 1100px) 
+{
+    td
+    { 
+        display:flex;
+        flex-direction:column;
+    }
+    table
+    {
+        width:fit-content;
+    }
+    thead tr
+    {
+        display:flex;
+        flex-direction:column;
+    }
+    table thead tr 
+    {
+        height: fit-content;
+        padding-top:5px;
+        padding-bottom:5px;
+    }
 }
