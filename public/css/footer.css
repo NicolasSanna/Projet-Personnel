@@ -13,6 +13,7 @@
   padding-bottom: 15px;
   text-align: center;
   font-size: 13px;
+  color: #646464;
 }
 .Footer-box-section1-title {
   font-weight: normal;
@@ -20,6 +21,7 @@
 }
 .Footer-box-section1-informations {
   text-align: justify;
+  color: #646464;
 }
 .Footer-box-hr {
   margin-left: 40px;
@@ -33,7 +35,7 @@
 }
 .Footer-box-section2-link {
   text-decoration: none;
-  color: #505050;
+  color: #646464;
 }
 .Footer-box-section2-link:hover {
   color: peru;
