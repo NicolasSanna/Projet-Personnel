@@ -34,7 +34,7 @@ class SearchManager
 
         let search = formData.get('search');
         
-        if (search == '')
+        if (search.trim() == '')
         {
             alert("Le champ de recherche est vide");
         }
