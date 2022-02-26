@@ -15,13 +15,13 @@ class AccountController extends AbstractController
 
         if(!empty($_POST))
         {
-            $lastname = trim($_POST['lastname']);
-            $firstname = trim($_POST['firstname']);
-            $pseudo = trim($_POST['pseudo']);
-            $email = trim($_POST['email']);
-            $password = trim($_POST['password']);
-            $confirmPassword = trim($_POST['confirmPassword']);
-            $recaptchaResponse = trim($_POST['recaptcha-response']);
+            $lastname =  trim($_POST['lastname']);
+            $firstname =  trim($_POST['firstname']);
+            $pseudo =  trim($_POST['pseudo']);
+            $email =  trim($_POST['email']);
+            $password =  trim($_POST['password']);
+            $confirmPassword =  trim($_POST['confirmPassword']);
+            $recaptchaResponse =  trim($_POST['recaptcha-response']);
 
             if (!$lastname || !$firstname || !$pseudo || !$email || !$password || !$confirmPassword || !$recaptchaResponse)
             {

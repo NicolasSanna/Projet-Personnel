@@ -94,7 +94,7 @@ class AdministrationCategoryController extends AbstractController
             if(!empty($_POST))
             {
                 $idOfCategory = $_POST['idcategory'];
-                $newcategory = trim($_POST['newcategory']);
+                $newcategory =  trim($_POST['newcategory']);
 
                 if(!$newcategory)
                 {

@@ -18,16 +18,16 @@ grecaptcha.ready(function() {
     <form class="Form-box" method="POST">
 
         <label for="lastname" class="Form-box-label">Nom :</label>
-        <input type="text" class="Form-box-input" name="lastname" id="lastname" value="<?=$lastname;?>">
+        <input type="text" class="Form-box-input" name="lastname" id="lastname" value="<?=htmlspecialchars($lastname);?>">
 
         <label for="firstname" class="Form-box-label">Prénom :</label>
-        <input type="text" class="Form-box-input" name="firstname" id="firstname" value="<?=$firstname;?>">
+        <input type="text" class="Form-box-input" name="firstname" id="firstname" value="<?=htmlspecialchars($firstname);?>">
 
         <label for="pseudo" class="Form-box-label">Pseudo (il sera visible sur tout le site) :</label>
-        <input type="text" class="Form-box-input" name="pseudo" id="pseudo" value="<?=$pseudo;?>">
+        <input type="text" class="Form-box-input" name="pseudo" id="pseudo" value="<?=htmlspecialchars($pseudo);?>">
 
         <label for="email" class="Form-box-label">E-mail : </label>
-        <input type="email" class="Form-box-input" name="email" id="email" value="<?=$email;?>">
+        <input type="email" class="Form-box-input" name="email" id="email" value="<?=htmlspecialchars($email);?>">
 
         <label for="password" class="Form-box-label">Mot de passe :</label>
         <input type="password" id="password" class="Form-box-input" required name="password">

@@ -7,7 +7,7 @@
     <form class="Form-box" method="POST">
 
         <label class="Form-box-label" for="email">Votre e-mail : </label>
-        <input type="email" class="Form-box-input" name="email" id="email" value="<?=$email;?>">
+        <input type="email" class="Form-box-input" name="email" id="email" value="<?=htmlspecialchars($email);?>">
 
         <label for="password" class="Form-box-label">Votre mot de passe : </label>
         <input type="password" class="Form-box-input" name="password" id="password">

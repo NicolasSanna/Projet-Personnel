@@ -48,7 +48,7 @@ class ArticleController extends AbstractController
             if(!empty($_POST))
             {
                 $idOfArticle = (int) $_POST['article-id'];
-                $comment = trim($_POST['comment']);
+                $comment =  trim($_POST['comment']);
                 $user_id = UserSession::getId();
 
                 $articleModel = new ArticleModel();

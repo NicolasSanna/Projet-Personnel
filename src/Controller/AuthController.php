@@ -65,7 +65,7 @@ class AuthController extends AbstractController
 
         if(!empty($_POST))
         {
-            $email = trim($_POST['email']);
+            $email =  trim($_POST['email']);
 
             if(!$email)
             {
@@ -117,10 +117,10 @@ class AuthController extends AbstractController
 
         if(!empty($_POST))
         {
-            $email = trim($_POST['email']);
-            $newPassword = trim($_POST['newPassword']);
-            $confirmNewPassword = trim($_POST['confirmNewPassword']);
-            $keyReinitialization = $_POST['keyReinitialization'];
+            $email =  trim($_POST['email']);
+            $newPassword =  trim($_POST['newPassword']);
+            $confirmNewPassword =  trim($_POST['confirmNewPassword']);
+            $keyReinitialization =  trim($_POST['keyReinitialization']);
 
             if(!$email || !$newPassword || !$confirmNewPassword || !$keyReinitialization)
             {
