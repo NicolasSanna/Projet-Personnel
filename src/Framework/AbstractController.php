@@ -15,9 +15,6 @@ abstract class AbstractController
      */
     public function render(string $template, array $data = [])
     {
-        // On appelle la méthode statique verifyChars contenant le tableau de données en paramètres.
-        $data = Content::verifyChars($data);
-
         // On extrait les données.
         extract($data);
     

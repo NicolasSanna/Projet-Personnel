@@ -56,7 +56,7 @@ class AdministrationUserController extends AbstractController
             if (!empty($_POST))
             {
                 $choice = (int) $_POST['deleteuser'];
-                $token = Post::verifyContent('token');
+                $token = $_POST['token'];
 
                 if($token != UserSession::token())
                 {
