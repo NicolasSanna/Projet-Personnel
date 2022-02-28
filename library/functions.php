@@ -32,4 +32,3 @@ function buildUrl(string $routeName, array $params = []): string
     return $url;
 }
 
-
