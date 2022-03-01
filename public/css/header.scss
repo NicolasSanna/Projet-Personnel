@@ -3,7 +3,6 @@
 // HEADER // 
 .Header
 {
-
     // CONTAINER DU HEADER
     &-container
     {
@@ -15,44 +14,47 @@
         height: 340px;
         position:sticky;
         overflow-x:hidden;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
         // BOÎTE DE TITRE HUMA SCIENTIO
-        &-boxtitle
+        &-box
         {
-            padding-top: 60px;
+          background-color:black;
+          opacity:0.7;
+          padding-bottom:50px;
+          &-h1
+          {
+            padding-top:25px;
+            padding-bottom:5px;
+            margin:0px;
+          }
 
-            &-box
+            &-p
             {
-              padding-top: 3px;
-              background-color:black;
-              opacity:0.7;
-              padding-bottom:30px;
-              height: 187px;
-
-                &-p
+                padding-bottom:25px;
+            }
+            &-a
+            {
+                text-decoration:none;
+                border:solid white 1px;
+                padding:15px;
+                color:white;
+                transition: 0.2s ease-in-out;
+                width:fit-content;
+                &:visited
                 {
-                    padding-bottom:20px;
-                }
-                &-a
-                {
-                    text-decoration:none;
-                    border:solid white 1px;
-                    padding:15px;
                     color:white;
-                    transition: 0.2s ease-in-out;
-                    &:visited
-                    {
-                        color:white;
-                    }
-                    &:hover
-                    {
-                        color:black;
-                        background-color:white;
-                        transition: 0.5s ease-in-out;
-                    }
-
+                }
+                &:hover
+                {
+                    color:black;
+                    background-color:white;
+                    transition: 0.5s ease-in-out;
                 }
 
             }
+
         }
     }
     // MENU DE NAVIGATION
@@ -155,15 +157,15 @@
   Crédits : https://codepen.io/braedencraig/pen/dBVKzO
 */
 /* ---------- Fog ---------- */
-.fogwrapper 
-{
-  height: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  -webkit-filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
-  filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
-}
+// .fogwrapper 
+// {
+//   height: 100%;
+//   position: absolute;
+//   top: 0;
+//   width: 100%;
+//   -webkit-filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
+//   filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
+// }
 #foglayer_01, #foglayer_02, #foglayer_03
 {
   height: 340px;
@@ -180,15 +182,16 @@
 }
 #foglayer_01 
 {
-  -webkit-animation: foglayer_01_opacity 10s linear infinite, foglayer_moveme 25s linear infinite;
-  -moz-animation: foglayer_01_opacity 10s linear infinite, foglayer_moveme 25s linear infinite;
-  animation: foglayer_01_opacity 10s linear infinite, foglayer_moveme 25s linear infinite;
+  animation: foglayer_moveme 27s linear infinite;
 }
-#foglayer_02, #foglayer_03 
+#foglayer_02
 {
-  -webkit-animation: foglayer_02_opacity 21s linear infinite, foglayer_moveme 17s linear infinite;
-  -moz-animation: foglayer_02_opacity 21s linear infinite, foglayer_moveme 17s linear infinite;
-  animation: foglayer_02_opacity 21s linear infinite, foglayer_moveme 17s linear infinite;
+  animation: foglayer_moveme 19s linear infinite;
+}
+
+#foglayer_03
+{
+  animation: foglayer_moveme 17s linear infinite;
 }
 
 /* ---------- Moving Fog ---------- */
@@ -208,125 +211,6 @@
   background: url(../img/fog2.png) center center/cover no-repeat transparent;
 }
 
-/* ---------- Keyframe Layer 1 ---------- */
-@-webkit-keyframes foglayer_01_opacity 
-{
-  0% { opacity: .1; }
-  22% { opacity: .5; }
-  40% { opacity: .28; }
-  58% { opacity: .4; }
-  80% { opacity: .16; }
-  100% { opacity: .1; }
-}
-@-moz-keyframes foglayer_01_opacity 
-{
-  0% { opacity: .1; }
-  22% { opacity: .5; }
-  40% { opacity: .28; }
-  58% { opacity: .4; }
-  80% { opacity: .16; }
-  100% { opacity: .1; }
-}
-@-o-keyframes foglayer_01_opacity 
-{
-  0% { opacity: .1; }
-  22% { opacity: .5; }
-  40% { opacity: .28; }
-  58% { opacity: .4; }
-  80% { opacity: .16; }
-  100% { opacity: .1; }
-}
-@keyframes foglayer_01_opacity 
-{
-  0% { opacity: .1; }
-  22% { opacity: .5; }
-  40% { opacity: .28; }
-  58% { opacity: .4; }
-  80% { opacity: .16; }
-  100% { opacity: .1; }
-}
-/* ---------- Keyframe Layer 2 ---------- */
-@-webkit-keyframes foglayer_02_opacity 
-{
-  0% { opacity: .5; }
-  25% { opacity: .2; }
-  50% { opacity: .1; }
-  80% { opacity: .3; }
-  100% { opacity: .5; }
-}
-@-moz-keyframes foglayer_02_opacity 
-{
-  0% { opacity: .5; }
-  25% { opacity: .2; }
-  50% { opacity: .1; }
-  80% { opacity: .3; }
-  100% { opacity: .5; }
-}
-@-o-keyframes foglayer_02_opacity 
-{
-  0% { opacity: .5; }
-  25% { opacity: .2; }
-  50% { opacity: .1; }
-  80% { opacity: .3; }
-  100% { opacity: .5; }
-}
-@keyframes foglayer_02_opacity 
-{
-  0% { opacity: .5; }
-  25% { opacity: .2; }
-  50% { opacity: .1; }
-  80% { opacity: .3; }
-  100% { opacity: .5; }
-}
-/* ---------- Keyframe Layer 3 ---------- */
-@-webkit-keyframes foglayer_03_opacity 
-{
-  0% { opacity: .8 }
-  27% { opacity: .2; }
-  52% { opacity: .6; }
-  68% { opacity: .3; }
-  100% { opacity: .8; }
-}
-@-moz-keyframes foglayer_03_opacity 
-{
-  0% { opacity: .8 }
-  27% { opacity: .2; }
-  52% { opacity: .6; }
-  68% { opacity: .3; }
-  100% { opacity: .8; }
-}
-@-o-keyframes foglayer_03_opacity 
-{
-  0% { opacity: .8 }
-  27% { opacity: .2; }
-  52% { opacity: .6; }
-  68% { opacity: .3; }
-  100% { opacity: .8; }
-}
-@keyframes foglayer_03_opacity 
-{
-  0% { opacity: .8; }
-  27% { opacity: .2; }
-  52% { opacity: .6; }
-  68% { opacity: .3; }
-  100% { opacity: .8; }
-}
-/* ---------- Keyframe moveMe ---------- */
-@-webkit-keyframes foglayer_moveme 
-{
-  0% { left: 0; }
-  100% { left: -100%; }
-}
-@-moz-keyframes foglayer_moveme 
-{
-  0% { left: 0; }
-  100% { left: -100%; }
-}
-@-o-keyframes foglayer_moveme 
-{
-  0% { left: 0; }
-  100% { left: -100%; }
-}
 @keyframes foglayer_moveme 
 {
   0% { left: 0; }
