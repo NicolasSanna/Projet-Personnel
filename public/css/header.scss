@@ -104,7 +104,7 @@
             }
         }
         // BURGER
-        &-burgerOn
+        &-burgerBox
         {
             cursor:pointer;
          
@@ -118,13 +118,11 @@
                 {
                     color:$colorPeru;
                     transition: 0.5s ease-in-out;
-                    opacity:1;
                 }
                 &:active
                 {
                     color:$colorPeru;
                     transition: 0.5s ease-in-out;
-                    opacity:1;
                 }
                 
             }
@@ -224,28 +222,26 @@
     {
         &-navbarbox
         {
-            margin-top:0px;
+          &-burgerBox
+          {
+              display:none;
+          }
+          &-navbar
+          {
+              
+              display:block;
+              
+              &-ul
+              {
+                  justify-content: center;
+                  flex-direction:row;
 
-            &-burgerOn
-            {
-                display:none;
-            }
-            &-navbar
-            {
-                
-                display:block;
-               
-                &-ul
-                {
-                    justify-content: center;
-                    flex-direction:row;
-
-                    &-a
-                    {
-                        margin-left:5px;
-                        margin-right:5px;
-                    }
-                }
+                  &-a
+                  {
+                      margin-left:5px;
+                      margin-right:5px;
+                  }
+              }
             }
         }
     }

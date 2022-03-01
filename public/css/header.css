@@ -81,38 +81,36 @@
 .Header-navbarbox-navbar-ul-a:active {
   color: peru;
 }
-.Header-navbarbox-burgerOn {
+.Header-navbarbox-burgerBox {
   cursor: pointer;
 }
-.Header-navbarbox-burgerOn-burger {
+.Header-navbarbox-burgerBox-burger {
   text-decoration: none;
   color: white;
   font-size: 22px;
   transition: 0.2s ease-in-out;
 }
-.Header-navbarbox-burgerOn-burger:hover {
+.Header-navbarbox-burgerBox-burger:hover {
   color: peru;
   transition: 0.5s ease-in-out;
-  opacity: 1;
 }
-.Header-navbarbox-burgerOn-burger:active {
+.Header-navbarbox-burgerBox-burger:active {
   color: peru;
   transition: 0.5s ease-in-out;
-  opacity: 1;
 }
-.Header-navbarbox-burgerOn-cross {
+.Header-navbarbox-burgerBox-cross {
   text-decoration: none;
   color: white;
   display: none;
   font-size: 19px;
   transition: 0.2s ease-in-out;
 }
-.Header-navbarbox-burgerOn-cross:hover {
+.Header-navbarbox-burgerBox-cross:hover {
   color: peru;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-.Header-navbarbox-burgerOn-cross:active {
+.Header-navbarbox-burgerBox-cross:active {
   color: peru;
   transition: 0.5s ease-in-out;
   opacity: 1;
@@ -185,10 +183,7 @@
   }
 }
 @media screen and (min-width: 880px) {
-  .Header-navbarbox {
-    margin-top: 0px;
-  }
-  .Header-navbarbox-burgerOn {
+  .Header-navbarbox-burgerBox {
     display: none;
   }
   .Header-navbarbox-navbar {
