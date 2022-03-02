@@ -27,12 +27,18 @@ class ArticleController extends AbstractController
                 $category = (int) $_POST['categories'];
                 $id_user = UserSession::getId();
                 $file = $_FILES['image'];
+                $token = $_POST['token'];
 
         
     
                 if(!$title || !$content || !$category)
                 {
                     FlashBag::addFlash("Tous les champs n'ont pas été correctements remplis.", 'error');
+                }
+
+                if($token != UserSession::token())
+                {
+                    FlashBag::addFlash("Une erreur s'est produite lors de l'ajout de l'article.", 'error');
                 }
 
                 if(!empty($file['name']))
