@@ -2,16 +2,12 @@
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'TODO';
 
 -- On supprime l'utilisateur que l'on veut créer par sécurité.
-DROP USER '4dm1n1str4teur'@'localhost';
+DROP USER IF EXISTS '4dm1n1str4teur'@'localhost';
 
 -- On créé l'utilisateur et on lui donne le vrai mot de passe. Ici, on ne l'indique pas, on met à la place un TODO.
 CREATE USER '4dm1n1str4teur'@'localhost' IDENTIFIED BY 'TODO';
 
 -- Phase de développement : On donne les privilèges nécessaires DDL et DML pendant la phase de création.
-REVOKE ALL PRIVILEGES
-ON huma_scientio.*
-FROM '4dm1n1str4teur'@'localhost';
-
 GRANT ALL PRIVILEGES
 ON huma_scientio.*
 TO '4dm1n1str4teur'@'localhost';

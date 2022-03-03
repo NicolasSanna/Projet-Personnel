@@ -9,6 +9,7 @@ use App\Model\ArticleModel;
 use App\Model\CategoryModel;
 use App\Framework\UserSession;
 use App\Framework\AbstractController;
+use App\Framework\Server;
 
 class ArticleController extends AbstractController
 {
@@ -208,38 +209,44 @@ class ArticleController extends AbstractController
             $articleModel = new ArticleModel();
             $checkArticle = $articleModel->getOneArticle($idOfArticle);
             $id_user = UserSession::getId();
-    
-            if(!$checkArticle)
-            {
-                FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
-            }
 
-            if($checkArticle['user_id'] != UserSession::getId())
+            if(Server::ajaxIsOkay())
             {
-                FlashBag::addFlash("Vous ne pouvez pas supprimer cet article, car vous n'en n'êtes pas l'auteur", 'error');
-            }   
-
-            if($token != UserSession::token())
-            {
-                FlashBag::addFlash("Une erreur s'est produite lors de la suppression.", 'error');
-            }
-
-            if (!(FlashBag::hasMessages('error')))
-            {
-                if(!empty($checkArticle['image']))
+                if(!$checkArticle)
                 {
-                    unlink(IMAGE_DIR . '/' . $checkArticle['image']);
+                    FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
                 }
-                $articleModel = new ArticleModel();
-                $deleteArticle = $articleModel->deleteArticle($idOfArticle, $id_user);
-                FlashBag::addFlash("Article supprimé !", 'success');
-            }   
-
-            $this->redirect('myarticles');
+    
+                if($checkArticle['user_id'] != UserSession::getId())
+                {
+                    FlashBag::addFlash("Vous ne pouvez pas supprimer cet article, car vous n'en n'êtes pas l'auteur", 'error');
+                }   
+    
+                if($token != UserSession::token())
+                {
+                    FlashBag::addFlash("Une erreur s'est produite lors de la suppression.", 'error');
+                }
+    
+                if (!(FlashBag::hasMessages('error')))
+                {
+                    if(!empty($checkArticle['image']))
+                    {
+                        unlink(IMAGE_DIR . '/' . $checkArticle['image']);
+                    }
+                    $articleModel = new ArticleModel();
+                    $deleteArticle = $articleModel->deleteArticle($idOfArticle, $id_user);
+    
+                    echo json_encode($idOfArticle);
+                } 
+            }
+            else
+            {
+                return $this->redirect('accessRefused');
+            }
         }
         else
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }
     }
 

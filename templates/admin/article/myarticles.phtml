@@ -21,7 +21,7 @@
                     
                 <?php foreach ($myArticles as $myArticle):?>
 
-                    <tr>
+                    <tr id="article-<?=$myArticle['articleId'];?>">
                         <td><?=$myArticle['articleId'];?></td>
                         <td> <a href="<?=buildUrl('article', ['id' => intval($myArticle['articleId'])]);?>"><?=htmlspecialchars(substr($myArticle['title'], 0, 100));?> [...]</a></td>
                         <td><?=$myArticle['creation_date'];?></td>
