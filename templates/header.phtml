@@ -35,47 +35,47 @@
 
         <div class ="Header-navbarbox-navbar">
 
-            <ul class="Header-navbarbox-navbar-ul">
+            <ul class="Header-navbarbox-navbar-list">
 
                 <li>
-                    <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('homepage');?>">Accueil</a>
+                    <a class="Header-navbarbox-navbar-list-a" href="<?=buildUrl('homepage');?>">Accueil</a>
                 </li>
                 <li>
-                    <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('forum');?>">Forum</a>
+                    <a class="Header-navbarbox-navbar-list-a" href="<?=buildUrl('forum');?>">Forum</a>
                 </li>
                 <li>
-                    <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('categories');?>">Catégories</a>
+                    <a class="Header-navbarbox-navbar-list-a" href="<?=buildUrl('categories');?>">Catégories</a>
                 </li>
                 <li>
-                    <a class="Header-navbarbox-navbar-ul-a" href="<?= buildUrl('search');?>">Rechercher</a>
+                    <a class="Header-navbarbox-navbar-list-a" href="<?= buildUrl('search');?>">Rechercher</a>
                 </li>
                 
                 <?php if (!UserSession::isAuthenticated()): ?>
 
                     <li>
-                        <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('connexion');?>">Connexion</a>
+                        <a class="Header-navbarbox-navbar-list-a" href="<?=buildUrl('connexion');?>">Connexion</a>
                     </li>
                     
                     <li>
-                        <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('signup');?>">Créer un compte</a>
+                        <a class="Header-navbarbox-navbar-list-a" href="<?=buildUrl('signup');?>">Créer un compte</a>
                     </li>
                 
                 <?php else: ?>
 
                     <li>
-                        <span class="Header-navbarbox-navbar-ul-a">–</span>
+                        <span class="Header-navbarbox-navbar-list-a">–</span>
                     </li>
                     
                     <li>
-                        <span class="Header-navbarbox-navbar-ul-a"> Bienvenue <?=UserSession::getUserFullname();?></span>
+                        <span class="Header-navbarbox-navbar-list-a"> Bienvenue <?=UserSession::getUserFullname();?></span>
                     </li>
 
                     <li>                      
-                        <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('administration');?>">Administration</a>
+                        <a class="Header-navbarbox-navbar-list-a" href="<?=buildUrl('administration');?>">Administration</a>
                     </li>    
 
                     <li>                       
-                        <a class="Header-navbarbox-navbar-ul-a" href="<?=buildUrl('deconnexion');?>">Déconnexion</a>
+                        <a class="Header-navbarbox-navbar-list-a" href="<?=buildUrl('deconnexion');?>">Déconnexion</a>
                     </li>
 
                 <?php endif;?>

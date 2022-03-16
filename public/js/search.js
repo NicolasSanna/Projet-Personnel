@@ -1,3 +1,5 @@
+import {Tools} from './modules/tools.js'
+
 const form = document.getElementById('search-form');
 
 class SearchManager
@@ -55,11 +57,11 @@ class SearchManager
 
                 let h3 = divSearchListArticle.appendChild(document.createElement('h3'));
                 h3.classList.add('Search-list-article-title');
-                h3.innerHTML = htmlspecialcharsJavaScript(result['title']);
+                h3.innerHTML = Tools.htmlspecialcharsJS(result['title']);
 
                 let articlePseudo = divSearchListArticle.appendChild(document.createElement('p'));
                 articlePseudo.classList.add('Search-list-article-pseudo');
-                articlePseudo.innerHTML = `Écrit par : ${htmlspecialcharsJavaScript(result['pseudo'])}`;
+                articlePseudo.innerHTML = `Écrit par : ${Tools.htmlspecialcharsJS(result['pseudo'])}`;
 
                 let articleDate = divSearchListArticle.appendChild(document.createElement('p'));
                 articleDate.classList.add('Search-list-article-date');
@@ -72,7 +74,7 @@ class SearchManager
 
                 let articleCategoryLink = articleCategory.appendChild(document.createElement('a'))
                 articleCategoryLink.classList.add('Search-list-article-category-link');
-                articleCategoryLink.innerHTML = htmlspecialcharsJavaScript(result['category']);
+                articleCategoryLink.innerHTML = Tools.htmlspecialcharsJS(result['category']);
                 articleCategoryLink.href = result['categoryUrl']
 
                 let articleLink = divSearchListArticle.appendChild(document.createElement('a'));
@@ -86,10 +88,10 @@ class SearchManager
 
 const searchManag = new SearchManager();
 
-function htmlspecialcharsJavaScript(string)
-{
-    return string.replace(/[&<>'"]/g, function (x)
-    {
-        return '&#' + x.charCodeAt(0) + ';';
-    })
-}
+// function htmlspecialcharsJavaScript(string)
+// {
+//     return string.replace(/[&<>'"]/g, function (x)
+//     {
+//         return '&#' + x.charCodeAt(0) + ';';
+//     })
+// }

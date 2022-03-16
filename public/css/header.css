@@ -9,109 +9,156 @@
   position: -webkit-sticky;
   position: sticky;
   overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .Header-container-box {
   background-color: black;
   opacity: 0.7;
   padding-bottom: 50px;
 }
+
 .Header-container-box-h1 {
   padding-top: 25px;
   padding-bottom: 5px;
   margin: 0px;
 }
+
 .Header-container-box-p {
   padding-bottom: 25px;
 }
+
 .Header-container-box-a {
   text-decoration: none;
   border: solid white 1px;
   padding: 15px;
   color: white;
+  -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
+
 .Header-container-box-a:visited {
   color: white;
 }
+
 .Header-container-box-a:hover {
   color: black;
   background-color: white;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
+
 .Header-navbarbox {
   background-color: #0f0803;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: center;
   width: 100%;
   padding-top: 8px;
   padding-bottom: 6px;
 }
+
 .Header-navbarbox-navbar {
   display: none;
   margin-top: -10px;
   font-size: 16px;
   margin-bottom: -10px;
 }
-.Header-navbarbox-navbar-ul {
+
+.Header-navbarbox-navbar-list {
   list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 0px;
 }
-.Header-navbarbox-navbar-ul > li {
+
+.Header-navbarbox-navbar-list > li {
   margin-bottom: 3px;
 }
-.Header-navbarbox-navbar-ul-a {
+
+.Header-navbarbox-navbar-list-a {
   text-decoration: none;
   color: white;
+  -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
-.Header-navbarbox-navbar-ul-a:hover {
+
+.Header-navbarbox-navbar-list-a:hover {
   color: peru;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
-.Header-navbarbox-navbar-ul-a:active {
+
+.Header-navbarbox-navbar-list-a:active {
   color: peru;
 }
+
 .Header-navbarbox-burgerBox {
   cursor: pointer;
 }
+
 .Header-navbarbox-burgerBox-burger {
   text-decoration: none;
   color: white;
   font-size: 22px;
+  -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
+
 .Header-navbarbox-burgerBox-burger:hover {
   color: peru;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
+
 .Header-navbarbox-burgerBox-burger:active {
   color: peru;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
+
 .Header-navbarbox-burgerBox-cross {
   text-decoration: none;
   color: white;
   display: none;
   font-size: 19px;
+  -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
+
 .Header-navbarbox-burgerBox-cross:hover {
   color: peru;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
+
 .Header-navbarbox-burgerBox-cross:active {
   color: peru;
+  -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   opacity: 1;
 }
@@ -182,6 +229,7 @@
     left: -100%;
   }
 }
+
 @media screen and (min-width: 880px) {
   .Header-navbarbox-burgerBox {
     display: none;
@@ -189,15 +237,21 @@
   .Header-navbarbox-navbar {
     display: block;
   }
-  .Header-navbarbox-navbar-ul {
-    justify-content: center;
-    flex-direction: row;
+  .Header-navbarbox-navbar-list {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
-  .Header-navbarbox-navbar-ul-a {
+  .Header-navbarbox-navbar-list-a {
     margin-left: 5px;
     margin-right: 5px;
   }
 }
+
 @-webkit-keyframes glissementMenu {
   from {
     opacity: 0;
@@ -214,6 +268,7 @@
             animation-direction: normal;
   }
 }
+
 @keyframes glissementMenu {
   from {
     opacity: 0;
@@ -229,4 +284,5 @@
     -webkit-animation-direction: normal;
             animation-direction: normal;
   }
-}/*# sourceMappingURL=header.css.map */
+}
+/*# sourceMappingURL=header.css.map */
