@@ -96,5 +96,19 @@ CREATE TABLE comments
             REFERENCES status (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB ;
 
+--
+
+DROP TABLE IF EXISTS user_password_change;
+CREATE TABLE user_password_change
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    key_change_password VARCHAR(512) NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY (id),
+        CONSTRAINT fk_user_change
+        FOREIGN KEY (user_id) 
+            REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE = InnoDB ;
+
 -- On remet les clés étrangères.
 -- SET foreign_key_checks = 1;
