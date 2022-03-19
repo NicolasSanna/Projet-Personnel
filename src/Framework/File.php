@@ -37,7 +37,7 @@ class File
         {
             
             $uniqueName = md5(uniqid(rand(), true));
-            $fileName = $uniqueName . '.' . $fileExtension;
+            $fileName = $fileName['filename'] . '-' . $uniqueName . '.' . $fileExtension;
 
             if (!empty($imageExist))
             {
