@@ -7,6 +7,6 @@ BEGIN
     FROM categories cat
     WHERE cat.id = v_id
     AND cat.id <> 1
-    OR cat.category <> "Non classé";
+    AND cat.category <> "Non classé";
 
 END //
