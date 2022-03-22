@@ -13,6 +13,7 @@ BEGIN
     OR art.title LIKE v_search
     OR u.pseudo LIKE v_search
     OR cat.category LIKE v_search
+    AND status_id = 2
     ORDER BY art.creation_date DESC;
 
 END //

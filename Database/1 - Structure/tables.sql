@@ -8,6 +8,7 @@ USE huma_scientio;
 ALTER TABLE users DROP CONSTRAINT fk_grant_id_users;
 ALTER TABLE articles DROP CONSTRAINT fk_user_article;
 ALTER TABLE articles DROP CONSTRAINT fk_category_article;
+ALTER TABLE articles DROP CONSTRAINT fk_status_id_article;
 ALTER TABLE comments DROP CONSTRAINT fk_article_com;
 ALTER TABLE comments DROP CONSTRAINT fk_status_com;
 ALTER TABLE comments DROP CONSTRAINT fk_user_com;
@@ -65,6 +66,7 @@ CREATE TABLE articles
     image VARCHAR(255) NULL,
     user_id INT NOT NULL,
     category_id INT NOT NULL,
+    status_id INT NOT NULL,
     creation_date DATETIME NOT NULL,
     PRIMARY KEY (id),
         CONSTRAINT fk_user_article
@@ -72,7 +74,10 @@ CREATE TABLE articles
             REFERENCES users (id) ON UPDATE CASCADE,
         CONSTRAINT fk_category_article
         FOREIGN KEY (category_id)
-            REFERENCES categories (id) ON UPDATE CASCADE
+            REFERENCES categories (id) ON UPDATE CASCADE,
+        CONSTRAINT fk_status_id_article
+        FOREIGN KEY (status_id)
+            REFERENCES status (id) ON UPDATE CASCADE
 ) ENGINE = InnoDB ;
 
 DROP TABLE IF EXISTS comments;

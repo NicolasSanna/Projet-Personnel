@@ -7,6 +7,7 @@ BEGIN
     FROM articles art
     INNER JOIN users u ON art.user_id = u.id
     INNER JOIN categories cat ON art.category_id = cat.id
-    WHERE art.id = v_id;
+    WHERE art.id = v_id
+    AND status_id = 2;
 
 END //

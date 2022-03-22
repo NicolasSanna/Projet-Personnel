@@ -162,6 +162,12 @@ $routes = [
         'controller' => 'Auth',
         'method' => 'changePassword'
     ],
+
+    'adminArticles' => [
+        'path' => '/administration/administrerlesarticles',
+        'controller' => 'Admin\\AdministrationArticles',
+        'method' => 'adminArticlesByAdministrator',
+    ],
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
         'path' => $path,
