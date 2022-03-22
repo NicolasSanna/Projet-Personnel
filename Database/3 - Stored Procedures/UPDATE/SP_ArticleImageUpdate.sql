@@ -4,7 +4,7 @@ CREATE PROCEDURE SP_ArticleImageUpdate (v_article_id INT)
 BEGIN
 
     UPDATE articles
-    SET image = ''
+    SET image = NULL
     WHERE id = v_article_id;
 
 END //

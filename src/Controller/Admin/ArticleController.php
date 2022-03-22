@@ -55,7 +55,7 @@ class ArticleController extends AbstractController
                     
                     $articleModel = new ArticleModel();
                     $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user, $fileName);
-                    FlashBag::addFlash("Votre article a bien été ajouté.", 'success');
+                    FlashBag::addFlash("Votre article a bien été ajouté. Il sera approuvé prochainement.", 'success');
                     return $this->redirect('myarticles');
                 }
             }      
@@ -112,7 +112,7 @@ class ArticleController extends AbstractController
             }
     
             $articleModel = new ArticleModel();
-            $checkArticle = $articleModel->getOneArticle($idOfArticle);
+            $checkArticle = $articleModel->getOneArticleToUpdateForUser($idOfArticle);
 
             $pageTitle = 'Modifer un article';
 
@@ -201,11 +201,11 @@ class ArticleController extends AbstractController
             }
             else
             {
-                $this->redirect('myarticles');
+                return $this->redirect('myarticles');
             }
     
             $articleModel = new ArticleModel();
-            $checkArticle = $articleModel->getOneArticle($idOfArticle);
+            $checkArticle = $articleModel->getOneArticleToUpdateForUser($idOfArticle);
             $id_user = UserSession::getId();
 
             if(Server::ajaxIsOkay())
@@ -258,23 +258,23 @@ class ArticleController extends AbstractController
             }
             else
             {
-                $this->redirect('myarticles');
+                return $this->redirect('myarticles');
             }
 
             $articleModel = new ArticleModel();
-            $checkArticle = $articleModel->getOneArticle($idOfArticle);
+            $checkArticle = $articleModel->getOneArticleToUpdateForUser($idOfArticle);
             $imageExist = $checkArticle['image'];
 
             if(!$checkArticle)
             {
                 FlashBag::addFlash("Aucun article n'existe sous cet identifiant", 'error');
-                $this->redirect('myarticles');
+                return $this->redirect('myarticles');
             }
 
             if($checkArticle['user_id'] != UserSession::getId())
             {
                 FlashBag::addFlash("Vous ne pouvez pas supprimer cette image de cet article, car vous n'en n'êtes pas l'auteur", 'error');
-                $this->redirect('myarticles');
+                return $this->redirect('myarticles');
             }  
 
             if (!(FlashBag::hasMessages('error')))
@@ -282,12 +282,12 @@ class ArticleController extends AbstractController
                 $articleModel = new ArticleModel();
                 $deleteImageArticle = $articleModel->deleteImageArticle($idOfArticle);
                 unlink(IMAGE_DIR . '/' . $imageExist);
-                $this->redirect('modifyarticle', ['id' => $idOfArticle]);
+                return $this->redirect('modifyarticle', ['id' => $idOfArticle]);
             }
         }
         else
         {
-            $this->redirect('accessRefused');
+            return $this->redirect('accessRefused');
         }       
     }
 }

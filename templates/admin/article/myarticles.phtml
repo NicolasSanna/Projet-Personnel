@@ -14,6 +14,7 @@
                     <th>Date de création</th>
                     <th>Catégorie</th>
                     <th>Commentaires</th>
+                    <th>Statut</th>
                     <th colspan="2">Actions</th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                         <td><?=$myArticle['creation_date'];?></td>
                         <td><a href="<?=buildUrl('category', ['id' => intval($myArticle['category_id'])]);?>"><?=$myArticle['category'];?></a></td>
                         <td><?=$myArticle['number_comments'];?></td>
+                        <td><?=$myArticle['label'];?></td>
                         <td><a id="a-modify" href="<?=buildUrl('modifyarticle', ['id' => intval($myArticle['articleId'])]);?>">Modifier</a></td>
                         <td><a id="a-delete" class="deleteArticle" href="<?=buildUrl('deletearticle', ['id' => intval($myArticle['articleId']), 'token' => UserSession::token()]);?>">Supprimer</a></td>
                     </tr>

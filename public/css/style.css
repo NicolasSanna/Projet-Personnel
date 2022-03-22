@@ -103,6 +103,14 @@ textarea {
   width: fit-content;
 }
 
+.td-img {
+  width: 100px;
+}
+
+#a-approuve {
+  color: #004200;
+}
+
 .Title {
   text-align: center;
   margin-top: 30px;

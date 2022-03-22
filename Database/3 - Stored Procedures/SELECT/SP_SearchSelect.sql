@@ -9,11 +9,10 @@ BEGIN
     FROM articles art
     INNER JOIN categories cat ON art.category_id = cat.id
     INNER JOIN users u  ON art.user_id = u.id
-    WHERE content LIKE v_search
-    OR art.title LIKE v_search
-    OR u.pseudo LIKE v_search
-    OR cat.category LIKE v_search
-    AND status_id = 2
+    WHERE (content LIKE v_search AND art.status_id = 2)
+    OR (art.title LIKE v_search AND art.status_id = 2)
+    OR (u.pseudo LIKE v_search AND art.status_id = 2)
+    OR (cat.category LIKE v_search AND art.status_id = 2)
     ORDER BY art.creation_date DESC;
 
 END //

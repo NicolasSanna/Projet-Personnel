@@ -7,7 +7,7 @@ BEGIN
     FROM articles art
     INNER JOIN users u ON art.user_id = u.id
     INNER JOIN categories cat ON art.category_id = cat.id
-    ORDER BY art.creation_date DESC
-    AND status_id = 2;
+    AND art.status_id = 2
+    ORDER BY art.creation_date DESC;
 
 END //

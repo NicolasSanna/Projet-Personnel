@@ -168,6 +168,18 @@ $routes = [
         'controller' => 'Admin\\AdministrationArticles',
         'method' => 'adminArticlesByAdministrator',
     ],
+
+    'approuveArticle' => [
+        'path' => '/administration/approuverarticle',
+        'controller' => 'Admin\\AdministrationArticles',
+        'method' => 'approuveArticle'
+    ],
+
+    'deleteNotApprouvedArticle' => [
+        'path' => '/administration/supprimernonapprouvearticle',
+        'controller' => 'Admin\\AdministrationArticles',
+        'method' => 'deleteNotApprouvedArticle'
+    ],
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
         'path' => $path,

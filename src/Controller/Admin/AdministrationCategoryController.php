@@ -106,7 +106,7 @@ class AdministrationCategoryController extends AbstractController
                     $categoryModel = new CategoryModel();
                     $modifycategory = $categoryModel->modifyCategory($idOfCategory, $newcategory);
                     FlashBag::addFlash($modifycategory['message'], 'query');
-                    $this->redirect('adminCategories');
+                    return $this->redirect('adminCategories');
                 }
             }
         }

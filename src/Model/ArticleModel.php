@@ -50,6 +50,31 @@ class ArticleModel extends AbstractModel
         return $article;
     }
 
+    public function getOneArticleToUpdateForUser(int $idOfArticle)
+    {
+        // On range dans $sql la requête SQL à effectuer, ici, l'appel d'une procédure stockée avec un paramètre anonyme, l'identifiant de l'article.
+        $sql = 'CALL SP_ArticleToUpdateForUser (?)';
+
+        // On range dans $article l'exécution de la requête SQL depuis l'héritage de $this->database avec la méthode getOneResult ayant en paramètre la requête SQL, et le tableau contenant un élément, l'identifiant à aller récupérer en base de données.
+        $article = $this->database->getOneResult($sql, [$idOfArticle]);
+
+        // On retourne $article.
+        return $article;
+    }
+
+    public function getOneArticleToUpdate(int $idOfArticle)
+    {
+        // On range dans $sql la requête SQL à effectuer, ici, l'appel d'une procédure stockée avec un paramètre anonyme, l'identifiant de l'article.
+        $sql = 'CALL SP_ArticleToUpdateSelect(?)';
+
+        // On range dans $article l'exécution de la requête SQL depuis l'héritage de $this->database avec la méthode getOneResult ayant en paramètre la requête SQL, et le tableau contenant un élément, l'identifiant à aller récupérer en base de données.
+        $article = $this->database->getOneResult($sql, [$idOfArticle]);
+
+        // On retourne $article.
+        return $article;
+    }
+
+
     /**
      * On créé une méthode insertArticle qui reçoit en paramètre le title, le content, l'identifiant de catégorie, l'identifiant utilisateur, et le nom de l'image qui par défaut est null car il est possible d'ajouter ou non une image. 
      */
@@ -139,5 +164,28 @@ class ArticleModel extends AbstractModel
 
         // On retourne le résultat.
         return $deleteImageArticle;
+    }
+
+    public function allArticlesNotApprouved()
+    {
+        $sql = 'CALL SP_ArticlesNotApprouvedSelect()';
+
+        $allArticlesNotAppourved = $this->database->getAllResults($sql);
+
+        return $allArticlesNotAppourved;
+    }
+
+    public function approuveArticle(int $idOfArticle)
+    {
+        $sql = 'CALL SP_ApprouveArticleUpdate (?)';
+
+        $approuveArticle = $this->database->executeQuery($sql, [$idOfArticle]);
+    }
+
+    public function deleteNotApprouvedArticle (int $idOfArticle)
+    {
+        $sql = 'CALL SP_NotApprouvedArticleDelete (?)';
+
+        $deleteNotApprouvedArticle = $this->database->executeQuery($sql, [$idOfArticle]);
     }
 }
