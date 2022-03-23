@@ -127,6 +127,16 @@ class AuthController extends AbstractController
                 FlashBag::addFlash('Tous les champs n\'ont pas été remplis.', 'error');
             }
 
+            $uppercase = preg_match('@[A-Z]@', $newPassword);
+            $lowercase = preg_match('@[a-z]@', $newPassword);
+            $number    = preg_match('@[0-9]@', $newPassword);
+            $specialChars = preg_match('@[^\w]@', $newPassword);
+
+            if(!$uppercase || !$lowercase || !$number || !$specialChars) 
+            {
+                FlashBag::addFlash("Le mot de passe doit contenir au moins une majuscule, une miniscule, un chiffre et un caractère spécial", 'error');
+            }
+
             $userModel = new UserModel();
             $emailExists = $userModel->getUserByEmail($email);
 

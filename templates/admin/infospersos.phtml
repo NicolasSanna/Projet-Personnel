@@ -1,3 +1,5 @@
+<?php use App\Framework\UserSession;?>
+
 <h3>Modifier mes informations personnelles</h3>
 
 
@@ -14,6 +16,8 @@
 
     <label for="email" class="Form-box-label">E-mail : </label>
     <input type="email" class="Form-box-input" name="email" id="email" value="<?=htmlspecialchars($email);?>">
+
+    <input type="hidden" name="token" value="<?=UserSession::token();?>">
 
     <button type="submit" class="Form-box-button" name="validate">Modifier mes informations</button>
 

@@ -175,6 +175,12 @@ class AdministrationUserController extends AbstractController
                 $firstnameUpdate =  trim($_POST['firstname']);
                 $pseudoUpdate =  trim($_POST['pseudo']);
                 $emailUpdate =  trim($_POST['email']);
+                $token = $_POST['token'];
+
+                if ($token != UserSession::token())
+                {
+                    FlashBag::addFlash("Une erreur est survenue à la mise à jours des informations personnels", 'error');
+                }
 
                 if (!$lastnameUpdate || !$firstnameUpdate || !$pseudoUpdate || !$emailUpdate)
                 {
