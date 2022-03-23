@@ -159,7 +159,7 @@ class AdministrationUserController extends AbstractController
     public function modifyInfosUser()
     { 
 
-        if (UserSession::author() || UserSession::administrator())
+        if (UserSession::isAuthenticated())
         {
             $pageTitle = 'Modifier mes informations personnelles';
 
