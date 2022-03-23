@@ -180,6 +180,18 @@ $routes = [
         'controller' => 'Admin\\AdministrationArticles',
         'method' => 'deleteNotApprouvedArticle'
     ],
+
+    'mentionslegales' => [
+        'path' => '/mentionslegales',
+        'controller' => 'Home',
+        'method' => 'mentionslegales'
+    ],
+
+    'infospersos' => [
+        'path' => '/administration/infospersonnelles',
+        'controller' => 'Admin\\AdministrationUser',
+        'method' => 'modifyInfosUser'
+    ],
     // Mettre cette route en tout dernier si aucune ne correspond. /!\
     '404' => [
         'path' => $path,

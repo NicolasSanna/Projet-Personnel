@@ -1,0 +1,22 @@
+<h3>Modifier mes informations personnelles</h3>
+
+
+<form class="Form-box" method="POST">
+
+    <label for="lastname" class="Form-box-label">Nom :</label>
+    <input type="text" class="Form-box-input" name="lastname" id="lastname" value="<?=htmlspecialchars($lastname);?>">
+
+    <label for="firstname" class="Form-box-label">Prénom :</label>
+    <input type="text" class="Form-box-input" name="firstname" id="firstname" value="<?=htmlspecialchars($firstname);?>">
+
+    <label for="pseudo" class="Form-box-label">Pseudo (il sera visible sur tout le site) :</label>
+    <input type="text" class="Form-box-input" name="pseudo" id="pseudo" value="<?=htmlspecialchars($pseudo);?>">
+
+    <label for="email" class="Form-box-label">E-mail : </label>
+    <input type="email" class="Form-box-input" name="email" id="email" value="<?=htmlspecialchars($email);?>">
+
+    <button type="submit" class="Form-box-button" name="validate">Modifier mes informations</button>
+
+</form>
+
+<p class="Paragraphe-reinitialisation">Afin de modifier le mot de passe, déconnectez-vous et suivez la procédure de réinitialisation de mot de passe oublié.</p>

@@ -89,4 +89,11 @@ class UserModel extends AbstractModel
 
         return $this->database->getOneResult($sql, [$email, $newPassword, $keyReinitialization]);
     }
+
+    function updateInfosPersosUser(string $firstname, string $lastname, string $pseudo, string $email, int $userId)
+    {
+        $sql = 'CALL SP_InfosPersosUpdate(?, ?, ?, ?, ?)';
+
+        return $this->database->getOneResult($sql, [$firstname, $lastname, $pseudo, $email, $userId]);
+    }
 }

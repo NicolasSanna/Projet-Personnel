@@ -138,6 +138,10 @@ textarea
     color:rgb(0, 66, 0);
 }
 
+.Mentions
+{
+    text-align: justify;
+}
 
 .Title
 {
@@ -157,6 +161,14 @@ textarea
     &-content
     {
         text-align: justify;
+    }
+}
+
+.Paragraphe
+{
+    &-reinitialisation
+    {
+        text-align: center;
     }
 }
 
@@ -341,7 +353,7 @@ textarea
         filter:brightness(90%);
         margin-top:auto;
         margin-bottom:auto;
-        box-shadow: 3px 5px 8px 0px rgb(0 0 0 / 20%);
+        box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
         border-radius: 10px;
     }
     &-h2

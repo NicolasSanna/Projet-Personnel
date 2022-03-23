@@ -133,6 +133,17 @@ class UserSession extends AbstractSession
         // Sinon on retourne l'identifiant email venant de la clé user de la superlogable $_SESSION.
         return $_SESSION['user']['email'];
     }
+
+    static function getPseudo()
+    {
+
+        if (!self::isAuthenticated())
+        {
+            return null;
+        }
+
+        return $_SESSION['user']['pseudo'];
+    }
     
     /**
      * On créé une méthode statique administrator()

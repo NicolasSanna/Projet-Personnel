@@ -38,4 +38,13 @@ class HomeController extends AbstractController
             'pageTitle' => $pageTitle??''
         ]);
     }
+
+    public function mentionslegales()
+    {
+         $pageTitle = 'Mentions légales';
+ 
+         return $this->render('mentionslegales', [
+             'pageTitle' => $pageTitle
+         ]);
+    }
 }

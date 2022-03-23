@@ -155,4 +155,59 @@ class AdministrationUserController extends AbstractController
             'pageTitle' => $pageTitle??''
         ]);
     }
+
+    public function modifyInfosUser()
+    { 
+
+        if (UserSession::author() || UserSession::administrator())
+        {
+            $pageTitle = 'Modifier mes informations personnelles';
+
+            $firstname = UserSession::getFirstname();
+            $lastname = UserSession::getLastname();
+            $email = UserSession::getEmail();
+            $pseudo = UserSession::getPseudo();
+            $id_user = UserSession::getId();
+
+            if(!empty($_POST))
+            {
+                $lastnameUpdate =  trim($_POST['lastname']);
+                $firstnameUpdate =  trim($_POST['firstname']);
+                $pseudoUpdate =  trim($_POST['pseudo']);
+                $emailUpdate =  trim($_POST['email']);
+
+                if (!$lastnameUpdate || !$firstnameUpdate || !$pseudoUpdate || !$emailUpdate)
+                {
+                    FlashBag::addFlash("Tous les champs de modification n'ont pas été correctement remplis", 'error');
+                }
+    
+                if(!filter_var($emailUpdate, FILTER_VALIDATE_EMAIL))
+                {
+                    FlashBag::addFlash('Vérifiez le format de votre email.', 'error'); 
+                }
+    
+                if(!FlashBag::hasMessages('error'))
+                {
+                        $userModel = new UserModel();
+                        $updateUser = $userModel->updateInfosPersosUser($firstnameUpdate, $lastnameUpdate, $pseudoUpdate, $emailUpdate, $id_user);
+                        FlashBag::addFlash($updateUser['message'], 'query');
+                }
+
+            }
+        }
+        else
+        {
+            return $this->redirect('accessRefused');
+        }
+        
+
+        return $this->render('admin/infospersos', [
+
+                'firstname' => $firstnameUpdate??$firstname,
+                'lastname' => $lastnameUpdate??$lastname,
+                'pseudo' => $pseudoUpdate??$pseudo,
+                'email' => $emailUpdate??$email,
+            'pageTitle' => $pageTitle
+        ]);
+    }
 }
