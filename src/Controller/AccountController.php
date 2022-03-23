@@ -43,6 +43,16 @@ class AccountController extends AbstractController
                 FlashBag::addFlash("Le mot de passe confirmé ne correspond pas à celui que vous voulez utiliser.", 'error');
             }
 
+            $uppercase = preg_match('@[A-Z]@', $password);
+            $lowercase = preg_match('@[a-z]@', $password);
+            $number    = preg_match('@[0-9]@', $password);
+            $specialChars = preg_match('@[^\w]@', $password);
+
+            if(!$uppercase || !$lowercase || !$number || !$specialChars) 
+            {
+                FlashBag::addFlash("Le mot de passe doit contenir au moins une majuscule, une miniscule, un chiffre et un caractère spécial", 'error');
+            }
+
             $url = "https://www.google.com/recaptcha/api/siteverify?secret=6LeH3ZYdAAAAAA8Dl0tIO-mqBLW32JoqD65FDS2D&response={$recaptchaResponse}";
             $response = file_get_contents($url);
 
