@@ -48,6 +48,11 @@ class AdministrationArticlesController extends AbstractController
                     return $this->redirect('administration');
                 }
 
+                if($article['user_id'] == UserSession::getId())
+                {
+                    FlashBag::addFlash("Vous ne pouvez pas modérer vos propres articles", 'error');
+                }
+
                 if ($token != UserSession::token())
                 {
                     FlashBag::addFlash("Erreur à l'approbation de l'article", 'error');
@@ -58,8 +63,9 @@ class AdministrationArticlesController extends AbstractController
                     $articleModel = new ArticleModel();
                     $approuveArticle = $articleModel->approuveArticle($idOfArticle);
                     FlashBag::addFlash("L'article a bien été approuvé", 'success');
-                    return $this->redirect('adminArticles');
+                    
                 }
+                return $this->redirect('adminArticles');
             }
         }
         else
@@ -80,9 +86,16 @@ class AdministrationArticlesController extends AbstractController
                 $articleModel = new ArticleModel();
                 $article = $articleModel->getOneArticleToUpdate($idOfArticle);
 
+
                 if(!$article)
                 {
                     FlashBag::addFlash("Cet article n'existe pas.", 'error');
+                }
+
+                
+                if($article['user_id'] == UserSession::getId())
+                {
+                    FlashBag::addFlash("Vous ne pouvez pas modérer vos propres articles", 'error');
                 }
 
                 if ($token != UserSession::token())
