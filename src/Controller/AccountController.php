@@ -50,7 +50,7 @@ class AccountController extends AbstractController
 
             if(!$uppercase || !$lowercase || !$number || !$specialChars) 
             {
-                FlashBag::addFlash("Le mot de passe doit contenir au moins une majuscule, une miniscule, un chiffre et un caractère spécial", 'error');
+                FlashBag::addFlash("Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial", 'error');
             }
 
             $url = "https://www.google.com/recaptcha/api/siteverify?secret=6LeH3ZYdAAAAAA8Dl0tIO-mqBLW32JoqD65FDS2D&response={$recaptchaResponse}";
