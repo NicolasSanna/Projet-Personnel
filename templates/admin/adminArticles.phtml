@@ -23,7 +23,7 @@
                 <td><?= $notApprouvedArticle['id'];?></td>
                 <td><?=htmlspecialchars(substr($notApprouvedArticle['title'], 0, 100));?> [...]</a></td>
                 <td><?=$notApprouvedArticle['content'], 0, 100;?> [...]</a></td>
-                <?php $image = $notApprouvedArticle['image'] != null ? "<img class='td-img' src=" . asset('img/imgArticle/' . $notApprouvedArticle['image']) . " </img>" : 'Article sans image';?>
+                <?php $image = $notApprouvedArticle['image'] != null ? "<img class='td-img' src=" . asset('img/imgArticle/' . $notApprouvedArticle['image']) . " alt=".$notApprouvedArticle['image']." </img>  " : 'Article sans image';?>
                 <td><?=$image;?></td>
                 <td><?=$notApprouvedArticle['pseudo'];?></td>
                 <td><a id="a-approuve" class="confirmation" href="<?=buildUrl('approuveArticle', ['id' => intval($notApprouvedArticle['id']), 'token' => UserSession::token()]);?>">Approuver</a></td>

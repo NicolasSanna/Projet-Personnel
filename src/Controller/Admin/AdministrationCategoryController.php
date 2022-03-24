@@ -64,7 +64,7 @@ class AdministrationCategoryController extends AbstractController
         $categoryModel = new CategoryModel();
         $categories = $categoryModel->getAllCategories();
 
-        return $this->render('admin/admincategory', [
+        return $this->render('admin/adminCategory', [
             'categories' => $categories??'',
             'pageTitle' => $pageTitle??''
         ]);
@@ -115,7 +115,7 @@ class AdministrationCategoryController extends AbstractController
             return $this->redirect('administration');
         }
 
-        return $this->render('admin/modifycategory', [
+        return $this->render('admin/modifyCategory', [
             'category' => $category??'',
             'newcategory' => $newcategory??'',
             'pageTitle' => $pageTitle??''

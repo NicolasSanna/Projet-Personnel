@@ -25,7 +25,7 @@ class AdministrationUserController extends AbstractController
 
         $pageTitle = 'Administrer les utiliateurs';
 
-        return $this->render('admin/adminusers', [
+        return $this->render('admin/adminUsers', [
             'usersInfos' => $usersInfos??'',
             'pageTitle' => $pageTitle??''
         ]);
@@ -141,7 +141,7 @@ class AdministrationUserController extends AbstractController
 
 
                 FlashBag::addFlash($changeGrant['message'], 'query');
-                return $this->redirect('adminusers');
+                return $this->redirect('adminUsers');
             }
         }
         else
@@ -149,7 +149,7 @@ class AdministrationUserController extends AbstractController
             return $this->redirect('administration');
         }
         
-        return $this->render('admin/modifygrantuser', [
+        return $this->render('admin/modifyGrantUser', [
             'grants' => $grants??'',
             'userInfos' => $userInfos??'',
             'pageTitle' => $pageTitle??''

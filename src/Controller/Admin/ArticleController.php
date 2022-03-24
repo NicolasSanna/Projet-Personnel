@@ -173,7 +173,7 @@ class ArticleController extends AbstractController
                     $this->redirect('myarticles');
                 }
             }
-            return $this->render('admin/article/modifyarticle', [
+            return $this->render('admin/article/modifyArticle', [
                 'content' => $newcontent??$content,
                 'title' => $newtitle??$title,
                 'categories' => $categories??'',
