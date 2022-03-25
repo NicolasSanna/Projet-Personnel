@@ -113,7 +113,7 @@ class ForumController extends AbstractController
             /**
              * On récupère la valeur de $_POST['search'] venant du formulaire dans $search.
              */
-            $search =  trim($_POST['search']);
+            $search = trim(htmlspecialchars($_POST['search']));
             /**
              * On créé l'objet ArticleModel
              */

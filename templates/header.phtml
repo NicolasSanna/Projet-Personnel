@@ -67,7 +67,7 @@
                     </li>
                     
                     <li>
-                        <a class="Header-navbarbox-navbar-list-a" href="<?=buildUrl('infospersos');?>" > Bienvenue <?=UserSession::getUserFullname();?></a>
+                        <a class="Header-navbarbox-navbar-list-a" href="<?=buildUrl('infospersos');?>" > Bienvenue <?=htmlspecialchars(UserSession::getUserFullname());?></a>
                     </li>
 
                     <li>                      

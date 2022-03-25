@@ -8,7 +8,7 @@ BEGIN
     INNER JOIN categories ON articles.category_id = categories.id
     INNER JOIN users ON articles.user_id = users.id
     WHERE categories.id = v_category_id
-    AND art.status_id = 2
+    AND articles.status_id = 2
     ORDER BY creation_date DESC;
 
 END //
