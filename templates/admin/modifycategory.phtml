@@ -1,13 +1,14 @@
-<h3 class="TitlePage">Modifier la catégorie : <?=$category['category'];?></h3>
+<h3 class="TitlePage">Modifier la catégorie : <?=htmlspecialchars($category['category']);?></h3>
 
 <div class="Form">
     <form class="Form-box" method="POST" action="">
-
-        <label class="Form-box-label" for="newcategory">Modifier la catégorie :</label>
-        <input type="text" name="newcategory" class="Form-box-input" id="" value="<?= htmlspecialchars($category['category']);?>">
-        
-        <input type="hidden" name="idcategory" value="<?=$category['id'];?>">
-        
+        <div class="Form-box-div">
+            <label class="Form-box-label" for="newcategory">Modifier la catégorie :</label>
+            <input type="text" name="newcategory" class="Form-box-input" id="" value="<?= htmlspecialchars($category['category']);?>">
+        </div>
+        <div class="Form-box-div">
+            <input type="hidden" name="idcategory" value="<?=$category['id'];?>">
+        </div>
         <div class="FormCategory-button">
             <button class="Form-box-button" type="submit">Changer le nom de la catégorie</button>
         </div>

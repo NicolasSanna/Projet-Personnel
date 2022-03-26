@@ -16,30 +16,37 @@ grecaptcha.ready(function() {
 <div class="Form">
 
     <form class="Form-box" method="POST">
-
-        <label for="lastname" class="Form-box-label">Nom :</label>
-        <input type="text" class="Form-box-input" name="lastname" id="lastname" value="<?=htmlspecialchars($lastname);?>">
-
-        <label for="firstname" class="Form-box-label">Prénom :</label>
-        <input type="text" class="Form-box-input" name="firstname" id="firstname" value="<?=htmlspecialchars($firstname);?>">
-
-        <label for="pseudo" class="Form-box-label">Pseudo (il sera visible sur tout le site) :</label>
-        <input type="text" class="Form-box-input" name="pseudo" id="pseudo" value="<?=htmlspecialchars($pseudo);?>">
-
-        <label for="email" class="Form-box-label">E-mail : </label>
-        <input type="email" class="Form-box-input" name="email" id="email" value="<?=htmlspecialchars($email);?>">
-
-        <label for="password" class="Form-box-label">Mot de passe :</label>
-        <input type="password" id="password" class="Form-box-input" required name="password">
-
-        <label for="password" class="Form-box-label">Voir le mot de passe</label>
-        <input type="checkbox" class="Form-box-input" id="viewPassword" name="viewPassword">
-
-        <label for="confirmPassword" class="Form-box-label">Confirmer le mot de passe :</label>
-        <input type="password" class="Form-box-input" id="confirmPassword" required name="confirmPassword">
-
-        <input type="hidden" id="recaptchaResponse" name="recaptcha-response">
-        
+        <div class="Form-box-div">
+            <label for="lastname" class="Form-box-label">Nom :</label>
+            <input type="text" class="Form-box-input" name="lastname" id="lastname" value="<?=htmlspecialchars($lastname);?>">
+        </div>
+        <div class="Form-box-div">
+            <label for="firstname" class="Form-box-label">Prénom :</label>
+            <input type="text" class="Form-box-input" name="firstname" id="firstname" value="<?=htmlspecialchars($firstname);?>">
+        </div>
+        <div class="Form-box-div">
+            <label for="pseudo" class="Form-box-label">Pseudo (il sera visible sur tout le site) :</label>
+            <input type="text" class="Form-box-input" name="pseudo" id="pseudo" value="<?=htmlspecialchars($pseudo);?>">
+        </div>
+        <div class="Form-box-div">
+            <label for="email" class="Form-box-label">E-mail : </label>
+            <input type="email" class="Form-box-input" name="email" id="email" value="<?=htmlspecialchars($email);?>">
+        </div>
+        <div class="Form-box-div">
+            <label for="password" class="Form-box-label">Mot de passe :</label>
+            <input type="password" id="password" class="Form-box-input" required name="password">
+        </div>
+        <div class="Form-box-div">
+            <label for="password" class="Form-box-label">Voir le mot de passe</label>
+            <input type="checkbox" class="Form-box-input" id="viewPassword" name="viewPassword">
+        </div>
+        <div class="Form-box-div">
+            <label for="confirmPassword" class="Form-box-label">Confirmer le mot de passe :</label>
+            <input type="password" class="Form-box-input" id="confirmPassword" required name="confirmPassword">
+        </div>
+            <div class="Form-box-div">
+            <input type="hidden" id="recaptchaResponse" name="recaptcha-response">
+        </div>
         <button type="submit" class="Form-box-button" name="validate">S'inscrire</button>
         <a class="Link" href="<?= buildUrl('connexion');?>">J'ai déjà un compte, je me connecte</a>
 
