@@ -55,18 +55,11 @@
 }
 .Header-navbarbox-navbar {
   display: none;
-  margin-top: -10px;
-  font-size: 16px;
-  margin-bottom: -10px;
 }
 .Header-navbarbox-navbar-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  padding: 0px;
-}
-.Header-navbarbox-navbar-list > li {
-  margin-bottom: 3px;
 }
 .Header-navbarbox-navbar-list-a {
   text-decoration: none;

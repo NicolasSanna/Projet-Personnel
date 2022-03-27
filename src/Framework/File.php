@@ -11,12 +11,6 @@ class File
     
     public function uploadFileImage(array $file, string $imageExist = null)
     {
-        if($file['error'] > 0)
-        {
-            FlashBag::addFlash("Une erreur est survenue lors du chargement du fichier.", 'error');
-            return null;
-        }
-
         if($file['size'] > 2000000)
         {
             FlashBag::addFlash("Le fichier est trop volumineux (plus de 2Mo)", 'error');
@@ -26,7 +20,7 @@ class File
         $fileName = pathinfo($file['name']);
         $fileExtension = $fileName['extension'];
 
-        $validExtension = ['img', 'png', 'jpg', 'jpeg', 'jpg'];
+        $validExtension = ['img', 'png', 'jpg', 'jpeg'];
 
         if(!in_array($fileExtension, $validExtension))
         {
