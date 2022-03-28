@@ -71,13 +71,20 @@
         &-navbar
         {
           display:none;
+          margin-top: -10px;
+          font-size:16px;
+          margin-bottom: -10px;
 
             &-list
             {
+              > li
+              {
+                  margin-bottom:3px;
+              }
               list-style: none;
               display:flex;
               flex-direction:column;
-
+              padding: 0px;
               &-a
               {
                   text-decoration:none;
@@ -211,32 +218,33 @@
 // POINT DE RUPTURE DU MEDIA QUERIES A 880 PX.
 @media screen AND (min-width: 880px)
 {
-  .Header
-  {
-    &-navbarbox
+    .Header
     {
-      &-burgerBox
-      {
-          display:none;
-      }
-      &-navbar
-      {
-        display:block;
-        
-        &-list
+        &-navbarbox
         {
-          justify-content: center;
-          flex-direction:row;
-
-          &-a
+          &-burgerBox
           {
-              margin-left:5px;
-              margin-right:5px;
+              display:none;
           }
+          &-navbar
+          {
+              
+              display:block;
+              
+              &-list
+              {
+                  justify-content: center;
+                  flex-direction:row;
+
+                  &-a
+                  {
+                      margin-left:5px;
+                      margin-right:5px;
+                  }
+              }
+            }
         }
-      }
     }
-  }
 }
 
 @keyframes glissementMenu 
