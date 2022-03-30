@@ -40,7 +40,7 @@ class UploadImageManager
             let preview = document.querySelector('.Article-box-img');
 
             /**
-             * On place dans src de la balise HTML l'élément src provenant de l'input file récupéré grâce à la création de l'objet URL.
+             * On place dans l'attribut src de la balise HTML l'élément src provenant de l'input file récupéré grâce à la création de l'objet URL.
              */
             preview.src = src;
         }
