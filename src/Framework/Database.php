@@ -13,14 +13,28 @@ use \PDOStatement;
 class Database 
 {
     // On créé une propriété $pdo en privé, par conséquent inaccessible en dehors de la classe Database. 
-    private $pdo;
+    private $pdo = null;
 
     /**
      * On créé la fonction __construct() celle ci ne reçoit pas de paramètre, mais on range $this->getPdoConnection dans $this->pdo. 
      */
     public function __construct()
     {
-        $this->pdo = $this->getPdoConnection();
+        // $this->pdo = $this->getPdoConnection();
+        $this->pdo = $this->getPdoInstance();
+    }
+
+    /**
+     * Singleton : une seule instanciation de l'objet PDO.
+     */
+    function getPdoInstance()
+    {
+        if (is_null($this->pdo))
+        {
+            $this->pdo = $this->getPdoConnection();
+        }
+
+        return $this->pdo;
     }
 
     /**
