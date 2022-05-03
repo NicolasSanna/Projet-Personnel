@@ -129,6 +129,7 @@ class ArticleController extends AbstractController
             $title = $checkArticle['title'];
             $content = $checkArticle['content'];
             $imageExist = $checkArticle['image'];
+            $defaultCategory = $checkArticle['category_id'];
     
             if($checkArticle['user_id'] != UserSession::getId())
             {
@@ -180,7 +181,7 @@ class ArticleController extends AbstractController
                 'pageTitle' => $pageTitle??'',
                 'imageExist' => $imageExist??'',
                 'idOfArticle' => $idOfArticle??'',
-                'selectedCategory' => $category??null
+                'selectedCategory' => $category??$defaultCategory
             ]);
         }
         else
