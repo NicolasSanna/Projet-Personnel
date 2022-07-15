@@ -23,7 +23,7 @@ class File
 
         if(!in_array($fileMimeInfo, $validMimeExtension))
         {
-            FlashBag::addFlash("L'extension du fichier n'est pas valide. CONNARD", 'error');
+            FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
             return null;
         }
 
