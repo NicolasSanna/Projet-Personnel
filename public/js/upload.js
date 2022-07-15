@@ -35,6 +35,29 @@ class addArticleManager
          */
         if(inputFile.files && inputFile.files.length == 1)
         {
+
+            /**
+             * On récupère les informations du fichier.
+             */
+            const fileInfoMime = inputFile.files[0].type
+
+            /**
+             * On créé un tableau contenant les types acceptés.
+             */
+            const validMimes = ['image/png', 'image/jpeg'];
+
+
+            /**
+             * Si le type envoyé n'est pas inclus dans le tableau contenant les types acceptés...
+             */
+            if(validMimes.includes(fileInfoMime) == false)
+            {
+                /**
+                 * On alerte l'utilisateur et l'on ne recharge pas le navigateur pour traiter le formulaire côté client. 
+                 */
+                alert('L\'extension du fichier n\'est pas bonne.');
+                event.preventDefault();
+            }
             
             /**
              * On vérifie la taille de ce qui a été reçu dans l'input de type file. Si c'est supérieur à 2000000 octets (2Mo)

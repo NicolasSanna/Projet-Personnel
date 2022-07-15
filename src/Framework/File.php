@@ -17,8 +17,18 @@ class File
             return null;
         }
 
+        $fileMimeInfo = mime_content_type($file['tmp_name']);
+
+        $validMimeExtension = ['image/png', 'image/jpeg'];
+
+        if(!in_array($fileMimeInfo, $validMimeExtension))
+        {
+            FlashBag::addFlash("L'extension du fichier n'est pas valide. CONNARD", 'error');
+            return null;
+        }
+
         $fileName = pathinfo($file['name']);
-        $fileExtension = $fileName['extension'];
+        $fileExtension = strtolower($fileName['extension']);
 
         $validExtension = ['img', 'png', 'jpg', 'jpeg'];
 
