@@ -14,7 +14,7 @@ VALUES
 
 INSERT INTO users (id, firstname, lastname, pseudo, email, password, inscription_date, grant_id, grant_label)
 VALUES 
-(1, 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', NOW(), 3, '[ROLE_NEW_USER]');
+(1, 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', 'Supprimé', NOW(), 3, "['ROLE_NEW_USER']");
 
 INSERT INTO status (id, label)
 VALUES
