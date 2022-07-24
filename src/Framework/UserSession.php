@@ -26,24 +26,26 @@ class UserSession extends AbstractSession
             'email' => $email,
             'grant_id' => $grant_id,
             'grant_label' => $grant_label,
+            'token' => self::token()
         ];
-
-        // On appelle la méthode privée token afin de générer le token aléatoire lors de la connexion de l'utilisateur.
-        self::token();
 
     }
 
     /**
      * On créé une méthode statique is authenticated.
      */
-    static function isAuthenticated()
+    static function isAuthenticated(): bool
     {
         // On s'assure que la session est bien démarrée en appelant la méthode sessionCheck().
         self::sessionCheck();
 
-        if(array_key_exists('user', $_SESSION) && isset($_SESSION['user']))
+        if(array_key_exists('user', $_SESSION) && isset($_SESSION['user']) && !is_null($_SESSION['user']))
         {
             return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -66,7 +68,7 @@ class UserSession extends AbstractSession
     /**
      * On créé une méthode statique getId.
      */
-    static function getId()
+    static function getId(): int
     {
         // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne null.
         if (!self::isAuthenticated())
@@ -208,7 +210,7 @@ class UserSession extends AbstractSession
         }
      
         // Si $_SESSION['user']['token'] n'est pas déclarée ou est vide...
-        if(!isset($_SESSION['user']['token']) || empty($_SESSION['user']['token']))
+        if(!isset($_SESSION['user']['token']) || empty($_SESSION['user']['token']) || is_null($_SESSION['user']['token']))
         {
             // On créé la clé token dans user dans $_SESSION et qui reçoit une chaîne de caractères composées de chiffres et de lettres aléatoires et qui change à chaque connexion.
             $_SESSION['user']['token'] = bin2hex(openssl_random_pseudo_bytes(24));

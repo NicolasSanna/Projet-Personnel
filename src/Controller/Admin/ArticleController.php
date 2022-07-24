@@ -48,10 +48,7 @@ class ArticleController extends AbstractController
                 
                 if (!(FlashBag::hasMessages('error')))
                 {
-                    if ($fileName != null)
-                    {
-                        move_uploaded_file($file['tmp_name'], IMAGE_DIR .  '/' . $fileName);
-                    }
+
                     
                     $articleModel = new ArticleModel();
                     $articleCreate = $articleModel->insertArticle($title, $content, $category, $id_user, $fileName);
@@ -164,10 +161,6 @@ class ArticleController extends AbstractController
 
                 if (!(FlashBag::hasMessages('error')))
                 {
-                    if($fileName != null)
-                    {
-                        move_uploaded_file($file['tmp_name'], IMAGE_DIR . '/' . $fileName);
-                    }
                     $articleModel = new ArticleModel();
                     $updateArticle = $articleModel->modifyarticle($idOfArticle, $id_user, $newtitle, $newcontent, $category, $fileName);
                     FlashBag::addFlash("Article modifié avec succès!", 'success');
