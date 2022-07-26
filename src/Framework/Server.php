@@ -16,7 +16,7 @@ class Server
     /**
      * Création de la fonction statique path. Sans paramètre.
      */
-    static function path ()
+    public static function path ()
     {
         /**
          * On stocke dans la variable $fullPath la totalité de l'adresse (requête) HTTP du navigateur. Si elle est null, on met à la place le / qui désigne l'entrée du site (pas d'éléments supplémentaires dans l'adresse).
@@ -45,7 +45,7 @@ class Server
     /**
      * Création de la fonction statique verifyAjax qui contrôle si c'est une requête Ajax qui est reçue.
      */
-    static function ajaxIsOkay()
+    public static function ajaxIsOkay()
     {
         if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' )
         {
@@ -53,7 +53,7 @@ class Server
         }
     }
 
-    static function secureAdmin(string $path): bool
+    private static function secureAdmin(string $path): bool
     {
         if (str_contains($path, '/administration') && !UserSession::isAuthenticated())
         {
