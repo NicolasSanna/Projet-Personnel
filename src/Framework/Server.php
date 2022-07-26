@@ -5,6 +5,8 @@
  */
 namespace App\Framework;
 
+use App\Framework\UserSession;
+
 /**
  * Création de la classe Server chargée des différentes opérations sur la superglobale $_SERVER qui contient toutes les informations relatives aux reuqêtes HTTP, etc.
  */
@@ -26,10 +28,18 @@ class Server
          */
         $path = explode('?', $fullPath)[0];
 
+        if(!self::secureAdmin($path))
+        {
+            $path = '/accessRefuse';
+
+                return $path;
+        }
+
         /**
          * On renvoie le path.
-         */
+        */
         return $path;
+        
     }
 
     /**
@@ -41,5 +51,15 @@ class Server
         {
             return true;
         }
+    }
+
+    static function secureAdmin(string $path): bool
+    {
+        if (str_contains($path, '/administration') && !UserSession::isAuthenticated())
+        {
+            return false;
+        }
+
+        return true;
     }
 }

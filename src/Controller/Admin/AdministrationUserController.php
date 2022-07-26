@@ -15,10 +15,10 @@ class AdministrationUserController extends AbstractController
 {
     public function administrationUsers()
     {
-        if(!UserSession::administrator())
-        {
-            return $this->redirect('accessRefused');
-        }
+        // if(!UserSession::administrator())
+        // {
+        //     return $this->redirect('accessRefused');
+        // }
 
         $userModel = new UserModel();
         $usersInfos = $userModel->adminUsers();
