@@ -4,26 +4,34 @@ namespace App\Framework;
 
 class File
 {
+    private array $file;
+    private ?string $imageExist = null;
 
     const VALID_EXTENSIONS = ['img', 'png', 'jpg', 'jpeg'];
     const VALID_MIME_TYPES = ['image/png', 'image/jpeg'];
 
-    public function __construct()
+    public function __construct(array $file, string $imageExist = null)
     {
         $this->createFolderImage();
+        $this->file = $file;
+        $this->imageExist = $imageExist;
+
+        $this->checkSize();
+        $this->checkMime();
+        $this->checkExtension();
     }
 
-    private function checkSize(array $file)
+    private function checkSize()
     {
-        if($file['size'] > 2000000)
+        if($this->file['size'] > 2000000)
         {
             FlashBag::addFlash("Le fichier est trop volumineux (plus de 2Mo)", 'error');
         }
     }
 
-    private function checkMime(array $file)
+    private function checkMime()
     {
-        $fileMimeInfo = mime_content_type($file['tmp_name']);
+        $fileMimeInfo = mime_content_type($this->file['tmp_name']);
 
         if(!in_array($fileMimeInfo, self::VALID_MIME_TYPES))
         {
@@ -31,10 +39,10 @@ class File
         }
     }
 
-    private function checkExtension (array $file)
+    private function checkExtension ()
     {
             
-        $fileName = pathinfo($file['name']);
+        $fileName = pathinfo($this->file['name']);
         $fileExtension = strtolower($fileName['extension']);
 
         if(!in_array($fileExtension, self::VALID_EXTENSIONS))
@@ -43,9 +51,9 @@ class File
         }
     }
 
-    public function generateRandomFileName(array $file)
+    private function generateRandomFileName()
     {
-        $fileName = pathinfo($file['name']);
+        $fileName = pathinfo($this->file['name']);
         $fileExtension = strtolower($fileName['extension']);
 
         $uniqueName = md5(uniqid(rand(), true));
@@ -54,26 +62,24 @@ class File
         return $fileName;
     }
     
-    public function uploadFileImage(array $file, string $imageExist = null)
+    public function uploadFileImage()
     {
-
-        $this->checkSize($file);
-        $this->checkMime($file);
-        $this->checkExtension($file);
 
         if(!FlashBag::hasMessages('error'))
         {
-            $fileName = $this->generateRandomFileName($file);
+            $fileName = $this->generateRandomFileName();
             
-            move_uploaded_file($file['tmp_name'], IMAGE_DIR .  '/' . $fileName);
+            move_uploaded_file($this->file['tmp_name'], IMAGE_DIR .  '/' . $fileName);
 
-            if (!empty($imageExist))
+            if (!empty($this->imageExist))
             {
-                unlink(IMAGE_DIR . '/' . $imageExist);
+                unlink(IMAGE_DIR . '/' . $this->imageExist);
             }
 
             return $fileName;
         }
+
+        return null;
     }
 
     private function createFolderImage()

@@ -42,8 +42,8 @@ class ArticleController extends AbstractController
 
                 if(!empty($file['name']))
                 {                                    
-                    $fileModel = new File();
-                    $fileName = $fileModel->UploadFileImage($file);
+                    $fileModel = new File($file);
+                    $fileName = $fileModel->UploadFileImage();
                 }
                 
                 if (!(FlashBag::hasMessages('error')))
@@ -154,7 +154,7 @@ class ArticleController extends AbstractController
 
                 if(!empty($file['name']))
                 {                  
-                    $fileModel = new File();
+                    $fileModel = new File($file, $imageExist);
 
                     $fileName = $fileModel->uploadFileImage($file, $imageExist);
                 }
