@@ -53,13 +53,21 @@ class Server
         }
     }
 
+    /**
+     * Méthode statique permettant de protéger toutes les routes de personnes qui doivent être connectées.
+     */
     private static function secureAdmin(string $path): bool
     {
+        /**
+         * si le path contient '/administration', et que la personne qui tente d'y accéder n'est pas connectée...
+         */
         if (str_contains($path, '/administration') && !UserSession::isAuthenticated())
         {
+            // On renvoie False.
             return false;
         }
 
+        // Sinon, on renvoie true.
         return true;
     }
 }
