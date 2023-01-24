@@ -26,8 +26,9 @@ class UserSession extends AbstractSession
             'email' => $email,
             'grant_id' => $grant_id,
             'grant_label' => $grant_label,
-            'token' => self::token()
         ];
+
+        self::token();
 
     }
 
@@ -201,7 +202,7 @@ class UserSession extends AbstractSession
     /**
      * On créé une fonction statique token().
      */
-    static function token()
+    static function token(): null|string
     {
         // Si à l'appel de la méthode statique isAuthenticated() il n'y a rien on retourne null.
         if (!self::isAuthenticated())

@@ -21,7 +21,7 @@ class File
         $this->checkExtension();
     }
 
-    private function checkSize()
+    private function checkSize(): void
     {
         if($this->file['size'] > 2000000)
         {
@@ -29,7 +29,7 @@ class File
         }
     }
 
-    private function checkMime()
+    private function checkMime(): void
     {
         $fileMimeInfo = mime_content_type($this->file['tmp_name']);
 
@@ -39,7 +39,7 @@ class File
         }
     }
 
-    private function checkExtension ()
+    private function checkExtension (): void
     {
             
         $fileName = pathinfo($this->file['name']);
@@ -51,7 +51,7 @@ class File
         }
     }
 
-    private function generateRandomFileName()
+    private function generateRandomFileName(): string
     {
         $fileName = pathinfo($this->file['name']);
         $fileExtension = strtolower($fileName['extension']);
@@ -62,7 +62,7 @@ class File
         return $fileName;
     }
     
-    public function uploadFileImage()
+    public function uploadFileImage(): null|string
     {
 
         if(!FlashBag::hasMessages('error'))
@@ -82,7 +82,7 @@ class File
         return null;
     }
 
-    private function createFolderImage()
+    private function createFolderImage(): void
     {
         if (!file_exists(PROJECT_DIR . '/public/img/imgArticle'))
         {
