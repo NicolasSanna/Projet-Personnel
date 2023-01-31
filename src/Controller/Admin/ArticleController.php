@@ -3,13 +3,13 @@
 namespace App\Controller\Admin;
 
 use App\Framework\Get;
-use App\Framework\File;
+use App\Framework\Image;
+use App\Framework\Server;
 use App\Framework\FlashBag;
 use App\Model\ArticleModel;
 use App\Model\CategoryModel;
 use App\Framework\UserSession;
 use App\Framework\AbstractController;
-use App\Framework\Server;
 
 class ArticleController extends AbstractController
 {
@@ -42,7 +42,7 @@ class ArticleController extends AbstractController
 
                 if(!empty($file['name']))
                 {                                    
-                    $fileModel = new File($file);
+                    $fileModel = new Image($file);
                     $fileName = $fileModel->UploadFileImage();
                 }
                 
@@ -154,7 +154,7 @@ class ArticleController extends AbstractController
 
                 if(!empty($file['name']))
                 {                  
-                    $fileModel = new File($file, $imageExist);
+                    $fileModel = new Image($file, $imageExist);
 
                     $fileName = $fileModel->uploadFileImage($file, $imageExist);
                 }

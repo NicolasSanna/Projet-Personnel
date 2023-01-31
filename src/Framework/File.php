@@ -2,26 +2,16 @@
 
 namespace App\Framework;
 
-class File
+abstract class File
 {
-    private array $file;
-    private ?string $imageExist = null;
+    protected array $file;
 
-    const VALID_EXTENSIONS = ['img', 'png', 'jpg', 'jpeg'];
-    const VALID_MIME_TYPES = ['image/png', 'image/jpeg'];
-
-    public function __construct(array $file, string $imageExist = null)
+    protected function __construct(array $file)
     {
-        $this->createFolderImage();
         $this->file = $file;
-        $this->imageExist = $imageExist;
-
-        $this->checkSize();
-        $this->checkMime();
-        $this->checkExtension();
     }
 
-    private function checkSize(): void
+    protected function checkSize(): void
     {
         if($this->file['size'] > 2000000)
         {
@@ -29,30 +19,10 @@ class File
         }
     }
 
-    private function checkMime(): void
+    protected function generateRandomFileName(): string
     {
-        $fileMimeInfo = mime_content_type($this->file['tmp_name']);
+        $this->checkSize();
 
-        if(!in_array($fileMimeInfo, self::VALID_MIME_TYPES))
-        {
-            FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
-        }
-    }
-
-    private function checkExtension (): void
-    {
-            
-        $fileName = pathinfo($this->file['name']);
-        $fileExtension = strtolower($fileName['extension']);
-
-        if(!in_array($fileExtension, self::VALID_EXTENSIONS))
-        {
-            FlashBag::addFlash("L'extension du fichier n'est pas valide.", 'error');
-        }
-    }
-
-    private function generateRandomFileName(): string
-    {
         $fileName = pathinfo($this->file['name']);
         $fileExtension = strtolower($fileName['extension']);
 
@@ -60,33 +30,5 @@ class File
         $fileName = $fileName['filename'] . '-' . $uniqueName . '.' . $fileExtension;
 
         return $fileName;
-    }
-    
-    public function uploadFileImage(): null|string
-    {
-
-        if(!FlashBag::hasMessages('error'))
-        {
-            $fileName = $this->generateRandomFileName();
-            
-            move_uploaded_file($this->file['tmp_name'], IMAGE_DIR .  '/' . $fileName);
-
-            if (!empty($this->imageExist))
-            {
-                unlink(IMAGE_DIR . '/' . $this->imageExist);
-            }
-
-            return $fileName;
-        }
-
-        return null;
-    }
-
-    private function createFolderImage(): void
-    {
-        if (!file_exists(PROJECT_DIR . '/public/img/imgArticle'))
-        {
-            mkdir(PROJECT_DIR . '/public/img/imgArticle', 0777, true);
-        }
     }
 }
