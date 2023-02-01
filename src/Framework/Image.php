@@ -6,8 +6,8 @@ class Image extends File
 {
     private ?string $imageExist = null;
 
-    const VALID_EXTENSIONS = ['img', 'png', 'jpg', 'jpeg'];
-    const VALID_MIME_TYPES = ['image/png', 'image/jpeg'];
+    private const VALID_EXTENSIONS = ['img', 'png', 'jpg', 'jpeg'];
+    private const VALID_MIME_TYPES = ['image/png', 'image/jpeg'];
 
     public function __construct(array $file, string $imageExist = null)
     {
